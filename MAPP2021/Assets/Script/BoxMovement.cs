@@ -1,0 +1,31 @@
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+public class BoxMovement : MonoBehaviour
+{
+    private Vector2 targetPosition;
+    [SerializeField] private float deathPosition = -10;
+    [SerializeField] private float speed = 3f;
+
+    // Start is called before the first frame update
+    void Start()
+    {
+        targetPosition = new Vector2(gameObject.transform.position.x, deathPosition);
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
+        
+    }
+
+    void FixedUpdate()
+    {
+        gameObject.transform.position = Vector2.MoveTowards(gameObject.transform.position, targetPosition, speed * Time.fixedDeltaTime);
+        if ((Vector2)gameObject.transform.position == targetPosition)
+        {
+            Destroy(gameObject);
+        }
+    }
+}

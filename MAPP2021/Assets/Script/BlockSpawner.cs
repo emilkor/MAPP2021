@@ -3,16 +3,18 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Numerics;
 using UnityEngine;
+using Quaternion = UnityEngine.Quaternion;
 using Random = UnityEngine.Random;
 using Vector2 = UnityEngine.Vector2;
 
 public class BlockSpawner : MonoBehaviour
 {
 
-    public GameObject block;
+    [SerializeField] private Transform block;
     public float minimumTimeBetweenBlocks = 2f;
     public float maximumTimeBetweenBlocks = 4f;
     public float raidiusOfPosibulBlockPositions = 3f;
+    public float hightOfSpawnPosition = 10f;
 
     // Start is called before the first frame update
     void Start()
@@ -29,13 +31,10 @@ public class BlockSpawner : MonoBehaviour
     private IEnumerator Spawner()
     {
         yield return new WaitForSeconds(Random.Range(minimumTimeBetweenBlocks, minimumTimeBetweenBlocks));
-        Instantiate(block, new Vector2(Random.Range(-raidiusOfPosibulBlockPositions, raidiusOfPosibulBlockPositions), 10));
+        Instantiate(block, new Vector2(Random.Range(-raidiusOfPosibulBlockPositions, raidiusOfPosibulBlockPositions), hightOfSpawnPosition), Quaternion.identity);
         StartCoroutine(Spawner());
+        
 
     }
 
-    private void Instantiate(GameObject block, Vector2 vector2)
-    {
-        Instantiate(block, vector2);
-    }
 }
