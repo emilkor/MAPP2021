@@ -444,8 +444,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 95e95375ae477426d897fdb4698effc7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  block: {fileID: 5495258166039294585, guid: 00f4e68de705246ceb02cc4dcebf6cc5, type: 3}
-  minimumTimeBetweenBlocks: 2
-  maximumTimeBetweenBlocks: 4
-  raidiusOfPosibulBlockPositions: 3
+  block: {fileID: 5495258166039294534, guid: 00f4e68de705246ceb02cc4dcebf6cc5, type: 3}
+  minimumTimeBetweenBlocks: 0.25
+  maximumTimeBetweenBlocks: 1
+  minimumWidthOfBlock: 1
+  maximumWidthOfBlock: 4
+  raidiusOfPosibulPositions: 9
   hightOfSpawnPosition: 10
+  minimumTimeBetweenWalls: 2
+  maximumTimeBetweenWalls: 4
+  minimumDistansBetweenWalls: 2
+  maximumDistansBetweenWalls: 4
+  minimumTimeBetweenModeChange: 2
+  maximumTimeBetweenModeChange: 4
