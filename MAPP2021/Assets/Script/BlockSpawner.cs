@@ -10,7 +10,7 @@ using Vector2 = UnityEngine.Vector2;
 public class BlockSpawner : MonoBehaviour
 {
 
-    [SerializeField] private Transform block;
+    [SerializeField] private GameObject block;
     public float minimumTimeBetweenBlocks = 2f;
     public float maximumTimeBetweenBlocks = 4f;
     public float raidiusOfPosibulBlockPositions = 3f;
