@@ -9,6 +9,8 @@ using Vector2 = UnityEngine.Vector2;
 
 public class Spawner : MonoBehaviour
 {
+    private const float DO_BOXSPAWN = .0f;
+    private const float DO_WALLSPAWN = .0f;
 
     [SerializeField] private GameObject block;
 
@@ -30,12 +32,25 @@ public class Spawner : MonoBehaviour
     [SerializeField] private float minimumTimeBetweenModeChange = 2f;
     [SerializeField] private float maximumTimeBetweenModeChange = 4f;
 
+    [SerializeField] private float maximumCorridorCurv = .5f;
+    [SerializeField] private float timeBetweenCorridorWalls = .5f;
+    [SerializeField] private float chansOfCorridorChangeDirektion = .95f;
+
+    [SerializeField] private float minimumDistansBetweenCorridorWalls = 2f;
+    [SerializeField] private float maximumDistansBetweenCorridorWalls = 4f;
+
+
+    private float corridorHolePosition;
+    private float corridorCurv;
+
     private float modeVariabul;
 
 
     // Start is called before the first frame update
     void Start()
     {
+        corridorCurv = Random.Range(-maximumCorridorCurv, maximumCorridorCurv);
+        corridorHolePosition = Random.Range(-raidiusOfPosibulPositions, raidiusOfPosibulPositions);
         modeVariabul = Random.value;
         StartCoroutine(ModeChanger());
         Spawn();
@@ -56,35 +71,79 @@ public class Spawner : MonoBehaviour
 
     private void Spawn()
     {
-        if (modeVariabul < .5)
+        if (modeVariabul < DO_BOXSPAWN)
         {
             StartCoroutine(BoxSpawner());
+        }
+        else if (modeVariabul < DO_WALLSPAWN)
+        {
+            block.transform.localScale = new Vector2(20, 1);
+            StartCoroutine(WallSpawner());
         }
         else
         {
             block.transform.localScale = new Vector2(20, 1);
-            StartCoroutine(WallSpawner());
+            StartCoroutine(WallCorridorSpawner());
         }
         
     }
 
     private IEnumerator BoxSpawner()
     {
+
         yield return new WaitForSeconds(Random.Range(minimumTimeBetweenBlocks, maximumTimeBetweenBlocks));
         block.transform.localScale = new Vector2(Random.Range(minimumWidthOfBlock, maximumWidthOfBlock), 1);
         Instantiate(block, new Vector2(Random.Range(-raidiusOfPosibulPositions, raidiusOfPosibulPositions), hightOfSpawnPosition), Quaternion.identity);
+
         Spawn();
     }
 
     private IEnumerator WallSpawner()
     {
-        yield return new WaitForSeconds(Random.Range(minimumTimeBetweenWalls, maximumTimeBetweenWalls));
         float distansBetweenWalls = Random.Range(minimumDistansBetweenWalls, maximumDistansBetweenWalls);
         float holePosition = Random.Range(-raidiusOfPosibulPositions, raidiusOfPosibulPositions);
         float leftWallPosition = holePosition - ((distansBetweenWalls + block.transform.localScale.x) / 2);
         float rightWallPosition = holePosition + ((distansBetweenWalls + block.transform.localScale.x) / 2);
         Instantiate(block, new Vector2(leftWallPosition, hightOfSpawnPosition), Quaternion.identity);
         Instantiate(block, new Vector2(rightWallPosition, hightOfSpawnPosition), Quaternion.identity);
+        yield return new WaitForSeconds(Random.Range(minimumTimeBetweenWalls, maximumTimeBetweenWalls));
+        Spawn();
+    }
+
+    private IEnumerator WallCorridorSpawner()
+    {
+        float distansBetweenWalls = Random.Range(minimumDistansBetweenCorridorWalls, maximumDistansBetweenCorridorWalls);
+        if(corridorHolePosition + maximumCorridorCurv > raidiusOfPosibulPositions)
+        {
+            corridorCurv = Random.Range(-maximumCorridorCurv, 0);
+        }
+        else if (corridorHolePosition - maximumCorridorCurv < -raidiusOfPosibulPositions)
+        {
+            corridorCurv = Random.Range(0, maximumCorridorCurv);
+        }
+        else if (corridorCurv > 0)
+        {
+            if (Random.value < chansOfCorridorChangeDirektion)
+            {
+                corridorCurv = Random.Range(0, maximumCorridorCurv);
+            }
+            else corridorCurv = Random.Range(-maximumCorridorCurv, 0);
+        }
+        else
+        {
+            if (Random.value < chansOfCorridorChangeDirektion)
+            {
+                corridorCurv = Random.Range(-maximumCorridorCurv, 0); 
+            }
+            else corridorCurv = Random.Range(0, maximumCorridorCurv);
+        }
+        corridorHolePosition += corridorCurv;
+        float leftWallPosition = corridorHolePosition - ((distansBetweenWalls + block.transform.localScale.x) / 2);
+        float rightWallPosition = corridorHolePosition + ((distansBetweenWalls + block.transform.localScale.x) / 2);
+        Instantiate(block, new Vector2(leftWallPosition, hightOfSpawnPosition), Quaternion.identity);
+        Instantiate(block, new Vector2(rightWallPosition, hightOfSpawnPosition), Quaternion.identity);
+        yield return new WaitForSeconds(timeBetweenCorridorWalls);
+
         Spawn();
     }
 }

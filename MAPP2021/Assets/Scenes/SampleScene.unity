@@ -457,3 +457,8 @@ MonoBehaviour:
   maximumDistansBetweenWalls: 4
   minimumTimeBetweenModeChange: 2
   maximumTimeBetweenModeChange: 4
+  maximumCorridorCurv: 2
+  timeBetweenCorridorWalls: 0.5
+  chansOfCorridorChangeDirektion: 0.9
+  minimumDistansBetweenCorridorWalls: 4
+  maximumDistansBetweenCorridorWalls: 5
