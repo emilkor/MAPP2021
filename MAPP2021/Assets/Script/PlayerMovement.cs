@@ -24,7 +24,13 @@ public class PlayerMovement : MonoBehaviour
         if (Input.GetKey(KeyCode.D) == true)
         {
             Vector3 newPosition = new Vector3(1f, 0f, 0f);
-            gameObject.transform.Translate(newPosition * Time.deltaTime);
+            gameObject.transform.Translate(newPosition * Time.deltaTime * movementSpeed);
+        }
+
+        if(Input.GetKey(KeyCode.A) == true)
+        {
+            Vector3 moveLeft = new Vector3(-1f, 0f, 0f);
+            gameObject.transform.Translate(moveLeft * Time.deltaTime * movementSpeed);
         }
         /*
         xAxis = Input.acceleration.x * movementSpeed;
