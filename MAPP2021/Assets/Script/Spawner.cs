@@ -32,12 +32,12 @@ public class Spawner : MonoBehaviour
     [SerializeField] private float minimumTimeBetweenModeChange = 2f;
     [SerializeField] private float maximumTimeBetweenModeChange = 4f;
 
-    [SerializeField] private float maximumCorridorCurv = .5f;
+    [SerializeField] private float maximumCorridorCurv = 3f;
     [SerializeField] private float timeBetweenCorridorWalls = .5f;
-    [SerializeField] private float chansOfCorridorChangeDirektion = .95f;
+    [SerializeField] private float chansOfCorridorChangeDirektion = .75f;
 
-    [SerializeField] private float minimumDistansBetweenCorridorWalls = 2f;
-    [SerializeField] private float maximumDistansBetweenCorridorWalls = 4f;
+    [SerializeField] private float minimumDistansBetweenCorridorWalls = 7f;
+    [SerializeField] private float maximumDistansBetweenCorridorWalls = 8f;
 
 
     private float corridorHolePosition;

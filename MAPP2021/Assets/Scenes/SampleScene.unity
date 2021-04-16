@@ -457,6 +457,11 @@ MonoBehaviour:
   maximumDistansBetweenWalls: 4
   minimumTimeBetweenModeChange: 2
   maximumTimeBetweenModeChange: 4
+  maximumCorridorCurv: 3
+  timeBetweenCorridorWalls: 0.5
+  chansOfCorridorChangeDirektion: 0.75
+  minimumDistansBetweenCorridorWalls: 7
+  maximumDistansBetweenCorridorWalls: 8
 --- !u!1001 &5850443018381614650
 PrefabInstance:
   m_ObjectHideFlags: 0
