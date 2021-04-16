@@ -38,7 +38,7 @@ public class AudioManager : MonoBehaviour
 
     private void Start()
     {
-        //Play(NAME_OF_CLIP_TO_PLAY_IMMEDIATLY);
+        Play("test");
     }
 
     public void Play(string name)
