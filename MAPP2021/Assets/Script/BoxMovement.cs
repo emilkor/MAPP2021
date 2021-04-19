@@ -4,9 +4,10 @@ using UnityEngine;
 
 public class BoxMovement : MonoBehaviour
 {
-    [SerializeField] private static float speed;
-    [SerializeField] private static float deathPosition = -10;
-    [SerializeField] private BlockSpeed blockSpeed;
+    private BlockSpeed blockSpeed;
+    [SerializeField] private float speed;
+    [SerializeField] private float deathPosition = -10;
+    
 
     private Vector2 targetPosition;
 
@@ -14,6 +15,7 @@ public class BoxMovement : MonoBehaviour
 
     void Start()
     {
+        blockSpeed = GameObject.FindWithTag("Speed").GetComponent<BlockSpeed>();
         targetPosition = new Vector2(gameObject.transform.position.x, deathPosition);
         speed = blockSpeed.GetSpeed();
     }
