@@ -40,4 +40,10 @@ public class BlockSpeed : MonoBehaviour
     {
         return speed;
     }
+
+    public float GetPoint()
+    {
+        return point;
+    }
+
 }
