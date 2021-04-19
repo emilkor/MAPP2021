@@ -9,9 +9,10 @@ using Vector2 = UnityEngine.Vector2;
 
 public class Spawner : MonoBehaviour
 {
-    private const float DO_BOXSPAWN = .0f;
-    private const float DO_WALLSPAWN = .0f;
-
+    [Header("Ods för olika mönster:")]
+    [SerializeField] private float DO_BOXSPAWN = .33f;
+    [SerializeField] private float DO_WALLSPAWN = .66f;
+    [Space(20)]
     [SerializeField] private GameObject block;
 
     [SerializeField] private float minimumTimeBetweenBlocks = 2f;
