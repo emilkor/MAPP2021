@@ -8,7 +8,7 @@ public class PlayerMovement : MonoBehaviour
     private Rigidbody2D rigidbody;
     private float xAxis;
     private float test;
-    [SerializeField] float movementSpeed = 10f;
+    [SerializeField] private float movementSpeed = 10f;
    
 
 
