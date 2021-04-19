@@ -4,21 +4,27 @@ using UnityEngine;
 
 public class BoxMovement : MonoBehaviour
 {
+    [SerializeField] private static float speed;
+    [SerializeField] private static float deathPosition = -10;
+    [SerializeField] private BlockSpeed blockSpeed;
+
     private Vector2 targetPosition;
-    [SerializeField] private float deathPosition = -10;
-    [SerializeField] private float speed = 3f;
 
     // Start is called before the first frame update
+
     void Start()
     {
         targetPosition = new Vector2(gameObject.transform.position.x, deathPosition);
+        speed = blockSpeed.GetSpeed();
     }
 
     // Update is called once per frame
-    void Update()
+    static void Update()
     {
-        
+       
+
     }
+
 
     void FixedUpdate()
     {

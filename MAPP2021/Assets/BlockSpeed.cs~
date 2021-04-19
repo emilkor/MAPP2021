@@ -1,0 +1,33 @@
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+public class BlockSpeed : MonoBehaviour
+{
+    [SerializeField] private static float startSpeed = 3f;
+    [SerializeField] private static float speed;
+    [SerializeField] private static float maxTimesFaster = 4f;
+    [SerializeField] private static float acceleration = 10f;
+
+    private static float timer;
+
+    // Start is called before the first frame update
+    void Start()
+    {
+        timer = acceleration / (maxTimesFaster - 1);
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
+
+    }
+
+    void FixedUpdate()
+    {
+
+        timer += Time.fixedDeltaTime;
+
+        speed = startSpeed * ((acceleration / -timer) + maxTimesFaster);
+    }
+}
