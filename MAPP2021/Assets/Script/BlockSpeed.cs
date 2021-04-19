@@ -8,6 +8,7 @@ public class BlockSpeed : MonoBehaviour
     [SerializeField] private float maxTimesFaster = 4f;
     [SerializeField] private float acceleration = 10f;
 
+    [SerializeField] private float point;
     [SerializeField] private float speed;
     [SerializeField] private float timer;
     [SerializeField] private float absolutTimer;
@@ -29,14 +30,20 @@ public class BlockSpeed : MonoBehaviour
 
     void FixedUpdate()
     {
-
         timer += Time.fixedDeltaTime;
         absolutTimer += Time.fixedDeltaTime;
         speed = startSpeed * ((acceleration / -timer) + maxTimesFaster);
+        point = absolutTimer * speed;
     }
 
     public float GetSpeed()
     {
         return speed;
     }
+
+    public float GetPoint()
+    {
+        return point;
+    }
+
 }
