@@ -385,6 +385,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 95e95375ae477426d897fdb4698effc7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  DO_BOXSPAWN: 0.33
+  DO_WALLSPAWN: 0.66
   block: {fileID: 5495258166039294534, guid: 00f4e68de705246ceb02cc4dcebf6cc5, type: 3}
   minimumTimeBetweenBlocks: 0.25
   maximumTimeBetweenBlocks: 1
