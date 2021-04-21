@@ -38,7 +38,7 @@ public class AudioManager : MonoBehaviour
 
     private void Start()
     {
-        Play("test");
+        //Play("test");
     }
 
     public void Play(string name)
@@ -56,6 +56,11 @@ public class AudioManager : MonoBehaviour
     void Update()
     {
         
+    }
+
+    public void PlayButtonHover()
+    {
+        Play("ButtonHover");
     }
 
     //Kod att sätta in för att initiera ett önskat ljud. Man måste sätta in ljudfilens namn i parantesen.
