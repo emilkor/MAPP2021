@@ -9,40 +9,73 @@ using Vector2 = UnityEngine.Vector2;
 
 public class Spawner : MonoBehaviour
 {
+    private enum PreviousStat
+    {
+        Box,
+        Wall,
+        Corridor
+    }
+    private const int SPACE_BETWEEN_CATEGORIS = 20;
+    private const int SPACE_WITHIN_CATEGORIS = 5;
+
     [Header("Ods för olika mönster:")]
-    [SerializeField] private float DO_BOXSPAWN = .33f;
-    [SerializeField] private float DO_WALLSPAWN = .66f;
-    [Space(20)]
+    [SerializeField] private float doBoxSpawn = .33f;
+    [SerializeField] private float doWallSpawn = .66f;
+    [SerializeField] private float doCorridorSpawn = 1f;
+    [Space(SPACE_BETWEEN_CATEGORIS)]
+
+    [Header("Prefab som Spawnas:")]
     [SerializeField] private GameObject block;
+    [Space(SPACE_BETWEEN_CATEGORIS)]
 
-    [SerializeField] private float minimumTimeBetweenBlocks = 2f;
-    [SerializeField] private float maximumTimeBetweenBlocks = 4f;
-
-    [SerializeField] private float minimumWidthOfBlock = 1f;
-    [SerializeField] private float maximumWidthOfBlock = 4f;
-
+    [Header("Universala variabler:")]
     [SerializeField] private float raidiusOfPosibulPositions = 3f;
     [SerializeField] private float hightOfSpawnPosition = 10f;
+    [Space(SPACE_BETWEEN_CATEGORIS)]
 
+    [Header("Box Spawn variabler:")]
+    [SerializeField] private float minimumTimeBetweenBlocks = 2f;
+    [SerializeField] private float maximumTimeBetweenBlocks = 4f;
+    [Space(SPACE_WITHIN_CATEGORIS)]
+    [SerializeField] private float minimumWidthOfBlock = 1f;
+    [SerializeField] private float maximumWidthOfBlock = 4f;
+    [Space(SPACE_WITHIN_CATEGORIS)]
+    [SerializeField] private int minimumBoxesBeforSpawnChange = 50;
+    [SerializeField] private int maximumBoxesBeforSpawnChange = 100;
+    [Space(SPACE_BETWEEN_CATEGORIS)]
+
+    [Header("Wall Spawn variabler:")]
     [SerializeField] private float minimumTimeBetweenWalls = 2f;
     [SerializeField] private float maximumTimeBetweenWalls = 4f;
-
+    [Space(SPACE_WITHIN_CATEGORIS)]
     [SerializeField] private float minimumDistansBetweenWalls = 2f;
     [SerializeField] private float maximumDistansBetweenWalls = 4f;
+    [Space(SPACE_WITHIN_CATEGORIS)]
+    [SerializeField] private int minimumWallsBeforSpawnChange = 50;
+    [SerializeField] private int maximumWallsBeforSpawnChange = 100;
+    [Space(SPACE_BETWEEN_CATEGORIS)]
 
-    [SerializeField] private float minimumTimeBetweenModeChange = 2f;
-    [SerializeField] private float maximumTimeBetweenModeChange = 4f;
-
+    [Header("Corridor Spawn variabler:")]
     [SerializeField] private float maximumCorridorCurv = 3f;
-    [SerializeField] private float timeBetweenCorridorWalls = .5f;
-    [SerializeField] private float chansOfCorridorChangeDirektion = .75f;
-
+    [SerializeField] private float minimumCorridorCurv = 1f;
+    [Space(SPACE_WITHIN_CATEGORIS)]
     [SerializeField] private float minimumDistansBetweenCorridorWalls = 7f;
     [SerializeField] private float maximumDistansBetweenCorridorWalls = 8f;
+    [Space(SPACE_WITHIN_CATEGORIS)]
+    [SerializeField] private int minimumCorridorsBeforSpawnChange = 50;
+    [SerializeField] private int maximumCorridorsBeforSpawnChange = 100;
+    [Space(SPACE_WITHIN_CATEGORIS)]
+    [SerializeField] private float timeBetweenCorridorWalls = .5f;
+    [Space(SPACE_WITHIN_CATEGORIS)]
+    [SerializeField] private float chansOfCorridorChangeDirektion = .75f;
+    [Space(SPACE_BETWEEN_CATEGORIS)]
 
 
     private float corridorHolePosition;
     private float corridorCurv;
+    private int spawnAmount;
+    private PreviousStat previousStat;
+    
 
     private float modeVariabul;
 
@@ -53,53 +86,88 @@ public class Spawner : MonoBehaviour
         corridorCurv = Random.Range(-maximumCorridorCurv, maximumCorridorCurv);
         corridorHolePosition = Random.Range(-raidiusOfPosibulPositions, raidiusOfPosibulPositions);
         modeVariabul = Random.value;
-        StartCoroutine(ModeChanger());
-        Spawn();
+        StartCoroutine(Spawn());
     }
 
     // Update is called once per frame
-    void Update()
-    {
+    //void Update()
+    //{
         
-    }
+    //}
 
-    private IEnumerator ModeChanger()
+    private IEnumerator Spawn()
     {
-        yield return new WaitForSeconds(Random.Range(minimumTimeBetweenModeChange, maximumTimeBetweenModeChange));
-        modeVariabul = Random.value;
-        StartCoroutine(ModeChanger());
-    }
 
-    private void Spawn()
-    {
-        if (modeVariabul < DO_BOXSPAWN)
+        if (modeVariabul < doBoxSpawn)
         {
-            StartCoroutine(BoxSpawner());
+            if (previousStat == PreviousStat.Box)
+            {
+                modeVariabul = Random.value;
+            }
+            else
+            {
+                spawnAmount = Random.Range(minimumBoxesBeforSpawnChange, maximumBoxesBeforSpawnChange);
+                for (int i = 0; i < spawnAmount; i++)
+                {
+                    BoxSpawner();
+                    yield return new WaitForSeconds(Random.Range(minimumTimeBetweenBlocks, maximumTimeBetweenBlocks));
+                }
+                modeVariabul = Random.value;
+                previousStat = PreviousStat.Box;
+            }
+
         }
-        else if (modeVariabul < DO_WALLSPAWN)
+        else if (modeVariabul < doWallSpawn)
         {
-            block.transform.localScale = new Vector2(20, 1);
-            StartCoroutine(WallSpawner());
+            if (previousStat == PreviousStat.Wall)
+            {
+                modeVariabul = Random.value;
+            }
+            else
+            {
+                spawnAmount = Random.Range(minimumWallsBeforSpawnChange, maximumWallsBeforSpawnChange);
+                block.transform.localScale = new Vector2(20, 1);
+                for (int i = 0; i < spawnAmount; i++)
+                {
+                    WallSpawner();
+                    yield return new WaitForSeconds(Random.Range(minimumTimeBetweenWalls, maximumTimeBetweenWalls));
+                }
+                modeVariabul = Random.value;
+                previousStat = PreviousStat.Wall;
+            }
         }
         else
         {
-            block.transform.localScale = new Vector2(20, 1);
-            StartCoroutine(WallCorridorSpawner());
+            if (previousStat == PreviousStat.Wall)
+            {
+                modeVariabul = Random.value;
+            }
+            else
+            {
+                spawnAmount = Random.Range(minimumCorridorsBeforSpawnChange, maximumCorridorsBeforSpawnChange);
+                block.transform.localScale = new Vector2(20, 1);
+                for (int i = 0; i < spawnAmount; i++)
+                {
+                    WallCorridorSpawner();
+                    yield return new WaitForSeconds(timeBetweenCorridorWalls);
+                }
+                modeVariabul = Random.value;
+                previousStat = PreviousStat.Corridor;
+            }
         }
-        
+        StartCoroutine(Spawn());
+
+
     }
 
-    private IEnumerator BoxSpawner()
+    private void BoxSpawner()
     {
 
-        yield return new WaitForSeconds(Random.Range(minimumTimeBetweenBlocks, maximumTimeBetweenBlocks));
         block.transform.localScale = new Vector2(Random.Range(minimumWidthOfBlock, maximumWidthOfBlock), 1);
         Instantiate(block, new Vector2(Random.Range(-raidiusOfPosibulPositions, raidiusOfPosibulPositions), hightOfSpawnPosition), Quaternion.identity);
-
-        Spawn();
     }
 
-    private IEnumerator WallSpawner()
+    private void WallSpawner()
     {
         float distansBetweenWalls = Random.Range(minimumDistansBetweenWalls, maximumDistansBetweenWalls);
         float holePosition = Random.Range(-raidiusOfPosibulPositions, raidiusOfPosibulPositions);
@@ -107,44 +175,39 @@ public class Spawner : MonoBehaviour
         float rightWallPosition = holePosition + ((distansBetweenWalls + block.transform.localScale.x) / 2);
         Instantiate(block, new Vector2(leftWallPosition, hightOfSpawnPosition), Quaternion.identity);
         Instantiate(block, new Vector2(rightWallPosition, hightOfSpawnPosition), Quaternion.identity);
-        yield return new WaitForSeconds(Random.Range(minimumTimeBetweenWalls, maximumTimeBetweenWalls));
-        Spawn();
     }
 
-    private IEnumerator WallCorridorSpawner()
+    private void WallCorridorSpawner()
     {
         float distansBetweenWalls = Random.Range(minimumDistansBetweenCorridorWalls, maximumDistansBetweenCorridorWalls);
         if(corridorHolePosition + maximumCorridorCurv > raidiusOfPosibulPositions)
         {
-            corridorCurv = Random.Range(-maximumCorridorCurv, 0);
+            corridorCurv = Random.Range(-maximumCorridorCurv, -minimumCorridorCurv);
         }
         else if (corridorHolePosition - maximumCorridorCurv < -raidiusOfPosibulPositions)
         {
-            corridorCurv = Random.Range(0, maximumCorridorCurv);
+            corridorCurv = Random.Range(minimumCorridorCurv, maximumCorridorCurv);
         }
         else if (corridorCurv > 0)
         {
             if (Random.value < chansOfCorridorChangeDirektion)
             {
-                corridorCurv = Random.Range(0, maximumCorridorCurv);
+                corridorCurv = Random.Range(minimumCorridorCurv, maximumCorridorCurv);
             }
-            else corridorCurv = Random.Range(-maximumCorridorCurv, 0);
+            else corridorCurv = Random.Range(-maximumCorridorCurv, -minimumCorridorCurv);
         }
         else
         {
             if (Random.value < chansOfCorridorChangeDirektion)
             {
-                corridorCurv = Random.Range(-maximumCorridorCurv, 0); 
+                corridorCurv = Random.Range(-maximumCorridorCurv, -minimumCorridorCurv); 
             }
-            else corridorCurv = Random.Range(0, maximumCorridorCurv);
+            else corridorCurv = Random.Range(-minimumCorridorCurv, maximumCorridorCurv);
         }
         corridorHolePosition += corridorCurv;
         float leftWallPosition = corridorHolePosition - ((distansBetweenWalls + block.transform.localScale.x) / 2);
         float rightWallPosition = corridorHolePosition + ((distansBetweenWalls + block.transform.localScale.x) / 2);
         Instantiate(block, new Vector2(leftWallPosition, hightOfSpawnPosition), Quaternion.identity);
         Instantiate(block, new Vector2(rightWallPosition, hightOfSpawnPosition), Quaternion.identity);
-        yield return new WaitForSeconds(timeBetweenCorridorWalls);
-
-        Spawn();
     }
 }
