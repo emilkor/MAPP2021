@@ -40,8 +40,8 @@ public class Spawner : MonoBehaviour
     [SerializeField] private float minimumWidthOfBlock = 1f;
     [SerializeField] private float maximumWidthOfBlock = 4f;
     [Space(SPACE_WITHIN_CATEGORIS)]
-    [SerializeField] private int minimumBoxesBeforSpawnChange = 50;
-    [SerializeField] private int maximumBoxesBeforSpawnChange = 100;
+    [SerializeField] private int minimumBoxesBeforSpawnChange = 15;
+    [SerializeField] private int maximumBoxesBeforSpawnChange = 25;
     [Space(SPACE_BETWEEN_CATEGORIS)]
 
     [Header("Wall Spawn variabler:")]
@@ -51,8 +51,8 @@ public class Spawner : MonoBehaviour
     [SerializeField] private float minimumDistansBetweenWalls = 2f;
     [SerializeField] private float maximumDistansBetweenWalls = 4f;
     [Space(SPACE_WITHIN_CATEGORIS)]
-    [SerializeField] private int minimumWallsBeforSpawnChange = 50;
-    [SerializeField] private int maximumWallsBeforSpawnChange = 100;
+    [SerializeField] private int minimumWallsBeforSpawnChange = 3;
+    [SerializeField] private int maximumWallsBeforSpawnChange = 6;
     [Space(SPACE_BETWEEN_CATEGORIS)]
 
     [Header("Corridor Spawn variabler:")]
@@ -62,8 +62,8 @@ public class Spawner : MonoBehaviour
     [SerializeField] private float minimumDistansBetweenCorridorWalls = 7f;
     [SerializeField] private float maximumDistansBetweenCorridorWalls = 8f;
     [Space(SPACE_WITHIN_CATEGORIS)]
-    [SerializeField] private int minimumCorridorsBeforSpawnChange = 50;
-    [SerializeField] private int maximumCorridorsBeforSpawnChange = 100;
+    [SerializeField] private int minimumCorridorsBeforSpawnChange = 20;
+    [SerializeField] private int maximumCorridorsBeforSpawnChange = 30;
     [Space(SPACE_WITHIN_CATEGORIS)]
     [SerializeField] private float timeBetweenCorridorWalls = .5f;
     [Space(SPACE_WITHIN_CATEGORIS)]
@@ -148,7 +148,7 @@ public class Spawner : MonoBehaviour
                 block.transform.localScale = new Vector2(20, 1);
                 for (int i = 0; i < spawnAmount; i++)
                 {
-                    WallCorridorSpawner();
+                    CorridorSpawner();
                     yield return new WaitForSeconds(timeBetweenCorridorWalls);
                 }
                 modeVariabul = Random.value;
@@ -177,7 +177,7 @@ public class Spawner : MonoBehaviour
         Instantiate(block, new Vector2(rightWallPosition, hightOfSpawnPosition), Quaternion.identity);
     }
 
-    private void WallCorridorSpawner()
+    private void CorridorSpawner()
     {
         float distansBetweenWalls = Random.Range(minimumDistansBetweenCorridorWalls, maximumDistansBetweenCorridorWalls);
         if(corridorHolePosition + maximumCorridorCurv > raidiusOfPosibulPositions)
