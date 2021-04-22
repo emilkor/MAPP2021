@@ -525,7 +525,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Quit
+  m_Text: Menu
 --- !u!222 &493282091
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -1727,7 +1727,6 @@ MonoBehaviour:
   gameOver: {fileID: 1480891184}
   spriteRenderer: {fileID: 1184438006}
   particleSystem: {fileID: 1184438013}
-  timeStopTime: 1
 --- !u!199 &1184438012
 ParticleSystemRenderer:
   serializedVersion: 6
