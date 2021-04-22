@@ -9,15 +9,16 @@ using Vector2 = UnityEngine.Vector2;
 
 public class Spawner : MonoBehaviour
 {
+    private const int SPACE_BETWEEN_CATEGORIS = 20;
+    private const int SPACE_WITHIN_CATEGORIS = 5;
+
     private enum PreviousStat
     {
         Box,
         Wall,
         Corridor
     }
-    private const int SPACE_BETWEEN_CATEGORIS = 20;
-    private const int SPACE_WITHIN_CATEGORIS = 5;
-
+    
     [Header("Ods för olika mönster:")]
     [SerializeField] private float doBoxSpawn = .33f;
     [SerializeField] private float doWallSpawn = .66f;
