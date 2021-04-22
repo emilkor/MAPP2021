@@ -1438,7 +1438,6 @@ MonoBehaviour:
   gameOver: {fileID: 1480891184}
   spriteRenderer: {fileID: 1184438006}
   particleSystem: {fileID: 1184438013}
-  timeStopTime: 1
 --- !u!199 &1184438012
 ParticleSystemRenderer:
   serializedVersion: 6
@@ -6453,6 +6452,9 @@ GameObject:
   - component: {fileID: 1480891179}
   - component: {fileID: 1480891183}
   - component: {fileID: 1480891184}
+  - component: {fileID: 1480891186}
+  - component: {fileID: 1480891185}
+  - component: {fileID: 1480891187}
   m_Layer: 5
   m_Name: Canvas
   m_TagString: Untagged
@@ -6575,6 +6577,58 @@ MonoBehaviour:
   pointCounter: {fileID: 1432449751}
   pauseButton: {fileID: 790184087}
   counter: {fileID: 1432449749}
+--- !u!114 &1480891185
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1480891178}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 0.25395632, g: 0, b: 1, a: 0.5372549}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Sprite: {fileID: 0}
+  m_Type: 0
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 0
+  m_PixelsPerUnitMultiplier: 1
+--- !u!222 &1480891186
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1480891178}
+  m_CullTransparentMesh: 1
+--- !u!114 &1480891187
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1480891178}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 63ff1de2a2abc406fb1cd0e14c7000ab, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  image: {fileID: 1480891185}
+  speed: 0.01
 --- !u!1 &1514484388
 GameObject:
   m_ObjectHideFlags: 0
