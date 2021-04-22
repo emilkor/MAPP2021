@@ -9,10 +9,13 @@ public class PauseMenu : MonoBehaviour
    [SerializeField] private GameObject pauseMenuUI;
    [SerializeField] private static bool GameIsPaused = false;
    [SerializeField] private GameObject pauseButton;
+   [SerializeField] private GameObject optionsMenu;
+   
 
     private void Start()
     {
         pauseMenuUI.SetActive(false);
+        optionsMenu.SetActive(false);
     }
 
     private void Update()
@@ -44,6 +47,8 @@ public class PauseMenu : MonoBehaviour
     {
         pauseMenuUI.SetActive(true);
         pauseButton.SetActive(false);
+        optionsMenu.SetActive(false);
+       
         Time.timeScale = 0f;
         GameIsPaused = true;
     }
@@ -54,9 +59,16 @@ public class PauseMenu : MonoBehaviour
         SceneManager.LoadScene("Menu");
     }
 
-    public void QuitGame()
+    public void Options()
     {
-        Debug.Log("Quitting game...");
-        Application.Quit();
+        pauseMenuUI.SetActive(false);
+        optionsMenu.SetActive(true);
+        
+    }
+
+    public void BackToPauseScreen()
+    {
+        optionsMenu.SetActive(false);
+        pauseMenuUI.SetActive(true);
     }
 }
