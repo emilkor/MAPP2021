@@ -9,8 +9,9 @@ public class ColourChange : MonoBehaviour
 {
 
     [SerializeField] private Image image;
-    [SerializeField] private float speed = .1f; 
+    [SerializeField] private float secondsPerLoop = 10f; 
     private float upcomingColor;
+    private float timer;
 
     // Start is called before the first frame update
     void Start()
@@ -21,16 +22,12 @@ public class ColourChange : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
-        
-        upcomingColor = Mathf.Lerp(0f, 1f, Time.time * speed);
+        timer += Time.deltaTime;
+        upcomingColor = Mathf.Lerp(0f, 1f, timer/ secondsPerLoop);
         image.color = Color.HSVToRGB(upcomingColor, 1f, 1f) - new Color(0, 0, 0, 0.5f);
-        
-        if (upcomingColor >= 1f)
+        if (timer / secondsPerLoop >= 1)
         {
-            upcomingColor = 0f;
+            timer = 0;
         }
-       
-
     }
 }
