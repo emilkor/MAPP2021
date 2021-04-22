@@ -25,8 +25,9 @@ public class PlayerMovement : MonoBehaviour
         xAxis = Input.acceleration.x * movementSpeed;
         transform.position = new Vector2(Mathf.Clamp(transform.position.x, -9f, 9f), transform.position.y);
 
+        
         rigidbody.velocity = Vector2.SmoothDamp(rigidbody.velocity, new Vector2(xAxis, yAxis), ref velocity, smoothTime);
-
+        //rigidbody.AddForce(velocity);
     }
 
  

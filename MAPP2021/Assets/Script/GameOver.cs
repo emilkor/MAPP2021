@@ -10,6 +10,9 @@ public class GameOver : MonoBehaviour
     [SerializeField] private GameObject gameOverScreen;
     [SerializeField] private Text points;
     [SerializeField] private PointCounter pointCounter;
+    [SerializeField] private GameObject pauseButton;
+    [SerializeField] private GameObject counter;
+  
     private bool isAlive;
 
     // Start is called before the first frame update
@@ -25,16 +28,30 @@ public class GameOver : MonoBehaviour
         if (isAlive == false)
         {
             gameOverScreen.SetActive(true);
-            showPoints();
+            ShowPoints();
+            ClearScreen();
         }
     }
 
     public void Restart()
     {
         SceneManager.LoadScene(1);
+        Time.timeScale = 1;
     }
 
-    private void showPoints()
+    private void ClearScreen()
+    {
+        pauseButton.SetActive(false);
+        counter.SetActive(false);
+
+    }
+
+    public void BackToMenu()
+    {
+        SceneManager.LoadScene(0);
+    }
+
+    private void ShowPoints()
     {
         points.text = pointCounter.getPoints();
     }
