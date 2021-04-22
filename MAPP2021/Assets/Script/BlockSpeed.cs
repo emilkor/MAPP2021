@@ -8,10 +8,11 @@ public class BlockSpeed : MonoBehaviour
     [SerializeField] private float maxTimesFaster = 4f;
     [SerializeField] private float acceleration = 10f;
 
-    [SerializeField] private float point;
+    
     [SerializeField] private float speed;
     [SerializeField] private float timer;
     [SerializeField] private float absolutTimer;
+    [SerializeField] private float point;
 
 
     // Start is called before the first frame update
