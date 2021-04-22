@@ -8,7 +8,6 @@ public class PlayerDeath : MonoBehaviour
     [SerializeField] private GameOver gameOver;
     [SerializeField] private SpriteRenderer spriteRenderer;
     [SerializeField] private ParticleSystem particleSystem;
-    [SerializeField] private int timeStopTime;
 
     void OnTriggerEnter2D(Collider2D collision)
     {
