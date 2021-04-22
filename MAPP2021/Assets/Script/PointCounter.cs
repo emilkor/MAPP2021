@@ -18,4 +18,9 @@ public class PointCounter : MonoBehaviour
     {
         text.text = string.Format("{0:0}", blockSpeed.GetPoint()*pointSpeed);
     }
+
+    public String getPoints()
+    {
+        return text.text;
+    }
 }

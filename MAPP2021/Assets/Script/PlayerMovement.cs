@@ -6,6 +6,7 @@ public class PlayerMovement : MonoBehaviour
 {
 
     private Rigidbody2D rigidbody;
+    private float yAxis;
     private float xAxis;
     private Vector2 velocity;
     [SerializeField] private float movementSpeed = 10f;
@@ -20,11 +21,11 @@ public class PlayerMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        yAxis = Input.acceleration.y * movementSpeed;
         xAxis = Input.acceleration.x * movementSpeed;
         transform.position = new Vector2(Mathf.Clamp(transform.position.x, -9f, 9f), transform.position.y);
 
-        rigidbody.velocity = Vector2.SmoothDamp(rigidbody.velocity, new Vector2(xAxis, 0f), ref velocity, smoothTime);
+        rigidbody.velocity = Vector2.SmoothDamp(rigidbody.velocity, new Vector2(xAxis, yAxis), ref velocity, smoothTime);
 
     }
 
