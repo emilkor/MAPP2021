@@ -181,12 +181,12 @@ public class Spawner : MonoBehaviour
                 //Debug.Break();
                 for (int i = 0; i < amountOfPillars; i++)
                 {
-                    Debug.Log(i);
+                    //Debug.Log(i);
                     sideToSidePillers(rightSideFirst, i, skipPillar);
                     yield return new WaitForSeconds(timeBetweenSideToSidePillarWalls);
-                    Debug.Log(i);
+                    //Debug.Log(i);
                 }
-                Debug.Log("After Loop");
+                //Debug.Log("After Loop");
                 modeVariabul = Random.value;
                 previousStat = PreviousStat.SideToSidePillar;
             }
