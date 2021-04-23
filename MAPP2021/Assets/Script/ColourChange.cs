@@ -75,6 +75,5 @@ public class ColourChange : MonoBehaviour
                 //nextValue = Random.value;
             }
         }
-        Debug.Log(image.color);
     }
 }
