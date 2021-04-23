@@ -7,17 +7,20 @@ using Image = UnityEngine.UI.Image;
 
 public class ColourChange : MonoBehaviour
 {
-
+    [SerializeField] private BlockSpeed blockSpeed;
     [SerializeField] private Image image;
-    [SerializeField] private float secondsPerLoop = 10f;
+    [SerializeField] private float startSecondsPerLoop = 10f;
     [Header("Sätt till 1 för att inte ändra mättnad")]
     [Range(0.0f, 1.0f)]
     [SerializeField] private float minimumSaturation;
     [Header("Om false: loopar genom färghjulet, mättnad fast på 1")]
     [Header("Om true: slumpmäsig färg")]
     [SerializeField] private bool randomNewColor;
+    [SerializeField] private bool increaseSpeedTogetherWithBlockSpeed;
 
 
+    [SerializeField] private float secondsPerLoop;
+    private float startSpeed;
 
     private float previousHue = 0;
     private float previousSaturation = 0;
@@ -43,17 +46,23 @@ public class ColourChange : MonoBehaviour
             nextSaturation = Random.Range(minimumSaturation, 1);
             //nextValue = Random.value;
         }
+        secondsPerLoop = startSecondsPerLoop;
+        startSpeed = blockSpeed.GetStartSpeed();
     }
 
     // Update is called once per frame
     void Update()
     {
+        if (increaseSpeedTogetherWithBlockSpeed)
+        {
+            secondsPerLoop = startSecondsPerLoop * (startSpeed/ blockSpeed.GetSpeed());
+        }
         timer += Time.deltaTime;
-        currentHue = Mathf.Lerp(previousHue, nextHue, timer/ secondsPerLoop);
+        currentHue = Mathf.Lerp(previousHue, nextHue, timer/ startSecondsPerLoop);
         currentSaturation = Mathf.Lerp(previousSaturation, nextSaturation, timer / secondsPerLoop);
         //currentValue = Mathf.Lerp(previousValue, nextValue, timer / secondsPerLoop);
         image.color = Color.HSVToRGB(currentHue, currentSaturation, currentValue) - new Color(0, 0, 0, 0.5f);
-        if (timer / secondsPerLoop >= 1)
+        if (timer / startSecondsPerLoop >= 1)
         {
             timer = 0;
             if (randomNewColor)

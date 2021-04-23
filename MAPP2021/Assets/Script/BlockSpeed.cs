@@ -47,4 +47,9 @@ public class BlockSpeed : MonoBehaviour
         return point;
     }
 
+    public float GetStartSpeed()
+    {
+        return startSpeed;
+    }
+
 }
