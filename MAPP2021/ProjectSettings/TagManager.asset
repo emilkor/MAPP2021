@@ -5,6 +5,7 @@ TagManager:
   serializedVersion: 2
   tags:
   - Speed
+  - Spawner
   layers:
   - Default
   - TransparentFX

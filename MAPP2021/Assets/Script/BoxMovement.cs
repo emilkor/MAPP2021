@@ -5,8 +5,9 @@ using UnityEngine;
 public class BoxMovement : MonoBehaviour
 {
     private BlockSpeed blockSpeed;
+    private Spawner spawner;
     [SerializeField] private float speed;
-    [SerializeField] private float deathPosition = -10;
+    [SerializeField] private float deathPosition;
     
 
     private Vector2 targetPosition;
@@ -15,17 +16,19 @@ public class BoxMovement : MonoBehaviour
 
     void Start()
     {
+        spawner = GameObject.FindWithTag("Spawner").GetComponent<Spawner>();
         blockSpeed = GameObject.FindWithTag("Speed").GetComponent<BlockSpeed>();
         targetPosition = new Vector2(gameObject.transform.position.x, deathPosition);
         speed = blockSpeed.GetSpeed();
+        deathPosition = -spawner.GetHightOfSpawnPosition();
     }
 
     // Update is called once per frame
-    static void Update()
-    {
+    //static void Update()
+    //{
        
 
-    }
+    //}
 
 
     void FixedUpdate()

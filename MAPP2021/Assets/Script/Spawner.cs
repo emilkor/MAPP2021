@@ -31,7 +31,7 @@ public class Spawner : MonoBehaviour
 
     [Header("Universala variabler:")]
     [SerializeField] private float raidiusOfPosibulPositions = 3f;
-    [SerializeField] private float hightOfSpawnPosition = 10f;
+    [SerializeField] private int hightOfSpawnPosition = 10;
     [Space(SPACE_BETWEEN_CATEGORIS)]
 
     [Header("Box Spawn variabler:")]
@@ -210,5 +210,10 @@ public class Spawner : MonoBehaviour
         float rightWallPosition = corridorHolePosition + ((distansBetweenWalls + block.transform.localScale.x) / 2);
         Instantiate(block, new Vector2(leftWallPosition, hightOfSpawnPosition), Quaternion.identity);
         Instantiate(block, new Vector2(rightWallPosition, hightOfSpawnPosition), Quaternion.identity);
+    }
+
+    public int GetHightOfSpawnPosition()
+    {
+        return hightOfSpawnPosition;
     }
 }
