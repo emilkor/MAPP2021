@@ -9,25 +9,62 @@ public class ColourChange : MonoBehaviour
 {
 
     [SerializeField] private Image image;
-    [SerializeField] private float secondsPerLoop = 10f; 
-    private float upcomingColor;
-    private float timer;
+    [SerializeField] private float secondsPerLoop = 10f;
+    [Header("Sätt till 1 för att inte ändra mättnad")]
+    [Range(0.0f, 1.0f)]
+    [SerializeField] private float minimumSaturation;
+    [Header("Om false: loopar genom färghjulet, mättnad fast på 1")]
+    [Header("Om true: slumpmäsig färg")]
+    [SerializeField] private bool randomNewColor;
+
+
+
+    private float previousHue = 0;
+    private float previousSaturation = 0;
+    //private float previousValue = 0;
+    private float currentHue = 1;
+    private float currentSaturation = 1;
+    private float currentValue = 1;
+    private float nextHue = 1;
+    private float nextSaturation = 1;
+    //private float nextValue = 1;
+
+    private float timer = 0;
 
     // Start is called before the first frame update
     void Start()
     {
-        upcomingColor = Random.Range(0f, 1f);
+        if (randomNewColor)
+        {
+            previousHue = Random.value;
+            previousSaturation = Random.Range(minimumSaturation, 1);
+            //previousValue = Random.value;
+            nextHue = Random.value;
+            nextSaturation = Random.Range(minimumSaturation, 1);
+            //nextValue = Random.value;
+        }
     }
 
     // Update is called once per frame
     void Update()
     {
         timer += Time.deltaTime;
-        upcomingColor = Mathf.Lerp(0f, 1f, timer/ secondsPerLoop);
-        image.color = Color.HSVToRGB(upcomingColor, 1f, 1f) - new Color(0, 0, 0, 0.5f);
+        currentHue = Mathf.Lerp(previousHue, nextHue, timer/ secondsPerLoop);
+        currentSaturation = Mathf.Lerp(previousSaturation, nextSaturation, timer / secondsPerLoop);
+        //currentValue = Mathf.Lerp(previousValue, nextValue, timer / secondsPerLoop);
+        image.color = Color.HSVToRGB(currentHue, currentSaturation, currentValue) - new Color(0, 0, 0, 0.5f);
         if (timer / secondsPerLoop >= 1)
         {
             timer = 0;
+            if (randomNewColor)
+            {
+                previousHue = nextHue;
+                previousSaturation = nextSaturation;
+                //previousValue = nextValue;
+                nextHue = Random.value;
+                nextSaturation = Random.Range(minimumSaturation, 1);
+                //nextValue = Random.value;
+            }
         }
     }
 }
