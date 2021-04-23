@@ -6922,7 +6922,7 @@ MonoBehaviour:
   image: {fileID: 1480891185}
   startSecondsPerLoop: 10
   minimumSaturation: 1
-  randomNewColor: 1
+  randomNewColor: 0
   increaseSpeedTogetherWithBlockSpeed: 1
   secondsPerLoop: 0
 --- !u!1 &1514484388

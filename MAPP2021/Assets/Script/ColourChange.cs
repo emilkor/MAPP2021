@@ -62,7 +62,7 @@ public class ColourChange : MonoBehaviour
         currentSaturation = Mathf.Lerp(previousSaturation, nextSaturation, timer / secondsPerLoop);
         //currentValue = Mathf.Lerp(previousValue, nextValue, timer / secondsPerLoop);
         image.color = Color.HSVToRGB(currentHue, currentSaturation, currentValue) - new Color(0, 0, 0, 0.5f);
-        if (timer / startSecondsPerLoop >= 1)
+        if (timer / secondsPerLoop >= 1)
         {
             timer = 0;
             if (randomNewColor)
@@ -75,5 +75,6 @@ public class ColourChange : MonoBehaviour
                 //nextValue = Random.value;
             }
         }
+        Debug.Log(image.color);
     }
 }
