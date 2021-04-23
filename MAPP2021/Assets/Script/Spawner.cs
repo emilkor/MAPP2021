@@ -16,13 +16,15 @@ public class Spawner : MonoBehaviour
     {
         Box,
         Wall,
-        Corridor
+        Corridor,
+        SideToSidePillar
     }
     
     [Header("Ods för olika mönster:")]
-    [SerializeField] private float doBoxSpawn = .33f;
-    [SerializeField] private float doWallSpawn = .66f;
-    [SerializeField] private float doCorridorSpawn = 1f;
+    [SerializeField] private float doBoxSpawn = .25f;
+    [SerializeField] private float doWallSpawn = .5f;
+    [SerializeField] private float doCorridorSpawn = .75f;
+    [SerializeField] private float doSideToSidePillar = 1f;
     [Space(SPACE_BETWEEN_CATEGORIS)]
 
     [Header("Prefab som Spawnas:")]
@@ -71,11 +73,18 @@ public class Spawner : MonoBehaviour
     [SerializeField] private float chansOfCorridorChangeDirektion = .75f;
     [Space(SPACE_BETWEEN_CATEGORIS)]
 
+    [Header("Side to side pillar fall:")]
+    [SerializeField] private float pillarWidth = 2;
+    [SerializeField] private float pillarHight = 5;
+    [Space(SPACE_WITHIN_CATEGORIS)]
+    [SerializeField] private float timeBetweenSideToSidePillarWalls = .5f;
+
 
     private float corridorHolePosition;
     private float corridorCurv;
     private int spawnAmount;
     private PreviousStat previousStat;
+
     
 
     private float modeVariabul;
@@ -99,7 +108,7 @@ public class Spawner : MonoBehaviour
     private IEnumerator Spawn()
     {
 
-        if (modeVariabul < doBoxSpawn)
+        if (modeVariabul <= doBoxSpawn)
         {
             if (previousStat == PreviousStat.Box)
             {
@@ -118,7 +127,7 @@ public class Spawner : MonoBehaviour
             }
 
         }
-        else if (modeVariabul < doWallSpawn)
+        else if (modeVariabul <= doWallSpawn)
         {
             if (previousStat == PreviousStat.Wall)
             {
@@ -137,9 +146,9 @@ public class Spawner : MonoBehaviour
                 previousStat = PreviousStat.Wall;
             }
         }
-        else
+        else if (modeVariabul <= doCorridorSpawn)
         {
-            if (previousStat == PreviousStat.Wall)
+            if (previousStat == PreviousStat.Corridor)
             {
                 modeVariabul = Random.value;
             }
@@ -156,6 +165,33 @@ public class Spawner : MonoBehaviour
                 previousStat = PreviousStat.Corridor;
             }
         }
+        else /*if (modeVariabul <= doSideToSidePillar)*/
+        {
+            if (previousStat == PreviousStat.SideToSidePillar)
+            {
+                modeVariabul = Random.value;
+            }
+            else
+            {
+                block.transform.localScale = new Vector2(pillarWidth, pillarHight);
+                int amountOfPillars = (int)Math.Ceiling(((raidiusOfPosibulPositions * 2) + 1) / pillarWidth);
+                int skipPillar = Random.Range(0, amountOfPillars);
+                bool rightSideFirst = Random.value < .5f;
+                Debug.Log(amountOfPillars);
+                //Debug.Break();
+                for (int i = 0; i < amountOfPillars; i++)
+                {
+                    Debug.Log(i);
+                    sideToSidePillers(rightSideFirst, i, skipPillar);
+                    yield return new WaitForSeconds(timeBetweenSideToSidePillarWalls);
+                    Debug.Log(i);
+                }
+                Debug.Log("After Loop");
+                modeVariabul = Random.value;
+                previousStat = PreviousStat.SideToSidePillar;
+            }
+        }
+
         StartCoroutine(Spawn());
 
 
@@ -210,6 +246,21 @@ public class Spawner : MonoBehaviour
         float rightWallPosition = corridorHolePosition + ((distansBetweenWalls + block.transform.localScale.x) / 2);
         Instantiate(block, new Vector2(leftWallPosition, hightOfSpawnPosition), Quaternion.identity);
         Instantiate(block, new Vector2(rightWallPosition, hightOfSpawnPosition), Quaternion.identity);
+    }
+
+    private void sideToSidePillers(bool rightside, int pillarNumber, int skipPiller)
+    {
+        if (!(pillarNumber == skipPiller))
+        {
+            if (rightside)
+            {
+                Instantiate(block, new Vector2(raidiusOfPosibulPositions - (pillarNumber * pillarWidth), hightOfSpawnPosition), Quaternion.identity);
+            }
+            else
+            {
+                Instantiate(block, new Vector2(-raidiusOfPosibulPositions + (pillarNumber * pillarWidth), hightOfSpawnPosition), Quaternion.identity);
+            }
+        }
     }
 
     public int GetHightOfSpawnPosition()

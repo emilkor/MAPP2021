@@ -1595,7 +1595,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!212 &1184438006
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -1876,7 +1876,7 @@ ParticleSystem:
     startLifetime:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 5
+      scalar: 1000
       minScalar: 5
       maxCurve:
         serializedVersion: 2
@@ -7065,9 +7065,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 95e95375ae477426d897fdb4698effc7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  doBoxSpawn: 0.33
-  doWallSpawn: 0.66
-  doCorridorSpawn: 1
+  doBoxSpawn: 0.25
+  doWallSpawn: 0.5
+  doCorridorSpawn: 0.75
+  doSideToSidePillar: 1
   block: {fileID: 5495258166039294534, guid: 00f4e68de705246ceb02cc4dcebf6cc5, type: 3}
   raidiusOfPosibulPositions: 9
   hightOfSpawnPosition: 11
@@ -7087,10 +7088,13 @@ MonoBehaviour:
   minimumCorridorCurv: 1
   minimumDistansBetweenCorridorWalls: 7
   maximumDistansBetweenCorridorWalls: 8
-  minimumCorridorsBeforSpawnChange: 50
-  maximumCorridorsBeforSpawnChange: 100
+  minimumCorridorsBeforSpawnChange: 30
+  maximumCorridorsBeforSpawnChange: 50
   timeBetweenCorridorWalls: 0.2
   chansOfCorridorChangeDirektion: 0.75
+  pillarWidth: 2
+  pillarHight: 5
+  timeBetweenSideToSidePillarWalls: 0.5
 --- !u!1 &1663744314
 GameObject:
   m_ObjectHideFlags: 0
