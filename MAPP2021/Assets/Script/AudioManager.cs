@@ -1,13 +1,21 @@
 using UnityEngine.Audio;
 using System;
 using UnityEngine;
+using System.Collections;
+using System.Collections.Generic;
 
 public class AudioManager : MonoBehaviour
 {
+    public static AudioManager instance;
+
+    public float fadeWaitForSecs;
+
+    public int playerScore;
+    private string score;
+    private int mode;
+    public int scoreThreshold;
 
     public Sound[] sounds;
-
-    public static AudioManager instance;
 
     // Start is called before the first frame update
     void Awake()
@@ -33,13 +41,48 @@ public class AudioManager : MonoBehaviour
             s.source.volume = s.volume;
             s.source.pitch = s.pitch;
             s.source.loop = s.loop;
+            s.source.mute = s.mute;
         }
     }
 
     private void Start()
     {
-        //Play("test");
+        Play("test");
+        //mode = 0;
     }
+
+    /*
+    private void Update()
+    {
+        score = FindObjectOfType<PointCounter>().getPoints();
+        playerScore = Convert.ToInt32(score);
+
+        if(playerScore >= scoreThreshold)
+        {
+            scoreThreshold += playerScore;
+            mode++;
+            SetFadeIO();
+        }
+    }
+
+    
+    private void SetFadeIO()
+    {
+        Sound s = GetAudioclip("test");
+
+        switch (mode)
+        {
+            case 1:
+                //Sätt rätt fil i rätt mode
+                print("Fading out...");
+                StartCoroutine(FadeOut(s));
+                break;
+            case 2:
+                print("Fading in...");
+                StartCoroutine(FadeIn(s));
+                break;
+        }
+    }*/
 
     public void Play(string name)
     {
@@ -52,16 +95,50 @@ public class AudioManager : MonoBehaviour
         s.source.Play();
     }
 
-    // Update is called once per frame
-    void Update()
+    public Sound GetAudioclip(string name)
     {
-        
+        Sound s = Array.Find(sounds, sound => sound.name == name);
+        if (s == null)
+        {
+            Debug.LogWarning("Ljudfilen hittades inte!");
+        }
+        return s;
     }
+
+    public void ToggleMuteAll()
+    {
+        List<Sound> toggledClips = new List<Sound>();
+
+        foreach(Sound s in sounds)
+        {
+            if (!s.source.mute)
+            {
+                toggledClips.Add(s);
+                s.source.mute = true;
+            }
+        }
+
+        //lägg till kod för att toggla muted clips!
+    }
+
 
     public void PlayButtonHover()
     {
         Play("ButtonHover");
     }
+
+    /*
+    IEnumerator FadeIn(Sound s)
+    {
+        s.musicAnimator.SetTrigger("FadeIn");
+        yield return new WaitForSeconds(fadeWaitForSecs);
+    }
+
+    IEnumerator FadeOut(Sound s)
+    {
+        s.musicAnimator.SetTrigger("FadeIn");
+        yield return new WaitForSeconds(fadeWaitForSecs);
+    }*/
 
     //Kod att sätta in för att initiera ett önskat ljud. Man måste sätta in ljudfilens namn i parantesen.
     //FindObjectofType<AudioManager>().Play(NAME_OF_THE_CLIP_AS_STRING);
