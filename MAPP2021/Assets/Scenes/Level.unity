@@ -7034,7 +7034,7 @@ GameObject:
   - component: {fileID: 1572401443}
   m_Layer: 0
   m_Name: Spawner
-  m_TagString: Untagged
+  m_TagString: Spawner
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -7070,7 +7070,7 @@ MonoBehaviour:
   doCorridorSpawn: 1
   block: {fileID: 5495258166039294534, guid: 00f4e68de705246ceb02cc4dcebf6cc5, type: 3}
   raidiusOfPosibulPositions: 9
-  hightOfSpawnPosition: 10
+  hightOfSpawnPosition: 11
   minimumTimeBetweenBlocks: 0.25
   maximumTimeBetweenBlocks: 0.5
   minimumWidthOfBlock: 1
