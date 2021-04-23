@@ -23,7 +23,7 @@ public class ColourChange : MonoBehaviour
     private float startSpeed;
 
     private float previousHue = 0;
-    private float previousSaturation = 0;
+    private float previousSaturation = 1;
     //private float previousValue = 0;
     private float currentHue = 1;
     private float currentSaturation = 1;
