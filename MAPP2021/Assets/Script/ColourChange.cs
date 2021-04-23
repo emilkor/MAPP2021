@@ -58,7 +58,7 @@ public class ColourChange : MonoBehaviour
             secondsPerLoop = startSecondsPerLoop * (startSpeed/ blockSpeed.GetSpeed());
         }
         timer += Time.deltaTime;
-        currentHue = Mathf.Lerp(previousHue, nextHue, timer/ startSecondsPerLoop);
+        currentHue = Mathf.Lerp(previousHue, nextHue, timer/ secondsPerLoop);
         currentSaturation = Mathf.Lerp(previousSaturation, nextSaturation, timer / secondsPerLoop);
         //currentValue = Mathf.Lerp(previousValue, nextValue, timer / secondsPerLoop);
         image.color = Color.HSVToRGB(currentHue, currentSaturation, currentValue) - new Color(0, 0, 0, 0.5f);
