@@ -1848,6 +1848,10 @@ PrefabInstance:
       value: AudioManager
       objectReference: {fileID: 0}
     - target: {fileID: 2469809342057135749, guid: 3b21b3fe9a183f84391271ba69b46248, type: 3}
+      propertyPath: universalFade
+      value: 
+      objectReference: {fileID: 9100000, guid: 7f8b9d877f50d6143bea4f3a7b28d430, type: 2}
+    - target: {fileID: 2469809342057135749, guid: 3b21b3fe9a183f84391271ba69b46248, type: 3}
       propertyPath: sounds.Array.size
       value: 2
       objectReference: {fileID: 0}
@@ -1885,7 +1889,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2469809342057135749, guid: 3b21b3fe9a183f84391271ba69b46248, type: 3}
       propertyPath: sounds.Array.data[1].volume
-      value: 0.117
+      value: 0.227
+      objectReference: {fileID: 0}
+    - target: {fileID: 2469809342057135749, guid: 3b21b3fe9a183f84391271ba69b46248, type: 3}
+      propertyPath: sounds.Array.data[0].musicAnimator
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 2469809342057135749, guid: 3b21b3fe9a183f84391271ba69b46248, type: 3}
+      propertyPath: sounds.Array.data[1].musicAnimator
+      value: 
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3b21b3fe9a183f84391271ba69b46248, type: 3}

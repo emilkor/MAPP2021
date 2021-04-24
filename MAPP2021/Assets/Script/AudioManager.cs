@@ -9,11 +9,16 @@ public class AudioManager : MonoBehaviour
     public static AudioManager instance;
 
     public float fadeWaitForSecs;
+    private int muteCounter = 0;
+    private List<Sound> toggledClips = new List<Sound>();
 
-    public int playerScore;
-    private string score;
-    private int mode;
-    public int scoreThreshold;
+    private Animator anim;
+    public RuntimeAnimatorController universalFade;
+
+    //public int playerScore;
+    //private string score;
+    //private int mode;
+    //public int scoreThreshold;
 
     public Sound[] sounds;
 
@@ -37,6 +42,10 @@ public class AudioManager : MonoBehaviour
         {
             s.source = gameObject.AddComponent<AudioSource>();
             s.source.clip = s.clip;
+
+            anim = gameObject.GetComponent<Animator>();
+            s.musicAnimator = anim;
+            anim.runtimeAnimatorController = universalFade;
 
             s.source.volume = s.volume;
             s.source.pitch = s.pitch;
@@ -107,15 +116,27 @@ public class AudioManager : MonoBehaviour
 
     public void ToggleMuteAll()
     {
-        List<Sound> toggledClips = new List<Sound>();
+        muteCounter++;
 
         foreach(Sound s in sounds)
         {
-            if (!s.source.mute)
+            if(muteCounter % 2 == 1)
             {
-                toggledClips.Add(s);
-                s.source.mute = true;
+                if (!s.source.mute)
+                {
+                    s.source.mute = true;
+                    toggledClips.Add(s);
+                }
             }
+            else
+            {
+                if (s.source.mute && toggledClips.Contains(s))
+                {
+                    s.source.mute = false;
+                    toggledClips.Remove(s);
+                }
+            }
+            
         }
 
         //lägg till kod för att toggla muted clips!

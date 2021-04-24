@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 27726511293853863}
   - component: {fileID: 2469809342057135749}
+  - component: {fileID: 1081898944649597922}
   m_Layer: 0
   m_Name: AudioManager
   m_TagString: Untagged
@@ -43,10 +44,33 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7ef9e1974aad72b49abbaab64966e929, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  fadeWaitForSecs: 0
+  universalFade: {fileID: 9100000, guid: 7f8b9d877f50d6143bea4f3a7b28d430, type: 2}
   sounds:
   - name: 
     clip: {fileID: 0}
+    musicAnimator: {fileID: 0}
     volume: 0
     pitch: 0.1
     loop: 0
+    mute: 0
     source: {fileID: 0}
+--- !u!95 &1081898944649597922
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1497968420912490774}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 7f8b9d877f50d6143bea4f3a7b28d430, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
