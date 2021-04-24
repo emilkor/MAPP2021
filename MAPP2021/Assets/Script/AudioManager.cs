@@ -14,15 +14,16 @@ public class AudioManager : MonoBehaviour
 
     private Animator anim;
     public RuntimeAnimatorController universalFade;
+    //gör array av controllers?
 
-    //public int playerScore;
-    //private string score;
-    //private int mode;
-    //public int scoreThreshold;
+    public bool pointCounterEnabled;
+    public int playerScore;
+    private string score;
+    private int mode;
+    public int scoreThreshold;
 
     public Sound[] sounds;
 
-    // Start is called before the first frame update
     void Awake()
     {
 
@@ -38,12 +39,13 @@ public class AudioManager : MonoBehaviour
 
         DontDestroyOnLoad(gameObject);
 
+        anim = gameObject.AddComponent<Animator>();
+
         foreach(Sound s in sounds)
         {
             s.source = gameObject.AddComponent<AudioSource>();
             s.source.clip = s.clip;
 
-            anim = gameObject.GetComponent<Animator>();
             s.musicAnimator = anim;
             anim.runtimeAnimatorController = universalFade;
 
@@ -57,20 +59,31 @@ public class AudioManager : MonoBehaviour
     private void Start()
     {
         Play("test");
-        //mode = 0;
+        mode = 0;
     }
 
-    /*
+    
     private void Update()
     {
-        score = FindObjectOfType<PointCounter>().getPoints();
-        playerScore = Convert.ToInt32(score);
-
-        if(playerScore >= scoreThreshold)
+        if (pointCounterEnabled)
         {
-            scoreThreshold += playerScore;
-            mode++;
-            SetFadeIO();
+            try
+            {
+                score = FindObjectOfType<PointCounter>().getPoints();
+                playerScore = Convert.ToInt32(score);
+
+                if(playerScore >= scoreThreshold)
+                {
+                    scoreThreshold += playerScore;
+                    mode++;
+                    SetFadeIO();
+                }
+
+            }
+            catch(NullReferenceException e)
+            {
+                Debug.LogWarning("Point Counter has not been assigned to an object");
+            }
         }
     }
 
@@ -90,8 +103,16 @@ public class AudioManager : MonoBehaviour
                 print("Fading in...");
                 StartCoroutine(FadeIn(s));
                 break;
+            case 3:
+                print("Fading out...");
+                StartCoroutine(FadeOut(s));
+                break;
+            case 4:
+                print("Fading in...");
+                StartCoroutine(FadeIn(s));
+                break;
         }
-    }*/
+    }
 
     public void Play(string name)
     {
@@ -138,8 +159,6 @@ public class AudioManager : MonoBehaviour
             }
             
         }
-
-        //lägg till kod för att toggla muted clips!
     }
 
 
@@ -148,7 +167,7 @@ public class AudioManager : MonoBehaviour
         Play("ButtonHover");
     }
 
-    /*
+    
     IEnumerator FadeIn(Sound s)
     {
         s.musicAnimator.SetTrigger("FadeIn");
@@ -157,9 +176,9 @@ public class AudioManager : MonoBehaviour
 
     IEnumerator FadeOut(Sound s)
     {
-        s.musicAnimator.SetTrigger("FadeIn");
+        s.musicAnimator.SetTrigger("FadeOut");
         yield return new WaitForSeconds(fadeWaitForSecs);
-    }*/
+    }
 
     //Kod att sätta in för att initiera ett önskat ljud. Man måste sätta in ljudfilens namn i parantesen.
     //FindObjectofType<AudioManager>().Play(NAME_OF_THE_CLIP_AS_STRING);
