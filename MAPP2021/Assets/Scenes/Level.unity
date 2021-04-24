@@ -1063,7 +1063,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -64.4, y: -61.8}
+  m_AnchoredPosition: {x: -64.400024, y: -61.799988}
   m_SizeDelta: {x: 160, y: 168.7982}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &790184089
@@ -1589,13 +1589,14 @@ GameObject:
   - component: {fileID: 1184438011}
   - component: {fileID: 1184438013}
   - component: {fileID: 1184438012}
+  - component: {fileID: 1184438014}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!212 &1184438006
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -1657,7 +1658,8 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: -4, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
+  m_Children:
+  - {fileID: 1995685611}
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1710,7 +1712,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4db28593099cbd54fb819b7bec3132a5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  movementSpeed: 50
+  defaultMovementSpeed: 10
   smoothTime: 0.1
 --- !u!114 &1184438011
 MonoBehaviour:
@@ -6499,6 +6501,23 @@ ParticleSystem:
         m_PostInfinity: 2
         m_RotationOrder: 4
     vectorLabel1_3: W
+--- !u!114 &1184438014
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1184438005}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e268d479ae3f74df396e2bb594df24ee, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  slowMotionFactor: 0.5
+  slowMotionTime: 6
+  playerMovement: {fileID: 0}
+  SuperSpeedFactor: 1.5
+  SuperSpeedTime: 6
 --- !u!1 &1302417138
 GameObject:
   m_ObjectHideFlags: 0
@@ -6924,7 +6943,7 @@ MonoBehaviour:
   minimumSaturation: 1
   randomNewColor: 0
   increaseSpeedTogetherWithBlockSpeed: 1
-  secondsPerLoop: 0
+  secondsPerLoop: 1
 --- !u!1 &1514484388
 GameObject:
   m_ObjectHideFlags: 0
@@ -7078,8 +7097,8 @@ MonoBehaviour:
   maximumWidthOfBlock: 4
   minimumBoxesBeforSpawnChange: 20
   maximumBoxesBeforSpawnChange: 30
-  minimumTimeBetweenWalls: 2
-  maximumTimeBetweenWalls: 4
+  minimumTimeBetweenWalls: 1
+  maximumTimeBetweenWalls: 2
   minimumDistansBetweenWalls: 2
   maximumDistansBetweenWalls: 4
   minimumWallsBeforSpawnChange: 3
@@ -7440,6 +7459,63 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1969317888}
   m_CullTransparentMesh: 1
+--- !u!1 &1995685610
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1995685611}
+  - component: {fileID: 1995685612}
+  m_Layer: 0
+  m_Name: Block Braker
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1995685611
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1995685610}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1184438007}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!61 &1995685612
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1995685610}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 7}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 1.5, y: 15}
+  m_EdgeRadius: 0
 --- !u!1 &2091156959
 GameObject:
   m_ObjectHideFlags: 0

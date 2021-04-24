@@ -174,7 +174,7 @@ public class Spawner : MonoBehaviour
             else
             {
                 block.transform.localScale = new Vector2(pillarWidth, pillarHight);
-                int amountOfPillars = (int)Math.Ceiling(((raidiusOfPosibulPositions * 2) + 1) / pillarWidth);
+                int amountOfPillars = (int)Math.Ceiling(((raidiusOfPosibulPositions * 2)+1) / pillarWidth);
                 int skipPillar = Random.Range(0, amountOfPillars);
                 bool rightSideFirst = Random.value < .5f;
                 Debug.Log(amountOfPillars);
