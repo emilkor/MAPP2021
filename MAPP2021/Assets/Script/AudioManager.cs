@@ -20,7 +20,9 @@ public class AudioManager : MonoBehaviour
     public int playerScore;
     private string score;
     private int mode;
-    public int scoreThreshold;
+    private int scoreThreshold;
+    public int initialScoreThreshold;
+    public ToggleButton toggleMuteButton;
 
     public Sound[] sounds;
 
@@ -59,6 +61,7 @@ public class AudioManager : MonoBehaviour
     private void Start()
     {
         Play("test");
+        scoreThreshold = initialScoreThreshold;
         mode = 0;
     }
 
@@ -71,6 +74,10 @@ public class AudioManager : MonoBehaviour
             {
                 score = FindObjectOfType<PointCounter>().getPoints();
                 playerScore = Convert.ToInt32(score);
+                if(playerScore == 0)
+                {
+                    scoreThreshold = initialScoreThreshold;
+                }
 
                 if(playerScore >= scoreThreshold)
                 {
@@ -135,9 +142,11 @@ public class AudioManager : MonoBehaviour
         return s;
     }
 
+    /*
     public void ToggleMuteAll()
     {
         muteCounter++;
+        print(muteCounter);
 
         foreach(Sound s in sounds)
         {
@@ -158,6 +167,43 @@ public class AudioManager : MonoBehaviour
                 }
             }
             
+        }
+    }*/
+
+    /*
+    public void CheckIsMuteOn()
+    {
+        if (toggleMuteButton.getIsOn())
+        {
+            MuteAll();
+        }
+        else
+        {
+            UnmuteAll();
+        }
+    }*/
+
+    public void MuteAll()
+    {
+        foreach(Sound s in sounds)
+        {
+            if (!s.source.mute)
+            {
+                s.source.mute = true;
+                toggledClips.Add(s);
+            }
+        }
+    }
+
+    public void UnmuteAll()
+    {
+        foreach(Sound s in sounds)
+        {
+            if (s.source.mute && toggledClips.Contains(s))
+            {
+                s.source.mute = false;
+                toggledClips.Remove(s);
+            }
         }
     }
 

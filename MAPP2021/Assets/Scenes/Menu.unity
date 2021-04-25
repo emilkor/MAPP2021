@@ -743,6 +743,17 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
+--- !u!114 &1021557746 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3500077578585748970, guid: ed675b6f62a64be498f176e06a898c47, type: 3}
+  m_PrefabInstance: {fileID: 8286467364348983817}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 84fb8227ae9d5804e9f889b091e6334b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1209525054
 GameObject:
   m_ObjectHideFlags: 0
@@ -1533,6 +1544,10 @@ PrefabInstance:
       value: 500
       objectReference: {fileID: 0}
     - target: {fileID: 2469809342057135749, guid: 3b21b3fe9a183f84391271ba69b46248, type: 3}
+      propertyPath: toggleMuteButton
+      value: 
+      objectReference: {fileID: 1021557746}
+    - target: {fileID: 2469809342057135749, guid: 3b21b3fe9a183f84391271ba69b46248, type: 3}
       propertyPath: sounds.Array.size
       value: 2
       objectReference: {fileID: 0}
@@ -1960,10 +1975,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1959095815}
     m_Modifications:
-    - target: {fileID: 8286467364740843520, guid: ed675b6f62a64be498f176e06a898c47, type: 3}
-      propertyPath: onValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_Target
-      value: 
-      objectReference: {fileID: 1932259001}
     - target: {fileID: 8286467364740843521, guid: ed675b6f62a64be498f176e06a898c47, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
