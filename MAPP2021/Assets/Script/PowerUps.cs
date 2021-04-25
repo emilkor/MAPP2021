@@ -10,19 +10,20 @@ public class PowerUps : MonoBehaviour
     [SerializeField] private PlayerMovement playerMovement;
     [SerializeField] private float SuperSpeedFactor = 1.5f;
     [SerializeField] private float SuperSpeedTime = 6f;
+
+    [SerializeField] private CircleCollider2D playerCollider;
+    [SerializeField] private BoxCollider2D blockDestroier;
+
+    [SerializeField] private PowerUp powerUp;
+
     // Start is called before the first frame update
     void Start()
     {
-        
+        blockDestroier.enabled = false;
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 
-    public void OnPressActivate(PowerUp powerUp)
+    public void OnPressActivate()
     {
         if(powerUp == PowerUp.SlowMotion)
         {
@@ -34,8 +35,10 @@ public class PowerUps : MonoBehaviour
         }
         if(powerUp == PowerUp.WallBreak)
         {
-
+            StartCoroutine(WallBreak());
         }
+
+
     }
 
     private IEnumerator SlowMotion()
@@ -51,9 +54,13 @@ public class PowerUps : MonoBehaviour
         yield return new WaitForSeconds(SuperSpeedTime);
         playerMovement.ResetMovementSpeed();
     }
-    private void WallBreak()
+    private IEnumerator WallBreak()
     {
-
+        playerCollider.enabled = false;
+        blockDestroier.enabled = true;
+        yield return new WaitForSeconds(1);
+        blockDestroier.enabled = false;
+        playerCollider.enabled = true;
     }
 
 

@@ -9,7 +9,7 @@ public class PlayerDeath : MonoBehaviour
     [SerializeField] private SpriteRenderer spriteRenderer;
     [SerializeField] private ParticleSystem particleSystem;
 
-    void OnTriggerEnter2D(Collider2D collision)
+    void OnCollisionEnter2D(Collision2D collision)
     {
         gameOver.setAlive(false);
         var main = particleSystem.main;
@@ -17,8 +17,8 @@ public class PlayerDeath : MonoBehaviour
         particleSystem.Play();
         spriteRenderer.enabled = false;
         Time.timeScale = 0f;
-
     }
+
 
 
 }
