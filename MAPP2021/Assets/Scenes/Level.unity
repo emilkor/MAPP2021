@@ -569,7 +569,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &450970879
 RectTransform:
   m_ObjectHideFlags: 0
@@ -585,6 +585,7 @@ RectTransform:
   - {fileID: 1158355529}
   - {fileID: 696063348}
   - {fileID: 1930408482}
+  - {fileID: 1952253143}
   m_Father: {fileID: 1480891182}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -829,7 +830,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0.000010848, y: -160}
+  m_AnchoredPosition: {x: 0.000010729, y: -339.61}
   m_SizeDelta: {x: 315.1075, y: 150.5153}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &696063349
@@ -1827,11 +1828,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8286467364740843521, guid: ed675b6f62a64be498f176e06a898c47, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 39
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8286467364740843521, guid: ed675b6f62a64be498f176e06a898c47, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 101.07
+      value: -10
       objectReference: {fileID: 0}
     - target: {fileID: 8286467364740843521, guid: ed675b6f62a64be498f176e06a898c47, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -1865,9 +1866,9 @@ GameObject:
   - component: {fileID: 1184438008}
   - component: {fileID: 1184438010}
   - component: {fileID: 1184438011}
+  - component: {fileID: 1184438014}
   - component: {fileID: 1184438013}
   - component: {fileID: 1184438012}
-  - component: {fileID: 1184438014}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -1993,6 +1994,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   defaultMovementSpeed: 10
   smoothTime: 0.1
+  movementYAxis: 2
 --- !u!114 &1184438011
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7156,6 +7158,7 @@ MonoBehaviour:
   pauseMenuUI: {fileID: 1063136421}
   pauseButton: {fileID: 790184087}
   optionsMenu: {fileID: 105322224}
+  powerUpButton: {fileID: 1752894705}
 --- !u!114 &1480891184
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7173,6 +7176,8 @@ MonoBehaviour:
   pointCounter: {fileID: 1432449751}
   pauseButton: {fileID: 790184087}
   counter: {fileID: 1432449749}
+  powerUpButton: {fileID: 1752894705}
+  highScoreText: {fileID: 1952253141}
 --- !u!114 &1480891185
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7625,7 +7630,7 @@ GameObject:
   - component: {fileID: 1752894708}
   - component: {fileID: 1752894707}
   m_Layer: 5
-  m_Name: PowerUps Button
+  m_Name: PowerUpButton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -7824,6 +7829,85 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1930408481}
   m_CullTransparentMesh: 1
+--- !u!1 &1952253140
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1952253143}
+  - component: {fileID: 1952253142}
+  - component: {fileID: 1952253141}
+  m_Layer: 5
+  m_Name: HighscoreText
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1952253141
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1952253140}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_FontData:
+    m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
+    m_FontSize: 65
+    m_FontStyle: 1
+    m_BestFit: 0
+    m_MinSize: 6
+    m_MaxSize: 65
+    m_Alignment: 4
+    m_AlignByGeometry: 0
+    m_RichText: 1
+    m_HorizontalOverflow: 0
+    m_VerticalOverflow: 0
+    m_LineSpacing: 1
+  m_Text: New High Score!
+--- !u!222 &1952253142
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1952253140}
+  m_CullTransparentMesh: 1
+--- !u!224 &1952253143
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1952253140}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 450970879}
+  m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0.000019073, y: -200.67773}
+  m_SizeDelta: {x: 531.8923, y: 193.4889}
+  m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &1969317888
 GameObject:
   m_ObjectHideFlags: 0
@@ -7860,7 +7944,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -3.9393, y: -289.8689}
+  m_AnchoredPosition: {x: 0, y: -443}
   m_SizeDelta: {x: 275.5538, y: 56.2622}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1969317890
@@ -7969,7 +8053,7 @@ GameObject:
   - component: {fileID: 1995685612}
   - component: {fileID: 1995685613}
   m_Layer: 0
-  m_Name: Block Braker
+  m_Name: BlockBraker
   m_TagString: Block Destroier
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -8100,7 +8184,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: 139}
+  m_AnchoredPosition: {x: 0, y: 138}
   m_SizeDelta: {x: -586.69, y: -1766.7764}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2091156961
@@ -8329,7 +8413,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1497968420912490774, guid: 3b21b3fe9a183f84391271ba69b46248, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2469809342057135749, guid: 3b21b3fe9a183f84391271ba69b46248, type: 3}
       propertyPath: waitForSec
