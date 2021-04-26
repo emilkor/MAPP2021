@@ -8,13 +8,20 @@ public class PlayerMovement : MonoBehaviour
     private Rigidbody2D rigidbody;
     private float yAxis;
     private float xAxis;
-    private Vector2 velocity;
+    private Vector3 velocity;
     [SerializeField] private float defaultMovementSpeed = 10f;
     [SerializeField] private float smoothTime = 0.3f;
+    [SerializeField] private float movementYAxis = 5;
+    private float f;
 
     private float movementSpeed = 10f;
 
     // Start is called before the first frame update
+    private void Awake()
+    {
+        f = Input.acceleration.y;
+    }
+
     void Start()
     {
         rigidbody = GetComponent<Rigidbody2D>();
@@ -24,14 +31,13 @@ public class PlayerMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        yAxis = Input.acceleration.y * movementSpeed;
-        xAxis = Input.acceleration.x * movementSpeed;
-        transform.position = new Vector2(Mathf.Clamp(transform.position.x, -5f, 5f), Mathf.Clamp(transform.position.y, -5f, 5f));
-
         
+        yAxis = (Input.acceleration.y - f)  * movementSpeed * movementYAxis;
+        xAxis = Input.acceleration.x * movementSpeed;
+        transform.position = new Vector2(Mathf.Clamp(transform.position.x, -5f, 5f), Mathf.Clamp(transform.position.y, -9f, 9f));
 
-        rigidbody.velocity = Vector2.SmoothDamp(rigidbody.velocity, new Vector2(xAxis, yAxis), ref velocity, smoothTime);
-     
+        rigidbody.velocity = Vector3.SmoothDamp(rigidbody.velocity, new Vector3(xAxis, yAxis), ref velocity, smoothTime);
+        
     }
 
     public void SetMovementSpeed(float speed)
@@ -43,6 +49,11 @@ public class PlayerMovement : MonoBehaviour
     {
         movementSpeed = defaultMovementSpeed;
     }
+
+//     public void setYAxis(float f1)
+//     {
+//         f = f1;
+//     }
 
  
 }
