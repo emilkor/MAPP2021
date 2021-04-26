@@ -1962,7 +1962,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 1
-  m_Constraints: 6
+  m_Constraints: 4
 --- !u!58 &1184438009
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -6792,6 +6792,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e268d479ae3f74df396e2bb594df24ee, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  poweringUpTime: 7
   slowMotionFactor: 0.5
   slowMotionTime: 6
   playerMovement: {fileID: 1184438010}
@@ -6801,6 +6802,7 @@ MonoBehaviour:
   blockDestroier: {fileID: 1995685610}
   destroyLight: {fileID: 16814647}
   powerUp: 2
+  powerUpButton: {fileID: 1752894707}
 --- !u!1 &1302417138
 GameObject:
   m_ObjectHideFlags: 0
@@ -7420,7 +7422,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1572401442
 Transform:
   m_ObjectHideFlags: 0
@@ -7674,7 +7676,7 @@ MonoBehaviour:
     m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
     m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
     m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
-    m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
+    m_DisabledColor: {r: 0.38679248, g: 0.38679248, b: 0.38679248, a: 0.5019608}
     m_ColorMultiplier: 1
     m_FadeDuration: 0.1
   m_SpriteState:
