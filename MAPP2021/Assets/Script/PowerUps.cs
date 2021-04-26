@@ -1,9 +1,12 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class PowerUps : MonoBehaviour
 {
+    [SerializeField] private float poweringUpTime = 7f; 
+
     [SerializeField] private float slowMotionFactor = .5f;
     [SerializeField] private float slowMotionTime = 6f;
 
@@ -18,11 +21,16 @@ public class PowerUps : MonoBehaviour
 
     [SerializeField] private PowerUp powerUp;
 
+    [SerializeField] private Button powerUpButton;
+
+    private float powerUpPicker;
+
     // Start is called before the first frame update
     void Start()
     {
         blockDestroier.SetActive(false);
         destroyLight.SetActive(false);
+        PickPowerUp();
     }
 
 
@@ -40,7 +48,8 @@ public class PowerUps : MonoBehaviour
         {
             WallBreak();
         }
-
+        powerUpButton.interactable = false;
+        StartCoroutine(PoweringUp());
 
     }
 
@@ -82,6 +91,30 @@ public class PowerUps : MonoBehaviour
         destroyLight.SetActive(true);
         yield return new WaitForSeconds(.05f);
         destroyLight.SetActive(false);
+    }
+
+    private IEnumerator PoweringUp()
+    {
+        yield return new WaitForSeconds(poweringUpTime);
+        powerUpButton.interactable = true;
+        PickPowerUp();
+    }
+
+    private void PickPowerUp()
+    {
+        powerUpPicker = Random.value;
+        if (powerUpPicker < .33f)
+        {
+            powerUp = PowerUp.SlowMotion;
+        }
+        else if (powerUpPicker < .66f)
+        {
+            powerUp = PowerUp.SuperSpeed;
+        }
+        else
+        {
+            powerUp = PowerUp.WallBreak;
+        }
     }
 
 
