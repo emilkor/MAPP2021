@@ -17,6 +17,7 @@ public class PlayerDeath : MonoBehaviour
         particleSystem.Play();
         spriteRenderer.enabled = false;
         Time.timeScale = 0f;
+
     }
 
 

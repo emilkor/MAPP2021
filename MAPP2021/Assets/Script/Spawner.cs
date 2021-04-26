@@ -177,7 +177,6 @@ public class Spawner : MonoBehaviour
                 int amountOfPillars = (int)Math.Ceiling(((raidiusOfPosibulPositions * 2)+1) / pillarWidth);
                 int skipPillar = Random.Range(0, amountOfPillars);
                 bool rightSideFirst = Random.value < .5f;
-                Debug.Log(amountOfPillars);
                 //Debug.Break();
                 for (int i = 0; i < amountOfPillars; i++)
                 {
