@@ -17,7 +17,7 @@ public class BlockDestroid : MonoBehaviour
     }
     void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.isTrigger)
+        if (collision.CompareTag("Block Destroier"))
         {
             Destroy(gameObject);
         }
