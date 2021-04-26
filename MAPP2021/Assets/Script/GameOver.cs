@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -17,12 +18,16 @@ public class GameOver : MonoBehaviour
   
     private bool isAlive;
 
-    // Start is called before the first frame update
+    
     void Start()
     {
         gameOverScreen.SetActive(false);
+        highScoreText.enabled = false;
         isAlive = true;
+        Debug.Log(PlayerPrefs.GetInt("HighScore", 0));
     }
+
+   
 
     // Update is called once per frame
     void Update()
@@ -30,10 +35,11 @@ public class GameOver : MonoBehaviour
         if (isAlive == false)
         {
             gameOverScreen.SetActive(true);
-            highScoreText.enabled = false;
+           // highScoreText.enabled = false;
             ShowPoints();
             ClearScreen();
         }
+        
     }
 
     public void Restart()
@@ -67,7 +73,10 @@ public class GameOver : MonoBehaviour
             highScoreText.enabled = true;
             PlayerPrefs.SetInt("HighScore", possibleHighScore);
             PlayerPrefs.Save();
+            
         }
+
+        
     }
 
     public void setAlive(bool alive)
