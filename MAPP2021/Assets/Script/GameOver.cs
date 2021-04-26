@@ -14,7 +14,6 @@ public class GameOver : MonoBehaviour
     [SerializeField] private GameObject counter;
     [SerializeField] private GameObject powerUpButton;
     [SerializeField] private Text highScoreText;
-    private static int highScore;
   
     private bool isAlive;
 
@@ -63,10 +62,11 @@ public class GameOver : MonoBehaviour
         string s = pointCounter.getPoints();
         int possibleHighScore = int.Parse(s);
 
-        if(possibleHighScore > highScore)
+        if(possibleHighScore > PlayerPrefs.GetInt("HighScore"))
         {
             highScoreText.enabled = true;
-            highScore = possibleHighScore;
+            PlayerPrefs.SetInt("HighScore", possibleHighScore);
+            PlayerPrefs.Save();
         }
     }
 
