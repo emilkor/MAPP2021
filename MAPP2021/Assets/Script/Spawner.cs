@@ -83,7 +83,7 @@ public class Spawner : MonoBehaviour
     private float corridorHolePosition;
     private float corridorCurv;
     private int spawnAmount;
-    private PreviousStat previousStat;
+    private PreviousStat previousStat = PreviousStat.Corridor;
 
     
 
@@ -124,6 +124,7 @@ public class Spawner : MonoBehaviour
                 }
                 modeVariabul = Random.value;
                 previousStat = PreviousStat.Box;
+                yield return new WaitForSeconds(1f);
             }
 
         }
@@ -161,6 +162,7 @@ public class Spawner : MonoBehaviour
                     CorridorSpawner();
                     yield return new WaitForSeconds(timeBetweenCorridorWalls);
                 }
+                yield return new WaitForSeconds(0.7f);
                 modeVariabul = Random.value;
                 previousStat = PreviousStat.Corridor;
             }
@@ -185,6 +187,7 @@ public class Spawner : MonoBehaviour
                     yield return new WaitForSeconds(timeBetweenSideToSidePillarWalls);
                     //Debug.Log(i);
                 }
+                yield return new WaitForSeconds(2f);
                 //Debug.Log("After Loop");
                 modeVariabul = Random.value;
                 previousStat = PreviousStat.SideToSidePillar;

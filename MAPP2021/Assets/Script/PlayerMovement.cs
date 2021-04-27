@@ -37,6 +37,8 @@ public class PlayerMovement : MonoBehaviour
         transform.position = new Vector2(Mathf.Clamp(transform.position.x, -5f, 5f), Mathf.Clamp(transform.position.y, -9f, 9f));
 
         rigidbody.velocity = Vector3.SmoothDamp(rigidbody.velocity, new Vector3(xAxis, yAxis), ref velocity, smoothTime);
+
+        
         
     }
 
