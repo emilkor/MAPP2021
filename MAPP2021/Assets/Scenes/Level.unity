@@ -6873,6 +6873,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   poweringUpTime: 7
+  powerText: {fileID: 1534222355}
   slowMotionFactor: 0.5
   slowMotionTime: 6
   playerMovement: {fileID: 1184438010}
@@ -7470,18 +7471,18 @@ MonoBehaviour:
       m_Calls: []
   m_FontData:
     m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
-    m_FontSize: 14
+    m_FontSize: 60
     m_FontStyle: 0
     m_BestFit: 0
-    m_MinSize: 10
-    m_MaxSize: 40
+    m_MinSize: 0
+    m_MaxSize: 60
     m_Alignment: 4
     m_AlignByGeometry: 0
     m_RichText: 1
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Button
+  m_Text: Slow Motion
 --- !u!222 &1534222356
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -7506,7 +7507,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1572401442
 Transform:
   m_ObjectHideFlags: 0
@@ -7733,7 +7734,7 @@ RectTransform:
   m_AnchorMin: {x: 1, y: 0}
   m_AnchorMax: {x: 1, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 270.184, y: 271.1573}
+  m_SizeDelta: {x: 225.0822, y: 226.0555}
   m_Pivot: {x: 1, y: 0}
 --- !u!114 &1752894707
 MonoBehaviour:

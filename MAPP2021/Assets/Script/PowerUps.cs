@@ -5,7 +5,9 @@ using UnityEngine.UI;
 
 public class PowerUps : MonoBehaviour
 {
-    [SerializeField] private float poweringUpTime = 7f; 
+    [SerializeField] private float poweringUpTime = 7f;
+
+    [SerializeField] private Text powerText;
 
     [SerializeField] private float slowMotionFactor = .5f;
     [SerializeField] private float slowMotionTime = 6f;
@@ -106,14 +108,17 @@ public class PowerUps : MonoBehaviour
         if (powerUpPicker < .33f)
         {
             powerUp = PowerUp.SlowMotion;
+            powerText.text = "Slow Motion";
         }
         else if (powerUpPicker < .66f)
         {
             powerUp = PowerUp.SuperSpeed;
+            powerText.text = "Super Speed";
         }
         else
         {
             powerUp = PowerUp.WallBreak;
+            powerText.text = "Wall Break";
         }
     }
 
