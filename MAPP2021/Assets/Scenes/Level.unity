@@ -2055,9 +2055,9 @@ CircleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: -0.011252642}
+  m_Offset: {x: 0, y: -0.0112525225}
   serializedVersion: 2
-  m_Radius: 0.39872622
+  m_Radius: 0.31421077
 --- !u!114 &1184438010
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7541,8 +7541,8 @@ MonoBehaviour:
   block: {fileID: 5495258166039294534, guid: 00f4e68de705246ceb02cc4dcebf6cc5, type: 3}
   raidiusOfPosibulPositions: 9
   hightOfSpawnPosition: 11
-  minimumTimeBetweenBlocks: 0.25
-  maximumTimeBetweenBlocks: 0.5
+  minimumTimeBetweenBlocks: 0.7
+  maximumTimeBetweenBlocks: 1
   minimumWidthOfBlock: 1
   maximumWidthOfBlock: 4
   minimumBoxesBeforSpawnChange: 20

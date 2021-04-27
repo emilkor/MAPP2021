@@ -12,14 +12,14 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private float defaultMovementSpeed = 10f;
     [SerializeField] private float smoothTime = 0.3f;
     [SerializeField] private float movementYAxis = 5;
-    private float f;
+    private float resetYAxis;
 
     private float movementSpeed = 10f;
 
     // Start is called before the first frame update
     private void Awake()
     {
-        f = Input.acceleration.y;
+        resetYAxis = Input.acceleration.y;
     }
 
     void Start()
@@ -32,7 +32,7 @@ public class PlayerMovement : MonoBehaviour
     void Update()
     {
         
-        yAxis = (Input.acceleration.y - f)  * movementSpeed * movementYAxis;
+        yAxis = (Input.acceleration.y - resetYAxis)  * movementSpeed * movementYAxis;
         xAxis = Input.acceleration.x * movementSpeed;
         transform.position = new Vector2(Mathf.Clamp(transform.position.x, -5f, 5f), Mathf.Clamp(transform.position.y, -9f, 9f));
 
@@ -50,10 +50,4 @@ public class PlayerMovement : MonoBehaviour
         movementSpeed = defaultMovementSpeed;
     }
 
-//     public void setYAxis(float f1)
-//     {
-//         f = f1;
-//     }
-
- 
 }
