@@ -9,7 +9,6 @@ public class AudioManager : MonoBehaviour
     public static AudioManager instance;
 
     public float fadeWaitForSecs;
-    private int muteCounter = 0;
     private List<Sound> toggledClips = new List<Sound>();
 
     private Animator anim;
@@ -23,6 +22,7 @@ public class AudioManager : MonoBehaviour
     private int scoreThreshold;
     public int initialScoreThreshold;
     public ToggleButton toggleMuteButton;
+    private bool isMuted;
 
     public Sound[] sounds;
 
@@ -60,7 +60,7 @@ public class AudioManager : MonoBehaviour
 
     private void Start()
     {
-        Play("test");
+        Play("MenuTheme");
         scoreThreshold = initialScoreThreshold;
         mode = 0;
     }
@@ -142,47 +142,6 @@ public class AudioManager : MonoBehaviour
         return s;
     }
 
-    /*
-    public void ToggleMuteAll()
-    {
-        muteCounter++;
-        print(muteCounter);
-
-        foreach(Sound s in sounds)
-        {
-            if(muteCounter % 2 == 1)
-            {
-                if (!s.source.mute)
-                {
-                    s.source.mute = true;
-                    toggledClips.Add(s);
-                }
-            }
-            else
-            {
-                if (s.source.mute && toggledClips.Contains(s))
-                {
-                    s.source.mute = false;
-                    toggledClips.Remove(s);
-                }
-            }
-            
-        }
-    }*/
-
-    /*
-    public void CheckIsMuteOn()
-    {
-        if (toggleMuteButton.getIsOn())
-        {
-            MuteAll();
-        }
-        else
-        {
-            UnmuteAll();
-        }
-    }*/
-
     public void MuteAll()
     {
         foreach(Sound s in sounds)
@@ -191,6 +150,7 @@ public class AudioManager : MonoBehaviour
             {
                 s.source.mute = true;
                 toggledClips.Add(s);
+                isMuted = true;
             }
         }
     }
@@ -203,16 +163,10 @@ public class AudioManager : MonoBehaviour
             {
                 s.source.mute = false;
                 toggledClips.Remove(s);
+                isMuted = false;
             }
         }
     }
-
-
-    public void PlayButtonHover()
-    {
-        Play("ButtonHover");
-    }
-
     
     IEnumerator FadeIn(Sound s)
     {

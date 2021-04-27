@@ -45,14 +45,40 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   fadeWaitForSecs: 0
   universalFade: {fileID: 9100000, guid: 7f8b9d877f50d6143bea4f3a7b28d430, type: 2}
+  pointCounterEnabled: 0
   playerScore: 0
-  scoreThreshold: 0
+  initialScoreThreshold: 0
+  toggleMuteButton: {fileID: 0}
   sounds:
-  - name: 
-    clip: {fileID: 0}
+  - name: ButtonPress
+    clip: {fileID: 8300000, guid: 7f1127e71d2da474ab1b989237917001, type: 3}
     musicAnimator: {fileID: 0}
-    volume: 0
-    pitch: 0.1
+    volume: 0.386
+    pitch: 1
+    loop: 0
+    mute: 0
+    source: {fileID: 0}
+  - name: MenuTheme
+    clip: {fileID: 8300000, guid: 26f323309f339864c915b36655fb8243, type: 3}
+    musicAnimator: {fileID: 0}
+    volume: 0.558
+    pitch: 1
+    loop: 1
+    mute: 0
+    source: {fileID: 0}
+  - name: StartButton
+    clip: {fileID: 8300000, guid: d88bf91b9495a054ca59ae71484d4dac, type: 3}
+    musicAnimator: {fileID: 0}
+    volume: 0.558
+    pitch: 1
+    loop: 0
+    mute: 0
+    source: {fileID: 0}
+  - name: DeathSFX
+    clip: {fileID: 8300000, guid: 75e9c461383e78f45b2703e859576516, type: 3}
+    musicAnimator: {fileID: 0}
+    volume: 0.558
+    pitch: 1
     loop: 0
     mute: 0
     source: {fileID: 0}

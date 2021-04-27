@@ -18,6 +18,7 @@ public class PlayerDeath : MonoBehaviour
         spriteRenderer.enabled = false;
         Time.timeScale = 0f;
 
+        FindObjectOfType<AudioManager>().Play("PlayerDeath");
     }
 
 
