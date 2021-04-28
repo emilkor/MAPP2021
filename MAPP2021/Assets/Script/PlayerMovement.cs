@@ -13,6 +13,8 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private float smoothTime = 0.3f;
     [SerializeField] private float movementYAxis = 5;
     private float resetYAxis;
+    [SerializeField] private Camera camera;
+
 
     private float movementSpeed = 10f;
 
@@ -34,7 +36,7 @@ public class PlayerMovement : MonoBehaviour
         
         yAxis = (Input.acceleration.y - resetYAxis)  * movementSpeed * movementYAxis;
         xAxis = Input.acceleration.x * movementSpeed;
-        transform.position = new Vector2(Mathf.Clamp(transform.position.x, -5f, 5f), Mathf.Clamp(transform.position.y, -9f, 9f));
+        transform.position = new Vector2(Mathf.Clamp(transform.position.x, -5.5f, 5.5f), Mathf.Clamp(transform.position.y, -(camera.orthographicSize - 0.5f), camera.orthographicSize - 0.5f));
 
         rigidbody.velocity = Vector3.SmoothDamp(rigidbody.velocity, new Vector3(xAxis, yAxis), ref velocity, smoothTime);
 
