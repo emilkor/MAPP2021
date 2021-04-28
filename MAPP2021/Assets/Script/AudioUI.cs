@@ -23,7 +23,10 @@ public class AudioUI : MonoBehaviour
 
     public void FadeOut(string str)
     {
-        Sound clipToFade = am.GetAudioclip(str);
-        am.StartCoroutine(am.FadeOut(clipToFade));
+        if(str == null)
+        {
+            Debug.LogWarning("Fading out nothing!");
+        }
+        am.StartCoroutine(am.FadeOut(str));
     }
 }
