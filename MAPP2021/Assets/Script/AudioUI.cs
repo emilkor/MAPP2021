@@ -20,4 +20,13 @@ public class AudioUI : MonoBehaviour
     {
         am.Play("StartButton");
     }
+
+    public void FadeOut(string str)
+    {
+        if(str == null)
+        {
+            Debug.LogWarning("Fading out nothing!");
+        }
+        am.StartCoroutine(am.FadeOut(str));
+    }
 }

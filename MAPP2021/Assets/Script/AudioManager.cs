@@ -43,13 +43,10 @@ public class AudioManager : MonoBehaviour
 
         anim = gameObject.AddComponent<Animator>();
 
-        foreach(Sound s in sounds)
+        foreach (Sound s in sounds)
         {
             s.source = gameObject.AddComponent<AudioSource>();
             s.source.clip = s.clip;
-
-            s.musicAnimator = anim;
-            anim.runtimeAnimatorController = universalFade;
 
             s.source.volume = s.volume;
             s.source.pitch = s.pitch;
@@ -97,26 +94,24 @@ public class AudioManager : MonoBehaviour
     
     private void SetFadeIO()
     {
-        Sound s = GetAudioclip("test");
-
         switch (mode)
         {
             case 1:
                 //Sätt rätt fil i rätt mode
                 print("Fading out...");
-                StartCoroutine(FadeOut(s));
+                StartCoroutine(FadeOut("MenuTheme"));
                 break;
             case 2:
                 print("Fading in...");
-                StartCoroutine(FadeIn(s));
+                StartCoroutine(FadeIn("MenuTheme"));
                 break;
             case 3:
                 print("Fading out...");
-                StartCoroutine(FadeOut(s));
+                StartCoroutine(FadeOut("MenuTheme"));
                 break;
             case 4:
                 print("Fading in...");
-                StartCoroutine(FadeIn(s));
+                StartCoroutine(FadeIn("MenuTheme"));
                 break;
         }
     }
@@ -135,6 +130,7 @@ public class AudioManager : MonoBehaviour
     public Sound GetAudioclip(string name)
     {
         Sound s = Array.Find(sounds, sound => sound.name == name);
+
         if (s == null)
         {
             Debug.LogWarning("Ljudfilen hittades inte!");
@@ -168,15 +164,42 @@ public class AudioManager : MonoBehaviour
         }
     }
     
-    IEnumerator FadeIn(Sound s)
+    public IEnumerator FadeIn(string str)
     {
+        Sound s = GetAudioclip(str);
+
+        s.musicAnimator = anim;
+        anim.runtimeAnimatorController = universalFade;
         s.musicAnimator.SetTrigger("FadeIn");
+        s.musicAnimator = null;
         yield return new WaitForSeconds(fadeWaitForSecs);
     }
 
-    IEnumerator FadeOut(Sound s)
+    public IEnumerator FadeOut(string str)
     {
+        Sound s = GetAudioclip(str);
+
+        /*
+        if (!str.Equals(s.name))
+        {
+            Debug.LogWarning("Fade out name doesn't match");
+        }
+        */
+
+        s.musicAnimator = anim;
+        anim.runtimeAnimatorController = universalFade;
+        
+        foreach(AnimationClip a in anim.runtimeAnimatorController.animationClips)
+        {
+            if (a.name.Equals("FadeOut"))
+            {
+                //a.
+            }
+        }
+
+        //s.musicAnimator.Set
         s.musicAnimator.SetTrigger("FadeOut");
+        //s.musicAnimator = null;
         yield return new WaitForSeconds(fadeWaitForSecs);
     }
 
