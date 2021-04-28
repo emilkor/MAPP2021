@@ -168,13 +168,13 @@ public class AudioManager : MonoBehaviour
         }
     }
     
-    IEnumerator FadeIn(Sound s)
+    public IEnumerator FadeIn(Sound s)
     {
         s.musicAnimator.SetTrigger("FadeIn");
         yield return new WaitForSeconds(fadeWaitForSecs);
     }
 
-    IEnumerator FadeOut(Sound s)
+    public IEnumerator FadeOut(Sound s)
     {
         s.musicAnimator.SetTrigger("FadeOut");
         yield return new WaitForSeconds(fadeWaitForSecs);

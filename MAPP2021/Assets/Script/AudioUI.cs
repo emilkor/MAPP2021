@@ -20,4 +20,10 @@ public class AudioUI : MonoBehaviour
     {
         am.Play("StartButton");
     }
+
+    public void FadeOut(string str)
+    {
+        Sound clipToFade = am.GetAudioclip(str);
+        am.StartCoroutine(am.FadeOut(clipToFade));
+    }
 }
