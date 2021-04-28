@@ -1,14 +1,24 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Audio;
+using UnityEngine.SceneManagement;
 
 public class AudioUI : MonoBehaviour
 {
     private AudioManager am;
+    public AudioMixer musicMixer;
 
-    private void Start()
+    public float fadeTo = 0f;
+    public float fadeDuration = 2f;
+
+    private void Awake()
     {
         am = FindObjectOfType<AudioManager>();
+        if (SceneManager.GetActiveScene().name.Equals("Level"))
+        {
+            StartCoroutine(FadeMixerGroup.StartFade(musicMixer, "MenuVolume", fadeDuration - 1f, fadeTo));
+        }
     }
 
     public void PlayButtonPress()
@@ -21,12 +31,14 @@ public class AudioUI : MonoBehaviour
         am.Play("StartButton");
     }
 
-    public void FadeOut(string str)
+    
+    public void FadeOutMenu()
     {
-        if(str == null)
-        {
-            Debug.LogWarning("Fading out nothing!");
-        }
-        am.StartCoroutine(am.FadeOut(str));
+        StartCoroutine(FadeMixerGroup.StartFade(musicMixer, "MenuVolume", fadeDuration, fadeTo));
+    }
+
+    public void RestoreMenuTheme()
+    {
+        musicMixer.SetFloat("MenuVolume", 0f);
     }
 }
