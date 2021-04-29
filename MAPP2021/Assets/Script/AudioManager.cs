@@ -185,12 +185,11 @@ public class AudioManager : MonoBehaviour
     }
 
 
-    //Fixa SFX så att den kopplar till SFX mixern och inte den individuella gruppen
     public void MuteSFX()
     {
         foreach(Sound s in sounds)
         {
-            if(s.source.outputAudioMixerGroup.name == "Press Button")
+            if(s.source.outputAudioMixerGroup.audioMixer.name == "SFX")
             {
                 s.source.mute = true;
             }
@@ -201,7 +200,7 @@ public class AudioManager : MonoBehaviour
     {
         foreach (Sound s in sounds)
         {
-            if (s.source.outputAudioMixerGroup.name == "Press Button" && s.source.mute == true)
+            if (s.source.outputAudioMixerGroup.audioMixer.name == "SFX" && s.source.mute == true)
             {
                 s.source.mute = false;
             }

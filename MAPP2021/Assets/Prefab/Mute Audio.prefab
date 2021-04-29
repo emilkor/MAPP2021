@@ -99,6 +99,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 84fb8227ae9d5804e9f889b091e6334b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  muteMusic: 1
+  muteSound: 0
 --- !u!1 &8286467365036107824
 GameObject:
   m_ObjectHideFlags: 0

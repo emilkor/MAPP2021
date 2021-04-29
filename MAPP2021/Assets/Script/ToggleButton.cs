@@ -102,7 +102,7 @@ public class ToggleButton : MonoBehaviour
 
     public bool getIsOn()
     {
-        return gameObject.GetComponent<Toggle>().isOn;
+        return this.gameObject.GetComponent<Toggle>().isOn;
     }
 }
 
