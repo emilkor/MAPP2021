@@ -5,8 +5,12 @@ using UnityEngine.UI;
 
 public class ToggleButton : MonoBehaviour
 {
-    //private static int counter = 0;
-    private static bool universalEnable;
+    public bool muteMusic;
+    public bool muteSound;
+
+    //private static bool universalEnable;
+    private static bool musicEnable;
+    private static bool soundEnable;
 
     private AudioManager am;
 
@@ -14,6 +18,31 @@ public class ToggleButton : MonoBehaviour
     {
         am = FindObjectOfType<AudioManager>();
 
+        if (muteMusic)
+        {
+            if (musicEnable)
+            {
+                ToggleTrue();
+            }
+            else
+            {
+                ToggleFalse();
+            }
+        }
+
+        if (muteSound)
+        {
+            if (soundEnable)
+            {
+                ToggleTrue();
+            }
+            else
+            {
+                ToggleFalse();
+            }
+        }
+        
+        /*
         if (universalEnable)
         {
             ToggleTrue();
@@ -21,19 +50,43 @@ public class ToggleButton : MonoBehaviour
         else
         {
             ToggleFalse();
-        }
+        }*/
     }
     private void Update()
     {
         if (gameObject.GetComponent<Toggle>().isOn)
         {
-            universalEnable = true;
-            am.MuteAll();
+            if (muteMusic)
+            {
+                musicEnable = true;
+                am.MuteMusic();
+            }
+
+            if (muteSound)
+            {
+                soundEnable = true;
+                am.MuteSFX();
+            }
+
+            //universalEnable = true;
+            //am.MuteAll();
         }
         else
         {
-            universalEnable = false;
-            am.UnmuteAll();
+            if (muteMusic)
+            {
+                musicEnable = false;
+                am.UnmuteMusic();
+            }
+
+            if (muteSound)
+            {
+                soundEnable = false;
+                am.UnmuteSFX();
+            }
+
+            //universalEnable = false;
+            //am.UnmuteAll();
         }
     }
 
@@ -46,12 +99,6 @@ public class ToggleButton : MonoBehaviour
     {
         gameObject.GetComponent<Toggle>().isOn = false;
     }
-
-    /*
-    public void Counter()
-    {
-        counter++;
-    }*/
 
     public bool getIsOn()
     {

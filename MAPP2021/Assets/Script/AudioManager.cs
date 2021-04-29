@@ -161,7 +161,53 @@ public class AudioManager : MonoBehaviour
             }
         }
     }
-    
+
+    public void MuteMusic()
+    {
+        foreach(Sound s in sounds)
+        {
+            if(s.name == "MenuTheme" || s.name == "GameTheme")
+            {
+                s.source.mute = true;
+            }
+        }
+    }
+
+    public void UnmuteMusic()
+    {
+        foreach (Sound s in sounds)
+        {
+            if (s.name == "MenuTheme" || s.name == "GameTheme" && s.source.mute == true)
+            {
+                s.source.mute = false;
+            }
+        }
+    }
+
+
+    //Fixa SFX så att den kopplar till SFX mixern och inte den individuella gruppen
+    public void MuteSFX()
+    {
+        foreach(Sound s in sounds)
+        {
+            if(s.source.outputAudioMixerGroup.name == "Press Button")
+            {
+                s.source.mute = true;
+            }
+        }
+    }
+
+    public void UnmuteSFX()
+    {
+        foreach (Sound s in sounds)
+        {
+            if (s.source.outputAudioMixerGroup.name == "Press Button" && s.source.mute == true)
+            {
+                s.source.mute = false;
+            }
+        }
+    }
+
     /*
     public IEnumerator FadeIn(string str)
     {
