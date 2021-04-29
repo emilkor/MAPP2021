@@ -14,7 +14,7 @@ public class PointCounter : MonoBehaviour
 
 
    // Update is called once per frame
-   void Update()
+   void FixedUpdate()
     {
         text.text = string.Format("{0:0}", blockSpeed.GetPoint()*pointSpeed);
     }
