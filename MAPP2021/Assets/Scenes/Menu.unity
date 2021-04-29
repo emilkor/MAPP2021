@@ -152,6 +152,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b15a65123a4a5d249aa81b6171889dd6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  musicMixer: {fileID: 24100000, guid: 4a3f3cecf2cc57640b8552931cbd47d1, type: 2}
+  fadeTo: 0
+  fadeDuration: 2
 --- !u!4 &156429437
 Transform:
   m_ObjectHideFlags: 0
@@ -324,14 +327,14 @@ MonoBehaviour:
         m_CallState: 2
       - m_Target: {fileID: 156429436}
         m_TargetAssemblyTypeName: AudioUI, Assembly-CSharp
-        m_MethodName: FadeOut
-        m_Mode: 5
+        m_MethodName: FadeOutMenu
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: MenuTheme
+          m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!114 &265032976
@@ -1308,18 +1311,6 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 156429436}
-        m_TargetAssemblyTypeName: AudioUI, Assembly-CSharp
-        m_MethodName: FadeOut
-        m_Mode: 5
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: MenuTheme
-          m_BoolArgument: 0
-        m_CallState: 2
 --- !u!114 &1586571869
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1602,6 +1593,22 @@ PrefabInstance:
       propertyPath: sounds.Array.data[3].name
       value: PlayerDeath
       objectReference: {fileID: 0}
+    - target: {fileID: 2469809342057135749, guid: 3b21b3fe9a183f84391271ba69b46248, type: 3}
+      propertyPath: sounds.Array.data[0].output
+      value: 
+      objectReference: {fileID: -5695022427183613631, guid: 1fd6bcf3470d58e4ea7b383dba7457af, type: 2}
+    - target: {fileID: 2469809342057135749, guid: 3b21b3fe9a183f84391271ba69b46248, type: 3}
+      propertyPath: sounds.Array.data[1].output
+      value: 
+      objectReference: {fileID: -5819049859289718837, guid: 4a3f3cecf2cc57640b8552931cbd47d1, type: 2}
+    - target: {fileID: 2469809342057135749, guid: 3b21b3fe9a183f84391271ba69b46248, type: 3}
+      propertyPath: sounds.Array.data[2].output
+      value: 
+      objectReference: {fileID: 6745937954441490613, guid: 1fd6bcf3470d58e4ea7b383dba7457af, type: 2}
+    - target: {fileID: 2469809342057135749, guid: 3b21b3fe9a183f84391271ba69b46248, type: 3}
+      propertyPath: sounds.Array.data[3].output
+      value: 
+      objectReference: {fileID: 8751510521971949253, guid: 1fd6bcf3470d58e4ea7b383dba7457af, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3b21b3fe9a183f84391271ba69b46248, type: 3}
 --- !u!1 &1959095814

@@ -11,7 +11,8 @@ public class Sound
 
     public AudioClip clip;
 
-    public Animator musicAnimator;
+    //public Animator musicAnimator;
+    public AudioMixerGroup output;
 
     [Range(0f, 1f)]
     public float volume;

@@ -41,13 +41,11 @@ public class AudioManager : MonoBehaviour
 
         DontDestroyOnLoad(gameObject);
 
-        anim = gameObject.AddComponent<Animator>();
-
         foreach (Sound s in sounds)
         {
             s.source = gameObject.AddComponent<AudioSource>();
             s.source.clip = s.clip;
-
+            s.source.outputAudioMixerGroup = s.output;
             s.source.volume = s.volume;
             s.source.pitch = s.pitch;
             s.source.loop = s.loop;
@@ -80,7 +78,7 @@ public class AudioManager : MonoBehaviour
                 {
                     scoreThreshold += playerScore;
                     mode++;
-                    SetFadeIO();
+                    //SetFadeIO();
                 }
 
             }
@@ -91,7 +89,7 @@ public class AudioManager : MonoBehaviour
         }
     }
 
-    
+    /*
     private void SetFadeIO()
     {
         switch (mode)
@@ -114,7 +112,7 @@ public class AudioManager : MonoBehaviour
                 StartCoroutine(FadeIn("MenuTheme"));
                 break;
         }
-    }
+    }*/
 
     public void Play(string name)
     {
@@ -164,6 +162,7 @@ public class AudioManager : MonoBehaviour
         }
     }
     
+    /*
     public IEnumerator FadeIn(string str)
     {
         Sound s = GetAudioclip(str);
@@ -179,12 +178,12 @@ public class AudioManager : MonoBehaviour
     {
         Sound s = GetAudioclip(str);
 
-        /*
+        
         if (!str.Equals(s.name))
         {
             Debug.LogWarning("Fade out name doesn't match");
         }
-        */
+        
 
         s.musicAnimator = anim;
         anim.runtimeAnimatorController = universalFade;
@@ -201,7 +200,7 @@ public class AudioManager : MonoBehaviour
         s.musicAnimator.SetTrigger("FadeOut");
         //s.musicAnimator = null;
         yield return new WaitForSeconds(fadeWaitForSecs);
-    }
+    }*/
 
     //Kod att sätta in för att initiera ett önskat ljud. Man måste sätta in ljudfilens namn i parantesen.
     //FindObjectofType<AudioManager>().Play(NAME_OF_THE_CLIP_AS_STRING);
