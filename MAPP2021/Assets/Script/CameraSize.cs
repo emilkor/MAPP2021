@@ -10,15 +10,9 @@ public class CameraSize : MonoBehaviour
     private float aspectRation;
 
     // Start is called before the first frame update
-    void Start()
+    void Awake()
     {
         aspectRation = camera.aspect;
         camera.orthographicSize = cameraWidth / aspectRation;
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
     }
 }
