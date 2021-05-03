@@ -25,7 +25,6 @@ public class BlinkingBody : MonoBehaviour
             timer[i] = spreadOfBlinkers * i;
             blinkingColor[i] = blinkingBody[i].GetComponent<SpriteRenderer>();
         }
-        Debug.Log(spreadOfBlinkers);
     }
 
     // Update is called once per frame
@@ -43,7 +42,6 @@ public class BlinkingBody : MonoBehaviour
             colorTransparency = Mathf.Lerp(1, 0, timer[i]);
             blinkingBody[i].transform.localScale = new Vector3(bodySize, bodySize);
             blinkingColor[i].color = new Color(1, 1, 1, colorTransparency);
-            Debug.Log(timer[i]);
         }
         
     }

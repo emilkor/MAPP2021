@@ -3287,11 +3287,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1752894705}
   m_CullTransparentMesh: 1
---- !u!1 &1885556073 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 5743720892399145714, guid: e200cf69cdfb64dee935d59d6e9094a7, type: 3}
-  m_PrefabInstance: {fileID: 6190953269567934622}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1930408481
 GameObject:
   m_ObjectHideFlags: 0
@@ -3747,7 +3742,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1043695735, guid: e200cf69cdfb64dee935d59d6e9094a7, type: 3}
       propertyPath: blinkingBody.Array.size
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1043695735, guid: e200cf69cdfb64dee935d59d6e9094a7, type: 3}
       propertyPath: blinkingBody.Array.data[0]
@@ -3756,7 +3751,7 @@ PrefabInstance:
     - target: {fileID: 1043695735, guid: e200cf69cdfb64dee935d59d6e9094a7, type: 3}
       propertyPath: blinkingBody.Array.data[1]
       value: 
-      objectReference: {fileID: 1885556073}
+      objectReference: {fileID: 0}
     - target: {fileID: 1043695735, guid: e200cf69cdfb64dee935d59d6e9094a7, type: 3}
       propertyPath: blinkingBody.Array.data[2]
       value: 
