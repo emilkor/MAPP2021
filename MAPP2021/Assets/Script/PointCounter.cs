@@ -23,4 +23,9 @@ public class PointCounter : MonoBehaviour
     {
         return text.text;
     }
+
+    public int getPointsInt()
+    {
+        return Convert.ToInt32(text.text);
+    }
 }
