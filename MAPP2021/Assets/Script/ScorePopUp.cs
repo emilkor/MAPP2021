@@ -16,6 +16,9 @@ public class ScorePopUp : MonoBehaviour
 
     [SerializeField] private float duration;
     private float timeRemaining;
+    [SerializeField] private GameObject player;
+    [SerializeField] private Camera camera;
+  
 
     private void Start()
     {
@@ -59,6 +62,8 @@ public class ScorePopUp : MonoBehaviour
 
             }
         }
+
+        gameObject.transform.position = camera.ScreenToWorldPoint(player.transform.position);
 
     }
 
