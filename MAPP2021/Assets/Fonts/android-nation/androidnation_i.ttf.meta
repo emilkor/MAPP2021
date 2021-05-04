@@ -1,0 +1,23 @@
+fileFormatVersion: 2
+guid: efe96bce226a48546896e66dd04ca019
+TrueTypeFontImporter:
+  externalObjects: {}
+  serializedVersion: 4
+  fontSize: 16
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontNames:
+  - Android Nation
+  fallbackFontReferences:
+  - {fileID: 12800000, guid: 48d6c4546e6fa624480827234fa7f4e1, type: 3}
+  - {fileID: 12800000, guid: 381fd973ea8bc15429a9a9463ed48f04, type: 3}
+  customCharacters: 
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  useLegacyBoundsCalculation: 0
+  shouldRoundAdvanceValue: 1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
