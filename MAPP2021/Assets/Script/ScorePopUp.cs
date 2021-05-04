@@ -16,13 +16,10 @@ public class ScorePopUp : MonoBehaviour
 
     [SerializeField] private float duration;
     private float timeRemaining;
-    [SerializeField] private GameObject player;
-    [SerializeField] private Camera camera;
-  
 
     private void Start()
     {
-        
+
     }
 
     void Awake()
@@ -35,7 +32,7 @@ public class ScorePopUp : MonoBehaviour
     {
         int score = pointCounter.getPointsInt();
 
-        if(score == popThreshold)
+        if (score == popThreshold)
         {
             text.text = pointCounter.getPoints();
             PopUp();
@@ -56,14 +53,12 @@ public class ScorePopUp : MonoBehaviour
         else
         {
             //VVV möjligtvis knäppt /August
-            if(gameObject.transform.localScale != new Vector3(0, 0, 0))
+            if (gameObject.transform.localScale != new Vector3(0, 0, 0))
             {
                 gameObject.transform.localScale += (startSize - gameObject.transform.localScale) * 0.1f;
 
             }
         }
-
-        gameObject.transform.position = camera.ScreenToWorldPoint(player.transform.position);
 
     }
 

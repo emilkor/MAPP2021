@@ -39,4 +39,10 @@ public class BoxMovement : MonoBehaviour
             Destroy(gameObject);
         }
     }
+
+    public Vector2 getTarget()
+    {
+        return targetPosition;
+    }
+
 }
