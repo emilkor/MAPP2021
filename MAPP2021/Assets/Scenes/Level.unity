@@ -292,7 +292,7 @@ GameObject:
   - component: {fileID: 257546958}
   - component: {fileID: 257546957}
   m_Layer: 0
-  m_Name: Spot Light
+  m_Name: SpotLight
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3743,7 +3743,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1043695735, guid: e200cf69cdfb64dee935d59d6e9094a7, type: 3}
       propertyPath: blinkingTime
-      value: 10
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 1043695735, guid: e200cf69cdfb64dee935d59d6e9094a7, type: 3}
       propertyPath: blinkingBody.Array.size
@@ -3788,6 +3788,18 @@ PrefabInstance:
     - target: {fileID: 1043695735, guid: e200cf69cdfb64dee935d59d6e9094a7, type: 3}
       propertyPath: blinkingBody.Array.data[9]
       value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 4434395818902672885, guid: e200cf69cdfb64dee935d59d6e9094a7, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5811130199183489410, guid: e200cf69cdfb64dee935d59d6e9094a7, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6190953269551121065, guid: e200cf69cdfb64dee935d59d6e9094a7, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6190953270601238112, guid: e200cf69cdfb64dee935d59d6e9094a7, type: 3}
       propertyPath: powerText
@@ -3848,6 +3860,18 @@ PrefabInstance:
     - target: {fileID: 6190953270601238123, guid: e200cf69cdfb64dee935d59d6e9094a7, type: 3}
       propertyPath: m_Name
       value: Player
+      objectReference: {fileID: 0}
+    - target: {fileID: 6190953270871092852, guid: e200cf69cdfb64dee935d59d6e9094a7, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8195120089019514419, guid: e200cf69cdfb64dee935d59d6e9094a7, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8322280305808634025, guid: e200cf69cdfb64dee935d59d6e9094a7, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e200cf69cdfb64dee935d59d6e9094a7, type: 3}
