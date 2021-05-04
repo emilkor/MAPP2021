@@ -40,7 +40,12 @@ public class ScorePopUp : MonoBehaviour
             popThreshold *= 2;
         }
 
-        if(timeRemaining > 0f)
+        if (GameObject.FindGameObjectsWithTag("Menu").Length > 0)
+        {
+            timeRemaining = 0f;
+        }
+
+        if (timeRemaining > 0f)
         {
             gameObject.transform.localScale += (targetSize - gameObject.transform.localScale) * 0.1f;
             timeRemaining -= Time.deltaTime;
