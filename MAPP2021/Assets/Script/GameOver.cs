@@ -24,6 +24,7 @@ public class GameOver : MonoBehaviour
         gameOverScreen.SetActive(false);
         highScoreText.enabled = false;
         isAlive = true;
+        
         Debug.Log(PlayerPrefs.GetInt("HighScore", 0));
     }
 
@@ -65,14 +66,15 @@ public class GameOver : MonoBehaviour
     {
         points.text = pointCounter.getPoints();
 
-        string s = pointCounter.getPoints();
-        int possibleHighScore = int.Parse(s);
+
+        int possibleHighScore = pointCounter.getPointsInt();
 
         if(possibleHighScore > PlayerPrefs.GetInt("HighScore"))
         {
             highScoreText.enabled = true;
             PlayerPrefs.SetInt("HighScore", possibleHighScore);
             PlayerPrefs.Save();
+            Debug.Log(PlayerPrefs.GetInt("HighScore", 0));
             
         }
 
