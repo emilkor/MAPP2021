@@ -1253,7 +1253,7 @@ TrailRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Time: 100
+  m_Time: 0.4
   m_Parameters:
     serializedVersion: 3
     widthMultiplier: 1
@@ -1263,20 +1263,20 @@ TrailRenderer:
       - serializedVersion: 3
         time: 0
         value: 1
-        inSlope: -1.0313972
-        outSlope: -1.0313972
+        inSlope: -0.8396501
+        outSlope: -0.8396501
         tangentMode: 0
         weightedMode: 0
         inWeight: 0.33333334
-        outWeight: 1
+        outWeight: 0.27222222
       - serializedVersion: 3
         time: 1
         value: 0
-        inSlope: -0.98234355
-        outSlope: -0.98234355
+        inSlope: -0.22167487
+        outSlope: -0.22167487
         tangentMode: 0
         weightedMode: 0
-        inWeight: 1
+        inWeight: 0.32222223
         outWeight: 0
       m_PreInfinity: 2
       m_PostInfinity: 2
@@ -1284,7 +1284,7 @@ TrailRenderer:
     colorGradient:
       serializedVersion: 2
       key0: {r: 1, g: 1, b: 1, a: 1}
-      key1: {r: 1, g: 1, b: 1, a: 1}
+      key1: {r: 1, g: 1, b: 1, a: 0}
       key2: {r: 0, g: 0, b: 0, a: 0}
       key3: {r: 0, g: 0, b: 0, a: 0}
       key4: {r: 0, g: 0, b: 0, a: 0}
@@ -1299,7 +1299,7 @@ TrailRenderer:
       ctime5: 0
       ctime6: 0
       ctime7: 0
-      atime0: 0
+      atime0: 31226
       atime1: 65535
       atime2: 0
       atime3: 0
@@ -1317,7 +1317,7 @@ TrailRenderer:
     shadowBias: 0.5
     generateLightingData: 0
   m_MinVertexDistance: 0.1
-  m_Autodestruct: 0
+  m_Autodestruct: 1
   m_Emitting: 1
 --- !u!1 &600499319
 GameObject:
@@ -4785,11 +4785,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6190953270601238121, guid: e200cf69cdfb64dee935d59d6e9094a7, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -2.86
+      value: -5.26
       objectReference: {fileID: 0}
     - target: {fileID: 6190953270601238121, guid: e200cf69cdfb64dee935d59d6e9094a7, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 6.48
+      value: 0.59
       objectReference: {fileID: 0}
     - target: {fileID: 6190953270601238121, guid: e200cf69cdfb64dee935d59d6e9094a7, type: 3}
       propertyPath: m_LocalPosition.z
