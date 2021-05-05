@@ -41,6 +41,7 @@ public class PowerUps : MonoBehaviour
         if(powerUp == PowerUp.SlowMotion)
         {
             StartCoroutine(SlowMotion());
+            FindObjectOfType<AudioManager>().Play("SlowMotion");
         }
         if(powerUp == PowerUp.SuperSpeed)
         {
@@ -49,6 +50,7 @@ public class PowerUps : MonoBehaviour
         if(powerUp == PowerUp.WallBreak)
         {
             WallBreak();
+            FindObjectOfType<AudioManager>().Play("WallBreak");
         }
         powerUpButton.interactable = false;
         StartCoroutine(PoweringUp());
