@@ -5,6 +5,10 @@ using UnityEngine.UI;
 
 public class PowerUps : MonoBehaviour
 {
+    [SerializeField] private float chansForSlowMotion;
+    [SerializeField] private float chansForSuperSpeed;
+    [SerializeField] private float chansForBlockDestroier;
+    [SerializeField] private float chansForBomb;
     [SerializeField] private float poweringUpTime = 7f;
 
     [SerializeField] private Text powerText;
@@ -50,6 +54,10 @@ public class PowerUps : MonoBehaviour
         {
             WallBreak();
         }
+        if(powerUp == PowerUp.Bomb)
+        {
+            Bomb();
+        }
         powerUpButton.interactable = false;
         StartCoroutine(PoweringUp());
 
@@ -86,6 +94,15 @@ public class PowerUps : MonoBehaviour
         }
     }
 
+    private void Bomb()
+    {
+        GameObject[] blocks = GameObject.FindGameObjectsWithTag("Obstacle Block");
+        foreach (GameObject o in blocks)
+        {
+            Destroy(o);
+        }
+    }
+
     private IEnumerator DestroyLight(float distance)
     {
         destroyLight.transform.localScale = new Vector3(.1f, distance);
@@ -105,20 +122,25 @@ public class PowerUps : MonoBehaviour
     private void PickPowerUp()
     {
         powerUpPicker = Random.value;
-        if (powerUpPicker < .33f)
+        if (powerUpPicker < chansForSlowMotion)
         {
             powerUp = PowerUp.SlowMotion;
             powerText.text = "Slow Motion";
         }
-        else if (powerUpPicker < .66f)
+        else if (powerUpPicker < chansForSuperSpeed)
         {
             powerUp = PowerUp.SuperSpeed;
             powerText.text = "Super Speed";
         }
-        else
+        else if (powerUpPicker < chansForSlowMotion)
         {
             powerUp = PowerUp.WallBreak;
             powerText.text = "Wall Break";
+        }
+        else if (powerUpPicker <= chansForBomb)
+        {
+            powerUp = PowerUp.Bomb;
+            powerText.text = "Bomb";
         }
     }
 
@@ -128,5 +150,6 @@ public enum PowerUp
 {
     SlowMotion,
     SuperSpeed,
-    WallBreak
+    WallBreak,
+    Bomb
 }
