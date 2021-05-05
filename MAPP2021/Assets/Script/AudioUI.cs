@@ -6,21 +6,27 @@ using UnityEngine.SceneManagement;
 
 public class AudioUI : MonoBehaviour
 {
+    private static float MIXER_MUTE = -80f;
+
     private AudioManager am;
     public AudioMixer musicMixer;
 
     public float fadeTo = 0f;
-    public float fadeDuration = 2f;
+    public float fadeDuration;
 
     private void Awake()
     {
         am = FindObjectOfType<AudioManager>();
+
         if (SceneManager.GetActiveScene().name.Equals("Level"))
         {
-            StartCoroutine(FadeMixerGroup.StartFade(musicMixer, "MenuVolume", fadeDuration - 1f, fadeTo));
+            FadeOutMenu();
         }
 
-       
+        if (SceneManager.GetActiveScene().name.Equals("Menu"))
+        {
+            RestoreMenuTheme();
+        }
     }
 
     public void PlayButtonPress()
@@ -36,7 +42,7 @@ public class AudioUI : MonoBehaviour
     
     public void FadeOutMenu()
     {
-        StartCoroutine(FadeMixerGroup.StartFade(musicMixer, "MenuVolume", fadeDuration, fadeTo));
+        StartCoroutine(FadeMixerGroup.StartFade(musicMixer, "MenuVolume", fadeDuration * 0.5f, fadeTo));
     }
 
     public void RestoreMenuTheme()
