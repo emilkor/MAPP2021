@@ -5,6 +5,10 @@ using UnityEngine.UI;
 
 public class PowerUps : MonoBehaviour
 {
+    [SerializeField] private BombEffect bombEffect;
+
+    [SerializeField] private CameraShake cameraShake;
+
     [SerializeField] private float chansForSlowMotion;
     [SerializeField] private float chansForSuperSpeed;
     [SerializeField] private float chansForBlockDestroier;
@@ -29,6 +33,9 @@ public class PowerUps : MonoBehaviour
 
     [SerializeField] private Button powerUpButton;
 
+    [SerializeField] private float secondsOfBombEffect;
+    [SerializeField] private float bombShakeMagnitud;
+
     private float powerUpPicker;
 
     // Start is called before the first frame update
@@ -44,6 +51,7 @@ public class PowerUps : MonoBehaviour
     {
         if(powerUp == PowerUp.SlowMotion)
         {
+            Debug.Log(1);
             StartCoroutine(SlowMotion());
             FindObjectOfType<AudioManager>().Play("SlowMotion");
         }
@@ -103,6 +111,8 @@ public class PowerUps : MonoBehaviour
         {
             Destroy(o);
         }
+        StartCoroutine(bombEffect.BombHasGoneOf(secondsOfBombEffect));
+        StartCoroutine(cameraShake.ShakeCamera(secondsOfBombEffect, bombShakeMagnitud));
     }
 
     private IEnumerator DestroyLight(float distance)
