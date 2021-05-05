@@ -53,6 +53,7 @@ public class PowerUps : MonoBehaviour
         {
             Debug.Log(1);
             StartCoroutine(SlowMotion());
+            FindObjectOfType<AudioManager>().Play("SlowMotion");
         }
         if(powerUp == PowerUp.SuperSpeed)
         {
@@ -61,6 +62,7 @@ public class PowerUps : MonoBehaviour
         if(powerUp == PowerUp.WallBreak)
         {
             WallBreak();
+            FindObjectOfType<AudioManager>().Play("WallBreak");
         }
         if(powerUp == PowerUp.Bomb)
         {
