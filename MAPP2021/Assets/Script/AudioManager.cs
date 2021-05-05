@@ -207,6 +207,11 @@ public class AudioManager : MonoBehaviour
         }
     }
 
+    public List<Sound> GetToggledClips()
+    {
+        return toggledClips;
+    }
+
     /*
     public IEnumerator FadeIn(string str)
     {
@@ -248,5 +253,5 @@ public class AudioManager : MonoBehaviour
     }*/
 
     //Kod att sätta in för att initiera ett önskat ljud. Man måste sätta in ljudfilens namn i parantesen.
-    //FindObjectofType<AudioManager>().Play(NAME_OF_THE_CLIP_AS_STRING);
+    //FindObjectOfType<AudioManager>().Play(NAME_OF_THE_CLIP_AS_STRING);
 }
