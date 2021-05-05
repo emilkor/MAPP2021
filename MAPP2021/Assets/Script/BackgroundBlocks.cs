@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class BackgroundBlocks : MonoBehaviour
 {
-    private BlockSpeed blockSpeed;
     [SerializeField] private float speed;
     [SerializeField] private float rotationSpeed;
     [SerializeField] private float deathPosition;
@@ -15,10 +14,12 @@ public class BackgroundBlocks : MonoBehaviour
     [SerializeField] private float maxSize;
 
     [SerializeField] private float secondsChangingSize;
+    
+
 
     private float size;
     private float time;
-    private bool gettingBigger = true;
+    private bool gettingBigger;
     private Quaternion fromAngle;
     private Quaternion toAngle;
     private Vector2 targetPosition;
@@ -27,11 +28,12 @@ public class BackgroundBlocks : MonoBehaviour
 
     void Start()
     {
-        blockSpeed = GameObject.FindWithTag("Speed").GetComponent<BlockSpeed>();
         targetPosition = new Vector2(gameObject.transform.position.x, deathPosition);
-        speed = blockSpeed.GetSpeed() * percentOfOtherBlocks;
+        //speed = blockSpeed.GetSpeed() * percentOfOtherBlocks;
+        speed = 1;
         fromAngle = transform.rotation;
         toAngle = Quaternion.Euler(transform.eulerAngles + (Vector3.forward * 45));
+
     }
 
     // Update is called once per frame
@@ -59,6 +61,47 @@ public class BackgroundBlocks : MonoBehaviour
         transform.localScale = new Vector3(size, size);
         transform.rotation = Quaternion.Lerp(fromAngle, toAngle, time);
 
+        if (transform.position.y <= deathPosition)
+        {
+            Destroy(gameObject);
+        }
+
 
     }
+
+    public float GetMaxSize()
+    {
+        return maxSize;
+    }
+
+    public float GetTimer()
+    {
+        return time;
+    }
+
+    public void SetTimer(float time)
+    {
+        Debug.Log(time);
+        this.time = time;
+        
+    }
+
+    public bool GetGettingBigger()
+    {
+        return gettingBigger;
+    }
+
+    public void SetGettingBigger(bool gettingBigger)
+    {
+        this.gettingBigger = gettingBigger;
+    }
+
+    public void SetAngle(Quaternion rotation)
+    {
+        int i = (int)rotation.eulerAngles.z / 45;
+        Debug.Log(i);
+        fromAngle = Quaternion.Euler(new Vector3(0, 0, 45 * (i +1)));
+        toAngle = Quaternion.Euler(fromAngle.eulerAngles + (Vector3.forward * 45));
+    }
+
 }
