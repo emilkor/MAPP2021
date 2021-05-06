@@ -65,7 +65,7 @@ public class PowerUps : MonoBehaviour
         if(powerUp == PowerUp.WallBreak)
         {
             WallBreak();
-            FindObjectOfType<AudioManager>().Play("WallBreak");
+            //FindObjectOfType<AudioManager>().Play("WallBreak");
         }
         if(powerUp == PowerUp.Bomb)
         {
@@ -120,7 +120,7 @@ public class PowerUps : MonoBehaviour
 
     private IEnumerator DestroyLight(float distance)
     {
-        destroyLight.transform.localScale = new Vector3(.1f, distance);
+        destroyLight.transform.localScale = new Vector3(.05f, distance);
         destroyLight.transform.localPosition = new Vector3(0, .5f + (distance / 2));
         destroyLight.SetActive(true);
         yield return new WaitForSeconds(.05f);
@@ -147,7 +147,7 @@ public class PowerUps : MonoBehaviour
             powerUp = PowerUp.SuperSpeed;
             powerText.text = "Super Speed";
         }
-        else if (powerUpPicker < chansForSlowMotion)
+        else if (powerUpPicker < chansForBlockDestroier)
         {
             powerUp = PowerUp.WallBreak;
             powerText.text = "Wall Break";
