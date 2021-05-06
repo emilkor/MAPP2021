@@ -82,7 +82,7 @@ public class BackgroundBlocks : MonoBehaviour
 
     public void SetTimer(float time)
     {
-        Debug.Log(time);
+        //Debug.Log(time);
         this.time = time;
         
     }

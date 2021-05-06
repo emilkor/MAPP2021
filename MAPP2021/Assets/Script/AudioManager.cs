@@ -11,9 +11,8 @@ public class AudioManager : MonoBehaviour
     public float fadeWaitForSecs;
     private List<Sound> toggledClips = new List<Sound>();
 
-    private Animator anim;
-    public RuntimeAnimatorController universalFade;
-    //gör array av controllers?
+    public AudioMixer SFXMixer;
+
 
     public bool pointCounterEnabled;
     public int playerScore;
@@ -55,6 +54,7 @@ public class AudioManager : MonoBehaviour
 
     private void Start()
     {
+        SFXMixer.SetFloat("GrindVolume", -80f);
         Play("MenuTheme");
         scoreThreshold = initialScoreThreshold;
         mode = 0;
@@ -123,6 +123,17 @@ public class AudioManager : MonoBehaviour
             return;
         }
         s.source.Play();
+    }
+
+    public void Stop(string name)
+    {
+        Sound s = Array.Find(sounds, sound => sound.name == name);
+        if (s == null)
+        {
+            Debug.LogWarning("Ljudfilen hittades inte!");
+            return;
+        }
+        s.source.Stop();
     }
 
     public Sound GetAudioclip(string name)
