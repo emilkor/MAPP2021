@@ -18,7 +18,7 @@ public class BoxMovement : MonoBehaviour
     {
         spawner = GameObject.FindWithTag("Spawner").GetComponent<Spawner>();
         blockSpeed = GameObject.FindWithTag("Speed").GetComponent<BlockSpeed>();
-        deathPosition = -spawner.GetHightOfSpawnPosition();
+        deathPosition = -(Camera.main.orthographicSize + (transform.localScale.y / 2));
         targetPosition = new Vector2(gameObject.transform.position.x, deathPosition);
         speed = blockSpeed.GetSpeed();  
     }
@@ -34,7 +34,7 @@ public class BoxMovement : MonoBehaviour
     void Update()
     {
         gameObject.transform.position = Vector2.MoveTowards(gameObject.transform.position, targetPosition, speed * Time.deltaTime);
-        if ((Vector2)gameObject.transform.position == targetPosition)
+        if (gameObject.transform.position.y <= deathPosition)
         {
             Destroy(gameObject);
         }

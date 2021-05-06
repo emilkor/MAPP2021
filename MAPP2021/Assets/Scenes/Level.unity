@@ -4693,11 +4693,11 @@ PrefabInstance:
       objectReference: {fileID: 1752894707}
     - target: {fileID: 6190953270601238112, guid: e200cf69cdfb64dee935d59d6e9094a7, type: 3}
       propertyPath: bombShakeMagnitud
-      value: 0.2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6190953270601238112, guid: e200cf69cdfb64dee935d59d6e9094a7, type: 3}
       propertyPath: deltaTimePerShake
-      value: 1
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 6190953270601238112, guid: e200cf69cdfb64dee935d59d6e9094a7, type: 3}
       propertyPath: secondsOfLightBombEffect

@@ -4,12 +4,13 @@ using System.Numerics;
 using UnityEngine;
 using Quaternion = UnityEngine.Quaternion;
 using Vector2 = UnityEngine.Vector2;
+using Vector3 = UnityEngine.Vector3;
 
 public class BackgroundSpawner : MonoBehaviour
 {
     [SerializeField] private GameObject block;
     [SerializeField] private BackgroundBlocks blocksScript;
-    [SerializeField] private int spawnHight;
+    
 
 
     private float spaceBetween;
@@ -17,6 +18,7 @@ public class BackgroundSpawner : MonoBehaviour
     private int colomOfBlocks;
     private GameObject currentBlock;
     private GameObject lastBlock;
+    private float spawnHight;
 
     private bool left;
 
@@ -27,6 +29,7 @@ public class BackgroundSpawner : MonoBehaviour
         spaceBetween = blocksScript.GetMaxSize() * 2;
         cameraWidth = (float) Camera.main.orthographicSize * Camera.main.aspect * 2;
         colomOfBlocks = Mathf.CeilToInt(cameraWidth / spaceBetween);
+        spawnHight = Camera.main.orthographicSize + Mathf.Sqrt(Mathf.Pow(blocksScript.GetMaxSize(), 2) / 2);
         SpawnFirstRow();
     }
 
@@ -45,18 +48,18 @@ public class BackgroundSpawner : MonoBehaviour
         {
             for (int i = 0; i <= colomOfBlocks; i++)
             {
-                currentBlock = Instantiate(block, new Vector2((-cameraWidth / 2) + (spaceBetween * i), spawnHight), lastBlock.transform.rotation);
-                //currentBlock.GetComponent<BackgroundBlocks>().SetTimer(lastBlock.GetComponent<BackgroundBlocks>().GetTimer());
+                currentBlock = Instantiate(block, new Vector2((-cameraWidth / 2) + (spaceBetween * i), spawnHight), Quaternion.identity);
+                currentBlock.GetComponent<BackgroundBlocks>().SetTimer(lastBlock.GetComponent<BackgroundBlocks>().GetTimer());
                 currentBlock.GetComponent<BackgroundBlocks>().SetGettingBigger(lastBlock.GetComponent<BackgroundBlocks>().GetGettingBigger());
                 //currentBlock.GetComponent<BackgroundBlocks>().SetAngle(lastBlock.transform.rotation);
             }
         }
         else
         {
-            for (int i = 0; i <= colomOfBlocks; i++)
+            for (int i = 0; i <= (colomOfBlocks - 1); i++)
             {
-                currentBlock = Instantiate(block, new Vector2((-cameraWidth / 2) + (spaceBetween * i) + (spaceBetween /2), spawnHight), lastBlock.transform.rotation);
-                //currentBlock.GetComponent<BackgroundBlocks>().SetTimer(lastBlock.GetComponent<BackgroundBlocks>().GetTimer());
+                currentBlock = Instantiate(block, new Vector2((-cameraWidth / 2) + (spaceBetween * i) + (spaceBetween /2), spawnHight), Quaternion.Euler(Quaternion.identity.eulerAngles + new Vector3(0, 0, 45)));
+                currentBlock.GetComponent<BackgroundBlocks>().SetTimer(lastBlock.GetComponent<BackgroundBlocks>().GetTimer());
                 currentBlock.GetComponent<BackgroundBlocks>().SetGettingBigger(lastBlock.GetComponent<BackgroundBlocks>().GetGettingBigger());
                 //currentBlock.GetComponent<BackgroundBlocks>().SetAngle(lastBlock.transform.rotation);
             }
