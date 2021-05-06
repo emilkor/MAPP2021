@@ -31,7 +31,6 @@ public class BackgroundSpawner : MonoBehaviour
         colomOfBlocks = Mathf.CeilToInt(cameraWidth / spaceBetween);
         spawnHight = Camera.main.orthographicSize + Mathf.Sqrt(Mathf.Pow(blocksScript.GetMaxSize(), 2) / 2);
         SpawnFirstRow();
-        spawnHight = Camera.main.orthographicSize + Mathf.Sqrt(Mathf.Pow(blocksScript.GetMaxSize(), 2) / 2); 
     }
 
     // Update is called once per frame

@@ -28,6 +28,7 @@ public class BackgroundBlocks : MonoBehaviour
 
     void Start()
     {
+        deathPosition = -(Camera.main.orthographicSize + Mathf.Sqrt(Mathf.Pow(maxSize, 2) / 2));
         targetPosition = new Vector2(gameObject.transform.position.x, deathPosition);
         //speed = blockSpeed.GetSpeed() * percentOfOtherBlocks;
         speed = 1;
