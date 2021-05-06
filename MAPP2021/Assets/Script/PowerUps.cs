@@ -33,8 +33,11 @@ public class PowerUps : MonoBehaviour
 
     [SerializeField] private Button powerUpButton;
 
-    [SerializeField] private float secondsOfBombEffect;
+    [SerializeField] private float secondsOfLightBombEffect;
+    [SerializeField] private float secondsOfShakeBombEffect;
     [SerializeField] private float bombShakeMagnitud;
+    [SerializeField] private int deltaTimePerShake;
+
 
     private float powerUpPicker;
 
@@ -111,8 +114,8 @@ public class PowerUps : MonoBehaviour
         {
             Destroy(o);
         }
-        StartCoroutine(bombEffect.BombHasGoneOf(secondsOfBombEffect));
-        StartCoroutine(cameraShake.ShakeCamera(secondsOfBombEffect, bombShakeMagnitud));
+        StartCoroutine(bombEffect.BombHasGoneOf(secondsOfLightBombEffect));
+        StartCoroutine(cameraShake.ShakeCamera(secondsOfShakeBombEffect, bombShakeMagnitud, deltaTimePerShake));
     }
 
     private IEnumerator DestroyLight(float distance)
