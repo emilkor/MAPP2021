@@ -9,6 +9,11 @@ public class WallGrinding : MonoBehaviour
     [SerializeField] private ParticleSystem bottom;
     [SerializeField] private ParticleSystem left;
 
+    [SerializeField] private AudioSource[] boarderGrind;
+    [SerializeField] private float amountOfPan;
+
+    [SerializeField] private Transform player;
+
     private bool isTouching;
 
     private float cameraHight;
@@ -55,7 +60,15 @@ public class WallGrinding : MonoBehaviour
         else
         {
             left.Stop();
-        }       
+        }
+
+        if(top.isPlaying || bottom.isPlaying)
+        {
+            foreach (AudioSource ac in boarderGrind)
+            {
+                ac.panStereo = amountOfPan * (player.position.x / cameraWidth);
+            }
+        }
 
         if(top.isPlaying || bottom.isPlaying || left.isPlaying || right.isPlaying)
         {
@@ -65,6 +78,7 @@ public class WallGrinding : MonoBehaviour
         {
             isTouching = false;
         }
+
     }
 
     public bool GetIsTouching()
