@@ -58,7 +58,7 @@ public class PowerUps : MonoBehaviour
         {
             Debug.Log(1);
             StartCoroutine(SlowMotion());
-            FindObjectOfType<AudioManager>().Play("SlowMotion");
+           // FindObjectOfType<AudioManager>().Play("SlowMotion");
         }
         if(powerUp == PowerUp.SuperSpeed)
         {
@@ -144,12 +144,13 @@ public class PowerUps : MonoBehaviour
             powerUp = PowerUp.SlowMotion;
             powerText.text = "Slow Motion";
             changeImage.setSprite(PowerUp.SlowMotion);
+            
         }
-        else if (powerUpPicker < chansForSuperSpeed)
-        {
-            powerUp = PowerUp.SuperSpeed;
-            powerText.text = "Super Speed";
-        }
+//         else if (powerUpPicker < chansForSuperSpeed)
+//         {
+//             powerUp = PowerUp.SuperSpeed;
+//             powerText.text = "Super Speed";
+//         }
         else if (powerUpPicker < chansForBlockDestroier)
         {
             powerUp = PowerUp.WallBreak;

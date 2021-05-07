@@ -19,16 +19,19 @@ public class ChangeImage : MonoBehaviour
         if(powerUp.Equals(PowerUp.Bomb))
         {
             powerUpImage.sprite = explosion;
+            return;
         }
 
         else if (powerUp.Equals(PowerUp.SlowMotion))
         {
             powerUpImage.sprite = slowMotion;
+            return;
         }
 
-        else
+        else if (powerUp.Equals(PowerUp.WallBreak))
         {
             powerUpImage.sprite = wallBreak;
+            return;
         }
     }
    
