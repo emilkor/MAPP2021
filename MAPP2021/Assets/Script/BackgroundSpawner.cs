@@ -15,7 +15,7 @@ public class BackgroundSpawner : MonoBehaviour
 
     private float spaceBetween;
     private float cameraWidth;
-    private int colomOfBlocks;
+    private int columnsOfBlocks;
     private GameObject lastBlock;
     private float spawnHight;
     private int rowsOfBlocks;
@@ -29,7 +29,7 @@ public class BackgroundSpawner : MonoBehaviour
         spaceBetween = blocksScript.GetMaxSize() * 2;
         cameraWidth = (float) Camera.main.orthographicSize * Camera.main.aspect * 2;
         rowsOfBlocks = Mathf.CeilToInt(Camera.main.orthographicSize / spaceBetween * 4);
-        colomOfBlocks = Mathf.CeilToInt(cameraWidth / spaceBetween);
+        columnsOfBlocks = Mathf.CeilToInt(cameraWidth / spaceBetween);
         spawnHight = Camera.main.orthographicSize + Mathf.Sqrt(Mathf.Pow(blocksScript.GetMaxSize(), 2) / 2);
         FillScreen();
     }
@@ -48,14 +48,14 @@ public class BackgroundSpawner : MonoBehaviour
 
         if (left)
         {
-            for (int i = 0; i <= colomOfBlocks; i++)
+            for (int i = 0; i <= columnsOfBlocks; i++)
             {
                 lastBlock = Instantiate(block, new Vector2((-cameraWidth / 2) + (spaceBetween * i), spawnHight), Quaternion.identity);
             }
         }
         else
         {
-            for (int i = 0; i <= (colomOfBlocks); i++)
+            for (int i = 0; i <= (columnsOfBlocks); i++)
             {
                 lastBlock = Instantiate(block, new Vector2((-cameraWidth / 2) + (spaceBetween * i) + (spaceBetween /2), spawnHight), Quaternion.identity);
             }
@@ -65,24 +65,19 @@ public class BackgroundSpawner : MonoBehaviour
     }
     void FillScreen()
     {
-        for (int i = 0; i <= rowsOfBlocks; i++)
+        for (int row = 0; row <= rowsOfBlocks; row++)
         {
-            if (left)
+            for (int column = 0; column <= columnsOfBlocks; column++)
             {
-                for (int j = 0; j <= colomOfBlocks; j++)
-                {
-                    lastBlock = Instantiate(block, new Vector2((-cameraWidth / 2) + (spaceBetween * j), spawnHight - (spaceBetween / 2 * (rowsOfBlocks - i))), Quaternion.identity);
-                }
-            }
-            else
-            {
-                for (int j = 0; j <= colomOfBlocks; j++)
-                {
-                    lastBlock = Instantiate(block, new Vector2((-cameraWidth / 2) + (spaceBetween * j) + (spaceBetween / 2), spawnHight - (spaceBetween / 2 * (rowsOfBlocks - i))), Quaternion.identity);
-                }
+                if (left)
+                    lastBlock = Instantiate(block, new Vector2((-cameraWidth / 2) + (spaceBetween * column), spawnHight - (spaceBetween / 2 * (rowsOfBlocks - row))), Quaternion.identity);
+                else
+                    lastBlock = Instantiate(block, new Vector2((-cameraWidth / 2) + (spaceBetween * column) + (spaceBetween / 2), spawnHight - (spaceBetween / 2 * (rowsOfBlocks - row))), Quaternion.identity);
+
             }
             left = !left;
         }
+           
         
         
     }
