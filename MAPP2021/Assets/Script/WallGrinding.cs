@@ -76,11 +76,10 @@ public class WallGrinding : MonoBehaviour
             boarderAudio.panStereo = -amountOfPan;
             boarderImpact.panStereo = -amountOfPan;
         }
-        if(top.isPlaying || bottom.isPlaying)
+        else if(top.isPlaying || bottom.isPlaying)
         {
             boarderAudio.panStereo = amountOfPan * (transform.position.x / cameraWidth);
             boarderImpact.panStereo = amountOfPan * (transform.position.x / cameraWidth);
-            Debug.Log(boarderAudio.panStereo);
         }
 
         if(top.isPlaying || bottom.isPlaying || left.isPlaying || right.isPlaying)
