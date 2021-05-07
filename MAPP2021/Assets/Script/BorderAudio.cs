@@ -13,10 +13,12 @@ public class BorderAudio : MonoBehaviour
     private Coroutine fadeIn;
 
     [SerializeField] private float fadeEnter = 1f;
-    [SerializeField] private float durationIn = 1f;
+    [SerializeField] private float durationIn = 0.1f;
 
     [SerializeField] private float fadeAway = 0f;
-    [SerializeField] private float durationOut = 1f;
+    [SerializeField] private float durationOut = 0.15f;
+
+    private bool isPlaying;
 
     private void Awake()
     {
@@ -24,24 +26,37 @@ public class BorderAudio : MonoBehaviour
         am.Play("BorderAudio");
     }
 
-    private void OnTriggerEnter2D(Collider2D collision)
+    private void Update()
     {
-
-        am.Play("BorderImpact");
-
-
-        FadeInGrind();
-
-        //am.Play("BorderAudio");
+        if (FindObjectOfType<WallGrinding>().GetIsTouching())
+        {
+            if (!isPlaying)
+            {
+                isPlaying = true;
+                PlayGrind();
+            }
+        }
+        else
+        {
+            if (isPlaying)
+            {
+                StopGrind();
+                isPlaying = false;
+            }
+        }
     }
 
-    private void OnTriggerExit2D(Collider2D collision)
+    public void PlayGrind()
+    {
+        am.Play("BorderImpact");
+        FadeInGrind();
+    }
+
+    public void StopGrind()
     {
         StopCoroutine(fadeIn);
 
         FadeOutGrind();
-
-        //am.Stop("BorderAudio");
     }
 
     public void FadeInGrind()
