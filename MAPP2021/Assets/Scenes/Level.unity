@@ -490,7 +490,7 @@ MonoBehaviour:
   fadeEnter: 1
   durationIn: 0.1
   fadeAway: 0
-  durationOut: 0.15
+  durationOut: 0.07
 --- !u!1 &413232416
 GameObject:
   m_ObjectHideFlags: 0
