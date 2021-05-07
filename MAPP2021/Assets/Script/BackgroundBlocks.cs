@@ -5,42 +5,43 @@ using UnityEngine;
 public class BackgroundBlocks : MonoBehaviour
 {
     [SerializeField] private float speed;
-    [SerializeField] private float rotationSpeed;
-    [SerializeField] private float deathPosition;
-    [Range(0, 1f)]
-    [SerializeField] private float percentOfOtherBlocks;
 
-    [SerializeField] private float minSize;
-    [SerializeField] private float maxSize;
+    [SerializeField] private float minSize = 1.5f;
+    [SerializeField] private float maxSize = 3f;
 
-    [SerializeField] private float secondsChangingSize;
-    
+    public float secondsChangingSize;
 
+    private static BackgroundBlocks lastOne;
 
-    private float size;
-    private float time;
-    private bool gettingBigger;
-    private Quaternion fromAngle;
-    private Quaternion toAngle;
+    private static float size;
+    private static float time;
+    private static bool gettingBigger;
+    private static Quaternion fromAngle = Quaternion.identity;
+    private static Quaternion toAngle = Quaternion.Euler(fromAngle.eulerAngles + (Vector3.forward * 45));
     private Vector2 targetPosition;
+    private float deathPosition;
 
     // Start is called before the first frame update
 
+    
+
     void Start()
     {
+        Debug.Log(lastOne == null);
         deathPosition = -(Camera.main.orthographicSize + Mathf.Sqrt(Mathf.Pow(maxSize, 2) / 2));
         targetPosition = new Vector2(gameObject.transform.position.x, deathPosition);
-        //speed = blockSpeed.GetSpeed() * percentOfOtherBlocks;
-        speed = 1;
-        fromAngle = transform.rotation;
-        toAngle = Quaternion.Euler(transform.eulerAngles + (Vector3.forward * 45));
+        
+        if (lastOne == null)
+        {
+            StartCoroutine(Varibuls(secondsChangingSize));
+        }
+        lastOne = this;
 
     }
 
     // Update is called once per frame
     void Update()
     {
-        time += Time.deltaTime / secondsChangingSize;
         gameObject.transform.position = Vector2.MoveTowards(gameObject.transform.position, targetPosition, speed * Time.deltaTime);
         transform.Rotate(Vector3.forward * (Time.deltaTime * secondsChangingSize));
 
@@ -52,13 +53,13 @@ public class BackgroundBlocks : MonoBehaviour
         {
             size = Mathf.Lerp(maxSize, minSize, time);
         }
-        if(time >= 1)
-        {
-            gettingBigger = !gettingBigger;
-            time = 0;
-            fromAngle = transform.rotation;
-            toAngle = Quaternion.Euler(transform.eulerAngles + (Vector3.forward * 45));
-        }
+        //if(time >= 1)
+        //{
+        //    gettingBigger = !gettingBigger;
+        //    time = 0;
+        //    fromAngle = toAngle;
+        //    toAngle = Quaternion.Euler(fromAngle.eulerAngles + (Vector3.forward * 45));
+        //}
         transform.localScale = new Vector3(size, size);
         transform.rotation = Quaternion.Lerp(fromAngle, toAngle, time);
 
@@ -75,34 +76,20 @@ public class BackgroundBlocks : MonoBehaviour
         return maxSize;
     }
 
-    public float GetTimer()
-    {
-        return time;
-    }
 
-    public void SetTimer(float time)
+    static IEnumerator Varibuls(float secondsChangingSize)
     {
-        Debug.Log(time);
-        this.time = time;
-        
-    }
+        time += Time.deltaTime / secondsChangingSize;
+        if (time >= 1)
+        {
+            gettingBigger = !gettingBigger;
+            time = 0;
+            fromAngle = toAngle;
+            toAngle = Quaternion.Euler(fromAngle.eulerAngles + (Vector3.forward * 45));
+        }
+        yield return null;
 
-    public bool GetGettingBigger()
-    {
-        return gettingBigger;
-    }
-
-    public void SetGettingBigger(bool gettingBigger)
-    {
-        this.gettingBigger = gettingBigger;
-    }
-
-    public void SetAngle(Quaternion rotation)
-    {
-        int i = (int)rotation.eulerAngles.z / 45;
-        Debug.Log(i);
-        fromAngle = Quaternion.Euler(new Vector3(0, 0, 45 * (i +1)));
-        toAngle = Quaternion.Euler(fromAngle.eulerAngles + (Vector3.forward * 45));
+        lastOne.StartCoroutine(Varibuls(lastOne.secondsChangingSize));
     }
 
 }

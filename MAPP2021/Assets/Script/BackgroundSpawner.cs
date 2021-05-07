@@ -16,7 +16,6 @@ public class BackgroundSpawner : MonoBehaviour
     private float spaceBetween;
     private float cameraWidth;
     private int colomOfBlocks;
-    private GameObject currentBlock;
     private GameObject lastBlock;
     private float spawnHight;
 
@@ -26,6 +25,7 @@ public class BackgroundSpawner : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        Debug.Log(blocksScript.GetMaxSize());
         spaceBetween = blocksScript.GetMaxSize() * 2;
         cameraWidth = (float) Camera.main.orthographicSize * Camera.main.aspect * 2;
         colomOfBlocks = Mathf.CeilToInt(cameraWidth / spaceBetween);
@@ -44,29 +44,22 @@ public class BackgroundSpawner : MonoBehaviour
 
     void SpawnRow()
     {
+
         if (left)
         {
             for (int i = 0; i <= colomOfBlocks; i++)
             {
-                currentBlock = Instantiate(block, new Vector2((-cameraWidth / 2) + (spaceBetween * i), spawnHight), Quaternion.identity);
-                currentBlock.GetComponent<BackgroundBlocks>().SetTimer(lastBlock.GetComponent<BackgroundBlocks>().GetTimer());
-                currentBlock.GetComponent<BackgroundBlocks>().SetGettingBigger(lastBlock.GetComponent<BackgroundBlocks>().GetGettingBigger());
-                //currentBlock.GetComponent<BackgroundBlocks>().SetAngle(lastBlock.transform.rotation);
+                lastBlock = Instantiate(block, new Vector2((-cameraWidth / 2) + (spaceBetween * i), spawnHight), Quaternion.identity);
             }
         }
         else
         {
             for (int i = 0; i <= (colomOfBlocks - 1); i++)
             {
-                currentBlock = Instantiate(block, new Vector2((-cameraWidth / 2) + (spaceBetween * i) + (spaceBetween /2), spawnHight), Quaternion.Euler(Quaternion.identity.eulerAngles + new Vector3(0, 0, 45)));
-                currentBlock.GetComponent<BackgroundBlocks>().SetTimer(lastBlock.GetComponent<BackgroundBlocks>().GetTimer());
-                currentBlock.GetComponent<BackgroundBlocks>().SetGettingBigger(lastBlock.GetComponent<BackgroundBlocks>().GetGettingBigger());
-                //currentBlock.GetComponent<BackgroundBlocks>().SetAngle(lastBlock.transform.rotation);
+                lastBlock = Instantiate(block, new Vector2((-cameraWidth / 2) + (spaceBetween * i) + (spaceBetween /2), spawnHight), Quaternion.identity);
             }
 
         }
-        lastBlock = currentBlock;
-
         left = !left;
     }
     void SpawnFirstRow()
