@@ -6,7 +6,7 @@ using UnityEngine.UI;
 public class ChangeOpacity : MonoBehaviour
 {
     [SerializeField] Image powerUpImage;
-    private float speed = 0.4f;
+    [SerializeField] private float opacity = 0.4f;
 
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -15,7 +15,7 @@ public class ChangeOpacity : MonoBehaviour
         {
             Color color = powerUpImage.color;
 
-            color.a -= speed;
+            color.a -= opacity;
 
             powerUpImage.color = color;
         }
@@ -27,7 +27,7 @@ public class ChangeOpacity : MonoBehaviour
         {
             Color color = powerUpImage.color;
 
-            color.a += speed;
+            color.a += opacity;
 
             powerUpImage.color = color;
         }
