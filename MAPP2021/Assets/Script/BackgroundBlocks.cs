@@ -8,8 +8,8 @@ public class BackgroundBlocks : MonoBehaviour
 
     [SerializeField] private float minSize = 1.5f;
     [SerializeField] private float maxSize = 3f;
-
-    public float secondsChangingSize;
+    [SerializeField] private float rotationSpeed;
+    [SerializeField] private float secondsChangingSize;
 
     private static BackgroundBlocks lastOne;
 
@@ -42,7 +42,7 @@ public class BackgroundBlocks : MonoBehaviour
     void Update()
     {
         gameObject.transform.position = Vector2.MoveTowards(gameObject.transform.position, targetPosition, speed * Time.deltaTime);
-        transform.Rotate(Vector3.forward * (Time.deltaTime * secondsChangingSize));
+        
 
         if (gettingBigger)
         {

@@ -98,4 +98,5 @@ MonoBehaviour:
   speed: 1
   minSize: 1.5
   maxSize: 3
+  rotationSpeed: 3
   secondsChangingSize: 3
