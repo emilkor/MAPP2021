@@ -21,6 +21,7 @@ public class AudioUI : MonoBehaviour
         if (SceneManager.GetActiveScene().name.Equals("Level"))
         {
             FadeOutMenu();
+            am.Play("GameTheme");
         }
 
         if (SceneManager.GetActiveScene().name.Equals("Menu"))
