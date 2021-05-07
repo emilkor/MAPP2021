@@ -38,6 +38,8 @@ public class PowerUps : MonoBehaviour
     [SerializeField] private float bombShakeMagnitud;
     [SerializeField] private int deltaTimePerShake;
 
+    [SerializeField] ChangeImage changeImage;
+
 
     private float powerUpPicker;
 
@@ -56,7 +58,7 @@ public class PowerUps : MonoBehaviour
         {
             Debug.Log(1);
             StartCoroutine(SlowMotion());
-            FindObjectOfType<AudioManager>().Play("SlowMotion");
+           // FindObjectOfType<AudioManager>().Play("SlowMotion");
         }
         if(powerUp == PowerUp.SuperSpeed)
         {
@@ -141,21 +143,25 @@ public class PowerUps : MonoBehaviour
         {
             powerUp = PowerUp.SlowMotion;
             powerText.text = "Slow Motion";
+            changeImage.setSprite(PowerUp.SlowMotion);
+            
         }
-        else if (powerUpPicker < chansForSuperSpeed)
-        {
-            powerUp = PowerUp.SuperSpeed;
-            powerText.text = "Super Speed";
-        }
+//         else if (powerUpPicker < chansForSuperSpeed)
+//         {
+//             powerUp = PowerUp.SuperSpeed;
+//             powerText.text = "Super Speed";
+//         }
         else if (powerUpPicker < chansForBlockDestroier)
         {
             powerUp = PowerUp.WallBreak;
             powerText.text = "Wall Break";
+            changeImage.setSprite(PowerUp.WallBreak);
         }
         else if (powerUpPicker <= chansForBomb)
         {
             powerUp = PowerUp.Bomb;
             powerText.text = "Bomb";
+            changeImage.setSprite(PowerUp.Bomb);
         }
     }
 

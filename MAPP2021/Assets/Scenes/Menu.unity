@@ -1135,6 +1135,7 @@ GameObject:
   - component: {fileID: 1592068819}
   - component: {fileID: 1592068821}
   - component: {fileID: 1592068820}
+  - component: {fileID: 1592068822}
   m_Layer: 5
   m_Name: Mute Sounds Text
   m_TagString: Untagged
@@ -1203,6 +1204,21 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1592068818}
   m_CullTransparentMesh: 1
+--- !u!114 &1592068822
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1592068818}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cfabb0440166ab443bba8876756fdfa9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_EffectColor: {r: 0, g: 0, b: 0, a: 0.5}
+  m_EffectDistance: {x: 4, y: -4}
+  m_UseGraphicAlpha: 1
 --- !u!1 &1642000674
 GameObject:
   m_ObjectHideFlags: 0
@@ -1333,12 +1349,24 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1021557746}
     - target: {fileID: 2469809342057135749, guid: 3b21b3fe9a183f84391271ba69b46248, type: 3}
+      propertyPath: sounds.Array.data[4].clip
+      value: 
+      objectReference: {fileID: 8300000, guid: 26f323309f339864c915b36655fb8243, type: 3}
+    - target: {fileID: 2469809342057135749, guid: 3b21b3fe9a183f84391271ba69b46248, type: 3}
+      propertyPath: sounds.Array.data[4].loop
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2469809342057135749, guid: 3b21b3fe9a183f84391271ba69b46248, type: 3}
       propertyPath: sounds.Array.data[8].clip
       value: 
-      objectReference: {fileID: 8300000, guid: 072034ee6729fa74591bb0b2fced398f, type: 3}
+      objectReference: {fileID: 8300000, guid: 0b1ed359150b1984dae590c0ce030f8d, type: 3}
+    - target: {fileID: 2469809342057135749, guid: 3b21b3fe9a183f84391271ba69b46248, type: 3}
+      propertyPath: sounds.Array.data[4].volume
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2469809342057135749, guid: 3b21b3fe9a183f84391271ba69b46248, type: 3}
       propertyPath: sounds.Array.data[8].volume
-      value: 0.316
+      value: 0.101
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3b21b3fe9a183f84391271ba69b46248, type: 3}
@@ -1353,6 +1381,7 @@ GameObject:
   - component: {fileID: 1943692340}
   - component: {fileID: 1943692342}
   - component: {fileID: 1943692341}
+  - component: {fileID: 1943692343}
   m_Layer: 5
   m_Name: Mute Music Text
   m_TagString: Untagged
@@ -1421,6 +1450,21 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1943692339}
   m_CullTransparentMesh: 1
+--- !u!114 &1943692343
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1943692339}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cfabb0440166ab443bba8876756fdfa9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_EffectColor: {r: 0, g: 0, b: 0, a: 0.5}
+  m_EffectDistance: {x: 4, y: -4}
+  m_UseGraphicAlpha: 1
 --- !u!1 &1959095814
 GameObject:
   m_ObjectHideFlags: 0
@@ -1568,6 +1612,7 @@ GameObject:
   - component: {fileID: 2042113658}
   - component: {fileID: 2042113660}
   - component: {fileID: 2042113659}
+  - component: {fileID: 2042113661}
   m_Layer: 5
   m_Name: Text
   m_TagString: Untagged
@@ -1636,6 +1681,21 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2042113657}
   m_CullTransparentMesh: 1
+--- !u!114 &2042113661
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2042113657}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cfabb0440166ab443bba8876756fdfa9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_EffectColor: {r: 0, g: 0, b: 0, a: 0.5}
+  m_EffectDistance: {x: 4, y: -4}
+  m_UseGraphicAlpha: 1
 --- !u!1 &2060444901
 GameObject:
   m_ObjectHideFlags: 0
@@ -1647,6 +1707,7 @@ GameObject:
   - component: {fileID: 2060444902}
   - component: {fileID: 2060444904}
   - component: {fileID: 2060444903}
+  - component: {fileID: 2060444905}
   m_Layer: 5
   m_Name: Text
   m_TagString: Untagged
@@ -1715,6 +1776,21 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2060444901}
   m_CullTransparentMesh: 1
+--- !u!114 &2060444905
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2060444901}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cfabb0440166ab443bba8876756fdfa9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_EffectColor: {r: 0, g: 0, b: 0, a: 0.5}
+  m_EffectDistance: {x: 4, y: -4}
+  m_UseGraphicAlpha: 1
 --- !u!1 &2068501168
 GameObject:
   m_ObjectHideFlags: 0
