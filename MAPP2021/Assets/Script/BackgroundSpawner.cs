@@ -25,7 +25,6 @@ public class BackgroundSpawner : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        Debug.Log(blocksScript.GetMaxSize());
         spaceBetween = blocksScript.GetMaxSize() * 2;
         cameraWidth = (float) Camera.main.orthographicSize * Camera.main.aspect * 2;
         colomOfBlocks = Mathf.CeilToInt(cameraWidth / spaceBetween);
