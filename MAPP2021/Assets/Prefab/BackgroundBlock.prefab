@@ -96,9 +96,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 1
-  rotationSpeed: 3
-  deathPosition: -15
-  percentOfOtherBlocks: 0.47
   minSize: 1.5
   maxSize: 3
   secondsChangingSize: 3
