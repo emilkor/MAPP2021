@@ -18,8 +18,7 @@ public class BorderAudio : MonoBehaviour
     [SerializeField] private float fadeAway = 0f;
     [SerializeField] private float durationOut = 0.15f;
 
-    
- 
+    [SerializeField] private AudioClip[] boarderGrind;
     private bool isPlaying;
 
     private void Awake()
