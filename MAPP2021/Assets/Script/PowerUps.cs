@@ -67,7 +67,7 @@ public class PowerUps : MonoBehaviour
         if(powerUp == PowerUp.WallBreak)
         {
             WallBreak();
-            //FindObjectOfType<AudioManager>().Play("WallBreak");
+            FindObjectOfType<AudioManager>().Play("WallBreak");
         }
         if(powerUp == PowerUp.Bomb)
         {
