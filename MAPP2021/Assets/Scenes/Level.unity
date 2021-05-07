@@ -4953,6 +4953,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 519420034}
     - target: {fileID: 6190953270601238112, guid: e200cf69cdfb64dee935d59d6e9094a7, type: 3}
+      propertyPath: changeImage
+      value: 
+      objectReference: {fileID: 1752894710}
+    - target: {fileID: 6190953270601238112, guid: e200cf69cdfb64dee935d59d6e9094a7, type: 3}
       propertyPath: chansForBomb
       value: 0
       objectReference: {fileID: 0}
