@@ -153,6 +153,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   musicMixer: {fileID: 24100000, guid: 4a3f3cecf2cc57640b8552931cbd47d1, type: 2}
+  SFXMixer: {fileID: 24100000, guid: 1fd6bcf3470d58e4ea7b383dba7457af, type: 2}
   fadeTo: 0
   fadeDuration: 1
 --- !u!4 &156429437
@@ -1341,45 +1342,9 @@ PrefabInstance:
       value: AudioManager
       objectReference: {fileID: 0}
     - target: {fileID: 2469809342057135749, guid: 3b21b3fe9a183f84391271ba69b46248, type: 3}
-      propertyPath: SFXMixer
-      value: 
-      objectReference: {fileID: 24100000, guid: 1fd6bcf3470d58e4ea7b383dba7457af, type: 2}
-    - target: {fileID: 2469809342057135749, guid: 3b21b3fe9a183f84391271ba69b46248, type: 3}
       propertyPath: toggleMuteButton
       value: 
       objectReference: {fileID: 1021557746}
-    - target: {fileID: 2469809342057135749, guid: 3b21b3fe9a183f84391271ba69b46248, type: 3}
-      propertyPath: sounds.Array.data[4].clip
-      value: 
-      objectReference: {fileID: 8300000, guid: 26f323309f339864c915b36655fb8243, type: 3}
-    - target: {fileID: 2469809342057135749, guid: 3b21b3fe9a183f84391271ba69b46248, type: 3}
-      propertyPath: sounds.Array.data[4].loop
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2469809342057135749, guid: 3b21b3fe9a183f84391271ba69b46248, type: 3}
-      propertyPath: sounds.Array.data[5].name
-      value: Bomb
-      objectReference: {fileID: 0}
-    - target: {fileID: 2469809342057135749, guid: 3b21b3fe9a183f84391271ba69b46248, type: 3}
-      propertyPath: sounds.Array.data[7].clip
-      value: 
-      objectReference: {fileID: 8300000, guid: f3a86e78aa63516459c460a3eaf72033, type: 3}
-    - target: {fileID: 2469809342057135749, guid: 3b21b3fe9a183f84391271ba69b46248, type: 3}
-      propertyPath: sounds.Array.data[8].clip
-      value: 
-      objectReference: {fileID: 8300000, guid: 93eb86f7afd74964ea574196a194aa91, type: 3}
-    - target: {fileID: 2469809342057135749, guid: 3b21b3fe9a183f84391271ba69b46248, type: 3}
-      propertyPath: sounds.Array.data[9].clip
-      value: 
-      objectReference: {fileID: 8300000, guid: 113bf18584421ba4ea3a08fa3367b0cf, type: 3}
-    - target: {fileID: 2469809342057135749, guid: 3b21b3fe9a183f84391271ba69b46248, type: 3}
-      propertyPath: sounds.Array.data[4].volume
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2469809342057135749, guid: 3b21b3fe9a183f84391271ba69b46248, type: 3}
-      propertyPath: sounds.Array.data[8].volume
-      value: 0.057
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3b21b3fe9a183f84391271ba69b46248, type: 3}
 --- !u!1 &1943692339

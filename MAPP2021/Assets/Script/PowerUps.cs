@@ -58,7 +58,7 @@ public class PowerUps : MonoBehaviour
         {
             Debug.Log(1);
             StartCoroutine(SlowMotion());
-           // FindObjectOfType<AudioManager>().Play("SlowMotion");
+            FindObjectOfType<AudioManager>().Play("SlowMotion");
         }
         if(powerUp == PowerUp.SuperSpeed)
         {

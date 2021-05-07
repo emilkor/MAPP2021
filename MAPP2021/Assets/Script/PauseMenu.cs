@@ -11,7 +11,7 @@ public class PauseMenu : MonoBehaviour
     [SerializeField] private GameObject powerUpButton;
 
     private bool isPaused;
-   
+    private float borderVol;
 
     private void Start()
     {
@@ -27,6 +27,8 @@ public class PauseMenu : MonoBehaviour
         pauseButton.SetActive(true);
         powerUpButton.SetActive(true);
         Time.timeScale = 1f;
+
+        FindObjectOfType<AudioUI>().SFXMixer.SetFloat("GrindVolume", borderVol);
     }
 
     public void Pause ()
@@ -39,7 +41,10 @@ public class PauseMenu : MonoBehaviour
         Time.timeScale = 0f;
 
         isPaused = true;
-   
+
+        FindObjectOfType<AudioUI>().SFXMixer.GetFloat("GrindVolume", out float currentVol);
+        borderVol = currentVol;
+        FindObjectOfType<AudioUI>().SFXMixer.SetFloat("GrindVolume", -80f);
     }
 
     public void Restart()

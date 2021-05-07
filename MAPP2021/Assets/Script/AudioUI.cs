@@ -10,6 +10,7 @@ public class AudioUI : MonoBehaviour
 
     private AudioManager am;
     public AudioMixer musicMixer;
+    public AudioMixer SFXMixer;
 
     public float fadeTo = 0f;
     public float fadeDuration;
@@ -46,8 +47,14 @@ public class AudioUI : MonoBehaviour
         StartCoroutine(FadeMixerGroup.StartFade(musicMixer, "MenuVolume", fadeDuration * 0.5f, fadeTo));
     }
 
+    public void FadeOutBorder()
+    {
+        StartCoroutine(FadeMixerGroup.StartFade(SFXMixer, "GrindVolume", fadeDuration * 0.2f, fadeTo));
+    }
+
     public void RestoreMenuTheme()
     {
         musicMixer.SetFloat("MenuVolume", 0f);
+        FadeOutBorder();
     }
 }

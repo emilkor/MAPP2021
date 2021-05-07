@@ -44,7 +44,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   fadeWaitForSecs: 0
-  universalFade: {fileID: 9100000, guid: 7f8b9d877f50d6143bea4f3a7b28d430, type: 2}
+  SFXMixer: {fileID: 24100000, guid: 1fd6bcf3470d58e4ea7b383dba7457af, type: 2}
   pointCounterEnabled: 0
   playerScore: 0
   initialScoreThreshold: 0
@@ -83,14 +83,14 @@ MonoBehaviour:
     mute: 0
     source: {fileID: 0}
   - name: GameTheme
-    clip: {fileID: 0}
+    clip: {fileID: 8300000, guid: 26f323309f339864c915b36655fb8243, type: 3}
     output: {fileID: 8471149628585269372, guid: 4a3f3cecf2cc57640b8552931cbd47d1, type: 2}
-    volume: 0.316
+    volume: 0
     pitch: 1
-    loop: 0
+    loop: 1
     mute: 0
     source: {fileID: 0}
-  - name: SuperSpeed
+  - name: Bomb
     clip: {fileID: 0}
     output: {fileID: 8689020397998935552, guid: 1fd6bcf3470d58e4ea7b383dba7457af, type: 2}
     volume: 0.316
@@ -107,7 +107,7 @@ MonoBehaviour:
     mute: 0
     source: {fileID: 0}
   - name: WallBreak
-    clip: {fileID: 8300000, guid: db820e5181c855b4c8f242b8ff552a89, type: 3}
+    clip: {fileID: 8300000, guid: f3a86e78aa63516459c460a3eaf72033, type: 3}
     output: {fileID: -7388090770515538323, guid: 1fd6bcf3470d58e4ea7b383dba7457af, type: 2}
     volume: 0.316
     pitch: 1
@@ -115,15 +115,15 @@ MonoBehaviour:
     mute: 0
     source: {fileID: 0}
   - name: BorderAudio
-    clip: {fileID: 8300000, guid: 26f323309f339864c915b36655fb8243, type: 3}
+    clip: {fileID: 8300000, guid: 93eb86f7afd74964ea574196a194aa91, type: 3}
     output: {fileID: 3577464909422763283, guid: 1fd6bcf3470d58e4ea7b383dba7457af, type: 2}
-    volume: 0.443
+    volume: 0.057
     pitch: 1
     loop: 1
     mute: 0
     source: {fileID: 0}
   - name: BorderImpact
-    clip: {fileID: 8300000, guid: 1bd797e3b12e2f74c88e6a6803b096df, type: 3}
+    clip: {fileID: 8300000, guid: 113bf18584421ba4ea3a08fa3367b0cf, type: 3}
     output: {fileID: 878051978814124694, guid: 1fd6bcf3470d58e4ea7b383dba7457af, type: 2}
     volume: 0.443
     pitch: 1
