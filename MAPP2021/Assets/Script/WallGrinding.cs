@@ -9,10 +9,10 @@ public class WallGrinding : MonoBehaviour
     [SerializeField] private ParticleSystem bottom;
     [SerializeField] private ParticleSystem left;
 
-    [SerializeField] private AudioSource[] boarderGrind;
-    [SerializeField] private float amountOfPan;
+    private AudioSource boarderAudio;
+    private AudioSource boarderImpact;
 
-    [SerializeField] private Transform player;
+    [SerializeField] private float amountOfPan;
 
     private bool isTouching;
 
@@ -24,6 +24,9 @@ public class WallGrinding : MonoBehaviour
     {
         cameraHight = (float)(Camera.main.orthographicSize - 0.5);
         cameraWidth = (float)((Camera.main.orthographicSize * Camera.main.aspect) - 0.5);
+        boarderAudio = FindObjectOfType<AudioManager>().GetAudioclip("BorderAudio").source;
+        boarderImpact = FindObjectOfType<AudioManager>().GetAudioclip("BorderImpact").source;
+
     }
 
     // Update is called once per frame
@@ -62,12 +65,22 @@ public class WallGrinding : MonoBehaviour
             left.Stop();
         }
 
+
+        if(right.isPlaying)
+        {
+            boarderAudio.panStereo = amountOfPan;
+            boarderImpact.panStereo = amountOfPan;
+        }
+        else if(left.isPlaying)
+        {
+            boarderAudio.panStereo = -amountOfPan;
+            boarderImpact.panStereo = -amountOfPan;
+        }
         if(top.isPlaying || bottom.isPlaying)
         {
-            foreach (AudioSource ac in boarderGrind)
-            {
-                ac.panStereo = amountOfPan * (player.position.x / cameraWidth);
-            }
+            boarderAudio.panStereo = amountOfPan * (transform.position.x / cameraWidth);
+            boarderImpact.panStereo = amountOfPan * (transform.position.x / cameraWidth);
+            Debug.Log(boarderAudio.panStereo);
         }
 
         if(top.isPlaying || bottom.isPlaying || left.isPlaying || right.isPlaying)
