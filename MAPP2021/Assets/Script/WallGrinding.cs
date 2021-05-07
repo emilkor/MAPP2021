@@ -9,6 +9,8 @@ public class WallGrinding : MonoBehaviour
     [SerializeField] private ParticleSystem bottom;
     [SerializeField] private ParticleSystem left;
 
+    private bool isTouching;
+
     private float cameraHight;
     private float cameraWidth;
 
@@ -54,5 +56,19 @@ public class WallGrinding : MonoBehaviour
         {
             left.Stop();
         }       
+
+        if(top.isPlaying || bottom.isPlaying || left.isPlaying || right.isPlaying)
+        {
+            isTouching = true;
+        }
+        else
+        {
+            isTouching = false;
+        }
+    }
+
+    public bool GetIsTouching()
+    {
+        return isTouching;
     }
 }
