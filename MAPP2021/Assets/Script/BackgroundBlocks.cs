@@ -38,6 +38,21 @@ public class BackgroundBlocks : MonoBehaviour
 
     }
 
+    static IEnumerator Varibuls(float secondsChangingSize)
+    {
+        time += Time.deltaTime / secondsChangingSize;
+        if (time >= 1)
+        {
+            gettingBigger = !gettingBigger;
+            time = 0;
+            fromAngle = toAngle;
+            toAngle = Quaternion.Euler(fromAngle.eulerAngles + (Vector3.forward * 45));
+        }
+        yield return null;
+
+        lastOne.StartCoroutine(Varibuls(lastOne.secondsChangingSize));
+    }
+
     // Update is called once per frame
     void Update()
     {
@@ -52,13 +67,7 @@ public class BackgroundBlocks : MonoBehaviour
         {
             size = Mathf.Lerp(maxSize, minSize, time);
         }
-        //if(time >= 1)
-        //{
-        //    gettingBigger = !gettingBigger;
-        //    time = 0;
-        //    fromAngle = toAngle;
-        //    toAngle = Quaternion.Euler(fromAngle.eulerAngles + (Vector3.forward * 45));
-        //}
+       
         transform.localScale = new Vector3(size, size);
         transform.rotation = Quaternion.Lerp(fromAngle, toAngle, time);
 
@@ -76,19 +85,6 @@ public class BackgroundBlocks : MonoBehaviour
     }
 
 
-    static IEnumerator Varibuls(float secondsChangingSize)
-    {
-        time += Time.deltaTime / secondsChangingSize;
-        if (time >= 1)
-        {
-            gettingBigger = !gettingBigger;
-            time = 0;
-            fromAngle = toAngle;
-            toAngle = Quaternion.Euler(fromAngle.eulerAngles + (Vector3.forward * 45));
-        }
-        yield return null;
-
-        lastOne.StartCoroutine(Varibuls(lastOne.secondsChangingSize));
-    }
+    
 
 }

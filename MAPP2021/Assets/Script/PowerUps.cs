@@ -37,6 +37,10 @@ public class PowerUps : MonoBehaviour
     [SerializeField] private float secondsOfShakeBombEffect;
     [SerializeField] private float bombShakeMagnitud;
     [SerializeField] private int deltaTimePerShake;
+    [SerializeField] private float blockParticulsPerSquearUnit;
+
+    [SerializeField] private ParticleSystemForceField forceField;
+    [SerializeField] private float forceFeildStrength;
 
     [SerializeField] ChangeImage changeImage;
 
@@ -49,6 +53,8 @@ public class PowerUps : MonoBehaviour
         blockDestroier.SetActive(false);
         destroyLight.SetActive(false);
         PickPowerUp();
+        forceField.endRange = Camera.main.orthographicSize * 2;
+        forceField.gravity = 0;
     }
 
 
@@ -114,7 +120,13 @@ public class PowerUps : MonoBehaviour
         GameObject[] blocks = GameObject.FindGameObjectsWithTag("Obstacle Block");
         foreach (GameObject o in blocks)
         {
-            Destroy(o);
+            o.GetComponent<BoxCollider2D>().enabled = false;
+            o.GetComponent<SpriteRenderer>().enabled = false;
+            ParticleSystem p = o.GetComponent<ParticleSystem>();
+            var e = p.emission;
+            e.rateOverTime = p.transform.position.x * p.transform.position.y * blockParticulsPerSquearUnit;
+            p.Play();
+            StartCoroutine(ShockWave());
         }
         StartCoroutine(bombEffect.BombHasGoneOf(secondsOfLightBombEffect));
         StartCoroutine(cameraShake.ShakeCamera(secondsOfShakeBombEffect, bombShakeMagnitud, deltaTimePerShake));
@@ -164,6 +176,14 @@ public class PowerUps : MonoBehaviour
             changeImage.setSprite(PowerUp.Bomb);
         }
     }
+
+    private IEnumerator ShockWave()
+    {
+        forceField.gravity = -forceFeildStrength;
+        yield return new WaitForSeconds(.5f);
+        forceField.gravity = 0;
+    }
+
 
 
 }
