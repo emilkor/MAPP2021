@@ -5100,7 +5100,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 08d086edd82e747d38535d7dc51d725f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  timeScale: 0
+  timeScale: 1
 --- !u!4 &1982514933
 Transform:
   m_ObjectHideFlags: 0
@@ -5530,7 +5530,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6190953270601238112, guid: e200cf69cdfb64dee935d59d6e9094a7, type: 3}
       propertyPath: forceFeildStrength
-      value: 0.01
+      value: 0.1
       objectReference: {fileID: 0}
     - target: {fileID: 6190953270601238112, guid: e200cf69cdfb64dee935d59d6e9094a7, type: 3}
       propertyPath: chansForBlockDestroier

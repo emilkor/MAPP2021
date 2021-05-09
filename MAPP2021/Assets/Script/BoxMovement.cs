@@ -8,9 +8,11 @@ public class BoxMovement : MonoBehaviour
     private Spawner spawner;
     [SerializeField] private float speed;
     [SerializeField] private float deathPosition;
+
     
 
     private Vector2 targetPosition;
+    private bool blownUp;
 
     // Start is called before the first frame update
 
@@ -34,15 +36,30 @@ public class BoxMovement : MonoBehaviour
     void Update()
     {
         gameObject.transform.position = Vector2.MoveTowards(gameObject.transform.position, targetPosition, speed * Time.deltaTime);
-        if (gameObject.transform.position.y <= deathPosition)
+        if (!blownUp)
         {
-            Destroy(gameObject);
+            if (gameObject.transform.position.y <= deathPosition)
+            {
+                Destroy(gameObject);
+            }
         }
     }
 
     public Vector2 getTarget()
     {
         return targetPosition;
+    }
+
+    public void BlowingUp()
+    {
+        blownUp = true;
+        StartCoroutine(DestroyTimer());
+    }
+
+    private IEnumerator DestroyTimer()
+    {
+        yield return new WaitForSeconds(5);
+        Destroy(gameObject);
     }
 
 }
