@@ -4262,7 +4262,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   wallBreak: {fileID: 21300000, guid: 7d24909462e746d47b6992a8986a5d8f, type: 3}
-  explosion: {fileID: 21300000, guid: eb92369e8597129449789246b19aa7c7, type: 3}
+  explosion: {fileID: 21300000, guid: 8607de598145b9846918982281f7acfa, type: 3}
   slowMotion: {fileID: 21300000, guid: 4e20a69dd3456794ab9941c98d3c08fa, type: 3}
   powerUpImage: {fileID: 1752894708}
 --- !u!1 &1877470284
