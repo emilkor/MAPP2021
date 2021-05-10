@@ -1,0 +1,75 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &2306471703406205456
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2306471703406205459}
+  - component: {fileID: 2306471703406205458}
+  m_Layer: 0
+  m_Name: Spawner
+  m_TagString: Spawner
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2306471703406205459
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2306471703406205456}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2306471703406205458
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2306471703406205456}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 95e95375ae477426d897fdb4698effc7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  doBoxSpawn: 0.25
+  doWallSpawn: 0.5
+  doCorridorSpawn: 0.75
+  doSideToSidePillar: 1
+  block: {fileID: 5495258166039294534, guid: 00f4e68de705246ceb02cc4dcebf6cc5, type: 3}
+  raidiusOfPosibulPositions: 5
+  hightOfSpawnPosition: 15
+  minimumTimeBetweenBlocks: 0.2
+  maximumTimeBetweenBlocks: 0.7
+  minimumWidthOfBlock: 1
+  maximumWidthOfBlock: 3
+  minimumBoxesBeforSpawnChange: 20
+  maximumBoxesBeforSpawnChange: 30
+  minimumTimeBetweenWalls: 1
+  maximumTimeBetweenWalls: 2
+  minimumDistansBetweenWalls: 2
+  maximumDistansBetweenWalls: 4
+  minimumWallsBeforSpawnChange: 5
+  maximumWallsBeforSpawnChange: 7
+  maximumCorridorCurv: 1
+  minimumCorridorCurv: 2
+  minimumDistansBetweenCorridorWalls: 3
+  maximumDistansBetweenCorridorWalls: 4
+  minimumCorridorsBeforSpawnChange: 15
+  maximumCorridorsBeforSpawnChange: 25
+  timeBetweenCorridorWalls: 0.8
+  chansOfCorridorChangeDirektion: 0.9
+  pillarWidth: 2
+  pillarHight: 5
+  timeBetweenSideToSidePillarWalls: 0.5
