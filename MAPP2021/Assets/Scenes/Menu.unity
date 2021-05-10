@@ -211,6 +211,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   musicMixer: {fileID: 24100000, guid: 4a3f3cecf2cc57640b8552931cbd47d1, type: 2}
   SFXMixer: {fileID: 24100000, guid: 1fd6bcf3470d58e4ea7b383dba7457af, type: 2}
+  gamePitch: 0
+  pauseHiPass: 830
   fadeTo: 0
   fadeDuration: 1
 --- !u!4 &156429437

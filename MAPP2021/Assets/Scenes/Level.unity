@@ -428,6 +428,7 @@ MonoBehaviour:
   musicMixer: {fileID: 24100000, guid: 4a3f3cecf2cc57640b8552931cbd47d1, type: 2}
   SFXMixer: {fileID: 24100000, guid: 1fd6bcf3470d58e4ea7b383dba7457af, type: 2}
   gamePitch: 70.9
+  pauseHiPass: 1440
   fadeTo: 0
   fadeDuration: 2
 --- !u!4 &352755134
@@ -4155,7 +4156,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1877470285
 RectTransform:
   m_ObjectHideFlags: 0

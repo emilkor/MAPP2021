@@ -140,6 +140,8 @@ AudioMixerController:
   m_ExposedParameters:
   - guid: d5c97a5d18e42c1478881480b56d7f47
     name: GrindVolume
+  - guid: a37e20bbfa95bc8489d45f564bc9ac96
+    name: BorderPitch
   m_AudioMixerGroupViews:
   - guids:
     - 50f66b009b612bc4da4c25f332e890a9

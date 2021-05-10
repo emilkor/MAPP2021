@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -11,10 +12,14 @@ public class AudioUI : MonoBehaviour
     private AudioManager am;
     public AudioMixer musicMixer;
     public AudioMixer SFXMixer;
+    private PauseMenu pauseMenu;
 
     [Range(1f, 150f)]
     public float gamePitch;
     private float volumePitch;
+
+    [Range(0f, 10000f)]
+    public float pauseHiPass;
 
     public float fadeTo = 0f;
     public float fadeDuration;
@@ -25,6 +30,8 @@ public class AudioUI : MonoBehaviour
     private float tempRestore;
     private float tempSet;
 
+    private float tempPass;
+
     private void Awake()
     {
         am = FindObjectOfType<AudioManager>();
@@ -32,6 +39,7 @@ public class AudioUI : MonoBehaviour
 
         if (SceneManager.GetActiveScene().name.Equals("Level"))
         {
+            pauseMenu = FindObjectOfType<PauseMenu>();
             am.Play("GameTheme");
             RestoreGameTheme();
             FadeOutMenu();
@@ -89,24 +97,41 @@ public class AudioUI : MonoBehaviour
 
     private void Update()
     {
+        try
+        {
+            if (pauseMenu.GetIsPaused())
+            {
+                tempPass += (pauseHiPass - tempPass) * 0.01f;
+                musicMixer.SetFloat("GameHiPass", tempPass);
+            }
+            else
+            {
+                musicMixer.SetFloat("GameHiPass", 0f);
+            }
+        }
+        catch(NullReferenceException e)
+        {
+            //Debug.Log(e.Message);
+        }
+        
+
         if (isSlowed)
         {
             tempSet += (volumePitch - tempSet) * 0.05f;
             musicMixer.SetFloat("GamePitch", tempSet);
+            SFXMixer.SetFloat("BorderPitch", tempSet);
         }
 
         if (isRestored)
         {
             tempRestore += (basePitch - tempRestore) * 0.05f;
-            print("base: " + basePitch);
-            print("temp: " + tempRestore);
             musicMixer.SetFloat("GamePitch", tempRestore);
+            SFXMixer.SetFloat("BorderPitch", tempRestore);
         }
     }
 
     public void SetGamePitch()
     {
-        //musicMixer.SetFloat("GamePitch", volumePitch);
         musicMixer.GetFloat("GamePitch", out basePitch);
         tempSet = basePitch;
 
@@ -116,10 +141,15 @@ public class AudioUI : MonoBehaviour
 
     public void RestoreGamePitch()
     {
-        //musicMixer.SetFloat("GamePitch", 1f);
         musicMixer.GetFloat("GamePitch", out tempRestore);
 
         isSlowed = false;
         isRestored = true;
     }
+
+    public void SetHiPass()
+    {
+        tempPass = 0f;
+    }
+
 }
