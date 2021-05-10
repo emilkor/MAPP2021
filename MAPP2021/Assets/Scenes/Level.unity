@@ -1369,6 +1369,7 @@ GameObject:
   m_Component:
   - component: {fileID: 566942812}
   - component: {fileID: 566942811}
+  - component: {fileID: 566942813}
   m_Layer: 0
   m_Name: Global Volume
   m_TagString: Untagged
@@ -1407,6 +1408,19 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 12
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &566942813
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 566942810}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6d84e337d59189643b5d5b7a068aa735, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  chromaticValue: 0.4
 --- !u!1 &609731430
 GameObject:
   m_ObjectHideFlags: 0
@@ -5558,12 +5572,16 @@ PrefabInstance:
       objectReference: {fileID: 1752894710}
     - target: {fileID: 6190953270601238112, guid: e200cf69cdfb64dee935d59d6e9094a7, type: 3}
       propertyPath: chansForBomb
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6190953270601238112, guid: e200cf69cdfb64dee935d59d6e9094a7, type: 3}
       propertyPath: powerUpButton
       value: 
       objectReference: {fileID: 1752894707}
+    - target: {fileID: 6190953270601238112, guid: e200cf69cdfb64dee935d59d6e9094a7, type: 3}
+      propertyPath: postProcessing
+      value: 
+      objectReference: {fileID: 566942813}
     - target: {fileID: 6190953270601238112, guid: e200cf69cdfb64dee935d59d6e9094a7, type: 3}
       propertyPath: bombShakeMagnitud
       value: 1
@@ -5574,7 +5592,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6190953270601238112, guid: e200cf69cdfb64dee935d59d6e9094a7, type: 3}
       propertyPath: chansForSlowMotion
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6190953270601238112, guid: e200cf69cdfb64dee935d59d6e9094a7, type: 3}
       propertyPath: forceFeildStrength

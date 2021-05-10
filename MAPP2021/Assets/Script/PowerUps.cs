@@ -9,6 +9,8 @@ public class PowerUps : MonoBehaviour
 
     [SerializeField] private CameraShake cameraShake;
 
+    [SerializeField] private PostProcessing postProcessing;
+
     [SerializeField] private float chansForSlowMotion;
     [SerializeField] private float chansForSuperSpeed;
     [SerializeField] private float chansForBlockDestroier;
@@ -86,9 +88,11 @@ public class PowerUps : MonoBehaviour
 
     private IEnumerator SlowMotion()
     {
+        postProcessing.ChromaticAbberation(true);
         Time.timeScale = slowMotionFactor;
         yield return new WaitForSeconds(slowMotionTime);
         Time.timeScale = 1;
+        postProcessing.ChromaticAbberation(false);
     }
 
     private IEnumerator SuperSpeed()
