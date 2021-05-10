@@ -3,6 +3,7 @@ using System;
 using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
+using UnityEngine.SceneManagement;
 
 public class AudioManager : MonoBehaviour
 {
@@ -12,7 +13,7 @@ public class AudioManager : MonoBehaviour
     private List<Sound> toggledClips = new List<Sound>();
 
     public AudioMixer SFXMixer;
-
+    public AudioUI audioUI;
 
     public bool pointCounterEnabled;
     public int playerScore;
@@ -59,6 +60,8 @@ public class AudioManager : MonoBehaviour
         scoreThreshold = initialScoreThreshold;
         mode = 0;
     }
+
+    
 
     
     private void Update()

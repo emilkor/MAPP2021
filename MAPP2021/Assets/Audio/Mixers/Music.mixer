@@ -37,6 +37,8 @@ AudioMixerController:
   m_ExposedParameters:
   - guid: e52446733616ba84da05066762559c40
     name: GameVolume
+  - guid: 074a543e07130784dbb2590b4807efea
+    name: GamePitch
   - guid: d49422cab42ed51439e2fc96cd4b8a50
     name: MenuVolume
   m_AudioMixerGroupViews:
@@ -93,6 +95,7 @@ AudioMixerSnapshotController:
   m_SnapshotID: 12ae9f9f52fe891489b2749f775b4e77
   m_FloatValues:
     d49422cab42ed51439e2fc96cd4b8a50: 0
+    074a543e07130784dbb2590b4807efea: 1
   m_TransitionOverrides: {}
 --- !u!244 &1374041489471395998
 AudioMixerEffectController:
