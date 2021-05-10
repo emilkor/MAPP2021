@@ -70,4 +70,9 @@ public class BorderAudio : MonoBehaviour
     {
         fadeOut = StartCoroutine(FadeMixerGroup.StartFade(SFXMixer, "GrindVolume", durationOut, fadeAway));
     }
+
+    public void Stop()
+    {
+        SFXMixer.SetFloat("GrindVolume", -80f);
+    }
 }

@@ -5087,7 +5087,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &1982514932
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5556,6 +5556,10 @@ PrefabInstance:
       propertyPath: gameOver
       value: 
       objectReference: {fileID: 1480891184}
+    - target: {fileID: 6190953270601238117, guid: e200cf69cdfb64dee935d59d6e9094a7, type: 3}
+      propertyPath: borderAudio
+      value: 
+      objectReference: {fileID: 352755135}
     - target: {fileID: 6190953270601238121, guid: e200cf69cdfb64dee935d59d6e9094a7, type: 3}
       propertyPath: m_RootOrder
       value: 2
