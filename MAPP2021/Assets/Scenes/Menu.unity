@@ -211,6 +211,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   musicMixer: {fileID: 24100000, guid: 4a3f3cecf2cc57640b8552931cbd47d1, type: 2}
   SFXMixer: {fileID: 24100000, guid: 1fd6bcf3470d58e4ea7b383dba7457af, type: 2}
+  gamePitch: 0
+  pauseHiPass: 830
   fadeTo: 0
   fadeDuration: 1
 --- !u!4 &156429437
@@ -664,6 +666,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3500077578585748970, guid: ed675b6f62a64be498f176e06a898c47, type: 3}
       propertyPath: muteSound
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8286467364740843520, guid: ed675b6f62a64be498f176e06a898c47, type: 3}
+      propertyPath: m_IsOn
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8286467364740843521, guid: ed675b6f62a64be498f176e06a898c47, type: 3}
@@ -1641,6 +1647,14 @@ PrefabInstance:
       propertyPath: toggleMuteButton
       value: 
       objectReference: {fileID: 1021557746}
+    - target: {fileID: 2469809342057135749, guid: 3b21b3fe9a183f84391271ba69b46248, type: 3}
+      propertyPath: sounds.Array.data[4].clip
+      value: 
+      objectReference: {fileID: 8300000, guid: ce9ed3e8791e06b4d89aef64216dffd1, type: 3}
+    - target: {fileID: 2469809342057135749, guid: 3b21b3fe9a183f84391271ba69b46248, type: 3}
+      propertyPath: sounds.Array.data[4].volume
+      value: 0.364
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3b21b3fe9a183f84391271ba69b46248, type: 3}
 --- !u!1 &1943692339

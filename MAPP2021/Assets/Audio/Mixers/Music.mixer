@@ -19,6 +19,24 @@ AudioMixerGroupController:
   m_Mute: 0
   m_Solo: 0
   m_BypassEffects: 0
+--- !u!244 &-471003174344046893
+AudioMixerEffectController:
+  m_ObjectHideFlags: 3
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: 
+  m_EffectID: 43ed33f3672baa04091af6c1ce8f620f
+  m_EffectName: Highpass
+  m_MixLevel: bbb4884d4d340294b9fad16f7081959d
+  m_Parameters:
+  - m_ParameterName: Cutoff freq
+    m_GUID: af42d763c06fe7340b7206b233c6cb19
+  - m_ParameterName: Resonance
+    m_GUID: e5f451996bcef1842bcbc4a833235409
+  m_SendTarget: {fileID: 0}
+  m_EnableWetMix: 0
+  m_Bypass: 0
 --- !u!241 &24100000
 AudioMixerController:
   m_ObjectHideFlags: 0
@@ -37,6 +55,10 @@ AudioMixerController:
   m_ExposedParameters:
   - guid: e52446733616ba84da05066762559c40
     name: GameVolume
+  - guid: 074a543e07130784dbb2590b4807efea
+    name: GamePitch
+  - guid: af42d763c06fe7340b7206b233c6cb19
+    name: GameHiPass
   - guid: d49422cab42ed51439e2fc96cd4b8a50
     name: MenuVolume
   m_AudioMixerGroupViews:
@@ -92,7 +114,10 @@ AudioMixerSnapshotController:
   m_AudioMixer: {fileID: 24100000}
   m_SnapshotID: 12ae9f9f52fe891489b2749f775b4e77
   m_FloatValues:
+    af42d763c06fe7340b7206b233c6cb19: 1489
+    e5f451996bcef1842bcbc4a833235409: 1
     d49422cab42ed51439e2fc96cd4b8a50: 0
+    074a543e07130784dbb2590b4807efea: 1
   m_TransitionOverrides: {}
 --- !u!244 &1374041489471395998
 AudioMixerEffectController:
@@ -137,6 +162,7 @@ AudioMixerGroupController:
   m_Send: 00000000000000000000000000000000
   m_Effects:
   - {fileID: 2436548172237742825}
+  - {fileID: -471003174344046893}
   m_UserColorIndex: 0
   m_Mute: 0
   m_Solo: 0

@@ -145,7 +145,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &105322225
 RectTransform:
   m_ObjectHideFlags: 0
@@ -427,6 +427,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   musicMixer: {fileID: 24100000, guid: 4a3f3cecf2cc57640b8552931cbd47d1, type: 2}
   SFXMixer: {fileID: 24100000, guid: 1fd6bcf3470d58e4ea7b383dba7457af, type: 2}
+  gamePitch: 70.9
+  pauseHiPass: 1440
   fadeTo: 0
   fadeDuration: 2
 --- !u!4 &352755134
@@ -555,10 +557,38 @@ PrefabInstance:
       propertyPath: m_Name
       value: Mute Music
       objectReference: {fileID: 0}
+    - target: {fileID: 8286467365036107826, guid: ed675b6f62a64be498f176e06a898c47, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: b680326bd5a6c8d4890a6d076d784d61, type: 3}
+    - target: {fileID: 8286467365036107827, guid: ed675b6f62a64be498f176e06a898c47, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 25
+      objectReference: {fileID: 0}
+    - target: {fileID: 8286467365036107827, guid: ed675b6f62a64be498f176e06a898c47, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 25
+      objectReference: {fileID: 0}
     - target: {fileID: 8286467365273356882, guid: ed675b6f62a64be498f176e06a898c47, type: 3}
       propertyPath: m_Text
       value: 
       objectReference: {fileID: 0}
+    - target: {fileID: 8286467365797337152, guid: ed675b6f62a64be498f176e06a898c47, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 30
+      objectReference: {fileID: 0}
+    - target: {fileID: 8286467365797337152, guid: ed675b6f62a64be498f176e06a898c47, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 30
+      objectReference: {fileID: 0}
+    - target: {fileID: 8286467365797337155, guid: ed675b6f62a64be498f176e06a898c47, type: 3}
+      propertyPath: m_Type
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8286467365797337155, guid: ed675b6f62a64be498f176e06a898c47, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: f23ba81227782924485918ef80ac4566, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ed675b6f62a64be498f176e06a898c47, type: 3}
 --- !u!224 &430014330 stripped
@@ -1292,6 +1322,7 @@ GameObject:
   m_Component:
   - component: {fileID: 566942812}
   - component: {fileID: 566942811}
+  - component: {fileID: 566942813}
   m_Layer: 0
   m_Name: Global Volume
   m_TagString: Untagged
@@ -1330,6 +1361,19 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 12
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &566942813
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 566942810}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6d84e337d59189643b5d5b7a068aa735, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  chromaticValue: 0.4
 --- !u!1 &609731430
 GameObject:
   m_ObjectHideFlags: 0
@@ -2443,7 +2487,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 26.6, y: 0.00000047684}
+  m_AnchoredPosition: {x: 28.7, y: 0.00000047684}
   m_SizeDelta: {x: 508.9572, y: 77.3215}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &955492716
@@ -2810,7 +2854,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 31.3, y: 0.000005722}
+  m_AnchoredPosition: {x: 32.8, y: 0.000005722}
   m_SizeDelta: {x: 582.8315, y: 81.3428}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1173048135
@@ -3887,6 +3931,18 @@ PrefabInstance:
       propertyPath: m_Name
       value: Mute SFX
       objectReference: {fileID: 0}
+    - target: {fileID: 8286467365036107826, guid: ed675b6f62a64be498f176e06a898c47, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: b680326bd5a6c8d4890a6d076d784d61, type: 3}
+    - target: {fileID: 8286467365036107827, guid: ed675b6f62a64be498f176e06a898c47, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 25
+      objectReference: {fileID: 0}
+    - target: {fileID: 8286467365036107827, guid: ed675b6f62a64be498f176e06a898c47, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 25
+      objectReference: {fileID: 0}
     - target: {fileID: 8286467365273356882, guid: ed675b6f62a64be498f176e06a898c47, type: 3}
       propertyPath: m_Text
       value: 
@@ -3911,6 +3967,22 @@ PrefabInstance:
       propertyPath: m_RootOrder
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 8286467365797337152, guid: ed675b6f62a64be498f176e06a898c47, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 30
+      objectReference: {fileID: 0}
+    - target: {fileID: 8286467365797337152, guid: ed675b6f62a64be498f176e06a898c47, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 30
+      objectReference: {fileID: 0}
+    - target: {fileID: 8286467365797337155, guid: ed675b6f62a64be498f176e06a898c47, type: 3}
+      propertyPath: m_Type
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8286467365797337155, guid: ed675b6f62a64be498f176e06a898c47, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: f23ba81227782924485918ef80ac4566, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ed675b6f62a64be498f176e06a898c47, type: 3}
 --- !u!224 &1715038146 stripped
@@ -5469,6 +5541,10 @@ PrefabInstance:
       value: -0.20547937
       objectReference: {fileID: 0}
     - target: {fileID: 6190953270601238112, guid: e200cf69cdfb64dee935d59d6e9094a7, type: 3}
+      propertyPath: audioUI
+      value: 
+      objectReference: {fileID: 352755133}
+    - target: {fileID: 6190953270601238112, guid: e200cf69cdfb64dee935d59d6e9094a7, type: 3}
       propertyPath: powerUp
       value: 3
       objectReference: {fileID: 0}
@@ -5494,7 +5570,7 @@ PrefabInstance:
       objectReference: {fileID: 1752894710}
     - target: {fileID: 6190953270601238112, guid: e200cf69cdfb64dee935d59d6e9094a7, type: 3}
       propertyPath: chansForBomb
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6190953270601238112, guid: e200cf69cdfb64dee935d59d6e9094a7, type: 3}
       propertyPath: powerUpButton
@@ -5514,7 +5590,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6190953270601238112, guid: e200cf69cdfb64dee935d59d6e9094a7, type: 3}
       propertyPath: chansForSlowMotion
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6190953270601238112, guid: e200cf69cdfb64dee935d59d6e9094a7, type: 3}
       propertyPath: forceFeildStrength

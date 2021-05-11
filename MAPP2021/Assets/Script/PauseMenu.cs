@@ -45,6 +45,7 @@ public class PauseMenu : MonoBehaviour
         FindObjectOfType<AudioUI>().SFXMixer.GetFloat("GrindVolume", out float currentVol);
         borderVol = currentVol;
         FindObjectOfType<AudioUI>().SFXMixer.SetFloat("GrindVolume", -80f);
+        FindObjectOfType<AudioUI>().SetHiPass();
     }
 
     public void Restart()
