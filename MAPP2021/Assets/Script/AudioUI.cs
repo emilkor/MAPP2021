@@ -26,7 +26,7 @@ public class AudioUI : MonoBehaviour
 
     private bool isSlowed;
     private bool isRestored;
-    private float basePitch;
+    private float basePitch = 1f;
     private float tempRestore;
     private float tempSet;
 
@@ -36,6 +36,8 @@ public class AudioUI : MonoBehaviour
     {
         am = FindObjectOfType<AudioManager>();
         volumePitch = gamePitch / 100f;
+        isRestored = true;
+        tempRestore = basePitch;
 
         if (SceneManager.GetActiveScene().name.Equals("Level"))
         {
@@ -143,8 +145,27 @@ public class AudioUI : MonoBehaviour
     {
         musicMixer.GetFloat("GamePitch", out tempRestore);
 
+        RestoreGamePitchBools();
+    }
+
+    private void RestoreGamePitchBools()
+    {
         isSlowed = false;
         isRestored = true;
+    }
+
+    public void RestartPitch()
+    {
+        if (isSlowed)
+        {
+            tempRestore = volumePitch;
+        }
+        else
+        {
+            tempRestore = basePitch;
+        }
+
+        RestoreGamePitchBools();
     }
 
     public void SetHiPass()

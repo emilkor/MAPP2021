@@ -22,6 +22,7 @@ public class PlayerDeath : MonoBehaviour
 
         FindObjectOfType<AudioManager>().Play("PlayerDeath");
         borderAudio.Stop();
+        FindObjectOfType<AudioUI>().RestoreGamePitch();
     }
 
 

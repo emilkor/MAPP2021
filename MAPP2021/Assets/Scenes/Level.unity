@@ -5597,6 +5597,10 @@ PrefabInstance:
       value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 6190953270601238112, guid: e200cf69cdfb64dee935d59d6e9094a7, type: 3}
+      propertyPath: postProcessing
+      value: 
+      objectReference: {fileID: 566942813}
+    - target: {fileID: 6190953270601238112, guid: e200cf69cdfb64dee935d59d6e9094a7, type: 3}
       propertyPath: poweringUpTime
       value: 2
       objectReference: {fileID: 0}
@@ -5818,7 +5822,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6911640408449977936, guid: e200cf69cdfb64dee935d59d6e9094a7, type: 3}
       propertyPath: amountOfPan
-      value: 0.45
+      value: 0.3
       objectReference: {fileID: 0}
     - target: {fileID: 7100718878064463729, guid: e200cf69cdfb64dee935d59d6e9094a7, type: 3}
       propertyPath: m_Materials.Array.data[0]
