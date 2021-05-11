@@ -13,6 +13,7 @@ public class BoxMovement : MonoBehaviour
 
     private Vector2 targetPosition;
     private bool blownUp;
+    private float cameraHight;
 
     // Start is called before the first frame update
 
@@ -22,7 +23,9 @@ public class BoxMovement : MonoBehaviour
         blockSpeed = GameObject.FindWithTag("Speed").GetComponent<BlockSpeed>();
         deathPosition = -(Camera.main.orthographicSize + (transform.localScale.y / 2));
         targetPosition = new Vector2(gameObject.transform.position.x, deathPosition);
-        speed = blockSpeed.GetSpeed();  
+        speed = blockSpeed.GetSpeed();
+        
+        
     }
 
     // Update is called once per frame
@@ -36,13 +39,13 @@ public class BoxMovement : MonoBehaviour
     void Update()
     {
         gameObject.transform.position = Vector2.MoveTowards(gameObject.transform.position, targetPosition, speed * Time.deltaTime);
-        if (!blownUp)
-        {
-            if (gameObject.transform.position.y <= deathPosition)
+        
+        
+            if (gameObject.transform.position.y == deathPosition)
             {
                 Destroy(gameObject);
             }
-        }
+        
     }
 
     public Vector2 getTarget()
@@ -50,9 +53,17 @@ public class BoxMovement : MonoBehaviour
         return targetPosition;
     }
 
-    public void BlowingUp()
+    public void BlowingUp(Transform player, float explotionSpeed)
     {
         blownUp = true;
+        gameObject.GetComponent<BoxCollider2D>().enabled = false;
+        //rak linje y = mx + b
+        float m = (gameObject.transform.position.y - player.position.y) / (gameObject.transform.position.x - player.position.x);
+        float b = -((m * player.position.x) - player.position.y);
+        float x = gameObject.transform.position.x >= player.position.x ? 100 : -100;
+        float y = (m * x) + b;
+        targetPosition = new Vector2(x, y);
+        speed = explotionSpeed;
         StartCoroutine(DestroyTimer());
     }
 

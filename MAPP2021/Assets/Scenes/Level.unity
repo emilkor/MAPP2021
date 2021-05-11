@@ -4890,7 +4890,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &1982514932
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5062,7 +5062,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &2106651178
 RectTransform:
   m_ObjectHideFlags: 0
@@ -5212,7 +5212,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2306471703406205458, guid: c381fe1f64b2145efa1180ccdcd1dc56, type: 3}
       propertyPath: m_Enabled
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2306471703406205459, guid: c381fe1f64b2145efa1180ccdcd1dc56, type: 3}
       propertyPath: m_RootOrder
@@ -5501,6 +5501,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1752894707}
     - target: {fileID: 6190953270601238112, guid: e200cf69cdfb64dee935d59d6e9094a7, type: 3}
+      propertyPath: explotionSpeed
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 6190953270601238112, guid: e200cf69cdfb64dee935d59d6e9094a7, type: 3}
       propertyPath: bombShakeMagnitud
       value: 1
       objectReference: {fileID: 0}
@@ -5530,7 +5534,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6190953270601238112, guid: e200cf69cdfb64dee935d59d6e9094a7, type: 3}
       propertyPath: blockParticulsPerSquearUnit
-      value: 50
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 6190953270601238114, guid: e200cf69cdfb64dee935d59d6e9094a7, type: 3}
       propertyPath: m_Enabled

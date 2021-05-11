@@ -38,6 +38,7 @@ public class PowerUps : MonoBehaviour
     [SerializeField] private float bombShakeMagnitud;
     [SerializeField] private int deltaTimePerShake;
     [SerializeField] private float blockParticulsPerSquearUnit;
+    [SerializeField] private float explotionSpeed;
 
     [SerializeField] private ParticleSystemForceField forceField;
     [SerializeField] private float forceFeildStrength;
@@ -120,14 +121,16 @@ public class PowerUps : MonoBehaviour
         GameObject[] blocks = GameObject.FindGameObjectsWithTag("Obstacle Block");
         foreach (GameObject o in blocks)
         {
-            o.GetComponent<BoxCollider2D>().enabled = false;
-            o.GetComponent<SpriteRenderer>().enabled = false;
-            ParticleSystem p = o.GetComponent<ParticleSystem>();
-            var e = p.emission;
-            e.rateOverTime = p.transform.position.x * p.transform.position.y * blockParticulsPerSquearUnit;
-            p.Play();
-            StartCoroutine(ShockWave());
+            
+            //o.GetComponent<BoxCollider2D>().enabled = false;
+            //o.GetComponent<SpriteRenderer>().enabled = false;
+            o.GetComponent < BoxMovement > ().BlowingUp(transform, explotionSpeed);
+            //ParticleSystem p = o.GetComponent<ParticleSystem>();
+            //var e = p.emission;
+            //e.rateOverTime = p.transform.position.x * p.transform.position.y * blockParticulsPerSquearUnit;
+            //p.Play();
         }
+        //StartCoroutine(ShockWave());
         StartCoroutine(bombEffect.BombHasGoneOf(secondsOfLightBombEffect));
         StartCoroutine(cameraShake.ShakeCamera(secondsOfShakeBombEffect, bombShakeMagnitud, deltaTimePerShake));
     }
