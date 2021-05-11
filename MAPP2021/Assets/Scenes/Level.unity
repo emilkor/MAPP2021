@@ -4003,6 +4003,7 @@ GameObject:
   - component: {fileID: 1752894708}
   - component: {fileID: 1752894707}
   - component: {fileID: 1752894710}
+  - component: {fileID: 1752894711}
   m_Layer: 5
   m_Name: PowerUpButton
   m_TagString: Untagged
@@ -4027,7 +4028,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 0}
   m_AnchorMax: {x: 1, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchoredPosition: {x: -10, y: 6}
   m_SizeDelta: {x: 225.0822, y: 226.0555}
   m_Pivot: {x: 1, y: 0}
 --- !u!114 &1752894707
@@ -4140,6 +4141,21 @@ MonoBehaviour:
   explosion: {fileID: 21300000, guid: 8607de598145b9846918982281f7acfa, type: 3}
   slowMotion: {fileID: 21300000, guid: 4e20a69dd3456794ab9941c98d3c08fa, type: 3}
   powerUpImage: {fileID: 1752894708}
+--- !u!114 &1752894711
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1752894705}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cfabb0440166ab443bba8876756fdfa9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_EffectColor: {r: 1, g: 1, b: 1, a: 0.5}
+  m_EffectDistance: {x: 5, y: -5}
+  m_UseGraphicAlpha: 1
 --- !u!1 &1877470284
 GameObject:
   m_ObjectHideFlags: 0
@@ -5579,6 +5595,10 @@ PrefabInstance:
     - target: {fileID: 6190953270601238112, guid: e200cf69cdfb64dee935d59d6e9094a7, type: 3}
       propertyPath: explotionSpeed
       value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 6190953270601238112, guid: e200cf69cdfb64dee935d59d6e9094a7, type: 3}
+      propertyPath: poweringUpTime
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 6190953270601238112, guid: e200cf69cdfb64dee935d59d6e9094a7, type: 3}
       propertyPath: bombShakeMagnitud

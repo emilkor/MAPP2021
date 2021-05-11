@@ -91,7 +91,7 @@ public class PowerUps : MonoBehaviour
     private IEnumerator SlowMotion()
     {
         audioUI.SetGamePitch();
-       // postProcessing.ChromaticAbberation(true);
+        postProcessing.ChromaticAbberation(true);
         Time.timeScale = slowMotionFactor;
         yield return new WaitForSeconds(slowMotionTime);
         Time.timeScale = 1;
@@ -166,7 +166,7 @@ public class PowerUps : MonoBehaviour
             powerUp = PowerUp.SlowMotion;
             powerText.text = "Slow Motion";
             changeImage.setSprite(PowerUp.SlowMotion);
-            return;
+            
             
         }
 //         else if (powerUpPicker < chansForSuperSpeed)
@@ -179,14 +179,14 @@ public class PowerUps : MonoBehaviour
             powerUp = PowerUp.WallBreak;
             powerText.text = "Wall Break";
             changeImage.setSprite(PowerUp.WallBreak);
-            return;
+            
         }
         else if (powerUpPicker <= chansForBomb)
         {
             powerUp = PowerUp.Bomb;
             powerText.text = "Bomb";
             changeImage.setSprite(PowerUp.Bomb);
-            return;
+            
         }
     }
 
