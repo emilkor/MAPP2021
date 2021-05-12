@@ -29,6 +29,8 @@ public class PowerUps : MonoBehaviour
 
     [SerializeField] private CircleCollider2D playerCollider;
     [SerializeField] private GameObject blockDestroier;
+    [SerializeField] private float timeToObliviate;
+    [SerializeField] private float timesBiggerWhenObliviate;
 
     [SerializeField] private GameObject destroyLight;
 
@@ -119,7 +121,8 @@ public class PowerUps : MonoBehaviour
         StartCoroutine(DestroyLight(raycast.distance));
         if (raycast.collider != null)
         {
-            Destroy(raycast.transform.gameObject);
+            StartCoroutine(raycast.transform.gameObject.GetComponent<BlockDestroid>().Obliviate(timeToObliviate, timesBiggerWhenObliviate));
+            //StartCoroutine(ShockWave());
         }
     }
 

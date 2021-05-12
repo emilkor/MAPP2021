@@ -10612,8 +10612,8 @@ MonoBehaviour:
   audioUI: {fileID: 0}
   chansForSlowMotion: 0
   chansForSuperSpeed: 0
-  chansForBlockDestroier: 0
-  chansForBomb: 1
+  chansForBlockDestroier: 1
+  chansForBomb: 0
   poweringUpTime: 2
   powerText: {fileID: 0}
   slowMotionFactor: 0.5
@@ -10623,6 +10623,8 @@ MonoBehaviour:
   SuperSpeedTime: 6
   playerCollider: {fileID: 6190953270601238119}
   blockDestroier: {fileID: 6190953270871092852}
+  timeToObliviate: 0.5
+  timesBiggerWhenObliviate: 1
   destroyLight: {fileID: 6190953269551121065}
   powerUp: 3
   powerUpButton: {fileID: 0}
