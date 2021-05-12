@@ -127,9 +127,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 0
   deathPosition: -15
-  particleSystem: {fileID: -8289238404594967771}
-  spriteRenderer: {fileID: 5495258166039294587}
-  rigidbody2D: {fileID: 0}
 --- !u!114 &8793336192156094698
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -396,7 +393,7 @@ ParticleSystem:
     startSize:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 0.36
+      scalar: 1
       minScalar: 1
       maxCurve:
         serializedVersion: 2
@@ -771,7 +768,7 @@ ParticleSystem:
   ShapeModule:
     serializedVersion: 6
     enabled: 1
-    type: 5
+    type: 18
     angle: 90
     length: 5
     boxThickness: {x: 0, y: 0, z: 0}
@@ -977,7 +974,7 @@ ParticleSystem:
     rateOverTime:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 200
+      scalar: 2000
       minScalar: 10
       maxCurve:
         serializedVersion: 2
@@ -4871,7 +4868,7 @@ ParticleSystemRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 0dbea9692e8fa465d9ea2bb20f69bbc8, type: 2}
+  - {fileID: 10301, guid: 0000000000000000f000000000000000, type: 0}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
