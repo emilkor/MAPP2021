@@ -12,11 +12,13 @@ public class PauseMenu : MonoBehaviour
 
     private bool isPaused;
     private float borderVol;
+    private AudioUI audioUI;
 
     private void Start()
     {
         pauseMenuUI.SetActive(false);
         optionsMenu.SetActive(false);
+        audioUI = FindObjectOfType<AudioUI>();
     }
 
     public void Resume()
@@ -54,6 +56,7 @@ public class PauseMenu : MonoBehaviour
 
         SceneManager.LoadScene(1);
         Time.timeScale = 1f;
+        audioUI.RestartPitch();
     }
 
     public void LoadMenu()

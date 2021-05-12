@@ -131,13 +131,13 @@ public class PowerUps : MonoBehaviour
             
             //o.GetComponent<BoxCollider2D>().enabled = false;
             //o.GetComponent<SpriteRenderer>().enabled = false;
-            o.GetComponent < BoxMovement > ().BlowingUp(transform, explotionSpeed);
+            o.GetComponent < BoxMovement > ().BlowingUp(transform, explotionSpeed, blockParticulsPerSquearUnit);
             //ParticleSystem p = o.GetComponent<ParticleSystem>();
             //var e = p.emission;
             //e.rateOverTime = p.transform.position.x * p.transform.position.y * blockParticulsPerSquearUnit;
             //p.Play();
         }
-        //StartCoroutine(ShockWave());
+        StartCoroutine(ShockWave());
         StartCoroutine(bombEffect.BombHasGoneOf(secondsOfLightBombEffect));
         StartCoroutine(cameraShake.ShakeCamera(secondsOfShakeBombEffect, bombShakeMagnitud, deltaTimePerShake));
     }
@@ -193,7 +193,7 @@ public class PowerUps : MonoBehaviour
     private IEnumerator ShockWave()
     {
         forceField.gravity = -forceFeildStrength;
-        yield return new WaitForSeconds(.5f);
+        yield return new WaitForSeconds(.05f);
         forceField.gravity = 0;
     }
 

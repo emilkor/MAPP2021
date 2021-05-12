@@ -8,12 +8,13 @@ public class BoxMovement : MonoBehaviour
     private Spawner spawner;
     [SerializeField] private float speed;
     [SerializeField] private float deathPosition;
-
+    [SerializeField] private ParticleSystem particleSystem;
+    [SerializeField] private SpriteRenderer spriteRenderer;
+    [SerializeField] private Rigidbody2D rigidbody2D;
     
 
     private Vector2 targetPosition;
-    private bool blownUp;
-    private float cameraHight;
+    
 
     // Start is called before the first frame update
 
@@ -53,17 +54,21 @@ public class BoxMovement : MonoBehaviour
         return targetPosition;
     }
 
-    public void BlowingUp(Transform player, float explotionSpeed)
+    public void BlowingUp(Transform player, float explotionSpeed, float blockParticulsPerSquearUnit)
     {
-        blownUp = true;
         gameObject.GetComponent<BoxCollider2D>().enabled = false;
         //rak linje y = mx + b
-        float m = (gameObject.transform.position.y - player.position.y) / (gameObject.transform.position.x - player.position.x);
-        float b = -((m * player.position.x) - player.position.y);
-        float x = gameObject.transform.position.x >= player.position.x ? 100 : -100;
-        float y = (m * x) + b;
-        targetPosition = new Vector2(x, y);
-        speed = explotionSpeed;
+        this.enabled = false;
+        //float m = (gameObject.transform.position.y - player.position.y) / (gameObject.transform.position.x - player.position.x);
+        //float b = -((m * player.position.x) - player.position.y);
+        //float x = gameObject.transform.position.x >= player.position.x ? 100 : -100;
+        //float y = (m * x) + b;
+        //rigidbody2D.simulated = true;
+        //rigidbody2D.AddForce(new Vector2(x/(Mathf.Abs(x) + Mathf.Abs(y)) * explotionSpeed, y / (Mathf.Abs(x) + Mathf.Abs(y)) * explotionSpeed));
+        var e = particleSystem.emission;
+        e.rateOverTime = transform.localScale.x * transform.localScale.y * blockParticulsPerSquearUnit;
+        particleSystem.Play();
+        spriteRenderer.enabled = false;
         StartCoroutine(DestroyTimer());
     }
 
