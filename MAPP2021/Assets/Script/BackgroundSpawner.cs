@@ -11,6 +11,7 @@ public class BackgroundSpawner : MonoBehaviour
     [SerializeField] private GameObject block;
     [SerializeField] private BackgroundBlocks blocksScript;
     
+    
 
 
     private float spaceBetween;

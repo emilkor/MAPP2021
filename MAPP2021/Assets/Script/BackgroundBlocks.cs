@@ -11,6 +11,7 @@ public class BackgroundBlocks : MonoBehaviour
     [SerializeField] private float rotationSpeed;
     [SerializeField] private float secondsChangingSize;
     [SerializeField] private BoxCollider2D boxCollider;
+    [SerializeField] private SpriteRenderer spriteRenderer;
 
     private static BackgroundBlocks lastOne;
 
@@ -21,6 +22,11 @@ public class BackgroundBlocks : MonoBehaviour
     private static Quaternion toAngle = Quaternion.Euler(fromAngle.eulerAngles + (Vector3.forward * 45));
     private Vector2 targetPosition;
     private float deathPosition;
+    private static bool colliderOn;
+    private static bool cykelOfColliderOn;
+    private static bool startColorChange;
+
+
 
     // Start is called before the first frame update
 
@@ -28,6 +34,7 @@ public class BackgroundBlocks : MonoBehaviour
 
     void Start()
     {
+        boxCollider.enabled = false;
         deathPosition = -(Camera.main.orthographicSize + Mathf.Sqrt(Mathf.Pow(maxSize, 2) / 2));
         targetPosition = new Vector2(gameObject.transform.position.x, deathPosition);
         
@@ -76,6 +83,24 @@ public class BackgroundBlocks : MonoBehaviour
         {
             Destroy(gameObject);
         }
+        if (colliderOn)
+        {
+
+            if (GameObject.FindGameObjectsWithTag("Obstcle Block") == null && time > .95f)
+            {
+                boxCollider.enabled = true;
+                startColorChange = false;
+            }
+            else if (cykelOfColliderOn != gettingBigger || startColorChange)
+            {
+                startColorChange = true;
+                spriteRenderer.color = new Color(time, time, time, 1);
+            }
+        }
+        else
+        {
+            boxCollider.enabled = true; 
+        }
 
 
     }
@@ -85,7 +110,15 @@ public class BackgroundBlocks : MonoBehaviour
         return maxSize;
     }
 
+    public static void MakeBackgroundSolid()
+    {
+        colliderOn = true;
+        cykelOfColliderOn = gettingBigger;
+    }
 
-    
+    public static void MakeBackgroundUnsolid()
+    { 
+        colliderOn = false;
+    }
 
 }
