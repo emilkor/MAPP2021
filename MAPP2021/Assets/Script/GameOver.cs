@@ -27,7 +27,7 @@ public class GameOver : MonoBehaviour
         isAlive = true;
         
         Debug.Log(PlayerPrefs.GetInt("HighScore", 0));
-       // PlayerPrefs.SetInt("HighScore", 0);
+        //PlayerPrefs.SetInt("HighScore", 0);
     }
 
    
