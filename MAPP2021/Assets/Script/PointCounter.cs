@@ -30,12 +30,12 @@ public class PointCounter : MonoBehaviour
         text.text = string.Format("{0:0}", points);
         if (points % pointsToTurnSolide <= 2 && !!haveActivatedMakeBackgroundSolid)
         {
-            haveActivatedMakeBackgroundSolid = false;
+            haveActivatedMakeBackgroundSolid = true;
             MakeBackgroundSolid();
         }
         if (points > pointsToTurnSolide / 2)
         {
-            haveActivatedMakeBackgroundSolid = true;
+            haveActivatedMakeBackgroundSolid = false;
         }
 
         if (isMakeBackgroundSolid && GameObject.FindGameObjectsWithTag("Obstcle Block") == null)

@@ -3306,10 +3306,10 @@ MonoBehaviour:
   text: {fileID: 1432449752}
   blockSpeed: {fileID: 788942153}
   pointSpeed: 10
-  pointsToTurnSolide: 0
-  chansOfTurnSolide: 0
+  pointsToTurnSolide: 1000
+  chansOfTurnSolide: 1
   spawner: {fileID: 2306471702696864562}
-  timeWithSolideBackground: 0
+  timeWithSolideBackground: 5
 --- !u!114 &1432449752
 MonoBehaviour:
   m_ObjectHideFlags: 0
