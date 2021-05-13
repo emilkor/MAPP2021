@@ -10612,8 +10612,8 @@ MonoBehaviour:
   audioUI: {fileID: 0}
   chansForSlowMotion: 0
   chansForSuperSpeed: 0
-  chansForBlockDestroier: 1
-  chansForBomb: 0
+  chansForBlockDestroier: 0
+  chansForBomb: 1
   poweringUpTime: 2
   powerText: {fileID: 0}
   slowMotionFactor: 0.5

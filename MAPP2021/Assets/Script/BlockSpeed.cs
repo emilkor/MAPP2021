@@ -35,6 +35,7 @@ public class BlockSpeed : MonoBehaviour
         absolutTimer += Time.fixedDeltaTime;
         speed = startSpeed * ((acceleration / -timer) + maxTimesFaster);
         point = absolutTimer * speed;
+
     }
 
     public float GetSpeed()

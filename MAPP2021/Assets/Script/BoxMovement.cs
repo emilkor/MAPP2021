@@ -10,7 +10,6 @@ public class BoxMovement : MonoBehaviour
     [SerializeField] private float deathPosition;
     [SerializeField] private ParticleSystem particleSystem;
     [SerializeField] private SpriteRenderer spriteRenderer;
-    [SerializeField] private Rigidbody2D rigidbody2D;
     
 
     private Vector2 targetPosition;

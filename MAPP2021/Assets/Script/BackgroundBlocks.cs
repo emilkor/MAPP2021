@@ -10,6 +10,7 @@ public class BackgroundBlocks : MonoBehaviour
     [SerializeField] private float maxSize = 3f;
     [SerializeField] private float rotationSpeed;
     [SerializeField] private float secondsChangingSize;
+    [SerializeField] private BoxCollider2D boxCollider;
 
     private static BackgroundBlocks lastOne;
 
