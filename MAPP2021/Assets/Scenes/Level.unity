@@ -4721,13 +4721,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Spawner
       objectReference: {fileID: 0}
-<<<<<<< Updated upstream
-=======
     - target: {fileID: 2306471703406205456, guid: c381fe1f64b2145efa1180ccdcd1dc56, type: 3}
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
->>>>>>> Stashed changes
     - target: {fileID: 2306471703406205458, guid: c381fe1f64b2145efa1180ccdcd1dc56, type: 3}
       propertyPath: m_Enabled
       value: 1
