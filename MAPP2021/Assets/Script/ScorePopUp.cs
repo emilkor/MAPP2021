@@ -10,6 +10,7 @@ public class ScorePopUp : MonoBehaviour
     private PointCounter pointCounter;
 
     public int popThreshold;
+    public bool isPopUp;
 
     [SerializeField] private Vector3 startSize;
     public Vector3 targetSize;
@@ -28,16 +29,18 @@ public class ScorePopUp : MonoBehaviour
         pointCounter = FindObjectOfType<PointCounter>();
     }
 
-    void Update()
+    void FixedUpdate()
     {
         int score = pointCounter.getPointsInt();
 
-        if (score == popThreshold)
+        if (score >= popThreshold)
         {
-            text.text = pointCounter.getPoints();
+            if (isPopUp) { 
+                text.text = pointCounter.getPoints();
+            }
             PopUp();
             //VVV ändra här för att ändra popup intervallerna
-            popThreshold *= 2;
+            popThreshold += 500;
         }
 
         if (GameObject.FindGameObjectsWithTag("Menu").Length > 0)
