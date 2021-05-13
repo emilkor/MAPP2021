@@ -18,7 +18,7 @@ public class PointCounter : MonoBehaviour
     [SerializeField] private float timeWithSolideBackground;
 
     private float points;
-    private bool haveActivatedMakeBackgroundSolid;
+    private bool haveActivatedMakeBackgroundSolid = false;
     private bool isMakeBackgroundSolid;
 
 
@@ -33,7 +33,7 @@ public class PointCounter : MonoBehaviour
             haveActivatedMakeBackgroundSolid = false;
             MakeBackgroundSolid();
         }
-        if (points > pointsToTurnSolide / 2)
+        if (points > (pointsToTurnSolide / 2))
         {
             haveActivatedMakeBackgroundSolid = true;
         }
