@@ -40,7 +40,7 @@ public class PointCounter : MonoBehaviour
 
         if (isMakeBackgroundSolid && GameObject.FindGameObjectsWithTag("Obstcle Block") == null)
         {
-            StartCoroutine(SolideTimer())
+            StartCoroutine(SolideTimer());
         }
     }
 
