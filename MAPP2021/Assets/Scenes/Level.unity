@@ -682,8 +682,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 'OPTIONS
-'
+  m_Text: 'OPTIONS '
 --- !u!222 &434767837
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -2178,13 +2177,14 @@ GameObject:
   - component: {fileID: 873271670}
   - component: {fileID: 873271669}
   - component: {fileID: 873271672}
+  - component: {fileID: 873271673}
   m_Layer: 5
   m_Name: HighScoreText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &873271669
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2261,6 +2261,25 @@ MonoBehaviour:
   m_EffectColor: {r: 0, g: 0, b: 0, a: 0.5}
   m_EffectDistance: {x: 4, y: -4}
   m_UseGraphicAlpha: 1
+--- !u!95 &873271673
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 873271668}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: c913bd47b8a02114ebc0929378edfc64, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 2
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &896269537
 GameObject:
   m_ObjectHideFlags: 0
@@ -2791,8 +2810,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 'GAME OVER
-    SCORE'
+  m_Text: GAME OVER SCORE
 --- !u!222 &1158355531
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -3492,6 +3510,7 @@ MonoBehaviour:
   counter: {fileID: 1432449749}
   powerUpButton: {fileID: 1752894705}
   highScoreText: {fileID: 873271669}
+  animator: {fileID: 873271673}
 --- !u!222 &1480891186
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -3586,8 +3605,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 'MENU
-'
+  m_Text: 'MENU '
 --- !u!222 &1514484392
 CanvasRenderer:
   m_ObjectHideFlags: 0

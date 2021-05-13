@@ -129,8 +129,6 @@ MonoBehaviour:
   deathPosition: -15
   particleSystem: {fileID: -8289238404594967771}
   spriteRenderer: {fileID: 5495258166039294587}
-Updated upstream
-  rigidbody2D: {fileID: 0}
 --- !u!114 &8793336192156094698
 MonoBehaviour:
   m_ObjectHideFlags: 0

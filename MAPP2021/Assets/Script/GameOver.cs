@@ -15,6 +15,7 @@ public class GameOver : MonoBehaviour
     [SerializeField] private GameObject counter;
     [SerializeField] private GameObject powerUpButton;
     [SerializeField] private Text highScoreText;
+    [SerializeField] private Animator animator;
   
     private bool isAlive;
 
@@ -26,7 +27,7 @@ public class GameOver : MonoBehaviour
         isAlive = true;
         
         Debug.Log(PlayerPrefs.GetInt("HighScore", 0));
-        PlayerPrefs.SetInt("HighScore", 0);
+       // PlayerPrefs.SetInt("HighScore", 0);
     }
 
    
@@ -37,7 +38,6 @@ public class GameOver : MonoBehaviour
         if (isAlive == false)
         {
             gameOverScreen.SetActive(true);
-           // highScoreText.enabled = false;
             ShowPoints();
             ClearScreen();
         }
@@ -76,7 +76,15 @@ public class GameOver : MonoBehaviour
             PlayerPrefs.SetInt("HighScore", possibleHighScore);
             PlayerPrefs.Save();
             Debug.Log(PlayerPrefs.GetInt("HighScore", 0));
-            
+            return;
+           
+        }
+
+        else if (possibleHighScore < PlayerPrefs.GetInt("HighScore"))
+        {
+            highScoreText.text = "Score";
+            highScoreText.enabled = true;
+            animator.enabled = false;
         }
 
         
