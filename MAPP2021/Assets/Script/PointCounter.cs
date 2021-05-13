@@ -38,7 +38,7 @@ public class PointCounter : MonoBehaviour
             haveActivatedMakeBackgroundSolid = true;
         }
 
-        if (isMakeBackgroundSolid && GameObject.FindGameObjectsWithTag("Obstcle Block") == null)
+        if (isMakeBackgroundSolid && GameObject.FindGameObjectsWithTag("Obstacle Block") == null)
         {
             StartCoroutine(SolideTimer());
         }
