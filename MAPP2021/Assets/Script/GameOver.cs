@@ -83,6 +83,7 @@ public class GameOver : MonoBehaviour
         else if (possibleHighScore < PlayerPrefs.GetInt("HighScore"))
         {
             highScoreText.text = "Score";
+            highScoreText.fontSize = 150;
             highScoreText.enabled = true;
             animator.enabled = false;
         }
