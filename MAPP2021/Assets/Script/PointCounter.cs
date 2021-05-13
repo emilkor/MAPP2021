@@ -28,19 +28,19 @@ public class PointCounter : MonoBehaviour
     {
         points = blockSpeed.GetPoint() * pointSpeed;
         text.text = string.Format("{0:0}", points);
-        if (points % pointsToTurnSolide <= 2 && !!haveActivatedMakeBackgroundSolid)
+        if (points % pointsToTurnSolide <= 2 && haveActivatedMakeBackgroundSolid)
         {
-            haveActivatedMakeBackgroundSolid = true;
+            haveActivatedMakeBackgroundSolid = false;
             MakeBackgroundSolid();
         }
         if (points > pointsToTurnSolide / 2)
         {
-            haveActivatedMakeBackgroundSolid = false;
+            haveActivatedMakeBackgroundSolid = true;
         }
 
         if (isMakeBackgroundSolid && GameObject.FindGameObjectsWithTag("Obstcle Block") == null)
         {
-            StartCoroutine(SolideTimer());
+            StartCoroutine(SolideTimer())
         }
     }
 
