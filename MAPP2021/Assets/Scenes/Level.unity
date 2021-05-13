@@ -3306,10 +3306,10 @@ MonoBehaviour:
   text: {fileID: 1432449752}
   blockSpeed: {fileID: 788942153}
   pointSpeed: 10
-  pointsToTurnSolide: 0
-  chansOfTurnSolide: 0
+  pointsToTurnSolide: 1000
+  chansOfTurnSolide: 1
   spawner: {fileID: 2306471702696864562}
-  timeWithSolideBackground: 0
+  timeWithSolideBackground: 5
 --- !u!114 &1432449752
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5168,7 +5168,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &2106651178
 RectTransform:
   m_ObjectHideFlags: 0
@@ -5449,6 +5449,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 445574046, guid: e200cf69cdfb64dee935d59d6e9094a7, type: 3}
+      propertyPath: m_RootOrder
+      value: 15
+      objectReference: {fileID: 0}
     - target: {fileID: 593509644, guid: e200cf69cdfb64dee935d59d6e9094a7, type: 3}
       propertyPath: m_Enabled
       value: 1
@@ -5615,7 +5619,7 @@ PrefabInstance:
       objectReference: {fileID: 1752894710}
     - target: {fileID: 6190953270601238112, guid: e200cf69cdfb64dee935d59d6e9094a7, type: 3}
       propertyPath: chansForBomb
-      value: 0.99
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6190953270601238112, guid: e200cf69cdfb64dee935d59d6e9094a7, type: 3}
       propertyPath: powerUpButton
@@ -5625,6 +5629,10 @@ PrefabInstance:
       propertyPath: explotionSpeed
       value: 10
       objectReference: {fileID: 0}
+    - target: {fileID: 6190953270601238112, guid: e200cf69cdfb64dee935d59d6e9094a7, type: 3}
+      propertyPath: postProcessing
+      value: 
+      objectReference: {fileID: 566942813}
     - target: {fileID: 6190953270601238112, guid: e200cf69cdfb64dee935d59d6e9094a7, type: 3}
       propertyPath: poweringUpTime
       value: 2
@@ -5639,19 +5647,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6190953270601238112, guid: e200cf69cdfb64dee935d59d6e9094a7, type: 3}
       propertyPath: chansForSlowMotion
-      value: 0.33
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6190953270601238112, guid: e200cf69cdfb64dee935d59d6e9094a7, type: 3}
       propertyPath: chansForSuperSpeed
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6190953270601238112, guid: e200cf69cdfb64dee935d59d6e9094a7, type: 3}
-      propertyPath: forceFeildStrength
-      value: 0.1
-      objectReference: {fileID: 0}
-    - target: {fileID: 6190953270601238112, guid: e200cf69cdfb64dee935d59d6e9094a7, type: 3}
       propertyPath: chansForBlockDestroier
-      value: 0.66
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6190953270601238112, guid: e200cf69cdfb64dee935d59d6e9094a7, type: 3}
       propertyPath: secondsOfLightBombEffect
@@ -5844,10 +5848,6 @@ PrefabInstance:
     - target: {fileID: 6190953270601238123, guid: e200cf69cdfb64dee935d59d6e9094a7, type: 3}
       propertyPath: m_TagString
       value: Player
-      objectReference: {fileID: 0}
-    - target: {fileID: 6911640408449977936, guid: e200cf69cdfb64dee935d59d6e9094a7, type: 3}
-      propertyPath: amountOfPan
-      value: 0.45
       objectReference: {fileID: 0}
     - target: {fileID: 7100718878064463729, guid: e200cf69cdfb64dee935d59d6e9094a7, type: 3}
       propertyPath: m_Materials.Array.data[0]

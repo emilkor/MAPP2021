@@ -28,7 +28,7 @@ public class PointCounter : MonoBehaviour
     {
         points = blockSpeed.GetPoint() * pointSpeed;
         text.text = string.Format("{0:0}", points);
-        if (points % pointsToTurnSolide <= 2 && !!haveActivatedMakeBackgroundSolid)
+        if (points % pointsToTurnSolide <= 2 && haveActivatedMakeBackgroundSolid)
         {
             haveActivatedMakeBackgroundSolid = false;
             MakeBackgroundSolid();
