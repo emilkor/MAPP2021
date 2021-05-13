@@ -10633,7 +10633,7 @@ MonoBehaviour:
   blockParticulsPerSquearUnit: 100
   explotionSpeed: 100
   forceField: {fileID: 1911886944}
-  forceFeildStrength: 2.5
+  forceFeildStrength: 2.25
   changeImage: {fileID: 0}
 --- !u!198 &6190953270601238115
 ParticleSystem:
@@ -15423,7 +15423,7 @@ MonoBehaviour:
   right: {fileID: 5442925072157731609}
   bottom: {fileID: 1143179433457375501}
   left: {fileID: 8695720715037213046}
-  amountOfPan: 0.3
+  amountOfPan: 0.4
 --- !u!114 &1043695735
 MonoBehaviour:
   m_ObjectHideFlags: 0
