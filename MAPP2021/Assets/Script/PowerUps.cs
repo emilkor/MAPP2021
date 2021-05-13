@@ -196,7 +196,7 @@ public class PowerUps : MonoBehaviour
     private IEnumerator ShockWave()
     {
         forceField.gravity = -forceFeildStrength;
-        yield return new WaitForSeconds(.1f);
+        yield return new WaitForSeconds(.05f);
         forceField.gravity = 0;
     }
 
