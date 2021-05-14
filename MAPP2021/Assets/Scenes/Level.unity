@@ -3265,7 +3265,7 @@ GameObject:
   - component: {fileID: 1432449752}
   - component: {fileID: 1432449751}
   - component: {fileID: 1432449754}
-  m_Layer: 5
+  m_Layer: 0
   m_Name: Points
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3310,6 +3310,7 @@ MonoBehaviour:
   chansOfTurnSolide: 1
   spawner: {fileID: 2306471702696864562}
   timeWithSolideBackground: 5
+  points: 0
 --- !u!114 &1432449752
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5867,7 +5868,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6190953270601238123, guid: e200cf69cdfb64dee935d59d6e9094a7, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6190953270601238123, guid: e200cf69cdfb64dee935d59d6e9094a7, type: 3}
       propertyPath: m_TagString
