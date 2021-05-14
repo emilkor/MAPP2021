@@ -6,31 +6,58 @@ using UnityEngine.UI;
 public class ChangePlayerColor : MonoBehaviour
 {
     private static Color newColor;
-    [SerializeField] private Button buttonRed;
+    [SerializeField] private Button buttonOne;
+    [SerializeField] private Button buttonTwo;
+    private int highscore;
 
 
-    private void Start()
+    /* 
+     private void Awake()
+      {
+          DontDestroyOnLoad(gameObject);
+      }
+
+      */
+
+    private void Awake()
     {
-        buttonRed.enabled = false; 
-    }
+        highscore = PlayerPrefs.GetInt("HighScore");
 
-    private void Update()
-    {
-        if(PlayerPrefs.GetInt("Highscore") > 1000)
+        if(highscore >= 1000)
         {
-            buttonRed.enabled = true;
+            buttonOne.enabled = true;
+        }
+
+        if(highscore >= 3000)
+        {
+            buttonTwo.enabled = true; 
         }
     }
+    private void Start()
+    {
+        buttonOne.enabled = false;
+        buttonTwo.enabled = false;
+        Debug.Log(PlayerPrefs.GetInt("HighScore"));
+    }
 
 
+    public static void ChangeColorToBlue()
+    {
+        newColor = Color.blue;
 
-    public void ChangeColorToRed()
+    }
+
+    public static void ChangeColorToRed()
     {
         newColor = Color.red;
     }
 
-    public Color GetColor()
+    public static Color GetColor()
     {
         return newColor;
     }
+
+
+
+
 }
