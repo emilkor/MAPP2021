@@ -425,7 +425,7 @@ MonoBehaviour:
   gamePitch: 70.9
   pauseHiPass: 1440
   fadeTo: 0
-  fadeDuration: 2
+  fadeDuration: 1
 --- !u!4 &352755134
 Transform:
   m_ObjectHideFlags: 0

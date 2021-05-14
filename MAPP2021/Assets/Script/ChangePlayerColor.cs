@@ -15,7 +15,7 @@ public class ChangePlayerColor : MonoBehaviour
 
     private int highscore;
 
-    private int unlocks;
+    private int unlocks = 1;
     private float buttonValue;
     [SerializeField] private float unlockThreshold;
     [SerializeField] private float thresholdMultiplier;
@@ -26,7 +26,7 @@ public class ChangePlayerColor : MonoBehaviour
         SetButtons();
 
         //VVV Ta bort sen /August
-        PlayerPrefs.SetInt("HighScore", 200000);
+        PlayerPrefs.SetInt("HighScore", 16000);
 
         highscore = PlayerPrefs.GetInt("HighScore");
 
@@ -35,7 +35,6 @@ public class ChangePlayerColor : MonoBehaviour
             unlocks++;
 
             //Detta kan man ändra att bli mer linjärt etc /August
-            buttonValue = unlockThreshold;
             unlockThreshold *= thresholdMultiplier;
         }
 
@@ -51,7 +50,10 @@ public class ChangePlayerColor : MonoBehaviour
             }
         }
 
-        for(int i = unlocks; i < buttons.Length; i++)
+        buttonValue = unlockThreshold / 2;
+        print(buttonValue);
+
+        for (int i = unlocks; i < buttons.Length; i++)
         {
             Text buttonText = buttons[i].transform.GetChild(1).GetChild(0).GetComponent<Text>();
 

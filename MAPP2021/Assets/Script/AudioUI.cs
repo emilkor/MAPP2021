@@ -51,7 +51,6 @@ public class AudioUI : MonoBehaviour
         {
             RestoreMenuTheme();
             MuteGameTheme();
-            //FadeOutGame();
         }
     }
 
@@ -119,14 +118,14 @@ public class AudioUI : MonoBehaviour
 
         if (isSlowed)
         {
-            tempSet += (volumePitch - tempSet) * 0.05f;
+            tempSet += (volumePitch - tempSet) * 0.04f;
             musicMixer.SetFloat("GamePitch", tempSet);
             SFXMixer.SetFloat("BorderPitch", tempSet);
         }
 
         if (isRestored)
         {
-            tempRestore += (basePitch - tempRestore) * 0.05f;
+            tempRestore += (basePitch - tempRestore) * 0.04f;
             musicMixer.SetFloat("GamePitch", tempRestore);
             SFXMixer.SetFloat("BorderPitch", tempRestore);
         }
