@@ -10,7 +10,8 @@ public class ChangePlayerColor : MonoBehaviour
 
 
     [SerializeField] private Button[] buttons;
-    [SerializeField] private Text[] text;
+   // [SerializeField] private Text[] text;
+    //[SerializeField] private Image[] image;
 
     private int highscore;
 
@@ -28,35 +29,35 @@ public class ChangePlayerColor : MonoBehaviour
         {
 
             buttons[0].interactable = true;
-            text[0].enabled = false;
+            buttons[0].GetComponentInChildren<Image>().enabled = false;
         }
 
         if(highscore >= 2000)
         {
             buttons[1].interactable = true;
-            text[1].enabled = false;
-           
+            buttons[1].GetComponentInChildren<Image>().enabled = false;
+
         }
 
         if(highscore >= 4000)
         {
             buttons[2].interactable = true;
-            text[2].enabled = false;
-           
+            buttons[2].GetComponentInChildren<Image>().enabled = false;
+
         }
 
         if(highscore >= 6000)
         {
             buttons[3].interactable = true;
-            text[3].enabled = false;
-            
+            buttons[3].GetComponentInChildren<Image>().enabled = false;
+
         }
 
         if(highscore >= 8000)
         {
             buttons[4].interactable = true;
-            text[4].enabled = false;
-         
+            buttons[4].GetComponentInChildren<Image>().enabled = false;
+
         }
 
     }
