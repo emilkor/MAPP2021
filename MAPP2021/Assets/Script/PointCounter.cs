@@ -28,24 +28,24 @@ public class PointCounter : MonoBehaviour
     {
         points = blockSpeed.GetPoint() * pointSpeed;
         text.text = string.Format("{0:0}", points);
-        if (points % pointsToTurnSolide <= (pointsToTurnSolide / 2) - 1 && haveNotActivatedMakeBackgroundSolid)
-        {
+        //if (!haveNotActivatedMakeBackgroundSolid && points % pointsToTurnSolide > (pointsToTurnSolide / 2))
+        //{
+        //    haveNotActivatedMakeBackgroundSolid = true;
+        //    Debug.Log("Ready");
+        //}
+        //if (points % pointsToTurnSolide <= (pointsToTurnSolide / 2) - 1 && haveNotActivatedMakeBackgroundSolid)
+        //{
+        //    haveNotActivatedMakeBackgroundSolid = false;
+        //    MakeBackgroundSolid();
+        //    Debug.Log("Set");
+        //}
+        
 
-            haveNotActivatedMakeBackgroundSolid = false;
-            MakeBackgroundSolid();
-            Debug.Log("Set");
-        }
-        if (!haveNotActivatedMakeBackgroundSolid && points % pointsToTurnSolide > (pointsToTurnSolide / 2))
-        {
-            haveNotActivatedMakeBackgroundSolid = true;
-            Debug.Log("Ready");
-        }
-
-        if (isMakeBackgroundSolid && GameObject.FindGameObjectsWithTag("Obstacle Block") == null)
-        {
-            isMakeBackgroundSolid = false;
-            StartCoroutine(SolideTimer());
-        }
+        //if (isMakeBackgroundSolid && GameObject.FindGameObjectsWithTag("Obstacle Block") == null)
+        //{
+        //    isMakeBackgroundSolid = false;
+        //    StartCoroutine(SolideTimer());
+        //}
     }
 
     public String getPoints()

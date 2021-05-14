@@ -123,6 +123,10 @@ public class Spawner : MonoBehaviour
                     spawnAmount = Random.Range(minimumBoxesBeforSpawnChange, maximumBoxesBeforSpawnChange);
                     for (int i = 0; i < spawnAmount; i++)
                     {
+                        if (!spawning)
+                        {
+                            break;
+                        }
                         BoxSpawner();
                         yield return new WaitForSeconds(Random.Range(minimumTimeBetweenBlocks, maximumTimeBetweenBlocks));
                     }
@@ -144,6 +148,10 @@ public class Spawner : MonoBehaviour
                     block.transform.localScale = new Vector2(20, 1);
                     for (int i = 0; i < spawnAmount; i++)
                     {
+                        if (!spawning)
+                        {
+                            break;
+                        }
                         WallSpawner();
                         yield return new WaitForSeconds(Random.Range(minimumTimeBetweenWalls, maximumTimeBetweenWalls));
                     }
@@ -163,6 +171,10 @@ public class Spawner : MonoBehaviour
                     block.transform.localScale = new Vector2(20, 1);
                     for (int i = 0; i < spawnAmount; i++)
                     {
+                        if (!spawning)
+                        {
+                            break;
+                        }
                         CorridorSpawner();
                         yield return new WaitForSeconds(timeBetweenCorridorWalls);
                     }
@@ -185,7 +197,7 @@ public class Spawner : MonoBehaviour
                     bool rightSideFirst = Random.value < .5f;
                     //Debug.Break();
                     for (int i = 0; i < amountOfPillars; i++)
-                    {
+                    { 
                         //Debug.Log(i);
                         sideToSidePillers(rightSideFirst, i, skipPillar);
                         yield return new WaitForSeconds(timeBetweenSideToSidePillarWalls);
@@ -206,7 +218,6 @@ public class Spawner : MonoBehaviour
 
     private void BoxSpawner()
     {
-
         block.transform.localScale = new Vector2(Random.Range(minimumWidthOfBlock, maximumWidthOfBlock), 1);
         Instantiate(block, new Vector2(Random.Range(-raidiusOfPosibulPositions, raidiusOfPosibulPositions), hightOfSpawnPosition), Quaternion.identity);
     }
