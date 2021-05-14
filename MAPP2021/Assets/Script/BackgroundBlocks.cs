@@ -24,17 +24,27 @@ public class BackgroundBlocks : MonoBehaviour
     private float deathPosition;
     private static bool colliderOn;
     private static bool cykelOfColliderOn;
-    private static bool startColorChange;
+    private static bool continueColorChange;
 
 
 
     // Start is called before the first frame update
 
-    
+    void Awake()
+    {
+        if (lastOne != null)
+        {
+            boxCollider.enabled = lastOne.boxCollider.enabled;
+            if (lastOne.boxCollider.enabled == true)
+            {
+                spriteRenderer.color = new Color(1, 1, 1, 1);
+            }
+        }
+    }
 
     void Start()
     {
-        boxCollider.enabled = false;
+        
         deathPosition = -(Camera.main.orthographicSize + Mathf.Sqrt(Mathf.Pow(maxSize, 2) / 2));
         targetPosition = new Vector2(gameObject.transform.position.x, deathPosition);
         
@@ -85,23 +95,17 @@ public class BackgroundBlocks : MonoBehaviour
         }
         if (colliderOn)
         {
-
-            if (GameObject.FindGameObjectsWithTag("Obstacle Block") == null && time > .95f)
+            Debug.Log(boxCollider.enabled);
+            if (GameObject.Find("Block") == null && gettingBigger && time > .95f)
             {
                 boxCollider.enabled = true;
-                startColorChange = false;
+                continueColorChange = false;
             }
-            else if (cykelOfColliderOn != gettingBigger || startColorChange)
+            else if ((!boxCollider.enabled && cykelOfColliderOn != gettingBigger) || continueColorChange)
             {
-                startColorChange = true;
-                if (cykelOfColliderOn == gettingBigger)
-                {
-                    spriteRenderer.color = new Color(time, time, time, (time * .5f) + .5f);
-                }
-                else
-                {
-                    spriteRenderer.color = new Color(1 - time, 1 - time, 1 - time, 1 - (time * .5f) + .5f);
-                }
+                continueColorChange = true;
+                spriteRenderer.color = new Color((size - minSize) / (maxSize-minSize), (size - minSize) / (maxSize - minSize), (size - minSize) / (maxSize - minSize), (((size - minSize) / (maxSize - minSize)) * .5f) + .5f);
+                 
             }
         }
         else
