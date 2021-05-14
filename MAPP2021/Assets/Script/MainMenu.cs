@@ -7,11 +7,15 @@ public class MainMenu : MonoBehaviour
 {
 
     [SerializeField] private GameObject optionsMenu;
+    [SerializeField] private GameObject skinsMenu;
+ 
 
 
     private void Start()
     {
         optionsMenu.SetActive(false);
+        skinsMenu.SetActive(false);
+     
     }
 
 
@@ -22,6 +26,8 @@ public class MainMenu : MonoBehaviour
         Time.timeScale = 1;
 
     }
+
+   
 
     public void QuiteGame ()
     {
