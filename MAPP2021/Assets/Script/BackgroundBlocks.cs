@@ -99,7 +99,7 @@ public class BackgroundBlocks : MonoBehaviour
         }
         else
         {
-            boxCollider.enabled = true; 
+            boxCollider.enabled = false; 
         }
 
 
@@ -112,6 +112,7 @@ public class BackgroundBlocks : MonoBehaviour
 
     public static void MakeBackgroundSolid()
     {
+
         colliderOn = true;
         cykelOfColliderOn = gettingBigger;
     }
