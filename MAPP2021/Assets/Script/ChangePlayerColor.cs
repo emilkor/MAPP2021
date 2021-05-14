@@ -30,6 +30,8 @@ public class ChangePlayerColor : MonoBehaviour
 
             buttons[0].interactable = true;
             buttons[0].GetComponentInChildren<Image>().enabled = false;
+
+            
         }
 
         if(highscore >= 2000)
@@ -100,6 +102,11 @@ public class ChangePlayerColor : MonoBehaviour
     public static void Pink()
     {
         newColor = new Color(1, 0, 1, 1);
+    }
+
+    public static void RandomColor()
+    {
+        newColor = new Color(Random.Range(0f, 1f), Random.Range(0f, 1f), Random.Range(0f, 1f), 1f);
     }
 
 
