@@ -19,7 +19,7 @@ public class ChangePlayerColor : MonoBehaviour
     {
         SetButtons();
 
-        PlayerPrefs.SetInt("HighScore", 1000000);
+        PlayerPrefs.SetInt("HighScore", 0);
 
         highscore = PlayerPrefs.GetInt("HighScore");
 
@@ -93,6 +93,11 @@ public class ChangePlayerColor : MonoBehaviour
     public static void Green()
     {
         newColor = Color.green;
+    }
+
+    public static void Pink()
+    {
+        newColor = new Color(1, 0, 1, 1);
     }
 
 
