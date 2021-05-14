@@ -19,12 +19,14 @@ public class ChangePlayerColor : MonoBehaviour
     {
         SetButtons();
 
-        PlayerPrefs.SetInt("HighScore", 0);
+        //VVV Ta bort sen /August
+        PlayerPrefs.SetInt("HighScore", 10000);
 
         highscore = PlayerPrefs.GetInt("HighScore");
 
         if(highscore >= 0)
         {
+
             buttons[0].interactable = true;
             text[0].enabled = false;
         }
@@ -69,7 +71,6 @@ public class ChangePlayerColor : MonoBehaviour
     }
     private void Start()
     {
-       
         Debug.Log(PlayerPrefs.GetInt("HighScore"));
     }
 

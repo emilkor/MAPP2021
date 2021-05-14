@@ -6,7 +6,6 @@ using UnityEngine.Experimental.Rendering.Universal;
 
 public class PlayerColor : MonoBehaviour
 {
-
     [SerializeField] private Light2D pointLight;
     
     
@@ -17,12 +16,14 @@ public class PlayerColor : MonoBehaviour
     }
     public void SetPlayerColor(Color color)
     {
-        Gradient gradient = new Gradient();
-        gradient.colorKeys[0].color = color;
-        gradient.colorKeys[1].color = color;
-
         gameObject.GetComponent<SpriteRenderer>().color = color;
         gameObject.GetComponent<TrailRenderer>().startColor = color;
+
+        Color colorModified = color;
+        colorModified.a = 0f;
+
+        gameObject.GetComponent<TrailRenderer>().endColor = colorModified;
+
         pointLight.color = color;
     }
 }
