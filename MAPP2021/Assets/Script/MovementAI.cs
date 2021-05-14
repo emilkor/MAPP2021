@@ -6,7 +6,7 @@ using Vector2 = UnityEngine.Vector2;
 
 public class MovementAI : MonoBehaviour
 {
-    private RaycastHit2D northDistance;
+    private RaycastHit2D[] raycastHit2D;
     private RaycastHit2D northEastDistance;
     private RaycastHit2D eastDistance;
     private RaycastHit2D southEastDistance;
@@ -32,6 +32,9 @@ public class MovementAI : MonoBehaviour
 
     void FixedUpdate()
     {
-        northDistance = Physics2D.Raycast((Vector2)transform.position + new Vector2(0, transform.localScale.x / 2), Vector2.up);
+        raycastHit2D[0] = Physics2D.Raycast((Vector2)transform.position + new Vector2(0, .5f), Vector2.up);
+        eastDistance = Physics2D.Raycast((Vector2)transform.position + new Vector2(0.5f, 0), Vector2.right);
+        southDistance = Physics2D.Raycast((Vector2)transform.position + new Vector2(0, -.5f), Vector2.down);
+        westDistance = Physics2D.Raycast((Vector2)transform.position + new Vector2(-.5f, 0), Vector2.left);
     }
 }
