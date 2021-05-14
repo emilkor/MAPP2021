@@ -15,53 +15,50 @@ public class ChangePlayerColor : MonoBehaviour
 
     private int highscore;
 
+    private int unlocks;
+    private float buttonValue;
+    [SerializeField] private float unlockThreshold;
+    [SerializeField] private float thresholdMultiplier;
+
 
     private void Awake()
     {
         SetButtons();
 
         //VVV Ta bort sen /August
-        PlayerPrefs.SetInt("HighScore", 10000);
+        PlayerPrefs.SetInt("HighScore", 32000);
 
         highscore = PlayerPrefs.GetInt("HighScore");
 
-        if(highscore >= 0)
+        while(highscore >= unlockThreshold)
         {
+            unlocks++;
 
-            buttons[0].interactable = true;
-            buttons[0].GetComponentInChildren<Image>().enabled = false;
-
-            
+            //Detta kan man ändra att bli mer linjärt etc /August
+            buttonValue = unlockThreshold;
+            unlockThreshold *= thresholdMultiplier;
         }
 
-        if(highscore >= 2000)
+        //Alla knappar måste ha ett objekt som heter "Lock" som ligger på index 1 för att detta ska funka /August
+        for(int i = 0; i < unlocks; i++)
         {
-            buttons[1].interactable = true;
-            buttons[1].GetComponentInChildren<Image>().enabled = false;
+            buttons[i].interactable = true;
+            GameObject lockImage = buttons[i].transform.GetChild(1).gameObject;
 
+            if (lockImage.name.Equals("Lock"))
+            {
+                lockImage.SetActive(false);
+            }
         }
 
-        if(highscore >= 4000)
+        for(int i = unlocks; i < buttons.Length; i++)
         {
-            buttons[2].interactable = true;
-            buttons[2].GetComponentInChildren<Image>().enabled = false;
+            Text buttonText = buttons[i].transform.GetChild(1).GetChild(0).GetComponent<Text>();
 
+            //sätter texten på låsen /August
+            buttonValue *= thresholdMultiplier;
+            buttonText.text = buttonValue.ToString();
         }
-
-        if(highscore >= 6000)
-        {
-            buttons[3].interactable = true;
-            buttons[3].GetComponentInChildren<Image>().enabled = false;
-
-        }
-
-        if(highscore >= 8000)
-        {
-            buttons[4].interactable = true;
-            buttons[4].GetComponentInChildren<Image>().enabled = false;
-
-        }
-
     }
 
     private void SetButtons()
@@ -102,6 +99,11 @@ public class ChangePlayerColor : MonoBehaviour
     public static void Pink()
     {
         newColor = new Color(1, 0, 1, 1);
+    }
+
+    public static void Cyan()
+    {
+        newColor = new Color(0, 1, 1, 1);
     }
 
     public static void RandomColor()

@@ -62,7 +62,7 @@ public class MovementAI : MonoBehaviour
         travelDirektion = Vector2.zero;
         for (int i = 0; i < raycastHit2D.Length; i++)
         {
-            Debug.Log(raycastHit2D[1] == true);
+            //Debug.Log(raycastHit2D[1] == true);
             
         }
 
