@@ -84,8 +84,9 @@ public class Spawner : MonoBehaviour
     private float corridorCurv;
     private int spawnAmount;
     private PreviousStat previousStat = PreviousStat.Corridor;
+    private static bool spawning;
 
-    
+    private static Spawner spawner;
 
     private float modeVariabul;
 
@@ -96,6 +97,8 @@ public class Spawner : MonoBehaviour
         corridorCurv = Random.Range(-maximumCorridorCurv, maximumCorridorCurv);
         corridorHolePosition = Random.Range(-raidiusOfPosibulPositions, raidiusOfPosibulPositions);
         modeVariabul = Random.value;
+        spawning = true;
+        spawner = this;
         StartCoroutine(Spawn());
     }
 
@@ -107,94 +110,96 @@ public class Spawner : MonoBehaviour
 
     private IEnumerator Spawn()
     {
+        if (spawning)
+        {
+            if (modeVariabul <= doBoxSpawn)
+            {
+                if (previousStat == PreviousStat.Box)
+                {
+                    modeVariabul = Random.value;
+                }
+                else
+                {
+                    spawnAmount = Random.Range(minimumBoxesBeforSpawnChange, maximumBoxesBeforSpawnChange);
+                    for (int i = 0; i < spawnAmount; i++)
+                    {
+                        BoxSpawner();
+                        yield return new WaitForSeconds(Random.Range(minimumTimeBetweenBlocks, maximumTimeBetweenBlocks));
+                    }
+                    modeVariabul = Random.value;
+                    previousStat = PreviousStat.Box;
+                    yield return new WaitForSeconds(1f);
+                }
 
-        if (modeVariabul <= doBoxSpawn)
-        {
-            if (previousStat == PreviousStat.Box)
-            {
-                modeVariabul = Random.value;
             }
-            else
+            else if (modeVariabul <= doWallSpawn)
             {
-                spawnAmount = Random.Range(minimumBoxesBeforSpawnChange, maximumBoxesBeforSpawnChange);
-                for (int i = 0; i < spawnAmount; i++)
+                if (previousStat == PreviousStat.Wall)
                 {
-                    BoxSpawner();
-                    yield return new WaitForSeconds(Random.Range(minimumTimeBetweenBlocks, maximumTimeBetweenBlocks));
+                    modeVariabul = Random.value;
                 }
-                modeVariabul = Random.value;
-                previousStat = PreviousStat.Box;
-                yield return new WaitForSeconds(1f);
+                else
+                {
+                    spawnAmount = Random.Range(minimumWallsBeforSpawnChange, maximumWallsBeforSpawnChange);
+                    block.transform.localScale = new Vector2(20, 1);
+                    for (int i = 0; i < spawnAmount; i++)
+                    {
+                        WallSpawner();
+                        yield return new WaitForSeconds(Random.Range(minimumTimeBetweenWalls, maximumTimeBetweenWalls));
+                    }
+                    modeVariabul = Random.value;
+                    previousStat = PreviousStat.Wall;
+                }
+            }
+            else if (modeVariabul <= doCorridorSpawn)
+            {
+                if (previousStat == PreviousStat.Corridor)
+                {
+                    modeVariabul = Random.value;
+                }
+                else
+                {
+                    spawnAmount = Random.Range(minimumCorridorsBeforSpawnChange, maximumCorridorsBeforSpawnChange);
+                    block.transform.localScale = new Vector2(20, 1);
+                    for (int i = 0; i < spawnAmount; i++)
+                    {
+                        CorridorSpawner();
+                        yield return new WaitForSeconds(timeBetweenCorridorWalls);
+                    }
+                    yield return new WaitForSeconds(0.7f);
+                    modeVariabul = Random.value;
+                    previousStat = PreviousStat.Corridor;
+                }
+            }
+            else /*if (modeVariabul <= doSideToSidePillar)*/
+            {
+                if (previousStat == PreviousStat.SideToSidePillar)
+                {
+                    modeVariabul = Random.value;
+                }
+                else
+                {
+                    block.transform.localScale = new Vector2(pillarWidth, pillarHight);
+                    int amountOfPillars = (int)Math.Ceiling(((raidiusOfPosibulPositions * 2) + 1) / pillarWidth);
+                    int skipPillar = Random.Range(0, amountOfPillars);
+                    bool rightSideFirst = Random.value < .5f;
+                    //Debug.Break();
+                    for (int i = 0; i < amountOfPillars; i++)
+                    {
+                        //Debug.Log(i);
+                        sideToSidePillers(rightSideFirst, i, skipPillar);
+                        yield return new WaitForSeconds(timeBetweenSideToSidePillarWalls);
+                        //Debug.Log(i);
+                    }
+                    yield return new WaitForSeconds(2f);
+                    //Debug.Log("After Loop");
+                    modeVariabul = Random.value;
+                    previousStat = PreviousStat.SideToSidePillar;
+                }
             }
 
+            StartCoroutine(Spawn());
         }
-        else if (modeVariabul <= doWallSpawn)
-        {
-            if (previousStat == PreviousStat.Wall)
-            {
-                modeVariabul = Random.value;
-            }
-            else
-            {
-                spawnAmount = Random.Range(minimumWallsBeforSpawnChange, maximumWallsBeforSpawnChange);
-                block.transform.localScale = new Vector2(20, 1);
-                for (int i = 0; i < spawnAmount; i++)
-                {
-                    WallSpawner();
-                    yield return new WaitForSeconds(Random.Range(minimumTimeBetweenWalls, maximumTimeBetweenWalls));
-                }
-                modeVariabul = Random.value;
-                previousStat = PreviousStat.Wall;
-            }
-        }
-        else if (modeVariabul <= doCorridorSpawn)
-        {
-            if (previousStat == PreviousStat.Corridor)
-            {
-                modeVariabul = Random.value;
-            }
-            else
-            {
-                spawnAmount = Random.Range(minimumCorridorsBeforSpawnChange, maximumCorridorsBeforSpawnChange);
-                block.transform.localScale = new Vector2(20, 1);
-                for (int i = 0; i < spawnAmount; i++)
-                {
-                    CorridorSpawner();
-                    yield return new WaitForSeconds(timeBetweenCorridorWalls);
-                }
-                yield return new WaitForSeconds(0.7f);
-                modeVariabul = Random.value;
-                previousStat = PreviousStat.Corridor;
-            }
-        }
-        else /*if (modeVariabul <= doSideToSidePillar)*/
-        {
-            if (previousStat == PreviousStat.SideToSidePillar)
-            {
-                modeVariabul = Random.value;
-            }
-            else
-            {
-                block.transform.localScale = new Vector2(pillarWidth, pillarHight);
-                int amountOfPillars = (int)Math.Ceiling(((raidiusOfPosibulPositions * 2)+1) / pillarWidth);
-                int skipPillar = Random.Range(0, amountOfPillars);
-                bool rightSideFirst = Random.value < .5f;
-                //Debug.Break();
-                for (int i = 0; i < amountOfPillars; i++)
-                {
-                    //Debug.Log(i);
-                    sideToSidePillers(rightSideFirst, i, skipPillar);
-                    yield return new WaitForSeconds(timeBetweenSideToSidePillarWalls);
-                    //Debug.Log(i);
-                }
-                yield return new WaitForSeconds(2f);
-                //Debug.Log("After Loop");
-                modeVariabul = Random.value;
-                previousStat = PreviousStat.SideToSidePillar;
-            }
-        }
-
-        StartCoroutine(Spawn());
 
 
     }
@@ -270,4 +275,14 @@ public class Spawner : MonoBehaviour
         return hightOfSpawnPosition;
     }
 
+    public static void StopSpawning()
+    {
+        spawning = false;
+    }
+
+    public static void StartSpawning()
+    {
+        spawning = true;
+        spawner.StartCoroutine(spawner.Spawn());
+    }
 }

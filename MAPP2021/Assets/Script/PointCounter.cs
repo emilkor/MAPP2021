@@ -62,7 +62,7 @@ public class PointCounter : MonoBehaviour
     {
         if(Random.value < chansOfTurnSolide)
         {
-            spawner.enabled = false;
+            Spawner.StopSpawning();
             BackgroundBlocks.MakeBackgroundSolid();
             isMakeBackgroundSolid = true;
             Debug.Log("Go");
@@ -73,7 +73,7 @@ public class PointCounter : MonoBehaviour
     {
         yield return new WaitForSeconds(timeWithSolideBackground);
         BackgroundBlocks.MakeBackgroundUnsolid();
-        spawner.enabled = true;
+        Spawner.StartSpawning();
     }
 
 }
