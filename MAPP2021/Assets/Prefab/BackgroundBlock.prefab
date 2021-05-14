@@ -102,6 +102,7 @@ MonoBehaviour:
   rotationSpeed: 3
   secondsChangingSize: 3
   boxCollider: {fileID: -2373002534465319724}
+  spriteRenderer: {fileID: 4713173035731281429}
 --- !u!61 &-2373002534465319724
 BoxCollider2D:
   m_ObjectHideFlags: 0

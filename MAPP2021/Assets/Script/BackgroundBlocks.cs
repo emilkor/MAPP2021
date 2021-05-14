@@ -86,7 +86,7 @@ public class BackgroundBlocks : MonoBehaviour
         if (colliderOn)
         {
 
-            if (GameObject.FindGameObjectsWithTag("Obstcle Block") == null && time > .95f)
+            if (GameObject.FindGameObjectsWithTag("Obstacle Block") == null && time > .95f)
             {
                 boxCollider.enabled = true;
                 startColorChange = false;
@@ -94,7 +94,14 @@ public class BackgroundBlocks : MonoBehaviour
             else if (cykelOfColliderOn != gettingBigger || startColorChange)
             {
                 startColorChange = true;
-                spriteRenderer.color = new Color(time, time, time, 1);
+                if (cykelOfColliderOn == gettingBigger)
+                {
+                    spriteRenderer.color = new Color(time, time, time, (time * .5f) + .5f);
+                }
+                else
+                {
+                    spriteRenderer.color = new Color(1 - time, 1 - time, 1 - time, 1 - (time * .5f) + .5f);
+                }
             }
         }
         else

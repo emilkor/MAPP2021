@@ -17,8 +17,8 @@ public class PointCounter : MonoBehaviour
     [SerializeField] private Spawner spawner;
     [SerializeField] private float timeWithSolideBackground;
 
-    private float points;
-    private bool haveActivatedMakeBackgroundSolid;
+    [SerializeField] private float points;
+    private bool haveNotActivatedMakeBackgroundSolid;
     private bool isMakeBackgroundSolid;
 
 
@@ -28,18 +28,22 @@ public class PointCounter : MonoBehaviour
     {
         points = blockSpeed.GetPoint() * pointSpeed;
         text.text = string.Format("{0:0}", points);
-        if (points % pointsToTurnSolide <= 2 && haveActivatedMakeBackgroundSolid)
+        if (points % pointsToTurnSolide <= (pointsToTurnSolide / 2) - 1 && haveNotActivatedMakeBackgroundSolid)
         {
-            haveActivatedMakeBackgroundSolid = false;
+
+            haveNotActivatedMakeBackgroundSolid = false;
             MakeBackgroundSolid();
+            Debug.Log("Set");
         }
-        if (points > pointsToTurnSolide / 2)
+        if (!haveNotActivatedMakeBackgroundSolid && points % pointsToTurnSolide > (pointsToTurnSolide / 2))
         {
-            haveActivatedMakeBackgroundSolid = true;
+            haveNotActivatedMakeBackgroundSolid = true;
+            Debug.Log("Ready");
         }
 
         if (isMakeBackgroundSolid && GameObject.FindGameObjectsWithTag("Obstacle Block") == null)
         {
+            isMakeBackgroundSolid = false;
             StartCoroutine(SolideTimer());
         }
     }
@@ -56,11 +60,12 @@ public class PointCounter : MonoBehaviour
 
     private void MakeBackgroundSolid()
     {
-        if(Random.value > chansOfTurnSolide)
+        if(Random.value < chansOfTurnSolide)
         {
             spawner.enabled = false;
             BackgroundBlocks.MakeBackgroundSolid();
             isMakeBackgroundSolid = true;
+            Debug.Log("Go");
         }
     }
 
