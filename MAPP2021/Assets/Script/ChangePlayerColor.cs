@@ -26,7 +26,7 @@ public class ChangePlayerColor : MonoBehaviour
         SetButtons();
 
         //VVV Ta bort sen /August
-        PlayerPrefs.SetInt("HighScore", 64000);
+        PlayerPrefs.SetInt("HighScore", 200000);
 
         highscore = PlayerPrefs.GetInt("HighScore");
 
@@ -58,6 +58,16 @@ public class ChangePlayerColor : MonoBehaviour
             //sätter texten på låsen /August
             buttonValue *= thresholdMultiplier;
             buttonText.text = buttonValue.ToString();
+
+            if(buttonValue >= 10000)
+            {
+                buttonText.fontSize -= 2;
+            }
+
+            if(buttonValue >= 100000)
+            {
+                buttonText.fontSize -= 2;
+            }
         }
     }
 
@@ -83,6 +93,11 @@ public class ChangePlayerColor : MonoBehaviour
     public static void Red()
     {
         newColor = Color.red;
+    }
+
+    public static void DiffusedRed()
+    {
+        newColor = new Color(1f, 0.3f, 0.3f, 1f);
     }
 
     public static void Blue()
@@ -111,6 +126,11 @@ public class ChangePlayerColor : MonoBehaviour
         newColor = new Color(1, 1, 0, 1);
     }
 
+    public static void Purple()
+    {
+        newColor = new Color(0.5f, 0, 0.5f, 1);
+    }
+
     public static void RandomColor()
     {
         newColor = new Color(Random.Range(0f, 1f), Random.Range(0f, 1f), Random.Range(0f, 1f), 1f);
@@ -119,6 +139,11 @@ public class ChangePlayerColor : MonoBehaviour
 
     public static Color GetColor()
     {
+        if(newColor.Equals(Color.clear))
+        {
+            White();
+        }
+
         return newColor;
     }
 
