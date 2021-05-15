@@ -59,7 +59,8 @@ public class MovementAI : MonoBehaviour
         shortest = Mathf.Infinity;
         for (int i = 0; i < raycastHit2D.Length; i++)
         {
-            travelDirektion = raycastHit2D[i].point * -1;
+            //Debug.Log(raycastHit2D[1] == true);
+            
         }
 
         transform.position = new Vector2(Mathf.Clamp(transform.position.x, -cameraWidth, cameraWidth), Mathf.Clamp(transform.position.y, -cameraHight, cameraHight));

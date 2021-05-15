@@ -425,7 +425,7 @@ MonoBehaviour:
   gamePitch: 70.9
   pauseHiPass: 1440
   fadeTo: 0
-  fadeDuration: 2
+  fadeDuration: 1
 --- !u!4 &352755134
 Transform:
   m_ObjectHideFlags: 0
@@ -1313,7 +1313,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &609731431
 RectTransform:
   m_ObjectHideFlags: 0
@@ -5406,6 +5406,18 @@ PrefabInstance:
       propertyPath: m_Color.r
       value: 0.7490196
       objectReference: {fileID: 0}
+    - target: {fileID: 445574047, guid: e200cf69cdfb64dee935d59d6e9094a7, type: 3}
+      propertyPath: m_Intensity
+      value: 1.9
+      objectReference: {fileID: 0}
+    - target: {fileID: 445574047, guid: e200cf69cdfb64dee935d59d6e9094a7, type: 3}
+      propertyPath: m_LightOrder
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 445574047, guid: e200cf69cdfb64dee935d59d6e9094a7, type: 3}
+      propertyPath: m_FalloffIntensity
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 593509644, guid: e200cf69cdfb64dee935d59d6e9094a7, type: 3}
       propertyPath: m_Enabled
       value: 1
@@ -5600,7 +5612,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6190953270601238112, guid: e200cf69cdfb64dee935d59d6e9094a7, type: 3}
       propertyPath: chansForSlowMotion
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6190953270601238112, guid: e200cf69cdfb64dee935d59d6e9094a7, type: 3}
       propertyPath: chansForSuperSpeed
@@ -5608,7 +5620,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6190953270601238112, guid: e200cf69cdfb64dee935d59d6e9094a7, type: 3}
       propertyPath: chansForBlockDestroier
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6190953270601238112, guid: e200cf69cdfb64dee935d59d6e9094a7, type: 3}
       propertyPath: secondsOfLightBombEffect

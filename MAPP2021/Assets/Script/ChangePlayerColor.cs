@@ -10,53 +10,67 @@ public class ChangePlayerColor : MonoBehaviour
 
 
     [SerializeField] private Button[] buttons;
-    [SerializeField] private Text[] text;
+   // [SerializeField] private Text[] text;
+    //[SerializeField] private Image[] image;
 
     private int highscore;
+
+    private int unlocks = 1;
+    private float buttonValue;
+    [SerializeField] private float unlockThreshold;
+    [SerializeField] private float thresholdMultiplier;
 
 
     private void Awake()
     {
         SetButtons();
 
-        PlayerPrefs.SetInt("HighScore", 0);
+        //VVV Ta bort sen /August
+        PlayerPrefs.SetInt("HighScore", 16000);
 
         highscore = PlayerPrefs.GetInt("HighScore");
 
-        if(highscore >= 0)
+        while(highscore >= unlockThreshold)
         {
-            buttons[0].interactable = true;
-            text[0].enabled = false;
+            unlocks++;
+
+            //Detta kan man ändra att bli mer linjärt etc /August
+            unlockThreshold *= thresholdMultiplier;
         }
 
-        if(highscore >= 2000)
+        //Alla knappar måste ha ett objekt som heter "Lock" som ligger på index 1 för att detta ska funka /August
+        for(int i = 0; i < unlocks; i++)
         {
-            buttons[1].interactable = true;
-            text[1].enabled = false;
-           
+            buttons[i].interactable = true;
+            GameObject lockImage = buttons[i].transform.GetChild(1).gameObject;
+
+            if (lockImage.name.Equals("Lock"))
+            {
+                lockImage.SetActive(false);
+            }
         }
 
-        if(highscore >= 4000)
-        {
-            buttons[2].interactable = true;
-            text[2].enabled = false;
-           
-        }
+        buttonValue = unlockThreshold / 2;
+        print(buttonValue);
 
-        if(highscore >= 6000)
+        for (int i = unlocks; i < buttons.Length; i++)
         {
-            buttons[3].interactable = true;
-            text[3].enabled = false;
-            
-        }
+            Text buttonText = buttons[i].transform.GetChild(1).GetChild(0).GetComponent<Text>();
 
-        if(highscore >= 8000)
-        {
-            buttons[4].interactable = true;
-            text[4].enabled = false;
-         
-        }
+            //sätter texten på låsen /August
+            buttonValue *= thresholdMultiplier;
+            buttonText.text = buttonValue.ToString();
 
+            if(buttonValue >= 10000)
+            {
+                buttonText.fontSize -= 2;
+            }
+
+            if(buttonValue >= 100000)
+            {
+                buttonText.fontSize -= 2;
+            }
+        }
     }
 
     private void SetButtons()
@@ -69,7 +83,6 @@ public class ChangePlayerColor : MonoBehaviour
     }
     private void Start()
     {
-       
         Debug.Log(PlayerPrefs.GetInt("HighScore"));
     }
 
@@ -82,6 +95,11 @@ public class ChangePlayerColor : MonoBehaviour
     public static void Red()
     {
         newColor = Color.red;
+    }
+
+    public static void DiffusedRed()
+    {
+        newColor = new Color(1f, 0.3f, 0.3f, 1f);
     }
 
     public static void Blue()
@@ -100,9 +118,34 @@ public class ChangePlayerColor : MonoBehaviour
         newColor = new Color(1, 0, 1, 1);
     }
 
+    public static void Cyan()
+    {
+        newColor = new Color(0, 1, 1, 1);
+    }
+
+    public static void Yellow()
+    {
+        newColor = new Color(1, 1, 0, 1);
+    }
+
+    public static void Purple()
+    {
+        newColor = new Color(0.5f, 0, 0.5f, 1);
+    }
+
+    public static void RandomColor()
+    {
+        newColor = new Color(Random.Range(0f, 1f), Random.Range(0f, 1f), Random.Range(0f, 1f), 1f);
+    }
+
 
     public static Color GetColor()
     {
+        if(newColor.Equals(Color.clear))
+        {
+            White();
+        }
+
         return newColor;
     }
 
