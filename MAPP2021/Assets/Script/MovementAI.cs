@@ -21,7 +21,6 @@ public class MovementAI : MonoBehaviour
 
     private Vector2 travelDirektion;
     private float shortest;
-    private float longest;
 
     private Vector2 velocity;
 
@@ -58,19 +57,13 @@ public class MovementAI : MonoBehaviour
 
 
         shortest = Mathf.Infinity;
-        longest = -Mathf.Infinity;
-        travelDirektion = Vector2.zero;
         for (int i = 0; i < raycastHit2D.Length; i++)
         {
-            Debug.Log(raycastHit2D[1] == true);
-            
+            travelDirektion = raycastHit2D[i].point * -1;
         }
 
+        transform.position = new Vector2(Mathf.Clamp(transform.position.x, -cameraWidth, cameraWidth), Mathf.Clamp(transform.position.y, -cameraHight, cameraHight));
 
-        //transform.position = new Vector2(Mathf.Clamp(transform.position.x, -cameraWidth, cameraWidth), Mathf.Clamp(transform.position.y, -cameraHight, cameraHight));
-
-        rigidbody.velocity = Vector2.SmoothDamp(rigidbody.velocity, travelDirektion.normalized, ref velocity, smoothTime);
-
-
+        rigidbody.velocity = Vector2.SmoothDamp(rigidbody.velocity, travelDirektion, ref velocity, smoothTime);
     }
 }
