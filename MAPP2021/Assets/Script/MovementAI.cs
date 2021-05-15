@@ -53,7 +53,7 @@ public class MovementAI : MonoBehaviour
     // Update is called once per frame
     //void Update()
     //{
-        
+
     //}
 
     void FixedUpdate()
@@ -83,37 +83,52 @@ public class MovementAI : MonoBehaviour
         raycastHit2D[4] = Physics2D.Raycast((Vector2)transform.position + (Vector2.down * .5f), Vector2.down, lengthToBottom);
         raycastHit2D[6] = Physics2D.Raycast((Vector2)transform.position + (Vector2.left * .5f), Vector2.left, lengthToLeft);
 
-        
+
         raycastHit2D[1] = Physics2D.Raycast((Vector2)transform.position + (northEast * .5f), northEast, lengthToNorthEast);
-        raycastHit2D[3] = Physics2D.Raycast((Vector2)transform.position + (northEast * .5f), northEast, lengthToSouthEast);
-        raycastHit2D[5] = Physics2D.Raycast((Vector2)transform.position + (northEast * .5f), northEast, lengthToSouthWest);
-        raycastHit2D[7] = Physics2D.Raycast((Vector2)transform.position + (northEast * .5f), northEast, lengthToNorthWest);
-        
-        
-        
+        raycastHit2D[3] = Physics2D.Raycast((Vector2)transform.position + (southEast * .5f), southEast, lengthToSouthEast);
+        raycastHit2D[5] = Physics2D.Raycast((Vector2)transform.position + (southWest * .5f), southWest, lengthToSouthWest);
+        raycastHit2D[7] = Physics2D.Raycast((Vector2)transform.position + (northWest * .5f), northWest, lengthToNorthWest);
 
-        shortestLength = Mathf.Infinity;
-        for (int i = 0; i < raycastHit2D.Length; i++)
+
+
+
+        //shortestLength = Mathf.Infinity;
+        //for (int i = 0; i < raycastHit2D.Length; i++)
+        //{
+
+        //    if (raycastHit2D[i] && raycastHit2D[i].distance < shortestLength)
+        //    {
+        //        shortestLength = raycastHit2D[i].distance;
+        //        shortestIndex = i;
+        //    }   
+        //}
+
+        //rightSide = GetLength(GetIndex(shortestIndex - 2)) + GetLength(GetIndex(shortestIndex - 3));
+        //leftSide = GetLength(GetIndex(shortestIndex + 2)) + GetLength(GetIndex(shortestIndex + 3));
+
+        //Debug.Log(lengthToBottom + "   " + lengthToTop);
+
+
+        //if (rightSide > leftSide)
+        //{
+        //    travelDirektion = (raycastHit2D[GetIndex(shortestIndex - 2)].point + raycastHit2D[GetIndex(shortestIndex - 3)].point + raycastHit2D[GetIndex(shortestIndex - 4)].point).normalized;
+        //}
+        //else if (leftSide > rightSide)
+        //{
+        //    travelDirektion = (raycastHit2D[GetIndex(shortestIndex + 2)].point + raycastHit2D[GetIndex(shortestIndex + 3)].point + raycastHit2D[GetIndex(shortestIndex + 4)].point).normalized;
+        //}
+        //else
+        //{
+        //    travelDirektion = raycastHit2D[GetIndex(shortestIndex + 4)].point.normalized;
+        //}
+
+        travelDirektion = Vector2.zero;
+
+        for (int i = 0; i < raycastHit2D.Length / 2; i++)
         {
-            if (raycastHit2D[i] && raycastHit2D[i].distance < shortestLength)
-            {
-                shortestLength = raycastHit2D[i].distance;
-                shortestIndex = i;
-            }   
+            travelDirektion += GetLength(i) > GetLength(i + 4) ? raycastHit2D[i].point : raycastHit2D[i + 4].point;
         }
-
-        rightSide = GetLength(GetIndex(shortestIndex - 2)) + GetLength(GetIndex(shortestIndex - 3));
-        leftSide = GetLength(GetIndex(shortestIndex + 2)) + GetLength(GetIndex(shortestIndex + 3));
-
-        if (rightSide > leftSide)
-        {
-            travelDirektion = (raycastHit2D[GetIndex(shortestIndex - 2)].point + raycastHit2D[GetIndex(shortestIndex - 3)].point + raycastHit2D[GetIndex(shortestIndex - 4)].point).normalized;
-        }
-        else
-        {
-            travelDirektion = (raycastHit2D[GetIndex(shortestIndex + 2)].point + raycastHit2D[GetIndex(shortestIndex + 3)].point + raycastHit2D[GetIndex(shortestIndex + 4)].point).normalized;
-        }
-
+        travelDirektion = travelDirektion.normalized;
 
 
         transform.position = new Vector2(Mathf.Clamp(transform.position.x, -(cameraWidth - .5f), cameraWidth - .5f), Mathf.Clamp(transform.position.y, -(cameraHight - .5f), cameraHight - .5f));
@@ -141,26 +156,18 @@ public class MovementAI : MonoBehaviour
         {
             return raycastHit2D[index].distance;
         }
-        switch (index){
-            case 0:
-                return lengthToTop;
-            case 1:
-                return lengthToNorthEast;
-            case 2:
-                return lengthToRight;
-            case 3:
-                return lengthToSouthEast;
-            case 4:
-                return lengthToBottom;
-            case 5:
-                return lengthToSouthWest;
-            case 6:
-                return lengthToLeft;
-            case 7:
-                return lengthToNorthWest;
-            default:
-                return raycastHit2D[index].distance;
-        }
+        return index switch
+        {
+            0 => lengthToTop,
+            1 => lengthToNorthEast,
+            2 => lengthToRight,
+            3 => lengthToSouthEast,
+            4 => lengthToBottom,
+            5 => lengthToSouthWest,
+            6 => lengthToLeft,
+            7 => lengthToNorthWest,
+            _ => raycastHit2D[index].distance,
+        };
     }
 
 }
