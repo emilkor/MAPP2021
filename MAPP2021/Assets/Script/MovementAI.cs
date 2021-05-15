@@ -19,8 +19,22 @@ public class MovementAI : MonoBehaviour
     private Vector2 southWest;
     private Vector2 northWest;
 
+    private float lengthToTop;
+    private float lengthToRight;
+    private float lengthToBottom;
+    private float lengthToLeft;
+    private float lengthToNorthEast;
+    private float lengthToSouthEast;
+    private float lengthToSouthWest;
+    private float lengthToNorthWest;
+
+
     private Vector2 travelDirektion;
-    private float shortest;
+    private float shortestLength;
+    private int shortestIndex;
+
+    private float rightSide;
+    private float leftSide;
 
     private Vector2 velocity;
 
@@ -37,34 +51,116 @@ public class MovementAI : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
-    {
+    //void Update()
+    //{
         
-    }
+    //}
 
     void FixedUpdate()
     {
-        raycastHit2D[0] = Physics2D.Raycast((Vector2)transform.position + (Vector2.up * .5f), Vector2.up/*, cameraHight - ((Vector2)transform.position + (Vector2.up * .5f)).y*/);
-        raycastHit2D[2] = Physics2D.Raycast((Vector2)transform.position + (Vector2.right * .5f), Vector2.right);
-        raycastHit2D[4] = Physics2D.Raycast((Vector2)transform.position + (Vector2.down * .5f), Vector2.down);
-        raycastHit2D[6] = Physics2D.Raycast((Vector2)transform.position + (Vector2.left * .5f), Vector2.left/*, Mathf.Abs(-cameraHight - ((Vector2)transform.position + (Vector2.up * .5f)).y)*/);
+        lengthToTop = cameraHight - ((Vector2)transform.position + (Vector2.up * .5f)).y;
+        lengthToRight = cameraWidth - ((Vector2)transform.position + (Vector2.right * .5f)).x;
+        lengthToBottom = Mathf.Abs(-cameraHight - ((Vector2)transform.position + (Vector2.down * .5f)).y);
+        lengthToLeft = Mathf.Abs(-cameraWidth - ((Vector2)transform.position + (Vector2.left * .5f)).x);
+
+        lengthToNorthEast = lengthToTop < lengthToRight ? Mathf.Sqrt(Mathf.Pow(lengthToTop + .5f, 2) * 2) - .5f :
+            Mathf.Sqrt(Mathf.Pow(lengthToRight + .5f, 2) * 2) - .5f;
+
+        lengthToSouthEast = lengthToRight < lengthToBottom ? Mathf.Sqrt(Mathf.Pow(lengthToRight + .5f, 2) * 2) - .5f :
+            Mathf.Abs(Mathf.Sqrt(Mathf.Pow(lengthToBottom + .5f, 2) * 2) - .5f);
+
+        lengthToSouthWest = lengthToBottom < lengthToLeft ? Mathf.Abs(Mathf.Sqrt(Mathf.Pow(lengthToBottom + .5f, 2) * 2) - .5f) :
+            Mathf.Abs(Mathf.Sqrt(Mathf.Pow(lengthToLeft + .5f, 2) * 2) - .5f);
+
+        lengthToNorthWest = lengthToLeft < lengthToTop ? Mathf.Abs(Mathf.Sqrt(Mathf.Pow(lengthToLeft + .5f, 2) * 2) - .5f) :
+            Mathf.Sqrt(Mathf.Pow(lengthToTop + .5f, 2) * 2) - .5f;
 
 
-        raycastHit2D[1] = Physics2D.Raycast((Vector2)transform.position + (northEast * .5f), northEast);
-        raycastHit2D[3] = Physics2D.Raycast((Vector2)transform.position + (southEast * .5f), southEast);
-        raycastHit2D[5] = Physics2D.Raycast((Vector2)transform.position + (southWest * .5f), southWest);
-        raycastHit2D[7] = Physics2D.Raycast((Vector2)transform.position + (northWest * .5f), northWest);
 
 
-        shortest = Mathf.Infinity;
+        raycastHit2D[0] = Physics2D.Raycast((Vector2)transform.position + (Vector2.up * .5f), Vector2.up, lengthToTop);
+        raycastHit2D[2] = Physics2D.Raycast((Vector2)transform.position + (Vector2.right * .5f), Vector2.right, lengthToRight);
+        raycastHit2D[4] = Physics2D.Raycast((Vector2)transform.position + (Vector2.down * .5f), Vector2.down, lengthToBottom);
+        raycastHit2D[6] = Physics2D.Raycast((Vector2)transform.position + (Vector2.left * .5f), Vector2.left, lengthToLeft);
+
+        
+        raycastHit2D[1] = Physics2D.Raycast((Vector2)transform.position + (northEast * .5f), northEast, lengthToNorthEast);
+        raycastHit2D[3] = Physics2D.Raycast((Vector2)transform.position + (northEast * .5f), northEast, lengthToSouthEast);
+        raycastHit2D[5] = Physics2D.Raycast((Vector2)transform.position + (northEast * .5f), northEast, lengthToSouthWest);
+        raycastHit2D[7] = Physics2D.Raycast((Vector2)transform.position + (northEast * .5f), northEast, lengthToNorthWest);
+        
+        
+        
+
+        shortestLength = Mathf.Infinity;
         for (int i = 0; i < raycastHit2D.Length; i++)
         {
-            //Debug.Log(raycastHit2D[1] == true);
-            
+            if (raycastHit2D[i] && raycastHit2D[i].distance < shortestLength)
+            {
+                shortestLength = raycastHit2D[i].distance;
+                shortestIndex = i;
+            }   
         }
 
-        transform.position = new Vector2(Mathf.Clamp(transform.position.x, -cameraWidth, cameraWidth), Mathf.Clamp(transform.position.y, -cameraHight, cameraHight));
+        rightSide = GetLength(GetIndex(shortestIndex - 2)) + GetLength(GetIndex(shortestIndex - 3));
+        leftSide = GetLength(GetIndex(shortestIndex + 2)) + GetLength(GetIndex(shortestIndex + 3));
+
+        if (rightSide > leftSide)
+        {
+            travelDirektion = (raycastHit2D[GetIndex(shortestIndex - 2)].point + raycastHit2D[GetIndex(shortestIndex - 3)].point + raycastHit2D[GetIndex(shortestIndex - 4)].point).normalized;
+        }
+        else
+        {
+            travelDirektion = (raycastHit2D[GetIndex(shortestIndex + 2)].point + raycastHit2D[GetIndex(shortestIndex + 3)].point + raycastHit2D[GetIndex(shortestIndex + 4)].point).normalized;
+        }
+
+
+
+        transform.position = new Vector2(Mathf.Clamp(transform.position.x, -(cameraWidth - .5f), cameraWidth - .5f), Mathf.Clamp(transform.position.y, -(cameraHight - .5f), cameraHight - .5f));
 
         rigidbody.velocity = Vector2.SmoothDamp(rigidbody.velocity, travelDirektion, ref velocity, smoothTime);
+
     }
+
+    private int GetIndex(int index)
+    {
+        if (index < 0)
+        {
+            return 8 + index;
+        }
+        if (index > 7)
+        {
+            return index - 8;
+        }
+        return index;
+    }
+
+    private float GetLength(int index)
+    {
+        if (raycastHit2D[index].distance != 0)
+        {
+            return raycastHit2D[index].distance;
+        }
+        switch (index){
+            case 0:
+                return lengthToTop;
+            case 1:
+                return lengthToNorthEast;
+            case 2:
+                return lengthToRight;
+            case 3:
+                return lengthToSouthEast;
+            case 4:
+                return lengthToBottom;
+            case 5:
+                return lengthToSouthWest;
+            case 6:
+                return lengthToLeft;
+            case 7:
+                return lengthToNorthWest;
+            default:
+                return raycastHit2D[index].distance;
+        }
+    }
+
 }
