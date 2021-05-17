@@ -26,7 +26,7 @@ public class ChangePlayerColor : MonoBehaviour
         SetButtons();
 
         //VVV Ta bort sen /August
-        PlayerPrefs.SetInt("HighScore", 16000);
+       // PlayerPrefs.SetInt("HighScore", 0);
 
         highscore = PlayerPrefs.GetInt("HighScore");
 
