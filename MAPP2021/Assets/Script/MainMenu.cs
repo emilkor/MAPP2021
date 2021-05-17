@@ -9,6 +9,8 @@ public class MainMenu : MonoBehaviour
     [SerializeField] private GameObject optionsMenu;
     [SerializeField] private GameObject skinsMenu;
 
+    [SerializeField] private PlayerColor playerColor;
+
     public Animator transition; // referens till animator
 
     private void Start()
@@ -26,9 +28,19 @@ public class MainMenu : MonoBehaviour
         //Time.timeScale = 1;
 
         StartCoroutine(LoadLevel(SceneManager.GetActiveScene().buildIndex + 1));
+            
+        
+            optionsMenu.SetActive(false);
+            skinsMenu.SetActive(false);
 
+        // Sätta startfägen som ska ha sparats i PlayerPrefs / Emil
 
-    }
+            Color color;
+            ColorUtility.TryParseHtmlString(PlayerPrefs.GetString("PlayerColor"), out color);
+
+            playerColor.SetPlayerColor(color);
+
+        
 
     IEnumerator LoadLevel(int levelIndex)
     {
