@@ -8,6 +8,8 @@ public class PlayerDeath : MonoBehaviour
     [SerializeField] private GameOver gameOver;
     [SerializeField] private SpriteRenderer spriteRenderer;
     [SerializeField] private ParticleSystem particleSystem;
+    [SerializeField] private TrailRenderer trail;
+    [SerializeField] private GameObject light;
 
     public BorderAudio borderAudio;
 
@@ -18,6 +20,8 @@ public class PlayerDeath : MonoBehaviour
         main.useUnscaledTime = true;
         particleSystem.Play();
         spriteRenderer.enabled = false;
+        trail.enabled = false;
+        light.SetActive(false);
         Time.timeScale = 0f;
 
         FindObjectOfType<AudioManager>().Play("PlayerDeath");

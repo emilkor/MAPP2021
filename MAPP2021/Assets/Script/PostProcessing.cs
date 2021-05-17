@@ -8,6 +8,9 @@ public class PostProcessing : MonoBehaviour
 {
     private Volume v;
     private ChromaticAberration chromAb;
+    private bool chromActive;
+    private bool chromRestore;
+    private float chrom;
 
     [Range(0f, 1f)]
     public float chromaticValue;
@@ -22,11 +25,43 @@ public class PostProcessing : MonoBehaviour
     {
         if (isOn)
         {
-            chromAb.intensity.value = chromaticValue;
+            chrom = 0f;
+            chromActive = true;
+            //chromAb.intensity.value = chromaticValue;
         }
         else
         {
-            chromAb.intensity.value = 0f;
+            chromRestore = true;
+            chrom = chromaticValue;
+            //chromAb.intensity.value = 0f;
         }
+    }
+
+    private void Update()
+    {
+        if (chromActive)
+        {
+            print(chrom);
+            if(chrom >= chromaticValue)
+            {
+                chromActive = false;
+            }
+
+            chrom += (chromaticValue - chrom) * .01f;
+            chromAb.intensity.value = chrom;
+        }
+
+        if (chromRestore)
+        {
+            if (chrom <= .1f)
+            {
+                chrom = 0f;
+                chromRestore = false;
+            }
+
+            chrom += (0f - chrom) * .03f;
+            chromAb.intensity.value = chrom;
+        }
+        print(chromRestore);
     }
 }
