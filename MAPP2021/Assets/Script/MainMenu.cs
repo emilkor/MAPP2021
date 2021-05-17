@@ -45,13 +45,5 @@ public class MainMenu : MonoBehaviour
         //Loada Scenen
     }
 
-
-
-    public void QuiteGame ()
-    {
-        Debug.Log("QUIT");
-        Application.Quit();
-        
-    }
          
 }
