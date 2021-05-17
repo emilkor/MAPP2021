@@ -7,7 +7,8 @@ using UnityEngine.Experimental.Rendering.Universal;
 public class PlayerColor : MonoBehaviour
 {
     [SerializeField] private Light2D pointLight;
-    
+
+    private Color playerColor;
     
 
     private void Awake()
@@ -16,6 +17,7 @@ public class PlayerColor : MonoBehaviour
     }
     public void SetPlayerColor(Color color)
     {
+        playerColor = color;
 
         gameObject.GetComponent<SpriteRenderer>().color = color;
         gameObject.GetComponent<TrailRenderer>().startColor = color;
@@ -28,5 +30,10 @@ public class PlayerColor : MonoBehaviour
         gameObject.GetComponent<TrailRenderer>().endColor = colorModified;
 
         pointLight.color = color;
+    }
+
+    public Color GetPlayerColor()
+    {
+        return playerColor;
     }
 }
