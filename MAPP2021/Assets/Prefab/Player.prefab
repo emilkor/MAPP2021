@@ -210,7 +210,7 @@ MonoBehaviour:
   m_LightType: 3
   m_BlendStyleIndex: 0
   m_FalloffIntensity: 1
-  m_Color: {r: 0.75, g: 0.90408653, b: 1, a: 1}
+  m_Color: {r: 0.7490196, g: 0.90588236, b: 1, a: 1}
   m_Intensity: 1.9
   m_LightVolumeOpacity: 0.24
   m_ApplyToSortingLayers: 000000002fd8a293
@@ -5486,7 +5486,7 @@ ParticleSystemRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 959e994fa716c4679adff0c282af7126, type: 2}
+  - {fileID: 2100000, guid: 163c823c57b56384eac351693f6d4d53, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -10290,7 +10290,7 @@ ParticleSystemRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 959e994fa716c4679adff0c282af7126, type: 2}
+  - {fileID: 2100000, guid: 163c823c57b56384eac351693f6d4d53, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -10439,6 +10439,7 @@ GameObject:
   - component: {fileID: 1043695735}
   - component: {fileID: 593509644}
   - component: {fileID: 1911886944}
+  - component: {fileID: 1911886934}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -10610,9 +10611,9 @@ MonoBehaviour:
   cameraShake: {fileID: 0}
   postProcessing: {fileID: 0}
   audioUI: {fileID: 0}
-  chansForSlowMotion: 0
+  chansForSlowMotion: 1
   chansForSuperSpeed: 0
-  chansForBlockDestroier: 0
+  chansForBlockDestroier: 1
   chansForBomb: 1
   poweringUpTime: 2
   powerText: {fileID: 0}
@@ -10630,8 +10631,8 @@ MonoBehaviour:
   secondsOfShakeBombEffect: 4
   bombShakeMagnitud: 1
   deltaTimePerShake: 5
-  blockParticulsPerSquearUnit: 100
-  explotionSpeed: 100
+  blockParticulsPerSquearUnit: 10
+  explotionSpeed: 10
   forceField: {fileID: 1911886944}
   forceFeildStrength: 2.25
   changeImage: {fileID: 0}
@@ -10643,7 +10644,7 @@ ParticleSystem:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6190953270601238123}
   serializedVersion: 7
-  lengthInSec: 1
+  lengthInSec: 0.1
   simulationSpeed: 1
   stopAction: 0
   cullingMode: 0
@@ -10887,7 +10888,7 @@ ParticleSystem:
     startSize:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 0.2
+      scalar: 0.3
       minScalar: 1
       maxCurve:
         serializedVersion: 2
@@ -11468,7 +11469,7 @@ ParticleSystem:
     rateOverTime:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 500
+      scalar: 10000
       minScalar: 10
       maxCurve:
         serializedVersion: 2
@@ -16048,6 +16049,19 @@ ParticleSystemForceField:
         m_RotationOrder: 4
     m_MultiplyDragByParticleSize: 1
     m_MultiplyDragByParticleVelocity: 1
+--- !u!114 &1911886934
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6190953270601238123}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c4002ae9b86d65d46bd135ba72019238, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pointLight: {fileID: 445574047}
 --- !u!1 &6190953270871092852
 GameObject:
   m_ObjectHideFlags: 0
@@ -20915,7 +20929,7 @@ ParticleSystemRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 959e994fa716c4679adff0c282af7126, type: 2}
+  - {fileID: 2100000, guid: 163c823c57b56384eac351693f6d4d53, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -25719,7 +25733,7 @@ ParticleSystemRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 959e994fa716c4679adff0c282af7126, type: 2}
+  - {fileID: 2100000, guid: 163c823c57b56384eac351693f6d4d53, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
