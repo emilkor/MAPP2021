@@ -9,6 +9,8 @@ public class PlayerDeath : MonoBehaviour
     [SerializeField] private SpriteRenderer spriteRenderer;
     [SerializeField] private ParticleSystem particleSystem;
 
+    public BorderAudio borderAudio;
+
     void OnCollisionEnter2D(Collision2D collision)
     {
         gameOver.setAlive(false);
@@ -19,6 +21,8 @@ public class PlayerDeath : MonoBehaviour
         Time.timeScale = 0f;
 
         FindObjectOfType<AudioManager>().Play("PlayerDeath");
+        borderAudio.Stop();
+        FindObjectOfType<AudioUI>().RestoreGamePitch();
     }
 
 

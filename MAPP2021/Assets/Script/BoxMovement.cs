@@ -8,9 +8,12 @@ public class BoxMovement : MonoBehaviour
     private Spawner spawner;
     [SerializeField] private float speed;
     [SerializeField] private float deathPosition;
+    [SerializeField] private ParticleSystem particleSystem;
+    [SerializeField] private SpriteRenderer spriteRenderer;
     
 
     private Vector2 targetPosition;
+    
 
     // Start is called before the first frame update
 
@@ -18,9 +21,11 @@ public class BoxMovement : MonoBehaviour
     {
         spawner = GameObject.FindWithTag("Spawner").GetComponent<Spawner>();
         blockSpeed = GameObject.FindWithTag("Speed").GetComponent<BlockSpeed>();
-        deathPosition = -spawner.GetHightOfSpawnPosition();
+        deathPosition = -(Camera.main.orthographicSize + (transform.localScale.y / 2));
         targetPosition = new Vector2(gameObject.transform.position.x, deathPosition);
-        speed = blockSpeed.GetSpeed();  
+        speed = blockSpeed.GetSpeed();
+        
+        
     }
 
     // Update is called once per frame
@@ -34,15 +39,42 @@ public class BoxMovement : MonoBehaviour
     void Update()
     {
         gameObject.transform.position = Vector2.MoveTowards(gameObject.transform.position, targetPosition, speed * Time.deltaTime);
-        if ((Vector2)gameObject.transform.position == targetPosition)
-        {
-            Destroy(gameObject);
-        }
+        
+        
+            if (gameObject.transform.position.y == deathPosition)
+            {
+                Destroy(gameObject);
+            }
+        
     }
 
     public Vector2 getTarget()
     {
         return targetPosition;
+    }
+
+    public void BlowingUp(Transform player, float explotionSpeed, float blockParticulsPerSquearUnit)
+    {
+        gameObject.GetComponent<BoxCollider2D>().enabled = false;
+        //rak linje y = mx + b
+        this.enabled = false;
+        //float m = (gameObject.transform.position.y - player.position.y) / (gameObject.transform.position.x - player.position.x);
+        //float b = -((m * player.position.x) - player.position.y);
+        //float x = gameObject.transform.position.x >= player.position.x ? 100 : -100;
+        //float y = (m * x) + b;
+        //rigidbody2D.simulated = true;
+        //rigidbody2D.AddForce(new Vector2(x/(Mathf.Abs(x) + Mathf.Abs(y)) * explotionSpeed, y / (Mathf.Abs(x) + Mathf.Abs(y)) * explotionSpeed));
+        var e = particleSystem.emission;
+        e.rateOverTime = transform.localScale.x * transform.localScale.y * blockParticulsPerSquearUnit;
+        particleSystem.Play();
+        spriteRenderer.enabled = false;
+        StartCoroutine(DestroyTimer());
+    }
+
+    private IEnumerator DestroyTimer()
+    {
+        yield return new WaitForSeconds(5);
+        Destroy(gameObject);
     }
 
 }

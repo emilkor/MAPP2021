@@ -1,0 +1,17 @@
+using System.Collections;
+using System.Collections.Generic;
+using System.Threading;
+using UnityEngine;
+
+public class CameraShake : MonoBehaviour
+{
+    private Vector3 originalPos;
+    private float timer;
+
+    public IEnumerator ShakeCamera(float dutation, float magnitud)
+    {
+        originalPos = transform.position;
+        timer = 0.0f;
+
+    }
+}

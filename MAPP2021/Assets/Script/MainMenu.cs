@@ -6,14 +6,28 @@ using UnityEngine.SceneManagement;
 public class MainMenu : MonoBehaviour
 {
 
-   
-   public void PlayGame ()
+    [SerializeField] private GameObject optionsMenu;
+    [SerializeField] private GameObject skinsMenu;
+ 
+
+
+    private void Start()
+    {
+        optionsMenu.SetActive(false);
+        skinsMenu.SetActive(false);
+     
+    }
+
+
+    public void PlayGame ()
     {
         
         SceneManager.LoadScene(1);
         Time.timeScale = 1;
 
     }
+
+   
 
     public void QuiteGame ()
     {

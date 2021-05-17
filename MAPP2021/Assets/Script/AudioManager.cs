@@ -3,6 +3,7 @@ using System;
 using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
+using UnityEngine.SceneManagement;
 
 public class AudioManager : MonoBehaviour
 {
@@ -11,9 +12,8 @@ public class AudioManager : MonoBehaviour
     public float fadeWaitForSecs;
     private List<Sound> toggledClips = new List<Sound>();
 
-    private Animator anim;
-    public RuntimeAnimatorController universalFade;
-    //gör array av controllers?
+    public AudioMixer SFXMixer;
+    public AudioUI audioUI;
 
     public bool pointCounterEnabled;
     public int playerScore;
@@ -55,10 +55,13 @@ public class AudioManager : MonoBehaviour
 
     private void Start()
     {
+        SFXMixer.SetFloat("GrindVolume", -80f);
         Play("MenuTheme");
         scoreThreshold = initialScoreThreshold;
         mode = 0;
     }
+
+    
 
     
     private void Update()
@@ -123,6 +126,17 @@ public class AudioManager : MonoBehaviour
             return;
         }
         s.source.Play();
+    }
+
+    public void Stop(string name)
+    {
+        Sound s = Array.Find(sounds, sound => sound.name == name);
+        if (s == null)
+        {
+            Debug.LogWarning("Ljudfilen hittades inte!");
+            return;
+        }
+        s.source.Stop();
     }
 
     public Sound GetAudioclip(string name)
@@ -207,6 +221,11 @@ public class AudioManager : MonoBehaviour
         }
     }
 
+    public List<Sound> GetToggledClips()
+    {
+        return toggledClips;
+    }
+
     /*
     public IEnumerator FadeIn(string str)
     {
@@ -248,5 +267,5 @@ public class AudioManager : MonoBehaviour
     }*/
 
     //Kod att sätta in för att initiera ett önskat ljud. Man måste sätta in ljudfilens namn i parantesen.
-    //FindObjectofType<AudioManager>().Play(NAME_OF_THE_CLIP_AS_STRING);
+    //FindObjectOfType<AudioManager>().Play(NAME_OF_THE_CLIP_AS_STRING);
 }

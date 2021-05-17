@@ -5,6 +5,17 @@ using UnityEngine.UI;
 
 public class PowerUps : MonoBehaviour
 {
+    [SerializeField] private BombEffect bombEffect;
+
+    [SerializeField] private CameraShake cameraShake;
+
+    [SerializeField] private PostProcessing postProcessing;
+    [SerializeField] private AudioUI audioUI;
+
+    [SerializeField] private float chansForSlowMotion;
+    [SerializeField] private float chansForSuperSpeed;
+    [SerializeField] private float chansForBlockDestroier;
+    [SerializeField] private float chansForBomb;
     [SerializeField] private float poweringUpTime = 7f;
 
     [SerializeField] private Text powerText;
@@ -25,6 +36,19 @@ public class PowerUps : MonoBehaviour
 
     [SerializeField] private Button powerUpButton;
 
+    [SerializeField] private float secondsOfLightBombEffect;
+    [SerializeField] private float secondsOfShakeBombEffect;
+    [SerializeField] private float bombShakeMagnitud;
+    [SerializeField] private int deltaTimePerShake;
+    [SerializeField] private float blockParticulsPerSquearUnit;
+    [SerializeField] private float explotionSpeed;
+
+    [SerializeField] private ParticleSystemForceField forceField;
+    [SerializeField] private float forceFeildStrength;
+
+    [SerializeField] ChangeImage changeImage;
+
+
     private float powerUpPicker;
 
     // Start is called before the first frame update
@@ -33,6 +57,8 @@ public class PowerUps : MonoBehaviour
         blockDestroier.SetActive(false);
         destroyLight.SetActive(false);
         PickPowerUp();
+        forceField.endRange = Camera.main.orthographicSize * 2;
+        forceField.gravity = 0;
     }
 
 
@@ -40,7 +66,9 @@ public class PowerUps : MonoBehaviour
     {
         if(powerUp == PowerUp.SlowMotion)
         {
+            Debug.Log(1);
             StartCoroutine(SlowMotion());
+            FindObjectOfType<AudioManager>().Play("SlowMotion");
         }
         if(powerUp == PowerUp.SuperSpeed)
         {
@@ -49,6 +77,11 @@ public class PowerUps : MonoBehaviour
         if(powerUp == PowerUp.WallBreak)
         {
             WallBreak();
+            FindObjectOfType<AudioManager>().Play("WallBreak");
+        }
+        if(powerUp == PowerUp.Bomb)
+        {
+            Bomb();
         }
         powerUpButton.interactable = false;
         StartCoroutine(PoweringUp());
@@ -57,9 +90,13 @@ public class PowerUps : MonoBehaviour
 
     private IEnumerator SlowMotion()
     {
+        audioUI.SetGamePitch();
+        postProcessing.ChromaticAbberation(true);
         Time.timeScale = slowMotionFactor;
         yield return new WaitForSeconds(slowMotionTime);
         Time.timeScale = 1;
+        postProcessing.ChromaticAbberation(false);
+        audioUI.RestoreGamePitch();
     }
 
     private IEnumerator SuperSpeed()
@@ -86,9 +123,28 @@ public class PowerUps : MonoBehaviour
         }
     }
 
+    private void Bomb()
+    {
+        GameObject[] blocks = GameObject.FindGameObjectsWithTag("Obstacle Block");
+        foreach (GameObject o in blocks)
+        {
+            
+            //o.GetComponent<BoxCollider2D>().enabled = false;
+            //o.GetComponent<SpriteRenderer>().enabled = false;
+            o.GetComponent < BoxMovement > ().BlowingUp(transform, explotionSpeed, blockParticulsPerSquearUnit);
+            //ParticleSystem p = o.GetComponent<ParticleSystem>();
+            //var e = p.emission;
+            //e.rateOverTime = p.transform.position.x * p.transform.position.y * blockParticulsPerSquearUnit;
+            //p.Play();
+        }
+        StartCoroutine(ShockWave());
+        StartCoroutine(bombEffect.BombHasGoneOf(secondsOfLightBombEffect));
+        StartCoroutine(cameraShake.ShakeCamera(secondsOfShakeBombEffect, bombShakeMagnitud, deltaTimePerShake));
+    }
+
     private IEnumerator DestroyLight(float distance)
     {
-        destroyLight.transform.localScale = new Vector3(.1f, distance);
+        destroyLight.transform.localScale = new Vector3(.05f, distance);
         destroyLight.transform.localPosition = new Vector3(0, .5f + (distance / 2));
         destroyLight.SetActive(true);
         yield return new WaitForSeconds(.05f);
@@ -105,22 +161,42 @@ public class PowerUps : MonoBehaviour
     private void PickPowerUp()
     {
         powerUpPicker = Random.value;
-        if (powerUpPicker < .33f)
+        if (powerUpPicker < chansForSlowMotion)
         {
             powerUp = PowerUp.SlowMotion;
             powerText.text = "Slow Motion";
+            changeImage.setSprite(PowerUp.SlowMotion);
+            
+            
         }
-        else if (powerUpPicker < .66f)
-        {
-            powerUp = PowerUp.SuperSpeed;
-            powerText.text = "Super Speed";
-        }
-        else
+//         else if (powerUpPicker < chansForSuperSpeed)
+//         {
+//             powerUp = PowerUp.SuperSpeed;
+//             powerText.text = "Super Speed";
+//         }
+        else if (powerUpPicker < chansForBlockDestroier)
         {
             powerUp = PowerUp.WallBreak;
             powerText.text = "Wall Break";
+            changeImage.setSprite(PowerUp.WallBreak);
+            
+        }
+        else if (powerUpPicker <= chansForBomb)
+        {
+            powerUp = PowerUp.Bomb;
+            powerText.text = "Bomb";
+            changeImage.setSprite(PowerUp.Bomb);
+            
         }
     }
+
+    private IEnumerator ShockWave()
+    {
+        forceField.gravity = -forceFeildStrength;
+        yield return new WaitForSeconds(.07f);
+        forceField.gravity = 0;
+    }
+
 
 
 }
@@ -128,5 +204,6 @@ public enum PowerUp
 {
     SlowMotion,
     SuperSpeed,
-    WallBreak
+    WallBreak,
+    Bomb
 }
