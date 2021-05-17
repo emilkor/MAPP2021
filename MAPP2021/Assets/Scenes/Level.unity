@@ -4959,6 +4959,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1752894710}
     - target: {fileID: 6190953270601238112, guid: e200cf69cdfb64dee935d59d6e9094a7, type: 3}
+      propertyPath: chansForBomb
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6190953270601238112, guid: e200cf69cdfb64dee935d59d6e9094a7, type: 3}
       propertyPath: powerUpButton
       value: 
       objectReference: {fileID: 1752894707}
@@ -4966,6 +4970,14 @@ PrefabInstance:
       propertyPath: postProcessing
       value: 
       objectReference: {fileID: 566942813}
+    - target: {fileID: 6190953270601238112, guid: e200cf69cdfb64dee935d59d6e9094a7, type: 3}
+      propertyPath: chansForSlowMotion
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6190953270601238112, guid: e200cf69cdfb64dee935d59d6e9094a7, type: 3}
+      propertyPath: chansForBlockDestroier
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6190953270601238117, guid: e200cf69cdfb64dee935d59d6e9094a7, type: 3}
       propertyPath: gameOver
       value: 
