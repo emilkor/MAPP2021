@@ -7,6 +7,8 @@ public class ChangePlayerColor : MonoBehaviour
 {
     private static Color newColor;
 
+
+
     [SerializeField] private Button[] buttons;
    // [SerializeField] private Text[] text;
     //[SerializeField] private Image[] image;
@@ -145,14 +147,6 @@ public class ChangePlayerColor : MonoBehaviour
         }
 
         return newColor;
-    }
-
-
-    // Måste nog ha en metod här som sparar den nya färgen, som ska kallas på i alla färgmetoder? / Emil
-   private void SaveColor(Color color)
-    {
-        PlayerPrefs.SetString("PlayerColor", ColorUtility.ToHtmlStringRGBA(color));
-        PlayerPrefs.Save();
     }
 
 

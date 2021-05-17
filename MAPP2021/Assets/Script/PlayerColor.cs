@@ -30,18 +30,10 @@ public class PlayerColor : MonoBehaviour
         gameObject.GetComponent<TrailRenderer>().endColor = colorModified;
 
         pointLight.color = color;
-
-        SaveColor(color);
     }
 
     public Color GetPlayerColor()
     {
         return playerColor;
-    }
-
-    public void SaveColor(Color color)
-    {
-        PlayerPrefs.SetString("PlayerColor", ColorUtility.ToHtmlStringRGBA(color));
-        PlayerPrefs.Save();
     }
 }
