@@ -52,5 +52,7 @@ public class ButtonClamp : MonoBehaviour
         anchoredPos.x = xPos;
         gameObjectRect.anchoredPosition = anchoredPos;
         Debug.Log(scroll.velocity);
+
+
     }
 }
