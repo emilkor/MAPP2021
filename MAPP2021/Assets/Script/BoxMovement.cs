@@ -41,13 +41,13 @@ public class BoxMovement : MonoBehaviour
 
     void Update()
     {
-        //timer += Time.deltaTime;
+        timer += Time.deltaTime;
         //gameObject.transform.position = Vector2.MoveTowards(gameObject.transform.position, targetPosition, speed * Time.deltaTime);
-        
-        
+
+
         if (gameObject.transform.position.y <= deathPosition)
         {
-            //Debug.Log(timer);
+            Debug.Log(timer);
             Destroy(gameObject);
         }
 

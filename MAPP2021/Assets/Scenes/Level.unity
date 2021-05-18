@@ -4987,7 +4987,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3205064598217269422, guid: 48a32d980374d4d8eb4c039fbe5d5322, type: 3}
       propertyPath: acceleration
-      value: 2000
+      value: 500
       objectReference: {fileID: 0}
     - target: {fileID: 3205064598217269422, guid: 48a32d980374d4d8eb4c039fbe5d5322, type: 3}
       propertyPath: maxTimesFaster
@@ -5067,10 +5067,6 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1752894710}
     - target: {fileID: 6190953270601238112, guid: e200cf69cdfb64dee935d59d6e9094a7, type: 3}
-      propertyPath: chansForBomb
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 6190953270601238112, guid: e200cf69cdfb64dee935d59d6e9094a7, type: 3}
       propertyPath: powerUpButton
       value: 
       objectReference: {fileID: 1752894707}
@@ -5078,14 +5074,6 @@ PrefabInstance:
       propertyPath: postProcessing
       value: 
       objectReference: {fileID: 566942813}
-    - target: {fileID: 6190953270601238112, guid: e200cf69cdfb64dee935d59d6e9094a7, type: 3}
-      propertyPath: chansForSlowMotion
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6190953270601238112, guid: e200cf69cdfb64dee935d59d6e9094a7, type: 3}
-      propertyPath: chansForBlockDestroier
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 6190953270601238117, guid: e200cf69cdfb64dee935d59d6e9094a7, type: 3}
       propertyPath: gameOver
       value: 
@@ -5141,10 +5129,6 @@ PrefabInstance:
     - target: {fileID: 6190953270601238123, guid: e200cf69cdfb64dee935d59d6e9094a7, type: 3}
       propertyPath: m_Name
       value: Player
-      objectReference: {fileID: 0}
-    - target: {fileID: 6190953270601238123, guid: e200cf69cdfb64dee935d59d6e9094a7, type: 3}
-      propertyPath: m_IsActive
-      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e200cf69cdfb64dee935d59d6e9094a7, type: 3}
