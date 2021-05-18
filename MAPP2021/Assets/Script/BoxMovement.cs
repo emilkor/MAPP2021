@@ -12,8 +12,7 @@ public class BoxMovement : MonoBehaviour
     [SerializeField] private ParticleSystem particleSystem;
     [SerializeField] private SpriteRenderer spriteRenderer;
     [SerializeField] private Rigidbody2D rigidbody;
-    public Vector2 velocity;
-    
+
 
     private Vector2 targetPosition;
 
@@ -42,16 +41,16 @@ public class BoxMovement : MonoBehaviour
 
     void Update()
     {
-        timer += Time.deltaTime;
+        //timer += Time.deltaTime;
         //gameObject.transform.position = Vector2.MoveTowards(gameObject.transform.position, targetPosition, speed * Time.deltaTime);
         
         
         if (gameObject.transform.position.y <= deathPosition)
         {
-            Debug.Log(timer);
+            //Debug.Log(timer);
             Destroy(gameObject);
         }
-        velocity = rigidbody.velocity;
+
         
     }
 
@@ -60,7 +59,7 @@ public class BoxMovement : MonoBehaviour
         return targetPosition;
     }
 
-    public void BlowingUp(Transform player, float explotionSpeed, float blockParticulsPerSquearUnit)
+    public void BlowingUp(/*Transform player, float explotionSpeed,*/ float blockParticulsPerSquearUnit)
     {
         gameObject.GetComponent<BoxCollider2D>().enabled = false;
         //rak linje y = mx + b

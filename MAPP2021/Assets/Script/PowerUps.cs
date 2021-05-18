@@ -131,7 +131,7 @@ public class PowerUps : MonoBehaviour
             
             //o.GetComponent<BoxCollider2D>().enabled = false;
             //o.GetComponent<SpriteRenderer>().enabled = false;
-            o.GetComponent < BoxMovement > ().BlowingUp(transform, explotionSpeed, blockParticulsPerSquearUnit);
+            o.GetComponent < BoxMovement > ().BlowingUp(/*transform, explotionSpeed,*/ blockParticulsPerSquearUnit);
             //ParticleSystem p = o.GetComponent<ParticleSystem>();
             //var e = p.emission;
             //e.rateOverTime = p.transform.position.x * p.transform.position.y * blockParticulsPerSquearUnit;
