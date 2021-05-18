@@ -132,7 +132,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 34010578}
-  - component: {fileID: 34010579}
   m_Layer: 5
   m_Name: ButtonContainer
   m_TagString: Untagged
@@ -167,29 +166,6 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 200}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &34010579
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 34010577}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9ca54455abde74367808710961941500, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  gameObjectRect: {fileID: 34010578}
-  buttonsRect:
-  - {fileID: 1250837628}
-  - {fileID: 1125689934}
-  - {fileID: 278284876}
-  - {fileID: 996473925}
-  - {fileID: 263418609}
-  - {fileID: 827637894}
-  - {fileID: 345484271}
-  - {fileID: 429784770}
-  scroll: {fileID: 380090515}
 --- !u!1001 &35675108
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1427,6 +1403,7 @@ GameObject:
   - component: {fileID: 380090516}
   - component: {fileID: 380090515}
   - component: {fileID: 380090514}
+  - component: {fileID: 380090518}
   m_Layer: 5
   m_Name: ScrollRect
   m_TagString: Untagged
@@ -1535,6 +1512,29 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 380090512}
   m_CullTransparentMesh: 1
+--- !u!114 &380090518
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 380090512}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9ca54455abde74367808710961941500, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  scroll: {fileID: 380090515}
+  gameObjectRect: {fileID: 34010578}
+  buttonsRect:
+  - {fileID: 1250837628}
+  - {fileID: 1125689934}
+  - {fileID: 278284876}
+  - {fileID: 996473925}
+  - {fileID: 263418609}
+  - {fileID: 827637894}
+  - {fileID: 345484271}
+  - {fileID: 429784770}
 --- !u!1 &401050396
 GameObject:
   m_ObjectHideFlags: 0
