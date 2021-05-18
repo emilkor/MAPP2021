@@ -189,6 +189,7 @@ MonoBehaviour:
   - {fileID: 827637894}
   - {fileID: 345484271}
   - {fileID: 429784770}
+  scroll: {fileID: 380090515}
 --- !u!1001 &35675108
 PrefabInstance:
   m_ObjectHideFlags: 0
