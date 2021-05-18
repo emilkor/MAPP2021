@@ -61,6 +61,8 @@ public class GameOver : MonoBehaviour
     public void BackToMenu()
     {
         SceneManager.LoadScene(0);
+        SceneManager.LoadScene("Menu");
+        Time.timeScale = 1f;
     }
 
     private void ShowPoints()

@@ -64,7 +64,12 @@ public class AudioUI : MonoBehaviour
         am.Play("StartButton");
     }
 
-    
+    public void PlayUnlockableButton()
+    {
+        am.Play("Unlockable");
+    }
+
+
     public void FadeOutMenu()
     {
         StartCoroutine(FadeMixerGroup.StartFade(musicMixer, "MenuVolume", fadeDuration * 0.5f, fadeTo));
