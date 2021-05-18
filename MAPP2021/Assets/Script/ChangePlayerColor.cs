@@ -10,9 +10,7 @@ public class ChangePlayerColor : MonoBehaviour
 
 
     [SerializeField] private Button[] buttons;
-   // [SerializeField] private Text[] text;
-    //[SerializeField] private Image[] image;
-
+  
     private int highscore;
 
     private int unlocks = 1;
@@ -90,16 +88,19 @@ public class ChangePlayerColor : MonoBehaviour
     public static void White()
     {
         newColor = Color.white;
+        
     }
 
     public static void Red()
     {
         newColor = Color.red;
+        
     }
 
     public static void DiffusedRed()
     {
         newColor = new Color(1f, 0.3f, 0.3f, 1f);
+        
     }
 
     public static void Blue()
@@ -149,7 +150,5 @@ public class ChangePlayerColor : MonoBehaviour
         return newColor;
     }
 
-
-
-
+   
 }

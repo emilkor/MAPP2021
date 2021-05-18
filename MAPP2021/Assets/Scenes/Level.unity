@@ -973,7 +973,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 494829734}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 3.19, y: -8.52, z: 0}
+  m_LocalPosition: {x: 2.56, y: -7.81, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -4132,7 +4132,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 0}
   m_AnchorMax: {x: 1, y: 0}
-  m_AnchoredPosition: {x: -10, y: 6}
+  m_AnchoredPosition: {x: -23.917969, y: 40}
   m_SizeDelta: {x: 225.0822, y: 226.0555}
   m_Pivot: {x: 1, y: 0}
 --- !u!114 &1752894707
@@ -5122,18 +5122,6 @@ PrefabInstance:
       propertyPath: borderAudio
       value: 
       objectReference: {fileID: 352755135}
-    - target: {fileID: 6190953270601238118, guid: e200cf69cdfb64dee935d59d6e9094a7, type: 3}
-      propertyPath: m_Simulated
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 6190953270601238119, guid: e200cf69cdfb64dee935d59d6e9094a7, type: 3}
-      propertyPath: m_Radius
-      value: 0.3142108
-      objectReference: {fileID: 0}
-    - target: {fileID: 6190953270601238119, guid: e200cf69cdfb64dee935d59d6e9094a7, type: 3}
-      propertyPath: m_Offset.y
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 6190953270601238121, guid: e200cf69cdfb64dee935d59d6e9094a7, type: 3}
       propertyPath: m_RootOrder
       value: 3
