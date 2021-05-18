@@ -2088,6 +2088,11 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 806607753}
   m_CullTransparentMesh: 1
+--- !u!1 &826010236 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 445574045, guid: e200cf69cdfb64dee935d59d6e9094a7, type: 3}
+  m_PrefabInstance: {fileID: 6190953269567934622}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &873271668
 GameObject:
   m_ObjectHideFlags: 0
@@ -4152,6 +4157,11 @@ MonoBehaviour:
   startSize: {x: 0, y: 0, z: 0}
   targetSize: {x: 1, y: 1, z: 1}
   duration: 1.5
+--- !u!96 &1911886938 stripped
+TrailRenderer:
+  m_CorrespondingSourceObject: {fileID: 593509644, guid: e200cf69cdfb64dee935d59d6e9094a7, type: 3}
+  m_PrefabInstance: {fileID: 6190953269567934622}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1930408481
 GameObject:
   m_ObjectHideFlags: 0
@@ -4905,6 +4915,18 @@ PrefabInstance:
       propertyPath: postProcessing
       value: 
       objectReference: {fileID: 566942813}
+    - target: {fileID: 6190953270601238115, guid: e200cf69cdfb64dee935d59d6e9094a7, type: 3}
+      propertyPath: moveWithTransform
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6190953270601238117, guid: e200cf69cdfb64dee935d59d6e9094a7, type: 3}
+      propertyPath: light
+      value: 
+      objectReference: {fileID: 826010236}
+    - target: {fileID: 6190953270601238117, guid: e200cf69cdfb64dee935d59d6e9094a7, type: 3}
+      propertyPath: trail
+      value: 
+      objectReference: {fileID: 1911886938}
     - target: {fileID: 6190953270601238117, guid: e200cf69cdfb64dee935d59d6e9094a7, type: 3}
       propertyPath: gameOver
       value: 
