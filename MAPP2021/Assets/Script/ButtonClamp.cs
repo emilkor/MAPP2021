@@ -51,5 +51,6 @@ public class ButtonClamp : MonoBehaviour
         xPos = Mathf.Clamp(xPos, -highestRect, lowestRect);
         anchoredPos.x = xPos;
         gameObjectRect.anchoredPosition = anchoredPos;
+        Debug.Log(scroll.velocity);
     }
 }
