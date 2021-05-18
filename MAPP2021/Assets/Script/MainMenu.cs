@@ -8,8 +8,8 @@ public class MainMenu : MonoBehaviour
 
     [SerializeField] private GameObject optionsMenu;
     [SerializeField] private GameObject skinsMenu;
- 
 
+    public Animator transition; // referens till animator
 
     private void Start()
     {
@@ -21,19 +21,29 @@ public class MainMenu : MonoBehaviour
 
     public void PlayGame ()
     {
-        
-        SceneManager.LoadScene(1);
-        Time.timeScale = 1;
+
+        //SceneManager.LoadScene(1);
+        //Time.timeScale = 1;
+
+        StartCoroutine(LoadLevel(SceneManager.GetActiveScene().buildIndex + 1));
+
 
     }
 
-   
-
-    public void QuiteGame ()
+    IEnumerator LoadLevel(int levelIndex)
     {
-        Debug.Log("QUIT");
-        Application.Quit();
-        
+        //Spela aniamtion
+
+        transition.SetTrigger("Start"); //start triggern i animatorn
+
+        yield return new WaitForSeconds(1f); //få den  att vänta antal sek
+
+
+        SceneManager.LoadScene(levelIndex);
+        //Vänta
+
+        //Loada Scenen
     }
+
          
 }
