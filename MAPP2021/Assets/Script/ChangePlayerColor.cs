@@ -90,16 +90,19 @@ public class ChangePlayerColor : MonoBehaviour
     public static void White()
     {
         newColor = Color.white;
+        SaveColor();
     }
 
     public static void Red()
     {
         newColor = Color.red;
+        SaveColor();
     }
 
     public static void DiffusedRed()
     {
         newColor = new Color(1f, 0.3f, 0.3f, 1f);
+        SaveColor();
     }
 
     public static void Blue()
@@ -150,6 +153,10 @@ public class ChangePlayerColor : MonoBehaviour
     }
 
 
-
+    private static void SaveColor()
+    {
+        PlayerPrefs.SetString("PlayerColor", ColorUtility.ToHtmlStringRGBA(newColor));
+        PlayerPrefs.Save();
+    }
 
 }
