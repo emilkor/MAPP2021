@@ -49,7 +49,7 @@ MonoBehaviour:
   doSideToSidePillar: 1
   block: {fileID: 5495258166039294534, guid: 00f4e68de705246ceb02cc4dcebf6cc5, type: 3}
   raidiusOfPosibulPositions: 5
-  hightOfSpawnPosition: 15
+  hightOfSpawnPosition: 17
   minimumTimeBetweenBlocks: 0.2
   maximumTimeBetweenBlocks: 0.7
   minimumWidthOfBlock: 1

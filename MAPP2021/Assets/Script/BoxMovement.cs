@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Threading;
 using UnityEngine;
 
 public class BoxMovement : MonoBehaviour
@@ -10,9 +11,13 @@ public class BoxMovement : MonoBehaviour
     [SerializeField] private float deathPosition;
     [SerializeField] private ParticleSystem particleSystem;
     [SerializeField] private SpriteRenderer spriteRenderer;
+    [SerializeField] private Rigidbody2D rigidbody;
+    public Vector2 velocity;
     
 
     private Vector2 targetPosition;
+
+    private double timer;
     
 
     // Start is called before the first frame update
@@ -24,8 +29,7 @@ public class BoxMovement : MonoBehaviour
         deathPosition = -(Camera.main.orthographicSize + (transform.localScale.y / 2));
         targetPosition = new Vector2(gameObject.transform.position.x, deathPosition);
         speed = blockSpeed.GetSpeed();
-        
-        
+        rigidbody.velocity = new Vector2(0, -speed);
     }
 
     // Update is called once per frame
@@ -38,13 +42,16 @@ public class BoxMovement : MonoBehaviour
 
     void Update()
     {
-        gameObject.transform.position = Vector2.MoveTowards(gameObject.transform.position, targetPosition, speed * Time.deltaTime);
+        timer += Time.deltaTime;
+        //gameObject.transform.position = Vector2.MoveTowards(gameObject.transform.position, targetPosition, speed * Time.deltaTime);
         
         
-            if (gameObject.transform.position.y == deathPosition)
-            {
-                Destroy(gameObject);
-            }
+        if (gameObject.transform.position.y <= deathPosition)
+        {
+            Debug.Log(timer);
+            Destroy(gameObject);
+        }
+        velocity = rigidbody.velocity;
         
     }
 

@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: 8793336192156094698}
   - component: {fileID: -8289238404594967771}
   - component: {fileID: 4810174055837420538}
+  - component: {fileID: 3626387403960825784}
   m_Layer: 0
   m_Name: Block
   m_TagString: Obstacle Block
@@ -31,7 +32,7 @@ Transform:
   m_GameObject: {fileID: 5495258166039294534}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 20, y: 1, z: 0}
+  m_LocalScale: {x: 1.8215163, y: 1, z: 0}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -129,6 +130,8 @@ MonoBehaviour:
   deathPosition: -15
   particleSystem: {fileID: -8289238404594967771}
   spriteRenderer: {fileID: 5495258166039294587}
+  rigidbody: {fileID: 3626387403960825784}
+  velocity: {x: 0, y: 0}
 --- !u!114 &8793336192156094698
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4914,3 +4917,24 @@ ParticleSystemRenderer:
   m_Mesh2: {fileID: 0}
   m_Mesh3: {fileID: 0}
   m_MaskInteraction: 0
+--- !u!50 &3626387403960825784
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5495258166039294534}
+  m_BodyType: 1
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 0.0001
+  m_LinearDrag: 0
+  m_AngularDrag: 0
+  m_GravityScale: 0
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
