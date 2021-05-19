@@ -9729,6 +9729,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 2033696506}
+        m_TargetAssemblyTypeName: SecretButton, Assembly-CSharp
+        m_MethodName: SaveUnlocked
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 1
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
 --- !u!114 &1740345331
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10589,6 +10601,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3460fa0209b4f6843bc38e432a61b5f4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  unlockThreshold: 0
 --- !u!1001 &2039272832
 PrefabInstance:
   m_ObjectHideFlags: 0
