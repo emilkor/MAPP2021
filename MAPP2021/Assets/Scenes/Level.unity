@@ -3671,7 +3671,7 @@ MonoBehaviour:
     m_SelectOnDown: {fileID: 0}
     m_SelectOnLeft: {fileID: 0}
     m_SelectOnRight: {fileID: 0}
-  m_Transition: 3
+  m_Transition: 1
   m_Colors:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
     m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
@@ -3787,7 +3787,7 @@ Animator:
   m_GameObject: {fileID: 1752894705}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: facc76f545db01741b09f90d5aa079aa, type: 2}
+  m_Controller: {fileID: 9100000, guid: 7c627e09fc31ee44ebf0c2bb8046aa5c, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -4409,7 +4409,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2306471703406205456, guid: c381fe1f64b2145efa1180ccdcd1dc56, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2306471703406205458, guid: c381fe1f64b2145efa1180ccdcd1dc56, type: 3}
       propertyPath: m_Enabled
@@ -4552,6 +4552,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1480891182}
     m_Modifications:
+    - target: {fileID: 4364330065871172592, guid: 8223dca8a825d1d448e25b82a405e670, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 400
+      objectReference: {fileID: 0}
     - target: {fileID: 4364330065871172593, guid: 8223dca8a825d1d448e25b82a405e670, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
@@ -4563,6 +4567,10 @@ PrefabInstance:
     - target: {fileID: 4364330066333439400, guid: 8223dca8a825d1d448e25b82a405e670, type: 3}
       propertyPath: m_Name
       value: OptionsMenuLevel
+      objectReference: {fileID: 0}
+    - target: {fileID: 4364330066333439400, guid: 8223dca8a825d1d448e25b82a405e670, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4364330066333439401, guid: 8223dca8a825d1d448e25b82a405e670, type: 3}
       propertyPath: m_Pivot.x
@@ -4662,6 +4670,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 352755133}
     - target: {fileID: 6190953270601238112, guid: e200cf69cdfb64dee935d59d6e9094a7, type: 3}
+      propertyPath: animator
+      value: 
+      objectReference: {fileID: 1752894712}
+    - target: {fileID: 6190953270601238112, guid: e200cf69cdfb64dee935d59d6e9094a7, type: 3}
       propertyPath: powerText
       value: 
       objectReference: {fileID: 1534222355}
@@ -4679,7 +4691,7 @@ PrefabInstance:
       objectReference: {fileID: 1752894710}
     - target: {fileID: 6190953270601238112, guid: e200cf69cdfb64dee935d59d6e9094a7, type: 3}
       propertyPath: chansForBomb
-      value: 0.99
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6190953270601238112, guid: e200cf69cdfb64dee935d59d6e9094a7, type: 3}
       propertyPath: powerUpButton
@@ -4695,11 +4707,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6190953270601238112, guid: e200cf69cdfb64dee935d59d6e9094a7, type: 3}
       propertyPath: chansForSlowMotion
-      value: 0.33
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6190953270601238112, guid: e200cf69cdfb64dee935d59d6e9094a7, type: 3}
       propertyPath: chansForBlockDestroier
-      value: 0.66
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6190953270601238117, guid: e200cf69cdfb64dee935d59d6e9094a7, type: 3}
       propertyPath: gameOver

@@ -48,6 +48,10 @@ public class PowerUps : MonoBehaviour
 
     [SerializeField] ChangeImage changeImage;
 
+    [SerializeField] Animator animator;
+
+    
+
 
     private float powerUpPicker;
 
@@ -156,6 +160,7 @@ public class PowerUps : MonoBehaviour
         yield return new WaitForSeconds(poweringUpTime);
         powerUpButton.interactable = true;
         PickPowerUp();
+        
     }
 
     private void PickPowerUp()
@@ -166,8 +171,9 @@ public class PowerUps : MonoBehaviour
             powerUp = PowerUp.SlowMotion;
             powerText.text = "Slow Motion";
             changeImage.setSprite(PowerUp.SlowMotion);
-            
-            
+            animator.SetTrigger("Start");
+
+
         }
 //         else if (powerUpPicker < chansForSuperSpeed)
 //         {
@@ -179,15 +185,19 @@ public class PowerUps : MonoBehaviour
             powerUp = PowerUp.WallBreak;
             powerText.text = "Wall Break";
             changeImage.setSprite(PowerUp.WallBreak);
-            
+            animator.SetTrigger("Start");
+
         }
         else if (powerUpPicker <= chansForBomb)
         {
             powerUp = PowerUp.Bomb;
             powerText.text = "Bomb";
             changeImage.setSprite(PowerUp.Bomb);
-            
+            animator.SetTrigger("Start");
+
         }
+
+        animator.SetTrigger("Idle");
     }
 
     private IEnumerator ShockWave()
