@@ -1493,6 +1493,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   optionsMenu: {fileID: 1307301272}
   skinsMenu: {fileID: 1046324320}
+  playButton: {fileID: 265032975}
   transition: {fileID: 503321045}
 --- !u!1001 &664564476
 PrefabInstance:
@@ -10589,6 +10590,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3460fa0209b4f6843bc38e432a61b5f4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  unlockThreshold: 0
 --- !u!1001 &2039272832
 PrefabInstance:
   m_ObjectHideFlags: 0
