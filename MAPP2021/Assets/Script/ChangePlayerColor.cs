@@ -162,6 +162,7 @@ public class ChangePlayerColor : MonoBehaviour
     public static void RandomColor()
     {
         newColor = new Color(Random.Range(0f, 1f), Random.Range(0f, 1f), Random.Range(0f, 1f), 1f);
+        print(newColor);
         SaveColor();
     }
 

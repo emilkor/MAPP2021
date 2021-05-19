@@ -49,8 +49,10 @@ public class AudioUI : MonoBehaviour
 
         if (SceneManager.GetActiveScene().name.Equals("Menu"))
         {
-            RestoreMenuTheme();
-            MuteGameTheme();
+            FadeInMenu();
+            //RestoreMenuTheme();
+            //MuteGameTheme();
+            FadeOutGame();
         }
     }
 
@@ -76,9 +78,14 @@ public class AudioUI : MonoBehaviour
         StartCoroutine(FadeMixerGroup.StartFade(musicMixer, "MenuVolume", fadeDuration * 0.5f, fadeTo));
     }
 
+    public void FadeInMenu()
+    {
+        StartCoroutine(FadeMixerGroup.StartFade(musicMixer, "MenuVolume", fadeDuration * 0.5f, 1f));
+    }
+
     public void FadeOutGame()
     {
-        StartCoroutine(FadeMixerGroup.StartFade(musicMixer, "GameVolume", fadeDuration * 0.1f, fadeTo));
+        StartCoroutine(FadeMixerGroup.StartFade(musicMixer, "GameVolume", fadeDuration * 0.5f, fadeTo));
     }
 
     public void FadeOutBorder()
