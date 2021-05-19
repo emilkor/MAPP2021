@@ -1375,7 +1375,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &578048189
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1550,6 +1550,17 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 710291163}
   m_CullTransparentMesh: 1
+--- !u!114 &742988237 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1441729291444384190, guid: 0f4993c441c3de74fa98112b17fd38ca, type: 3}
+  m_PrefabInstance: {fileID: 1073382405}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &777289348
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2004,7 +2015,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1046324321
 RectTransform:
   m_ObjectHideFlags: 0
@@ -7098,7 +7109,7 @@ MonoBehaviour:
   buttons:
   - {fileID: 1250837631}
   - {fileID: 1125689935}
-  - {fileID: 96684787}
+  - {fileID: 742988237}
   - {fileID: 204393404}
   - {fileID: 1578445734}
   - {fileID: 1635269420}
@@ -9689,6 +9700,7 @@ GameObject:
   - component: {fileID: 2033696505}
   - component: {fileID: 2033696504}
   - component: {fileID: 2033696503}
+  - component: {fileID: 2033696506}
   m_Layer: 5
   m_Name: ColorSecret - INTE ARRAY
   m_TagString: Untagged
@@ -9823,6 +9835,18 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2033696501}
   m_CullTransparentMesh: 1
+--- !u!114 &2033696506
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2033696501}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3460fa0209b4f6843bc38e432a61b5f4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &2039272832
 PrefabInstance:
   m_ObjectHideFlags: 0
