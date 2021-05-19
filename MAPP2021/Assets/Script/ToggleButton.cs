@@ -2,15 +2,22 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class ToggleButton : MonoBehaviour
 {
-    public bool muteMusic;
-    public bool muteSound;
+   [SerializeField] private bool muteMusic;
+   [SerializeField] private bool muteSound;
+   
+
+    
 
     //private static bool universalEnable;
     private static bool musicEnable;
     private static bool soundEnable;
+    
+
+   
 
     private AudioManager am;
 
@@ -41,6 +48,10 @@ public class ToggleButton : MonoBehaviour
                 ToggleFalse();
             }
         }
+
+        
+
+       
         
         /*
         if (universalEnable)
@@ -68,10 +79,12 @@ public class ToggleButton : MonoBehaviour
                 am.MuteSFX();
             }
 
+           
+
             //universalEnable = true;
             //am.MuteAll();
         }
-        else
+        else 
         {
             if (muteMusic)
             {
@@ -99,6 +112,8 @@ public class ToggleButton : MonoBehaviour
     {
         gameObject.GetComponent<Toggle>().isOn = false;
     }
+
+  
 
     public bool getIsOn()
     {
