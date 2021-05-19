@@ -14,6 +14,7 @@ public class PlayerColor : MonoBehaviour
     private void Awake()
     {
         SetPlayerColor(ChangePlayerColor.GetColor());
+        
     }
     public void SetPlayerColor(Color color)
     {
