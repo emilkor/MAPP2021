@@ -24,7 +24,7 @@ public class ChangePlayerColor : MonoBehaviour
         SetButtons();
 
         //VVV Ta bort sen /August
-        // PlayerPrefs.SetInt("HighScore", 0);
+         PlayerPrefs.SetInt("HighScore", 1000000);
 
         highscore = PlayerPrefs.GetInt("HighScore");
 
@@ -103,7 +103,21 @@ public class ChangePlayerColor : MonoBehaviour
 
     public static void DiffusedRed()
     {
-        newColor = new Color(1f, 0.3f, 0.3f, 1f);
+        newColor = new Color(1f, 0.5f, 0.5f, 1f);
+        SaveColor();
+
+    }
+
+    public static void DiffusedGreen()
+    {
+        newColor = new Color(0.5f, 1f, 0.5f, 1f);
+        SaveColor();
+
+    }
+
+    public static void DiffusedBlue()
+    {
+        newColor = new Color(0.5f, 0.5f, 1f, 1f);
         SaveColor();
 
     }
