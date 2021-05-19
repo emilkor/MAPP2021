@@ -15,7 +15,7 @@ public class PlayerDeath : MonoBehaviour
 
     void OnCollisionEnter2D(Collision2D collision)
     {
-        gameOver.setAlive(false);
+        gameOver.SetAlive(false);
         var main = particleSystem.main;
         main.useUnscaledTime = true;
         particleSystem.Play();

@@ -692,6 +692,7 @@ GameObject:
   - component: {fileID: 450970879}
   - component: {fileID: 450970881}
   - component: {fileID: 450970880}
+  - component: {fileID: 450970882}
   m_Layer: 5
   m_Name: GameOverScreen
   m_TagString: Menu
@@ -760,6 +761,25 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 450970878}
   m_CullTransparentMesh: 1
+--- !u!95 &450970882
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 450970878}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 8d20e8817bdf26448970b83e5522a941, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 2
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1001 &464853758
 PrefabInstance:
   m_ObjectHideFlags: 0

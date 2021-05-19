@@ -93,7 +93,7 @@ public class GameOver : MonoBehaviour
         
     }
 
-    public void setAlive(bool alive)
+    public void SetAlive(bool alive)
     {
         isAlive = alive;
     }
