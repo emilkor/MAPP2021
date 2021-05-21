@@ -18,8 +18,8 @@ public class PointCounter : MonoBehaviour
     [SerializeField] private float timeWithSolideBackground;
 
     [SerializeField] private float points;
-    private bool haveNotActivatedMakeBackgroundSolid;
-    private bool isMakeBackgroundSolid;
+    //private bool haveNotActivatedMakeBackgroundSolid;
+    //private bool isMakeBackgroundSolid;
 
 
 
