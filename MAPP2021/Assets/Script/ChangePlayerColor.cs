@@ -103,79 +103,79 @@ public class ChangePlayerColor : MonoBehaviour
         ActvateParicule();
     }
 
-    public static void Red()
-    {
-        newColor = Color.red;
-        SaveColor();
-        ActvateParicule();
-    }
+    //public static void Red()
+    //{
+    //    newColor = Color.red;
+    //    SaveColor();
+    //    ActvateParicule();
+    //}
 
-    public static void DiffusedRed()
-    {
-        newColor = new Color(1f, 0.5f, 0.5f, 1f);
-        SaveColor();
-        ActvateParicule();
+    //public static void DiffusedRed()
+    //{
+    //    newColor = new Color(1f, 0.5f, 0.5f, 1f);
+    //    SaveColor();
+    //    ActvateParicule();
 
-    }
+    //}
 
-    public static void DiffusedGreen()
-    {
-        newColor = new Color(0.5f, 1f, 0.5f, 1f);
-        SaveColor();
-        ActvateParicule();
+    //public static void DiffusedGreen()
+    //{
+    //    newColor = new Color(0.5f, 1f, 0.5f, 1f);
+    //    SaveColor();
+    //    ActvateParicule();
 
-    }
+    //}
 
-    public static void DiffusedBlue()
-    {
-        newColor = new Color(0.5f, 0.5f, 1f, 1f);
-        SaveColor();
-        ActvateParicule();
+    //public static void DiffusedBlue()
+    //{
+    //    newColor = new Color(0.5f, 0.5f, 1f, 1f);
+    //    SaveColor();
+    //    ActvateParicule();
 
-    }
+    //}
 
-    public static void Blue()
-    {
-        newColor = Color.blue;
-        SaveColor();
-        ActvateParicule();
+    //public static void Blue()
+    //{
+    //    newColor = Color.blue;
+    //    SaveColor();
+    //    ActvateParicule();
 
-    }
+    //}
 
-    public static void Green()
-    {
-        newColor = Color.green;
-        SaveColor();
-        ActvateParicule();
-    }
+    //public static void Green()
+    //{
+    //    newColor = Color.green;
+    //    SaveColor();
+    //    ActvateParicule();
+    //}
 
-    public static void Pink()
-    {
-        newColor = new Color(1, 0, 1, 1);
-        SaveColor();
-        ActvateParicule();
-    }
+    //public static void Pink()
+    //{
+    //    newColor = new Color(1, 0, 1, 1);
+    //    SaveColor();
+    //    ActvateParicule();
+    //}
 
-    public static void Cyan()
-    {
-        newColor = new Color(0, 1, 1, 1);
-        SaveColor();
-        ActvateParicule();
-    }
+    //public static void Cyan()
+    //{
+    //    newColor = new Color(0, 1, 1, 1);
+    //    SaveColor();
+    //    ActvateParicule();
+    //}
 
-    public static void Yellow()
-    {
-        newColor = new Color(1, 1, 0, 1);
-        SaveColor();
-        ActvateParicule();
-    }
+    //public static void Yellow()
+    //{
+    //    newColor = new Color(1, 1, 0, 1);
+    //    SaveColor();
+    //    ActvateParicule();
+    //}
 
-    public static void Purple()
-    {
-        newColor = new Color(0.5f, 0, 0.5f, 1);
-        SaveColor();
-        ActvateParicule();
-    }
+    //public static void Purple()
+    //{
+    //    newColor = new Color(0.5f, 0, 0.5f, 1);
+    //    SaveColor();
+    //    ActvateParicule();
+    //}
 
     public static void RandomColor()
     {
