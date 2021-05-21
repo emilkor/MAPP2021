@@ -182,12 +182,12 @@ public class ChangePlayerColor : MonoBehaviour
 
     public static Color GetColor()
     {
-        /*
-        if (newColor.Equals(Color.clear))
+        
+        if (newColor.Equals(null))
         {
             White();
         }
-        */
+        
         Color color;
 
         ColorUtility.TryParseHtmlString("#" + PlayerPrefs.GetString("PlayerColor"), out color);
@@ -203,9 +203,11 @@ public class ChangePlayerColor : MonoBehaviour
 
     private static void ActvateParicule()
     {
-        Debug.Log("Why");
+        Debug.Log(staticButtons.Length);
+
         foreach (Button button in staticButtons)
         {
+            
             if (button.gameObject.GetComponent<Image>().color == GetColor())
             {
                 //Debug.Log("Why");
