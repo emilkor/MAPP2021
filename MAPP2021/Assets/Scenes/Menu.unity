@@ -1164,6 +1164,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7064087567946318623, guid: 0f4993c441c3de74fa98112b17fd38ca, type: 3}
+      propertyPath: LightsModule.enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7064087567946318623, guid: 0f4993c441c3de74fa98112b17fd38ca, type: 3}
       propertyPath: ShapeModule.radius.value
       value: 1.6
       objectReference: {fileID: 0}
@@ -2112,6 +2116,10 @@ PrefabInstance:
     - target: {fileID: 1441729291444384191, guid: 0f4993c441c3de74fa98112b17fd38ca, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7064087567946318623, guid: 0f4993c441c3de74fa98112b17fd38ca, type: 3}
+      propertyPath: LightsModule.enabled
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7064087567946318623, guid: 0f4993c441c3de74fa98112b17fd38ca, type: 3}
       propertyPath: ShapeModule.radius.value
@@ -5972,7 +5980,7 @@ ParticleSystem:
       properties: 0
       emitProbability: 1
   LightsModule:
-    enabled: 0
+    enabled: 1
     ratio: 0
     light: {fileID: 0}
     randomDistribution: 1
@@ -7867,6 +7875,10 @@ PrefabInstance:
     - target: {fileID: 1441729291444384191, guid: 0f4993c441c3de74fa98112b17fd38ca, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7064087567946318623, guid: 0f4993c441c3de74fa98112b17fd38ca, type: 3}
+      propertyPath: LightsModule.enabled
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7064087567946318623, guid: 0f4993c441c3de74fa98112b17fd38ca, type: 3}
       propertyPath: ShapeModule.radius.value
@@ -13133,6 +13145,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7064087567946318623, guid: 0f4993c441c3de74fa98112b17fd38ca, type: 3}
+      propertyPath: LightsModule.enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7064087567946318623, guid: 0f4993c441c3de74fa98112b17fd38ca, type: 3}
       propertyPath: ShapeModule.radius.value
       value: 1.6
       objectReference: {fileID: 0}
@@ -13771,6 +13787,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7064087567946318623, guid: 0f4993c441c3de74fa98112b17fd38ca, type: 3}
+      propertyPath: LightsModule.enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7064087567946318623, guid: 0f4993c441c3de74fa98112b17fd38ca, type: 3}
       propertyPath: ShapeModule.radius.value
       value: 1.6
       objectReference: {fileID: 0}
@@ -13998,6 +14018,10 @@ PrefabInstance:
     - target: {fileID: 1441729291444384191, guid: 0f4993c441c3de74fa98112b17fd38ca, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7064087567946318623, guid: 0f4993c441c3de74fa98112b17fd38ca, type: 3}
+      propertyPath: LightsModule.enabled
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7064087567946318623, guid: 0f4993c441c3de74fa98112b17fd38ca, type: 3}
       propertyPath: ShapeModule.radius.value
@@ -14660,6 +14684,10 @@ PrefabInstance:
     - target: {fileID: 1441729291444384191, guid: 0f4993c441c3de74fa98112b17fd38ca, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7064087567946318623, guid: 0f4993c441c3de74fa98112b17fd38ca, type: 3}
+      propertyPath: LightsModule.enabled
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7064087567946318623, guid: 0f4993c441c3de74fa98112b17fd38ca, type: 3}
       propertyPath: ShapeModule.radius.value
@@ -19697,7 +19725,7 @@ ParticleSystem:
       properties: 0
       emitProbability: 1
   LightsModule:
-    enabled: 0
+    enabled: 1
     ratio: 0
     light: {fileID: 0}
     randomDistribution: 1
@@ -21272,6 +21300,10 @@ PrefabInstance:
     - target: {fileID: 1441729291444384191, guid: 0f4993c441c3de74fa98112b17fd38ca, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7064087567946318623, guid: 0f4993c441c3de74fa98112b17fd38ca, type: 3}
+      propertyPath: LightsModule.enabled
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7064087567946318623, guid: 0f4993c441c3de74fa98112b17fd38ca, type: 3}
       propertyPath: ShapeModule.radius.value

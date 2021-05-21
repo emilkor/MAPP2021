@@ -18,8 +18,8 @@ public class PointCounter : MonoBehaviour
     [SerializeField] private float timeWithSolideBackground;
 
     [SerializeField] private float points;
-    private bool haveNotActivatedMakeBackgroundSolid;
-    private bool isMakeBackgroundSolid;
+    //private bool haveNotActivatedMakeBackgroundSolid;
+    //private bool isMakeBackgroundSolid;
 
 
 
@@ -58,16 +58,16 @@ public class PointCounter : MonoBehaviour
         return (int) points;
     }
 
-    private void MakeBackgroundSolid()
-    {
-        if(Random.value < chansOfTurnSolide)
-        {
-            Spawner.StopSpawning();
-            BackgroundBlocks.MakeBackgroundSolid();
-            isMakeBackgroundSolid = true;
-            Debug.Log("Go");
-        }
-    }
+    //private void MakeBackgroundSolid()
+    //{
+    //    if(Random.value < chansOfTurnSolide)
+    //    {
+    //        Spawner.StopSpawning();
+    //        BackgroundBlocks.MakeBackgroundSolid();
+    //        isMakeBackgroundSolid = true;
+    //        Debug.Log("Go");
+    //    }
+    //}
 
     private IEnumerator SolideTimer()
     {
