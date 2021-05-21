@@ -58,16 +58,16 @@ public class PointCounter : MonoBehaviour
         return (int) points;
     }
 
-    private void MakeBackgroundSolid()
-    {
-        if(Random.value < chansOfTurnSolide)
-        {
-            Spawner.StopSpawning();
-            BackgroundBlocks.MakeBackgroundSolid();
-            isMakeBackgroundSolid = true;
-            Debug.Log("Go");
-        }
-    }
+    //private void MakeBackgroundSolid()
+    //{
+    //    if(Random.value < chansOfTurnSolide)
+    //    {
+    //        Spawner.StopSpawning();
+    //        BackgroundBlocks.MakeBackgroundSolid();
+    //        isMakeBackgroundSolid = true;
+    //        Debug.Log("Go");
+    //    }
+    //}
 
     private IEnumerator SolideTimer()
     {
