@@ -12538,7 +12538,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   buttons:
-  - {fileID: 0}
+  - {fileID: 847091897}
   - {fileID: 1125689935}
   - {fileID: 742988237}
   - {fileID: 204393404}
@@ -20699,7 +20699,7 @@ AudioListener:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2068501168}
-  m_Enabled: 0
+  m_Enabled: 1
 --- !u!20 &2068501170
 Camera:
   m_ObjectHideFlags: 0
