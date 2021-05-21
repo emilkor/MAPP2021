@@ -48,7 +48,7 @@ public class ButtonClamp : MonoBehaviour
         {
             scroll.StopMovement();
         }
-        xPos = Mathf.Clamp(xPos, -highestRect, lowestRect);
+        xPos = Mathf.Clamp(xPos, -highestRect, -lowestRect);
         anchoredPos.x = xPos;
         gameObjectRect.anchoredPosition = anchoredPos;
     }
