@@ -1140,6 +1140,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7064087567946318623, guid: 0f4993c441c3de74fa98112b17fd38ca, type: 3}
+      propertyPath: ShapeModule.radius.value
+      value: 1.6
+      objectReference: {fileID: 0}
+    - target: {fileID: 7064087567946318623, guid: 0f4993c441c3de74fa98112b17fd38ca, type: 3}
+      propertyPath: ShapeModule.sphericalDirectionAmount
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0f4993c441c3de74fa98112b17fd38ca, type: 3}
 --- !u!224 &273642230 stripped
@@ -2026,6 +2034,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7064087567946318623, guid: 0f4993c441c3de74fa98112b17fd38ca, type: 3}
+      propertyPath: ShapeModule.radius.value
+      value: 1.6
+      objectReference: {fileID: 0}
+    - target: {fileID: 7064087567946318623, guid: 0f4993c441c3de74fa98112b17fd38ca, type: 3}
+      propertyPath: ShapeModule.sphericalDirectionAmount
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0f4993c441c3de74fa98112b17fd38ca, type: 3}
 --- !u!224 &777289349 stripped
@@ -2798,10 +2814,10 @@ ParticleSystem:
     m_TextureAlphaAffectsParticles: 1
     m_TextureBilinearFiltering: 0
     randomDirectionAmount: 1
-    sphericalDirectionAmount: 0
+    sphericalDirectionAmount: 1
     randomPositionAmount: 0
     radius:
-      value: 3.5
+      value: 1.6
       mode: 0
       spread: 0
       speed:
@@ -7696,6 +7712,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7064087567946318623, guid: 0f4993c441c3de74fa98112b17fd38ca, type: 3}
+      propertyPath: ShapeModule.radius.value
+      value: 1.6
+      objectReference: {fileID: 0}
+    - target: {fileID: 7064087567946318623, guid: 0f4993c441c3de74fa98112b17fd38ca, type: 3}
+      propertyPath: ShapeModule.sphericalDirectionAmount
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0f4993c441c3de74fa98112b17fd38ca, type: 3}
 --- !u!224 &1073382406 stripped
@@ -12546,7 +12570,6 @@ MonoBehaviour:
   - {fileID: 1498217591}
   - {fileID: 777289350}
   - {fileID: 1229290908}
-  - {fileID: 0}
   unlockThreshold: 1000
   thresholdMultiplier: 2
 --- !u!4 &1094947748
@@ -12856,6 +12879,14 @@ PrefabInstance:
     - target: {fileID: 1441729291444384191, guid: 0f4993c441c3de74fa98112b17fd38ca, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7064087567946318623, guid: 0f4993c441c3de74fa98112b17fd38ca, type: 3}
+      propertyPath: ShapeModule.radius.value
+      value: 1.6
+      objectReference: {fileID: 0}
+    - target: {fileID: 7064087567946318623, guid: 0f4993c441c3de74fa98112b17fd38ca, type: 3}
+      propertyPath: ShapeModule.sphericalDirectionAmount
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0f4993c441c3de74fa98112b17fd38ca, type: 3}
@@ -13463,6 +13494,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7064087567946318623, guid: 0f4993c441c3de74fa98112b17fd38ca, type: 3}
+      propertyPath: ShapeModule.radius.value
+      value: 1.6
+      objectReference: {fileID: 0}
+    - target: {fileID: 7064087567946318623, guid: 0f4993c441c3de74fa98112b17fd38ca, type: 3}
+      propertyPath: ShapeModule.sphericalDirectionAmount
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0f4993c441c3de74fa98112b17fd38ca, type: 3}
 --- !u!224 &1498217590 stripped
@@ -13655,6 +13694,14 @@ PrefabInstance:
     - target: {fileID: 1441729291444384191, guid: 0f4993c441c3de74fa98112b17fd38ca, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7064087567946318623, guid: 0f4993c441c3de74fa98112b17fd38ca, type: 3}
+      propertyPath: ShapeModule.radius.value
+      value: 1.6
+      objectReference: {fileID: 0}
+    - target: {fileID: 7064087567946318623, guid: 0f4993c441c3de74fa98112b17fd38ca, type: 3}
+      propertyPath: ShapeModule.sphericalDirectionAmount
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0f4993c441c3de74fa98112b17fd38ca, type: 3}
@@ -14285,6 +14332,14 @@ PrefabInstance:
     - target: {fileID: 1441729291444384191, guid: 0f4993c441c3de74fa98112b17fd38ca, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7064087567946318623, guid: 0f4993c441c3de74fa98112b17fd38ca, type: 3}
+      propertyPath: ShapeModule.radius.value
+      value: 1.6
+      objectReference: {fileID: 0}
+    - target: {fileID: 7064087567946318623, guid: 0f4993c441c3de74fa98112b17fd38ca, type: 3}
+      propertyPath: ShapeModule.sphericalDirectionAmount
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0f4993c441c3de74fa98112b17fd38ca, type: 3}
@@ -16224,10 +16279,10 @@ ParticleSystem:
     m_TextureAlphaAffectsParticles: 1
     m_TextureBilinearFiltering: 0
     randomDirectionAmount: 1
-    sphericalDirectionAmount: 0
+    sphericalDirectionAmount: 1
     randomPositionAmount: 0
     radius:
-      value: 3.5
+      value: 1.6
       mode: 0
       spread: 0
       speed:
@@ -20839,6 +20894,14 @@ PrefabInstance:
     - target: {fileID: 1441729291444384191, guid: 0f4993c441c3de74fa98112b17fd38ca, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7064087567946318623, guid: 0f4993c441c3de74fa98112b17fd38ca, type: 3}
+      propertyPath: ShapeModule.radius.value
+      value: 1.6
+      objectReference: {fileID: 0}
+    - target: {fileID: 7064087567946318623, guid: 0f4993c441c3de74fa98112b17fd38ca, type: 3}
+      propertyPath: ShapeModule.sphericalDirectionAmount
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0f4993c441c3de74fa98112b17fd38ca, type: 3}
