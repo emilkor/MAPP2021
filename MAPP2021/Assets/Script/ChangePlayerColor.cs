@@ -89,6 +89,12 @@ public class ChangePlayerColor : MonoBehaviour
         ActvateParicule();
     }
 
+    public static void ChangeColor(Image image)
+    {
+        newColor = image.color;
+        SaveColor();
+        ActvateParicule();
+    }
 
     public static void White()
     {
@@ -208,7 +214,7 @@ public class ChangePlayerColor : MonoBehaviour
         foreach (Button button in staticButtons)
         {
             
-            if (button.gameObject.GetComponent<Image>().color == GetColor())
+            if (button.gameObject.GetComponent<Image>().color == newColor)
             {
                 //Debug.Log("Why");
                 button.gameObject.GetComponent<ParticleSystem>().Play();
