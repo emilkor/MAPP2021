@@ -7645,7 +7645,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1046324321
 RectTransform:
   m_ObjectHideFlags: 0
@@ -15563,7 +15563,7 @@ MonoBehaviour:
       - m_Target: {fileID: 2033696506}
         m_TargetAssemblyTypeName: SecretButton, Assembly-CSharp
         m_MethodName: SaveUnlocked
-        m_Mode: 3
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -16355,7 +16355,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3460fa0209b4f6843bc38e432a61b5f4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  unlockThreshold: 100000
 --- !u!114 &2033696507
 MonoBehaviour:
   m_ObjectHideFlags: 0

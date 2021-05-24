@@ -7,8 +7,6 @@ public class ChangePlayerColor : MonoBehaviour
 {
     private static Color newColor;
 
-
-
     [SerializeField] private Button[] buttons;
     private static Button[] staticButtons;
 
@@ -24,13 +22,14 @@ public class ChangePlayerColor : MonoBehaviour
     {
         staticButtons = buttons;
         SetButtons();
+       
 
         //VVV Ta bort sen /August
-         //PlayerPrefs.SetInt("HighScore", 1000000);
+        //PlayerPrefs.SetInt("HighScore", 1000000);
 
         highscore = PlayerPrefs.GetInt("HighScore");
 
-        while (highscore >= unlockThreshold)
+        while (highscore >= unlockThreshold && unlocks < buttons.Length)
         {
             unlocks++;
 
@@ -83,14 +82,15 @@ public class ChangePlayerColor : MonoBehaviour
 
     }
     private void Start()
-    {
+    { 
         Debug.Log(PlayerPrefs.GetInt("HighScore"));
         print(PlayerPrefs.GetString("PlayerColor"));
-        ActvateParticle();
+        
     }
 
     public static void ChangeColor(Image image)
     {
+        PlayerColor.SetRandomColor(false);
         newColor = image.color;
         SaveColor();
         ActvateParticle();
@@ -98,6 +98,7 @@ public class ChangePlayerColor : MonoBehaviour
 
     public static void White()
     {
+        PlayerColor.SetRandomColor(false);
         newColor = Color.white;
         SaveColor();
         ActvateParticle();
@@ -179,10 +180,7 @@ public class ChangePlayerColor : MonoBehaviour
 
     public static void RandomColor()
     {
-        newColor = Color.HSVToRGB(Random.Range(0f, 1f), Random.Range(0f, 1f), 1f);
-        print(newColor);
-        SaveColor();
-        ActvateParticle();
+        PlayerColor.SetRandomColor(true);
     }
 
 
