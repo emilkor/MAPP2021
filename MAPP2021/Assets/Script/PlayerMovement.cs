@@ -1,9 +1,13 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class PlayerMovement : MonoBehaviour
 {
+
+    [SerializeField] private Button pause;
+    [SerializeField] private Button powerup;
 
     private Rigidbody2D rigidbody;
     private float yAxis;
@@ -48,8 +52,14 @@ public class PlayerMovement : MonoBehaviour
 
         rigidbody.velocity = Vector3.SmoothDamp(rigidbody.velocity, new Vector3(xAxis + xAxisPC, yAxis + yAxisPC), ref velocity, smoothTime);
 
-        
-        
+        if (Input.GetKeyDown("space") && powerup.IsInteractable())
+        {
+            powerup.onClick.Invoke();
+        }
+        if (Input.GetKeyDown("escape") && pause.IsInteractable())
+        {
+            pause.onClick.Invoke();
+        }
     }
 
     public void SetMovementSpeed(float speed)

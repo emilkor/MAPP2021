@@ -4385,6 +4385,14 @@ PrefabInstance:
       propertyPath: postProcessing
       value: 
       objectReference: {fileID: 566942813}
+    - target: {fileID: 6190953270601238116, guid: e200cf69cdfb64dee935d59d6e9094a7, type: 3}
+      propertyPath: pause
+      value: 
+      objectReference: {fileID: 790184089}
+    - target: {fileID: 6190953270601238116, guid: e200cf69cdfb64dee935d59d6e9094a7, type: 3}
+      propertyPath: powerup
+      value: 
+      objectReference: {fileID: 1752894707}
     - target: {fileID: 6190953270601238117, guid: e200cf69cdfb64dee935d59d6e9094a7, type: 3}
       propertyPath: gameOver
       value: 
