@@ -86,6 +86,7 @@ public class PowerUps : MonoBehaviour
         if(powerUp == PowerUp.Bomb)
         {
             Bomb();
+            FindObjectOfType<AudioManager>().Play("Bomb");
         }
         powerUpButton.interactable = false;
         StartCoroutine(PoweringUp());
