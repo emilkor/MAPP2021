@@ -8,6 +8,8 @@ public class PlayerMovement : MonoBehaviour
     private Rigidbody2D rigidbody;
     private float yAxis;
     private float xAxis;
+    private float yAxisPC;
+    private float xAxisPC;
     private Vector3 velocity;
     [SerializeField] private float defaultMovementSpeed = 10f;
     [SerializeField] private float smoothTime = 0.3f;
@@ -38,9 +40,13 @@ public class PlayerMovement : MonoBehaviour
         
         yAxis = (Input.acceleration.y - resetYAxis)  * movementSpeed * movementYAxis;
         xAxis = Input.acceleration.x * movementSpeed;
+        yAxisPC = Input.GetAxis("Vertical") * movementSpeed/3;
+        xAxisPC = Input.GetAxis("Horizontal") * movementSpeed/3;
+
+
         transform.position = new Vector2(Mathf.Clamp(transform.position.x, -cameraWidth, cameraWidth), Mathf.Clamp(transform.position.y, -cameraHight, cameraHight));
 
-        rigidbody.velocity = Vector3.SmoothDamp(rigidbody.velocity, new Vector3(xAxis, yAxis), ref velocity, smoothTime);
+        rigidbody.velocity = Vector3.SmoothDamp(rigidbody.velocity, new Vector3(xAxis + xAxisPC, yAxis + yAxisPC), ref velocity, smoothTime);
 
         
         
