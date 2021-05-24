@@ -86,21 +86,21 @@ public class ChangePlayerColor : MonoBehaviour
     {
         Debug.Log(PlayerPrefs.GetInt("HighScore"));
         print(PlayerPrefs.GetString("PlayerColor"));
-        ActvateParicule();
+        ActvateParticle();
     }
 
     public static void ChangeColor(Image image)
     {
         newColor = image.color;
         SaveColor();
-        ActvateParicule();
+        ActvateParticle();
     }
 
     public static void White()
     {
         newColor = Color.white;
         SaveColor();
-        ActvateParicule();
+        ActvateParticle();
     }
 
     //public static void Red()
@@ -182,7 +182,7 @@ public class ChangePlayerColor : MonoBehaviour
         newColor = Color.HSVToRGB(Random.Range(0f, 1f), Random.Range(0f, 1f), 1f);
         print(newColor);
         SaveColor();
-        ActvateParicule();
+        ActvateParticle();
     }
 
 
@@ -193,10 +193,9 @@ public class ChangePlayerColor : MonoBehaviour
         {
             White();
         }
-        
-        Color color;
 
-        ColorUtility.TryParseHtmlString("#" + PlayerPrefs.GetString("PlayerColor"), out color);
+
+        ColorUtility.TryParseHtmlString("#" + PlayerPrefs.GetString("PlayerColor"), out Color color);
 
         return color;
     }
@@ -207,10 +206,8 @@ public class ChangePlayerColor : MonoBehaviour
         PlayerPrefs.Save();
     }
 
-    private static void ActvateParicule()
+    private static void ActvateParticle()
     {
-        Debug.Log(staticButtons.Length);
-
         foreach (Button button in staticButtons)
         {
             
