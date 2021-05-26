@@ -6,7 +6,8 @@ public class ResetGame : MonoBehaviour
 {
     void Start()
     {
-        PlayerPrefs.SetInt("SecretSkin", 0);
+        PlayerPrefs.SetString("SecretSkin", "SecretSkin");
+        PlayerPrefs.SetString("unlocked", "SecretSkin");
         PlayerPrefs.SetFloat("HighScore", 0);
     }
 }
