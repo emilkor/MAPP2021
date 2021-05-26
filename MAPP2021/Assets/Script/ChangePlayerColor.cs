@@ -22,7 +22,7 @@ public class ChangePlayerColor : MonoBehaviour
     {
         staticButtons = buttons;
         SetButtons();
-       
+        
 
         //VVV Ta bort sen /August
         //PlayerPrefs.SetInt("HighScore", 10000000);
@@ -87,7 +87,7 @@ public class ChangePlayerColor : MonoBehaviour
         Debug.Log(PlayerPrefs.GetInt("HighScore"));
         print(PlayerPrefs.GetString("PlayerColor"));
         ActvateParticle();
-
+        
     }
 
     public static void ChangeColor(Image image)
@@ -203,15 +203,21 @@ public class ChangePlayerColor : MonoBehaviour
     public static void SaveColor()
     {
         PlayerPrefs.SetString("PlayerColor", ColorUtility.ToHtmlStringRGBA(newColor));
+        PlayerPrefs.SetFloat("ColorR", newColor.r);
+        PlayerPrefs.SetFloat("ColorG", newColor.g);
+        PlayerPrefs.SetFloat("ColorB", newColor.b);
+        PlayerPrefs.SetFloat("ColorA", newColor.a);
         PlayerPrefs.Save();
     }
 
     public static void ActvateParticle()
     {
+        Debug.Log(newColor);
+        
         foreach (Button button in staticButtons)
         {
             
-            if (button.gameObject.GetComponent<Image>().color == newColor)
+            if (button.gameObject.GetComponent<Image>().color == new Color(PlayerPrefs.GetFloat("ColorR"), PlayerPrefs.GetFloat("ColorG"), PlayerPrefs.GetFloat("ColorB"), PlayerPrefs.GetFloat("ColorA")))
             {
                 //Debug.Log("Why");
                 button.gameObject.GetComponent<ParticleSystem>().Play();
