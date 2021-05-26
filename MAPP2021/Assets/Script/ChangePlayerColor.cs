@@ -49,7 +49,7 @@ public class ChangePlayerColor : MonoBehaviour
             }
         }
 
-        buttonValue = unlockThreshold / 2;
+        buttonValue = unlockThreshold / thresholdMultiplier;
         print(buttonValue);
 
         for (int i = unlocks; i < buttons.Length; i++)
@@ -58,6 +58,7 @@ public class ChangePlayerColor : MonoBehaviour
 
             //s?tter texten p? l?sen /August
             buttonValue *= thresholdMultiplier;
+            buttonValue = Mathf.Round(buttonValue);
             buttonText.text = buttonValue.ToString();
 
             if (buttonValue >= 10000)
