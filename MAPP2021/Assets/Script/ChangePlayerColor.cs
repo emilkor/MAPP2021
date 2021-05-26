@@ -85,7 +85,8 @@ public class ChangePlayerColor : MonoBehaviour
     { 
         Debug.Log(PlayerPrefs.GetInt("HighScore"));
         print(PlayerPrefs.GetString("PlayerColor"));
-        
+        ActvateParticle();
+
     }
 
     public static void ChangeColor(Image image)
@@ -204,7 +205,7 @@ public class ChangePlayerColor : MonoBehaviour
         PlayerPrefs.Save();
     }
 
-    private static void ActvateParticle()
+    public static void ActvateParticle()
     {
         foreach (Button button in staticButtons)
         {
