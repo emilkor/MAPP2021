@@ -15,7 +15,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!4 &27726511293853863
 Transform:
@@ -45,6 +45,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   fadeWaitForSecs: 0
   SFXMixer: {fileID: 24100000, guid: 1fd6bcf3470d58e4ea7b383dba7457af, type: 2}
+  audioUI: {fileID: 0}
   pointCounterEnabled: 0
   playerScore: 0
   initialScoreThreshold: 0
@@ -53,15 +54,15 @@ MonoBehaviour:
   - name: ButtonPress
     clip: {fileID: 8300000, guid: 7f1127e71d2da474ab1b989237917001, type: 3}
     output: {fileID: -5695022427183613631, guid: 1fd6bcf3470d58e4ea7b383dba7457af, type: 2}
-    volume: 0.386
+    volume: 0.6
     pitch: 1
     loop: 0
     mute: 0
     source: {fileID: 0}
   - name: MenuTheme
-    clip: {fileID: 8300000, guid: 26f323309f339864c915b36655fb8243, type: 3}
+    clip: {fileID: 8300000, guid: 268523298da9b4e4f9c0114ec1d6993e, type: 3}
     output: {fileID: -5819049859289718837, guid: 4a3f3cecf2cc57640b8552931cbd47d1, type: 2}
-    volume: 0.558
+    volume: 1
     pitch: 1
     loop: 1
     mute: 0
@@ -69,7 +70,7 @@ MonoBehaviour:
   - name: StartButton
     clip: {fileID: 8300000, guid: d88bf91b9495a054ca59ae71484d4dac, type: 3}
     output: {fileID: 6745937954441490613, guid: 1fd6bcf3470d58e4ea7b383dba7457af, type: 2}
-    volume: 0.558
+    volume: 0.6
     pitch: 1
     loop: 0
     mute: 0
@@ -77,23 +78,23 @@ MonoBehaviour:
   - name: PlayerDeath
     clip: {fileID: 8300000, guid: 0acd6ca277a41b34fbab686e2fb50466, type: 3}
     output: {fileID: 8751510521971949253, guid: 1fd6bcf3470d58e4ea7b383dba7457af, type: 2}
-    volume: 0.558
+    volume: 0.75
     pitch: 1
     loop: 0
     mute: 0
     source: {fileID: 0}
   - name: GameTheme
-    clip: {fileID: 8300000, guid: 26f323309f339864c915b36655fb8243, type: 3}
+    clip: {fileID: 8300000, guid: 2e2ceffbf1cc93b4ba01098fc2a129e3, type: 3}
     output: {fileID: 8471149628585269372, guid: 4a3f3cecf2cc57640b8552931cbd47d1, type: 2}
-    volume: 0
+    volume: 1
     pitch: 1
     loop: 1
     mute: 0
     source: {fileID: 0}
   - name: Bomb
-    clip: {fileID: 0}
+    clip: {fileID: 8300000, guid: 1229fcf61063d7b4b9c952244fe839ec, type: 3}
     output: {fileID: 8689020397998935552, guid: 1fd6bcf3470d58e4ea7b383dba7457af, type: 2}
-    volume: 0.316
+    volume: 0.45
     pitch: 1
     loop: 0
     mute: 0
@@ -101,7 +102,7 @@ MonoBehaviour:
   - name: SlowMotion
     clip: {fileID: 8300000, guid: 9221b1e8fa5f4d149923ce8437f793a8, type: 3}
     output: {fileID: 4979050597091898940, guid: 1fd6bcf3470d58e4ea7b383dba7457af, type: 2}
-    volume: 0.316
+    volume: 0.65
     pitch: 1
     loop: 0
     mute: 0
@@ -109,7 +110,7 @@ MonoBehaviour:
   - name: WallBreak
     clip: {fileID: 8300000, guid: f3a86e78aa63516459c460a3eaf72033, type: 3}
     output: {fileID: -7388090770515538323, guid: 1fd6bcf3470d58e4ea7b383dba7457af, type: 2}
-    volume: 0.316
+    volume: 0.85
     pitch: 1
     loop: 0
     mute: 0
@@ -117,7 +118,7 @@ MonoBehaviour:
   - name: BorderAudio
     clip: {fileID: 8300000, guid: 93eb86f7afd74964ea574196a194aa91, type: 3}
     output: {fileID: 3577464909422763283, guid: 1fd6bcf3470d58e4ea7b383dba7457af, type: 2}
-    volume: 0.057
+    volume: 0.15
     pitch: 1
     loop: 1
     mute: 0
@@ -125,7 +126,15 @@ MonoBehaviour:
   - name: BorderImpact
     clip: {fileID: 8300000, guid: 113bf18584421ba4ea3a08fa3367b0cf, type: 3}
     output: {fileID: 878051978814124694, guid: 1fd6bcf3470d58e4ea7b383dba7457af, type: 2}
-    volume: 0.443
+    volume: 0.7
+    pitch: 1
+    loop: 0
+    mute: 0
+    source: {fileID: 0}
+  - name: Unlockable
+    clip: {fileID: 8300000, guid: 37a3267f2d19beb42985a21c5fb123d4, type: 3}
+    output: {fileID: 7138351816575089185, guid: 1fd6bcf3470d58e4ea7b383dba7457af, type: 2}
+    volume: 0.75
     pitch: 1
     loop: 0
     mute: 0
