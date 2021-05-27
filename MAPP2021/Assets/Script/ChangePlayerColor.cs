@@ -18,15 +18,17 @@ public class ChangePlayerColor : MonoBehaviour
     [SerializeField] private float thresholdMultiplier;
 
     [SerializeField] private Button secretColor;
+    private static Button staticSecretColor;
 
 
     private void Awake()
     {
         staticButtons = buttons;
+        staticSecretColor = secretColor;
         SetButtons();
 
         //VVV Ta bort sen /August
-        PlayerPrefs.SetInt("HighScore", 0);
+        //PlayerPrefs.SetInt("HighScore", 0);
 
         highscore = PlayerPrefs.GetInt("HighScore");
 
@@ -218,7 +220,7 @@ public class ChangePlayerColor : MonoBehaviour
         foreach (Button button in staticButtons)
         {
             
-            if (button.gameObject.GetComponent<Image>().color == new Color(PlayerPrefs.GetFloat("ColorR"), PlayerPrefs.GetFloat("ColorG"), PlayerPrefs.GetFloat("ColorB"), PlayerPrefs.GetFloat("ColorA")))
+            if (button.gameObject.GetComponent<Image>().color == new Color(PlayerPrefs.GetFloat("ColorR"), PlayerPrefs.GetFloat("ColorG"), PlayerPrefs.GetFloat("ColorB"), PlayerPrefs.GetFloat("ColorA")) && !PlayerPrefs.GetString("randomColor").Equals("on"))
             {
                 //Debug.Log("Why");
                 button.gameObject.GetComponent<ParticleSystem>().Play();
@@ -227,8 +229,12 @@ public class ChangePlayerColor : MonoBehaviour
             {
                 button.gameObject.GetComponent<ParticleSystem>().Stop();
             }
-          
         }
+        if (PlayerPrefs.GetString("randomColor").Equals("on"))
+        {
+            staticSecretColor.gameObject.GetComponent<ParticleSystem>().Play();
+        }
+        
     }
 
 
