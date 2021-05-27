@@ -9557,6 +9557,7 @@ MonoBehaviour:
   - {fileID: 661203060}
   unlockThreshold: 1000
   thresholdMultiplier: 1.5
+  secretColor: {fileID: 2033696503}
 --- !u!4 &1094947748
 Transform:
   m_ObjectHideFlags: 0
@@ -13683,6 +13684,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3460fa0209b4f6843bc38e432a61b5f4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  unlockThreshold: 0
 --- !u!114 &2033696507
 MonoBehaviour:
   m_ObjectHideFlags: 0

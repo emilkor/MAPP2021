@@ -186,6 +186,7 @@ public class ChangePlayerColor : MonoBehaviour
     public static void RandomColor()
     {
         PlayerColor.SetRandomColor(true);
+        ActvateParticle();
     }
 
 
@@ -230,11 +231,17 @@ public class ChangePlayerColor : MonoBehaviour
                 button.gameObject.GetComponent<ParticleSystem>().Stop();
             }
         }
+        Debug.Log(PlayerPrefs.GetString("randomColor"));
         if (PlayerPrefs.GetString("randomColor").Equals("on"))
         {
             staticSecretColor.gameObject.GetComponent<ParticleSystem>().Play();
         }
-        
+        else
+        {
+            staticSecretColor.gameObject.GetComponent<ParticleSystem>().Stop();
+
+        }
+
     }
 
 

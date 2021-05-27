@@ -17,15 +17,15 @@ public class ParticleColor : MonoBehaviour
         settings = particle.main;
         settings.startColor = new ParticleSystem.MinMaxGradient(color);
 
-        var colorOverLifetime = particle.colorOverLifetime;
+        //var colorOverLifetime = particle.colorOverLifetime;
 
-        Gradient gradient = new Gradient();
-        gradient.SetKeys(
-            new GradientColorKey[] { new GradientColorKey(color, 0.0f), new GradientColorKey(color, 0.5f), new GradientColorKey(color, 1.0f) },
-            new GradientAlphaKey[] { new GradientAlphaKey(0.0f, 0.0f), new GradientAlphaKey(1.0f, 0.5f), new GradientAlphaKey(0.0f, 1.0f) }
-        );
+        //Gradient gradient = new Gradient();
+        //gradient.SetKeys(
+        //    new GradientColorKey[] { new GradientColorKey(color, 0.0f), new GradientColorKey(color, 0.5f), new GradientColorKey(color, 1.0f) },
+        //    new GradientAlphaKey[] { new GradientAlphaKey(0.0f, 0.0f), new GradientAlphaKey(1.0f, 0.5f), new GradientAlphaKey(0.0f, 1.0f) }
+        //);
 
-        colorOverLifetime.color = new ParticleSystem.MinMaxGradient(gradient);
+        //colorOverLifetime.color = new ParticleSystem.MinMaxGradient(gradient);
     }
 
     // Update is called once per frame

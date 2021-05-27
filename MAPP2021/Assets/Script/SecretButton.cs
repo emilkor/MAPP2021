@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class SecretButton : MonoBehaviour
 {
-    [SerializeField] private static int unlockThreshold;
+    [SerializeField] private int unlockThreshold;
 
 
     private void Awake()
@@ -27,7 +27,7 @@ public class SecretButton : MonoBehaviour
         }
     }
 
-    public static void SaveUnlocked()
+    public void SaveUnlocked()
     {
         if (PlayerPrefs.GetFloat("HighScore") >= unlockThreshold)
         {

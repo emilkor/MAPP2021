@@ -14,7 +14,8 @@ public class CameraSize : MonoBehaviour
     {
         aspectRation = camera.aspect;
         camera.orthographicSize = cameraWidth / aspectRation;
-        if (PlayerPrefs.HasKey("ColorR"))
+        
+        if (PlayerPrefs.HasKey("ColorR")  || PlayerPrefs.GetFloat("ColorA") == 0)
         {
             PlayerPrefs.SetFloat("ColorR", 1);
             PlayerPrefs.SetFloat("ColorG", 1);
