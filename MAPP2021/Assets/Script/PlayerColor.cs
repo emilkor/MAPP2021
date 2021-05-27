@@ -10,8 +10,6 @@ public class PlayerColor : MonoBehaviour
     [SerializeField] private Light2D pointLight;
 
     private Color playerColor;
-
-    private static bool randomColor;
     
 
     private void Awake()
@@ -21,7 +19,7 @@ public class PlayerColor : MonoBehaviour
     }
     public void SetPlayerColor(Color color)
     {
-        if (randomColor)
+        if (PlayerPrefs.GetString("randomColor").Equals("on"))
         {
             color = new Color(Random.value, Random.value, Random.value);
         }
@@ -48,6 +46,13 @@ public class PlayerColor : MonoBehaviour
 
     public static void SetRandomColor(bool randomColor)
     {
-        PlayerColor.randomColor = randomColor;
+        if (randomColor)
+        {
+            PlayerPrefs.SetString("randomColor", "on");
+        }
+        else
+        {
+            PlayerPrefs.SetString("randomColor", "off");
+        }
     }
 }

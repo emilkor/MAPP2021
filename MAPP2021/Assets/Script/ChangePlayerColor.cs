@@ -17,12 +17,13 @@ public class ChangePlayerColor : MonoBehaviour
     [SerializeField] private float unlockThreshold;
     [SerializeField] private float thresholdMultiplier;
 
+    [SerializeField] private Button secretColor;
+
 
     private void Awake()
     {
         staticButtons = buttons;
         SetButtons();
-        
 
         //VVV Ta bort sen /August
         PlayerPrefs.SetInt("HighScore", 10000);
