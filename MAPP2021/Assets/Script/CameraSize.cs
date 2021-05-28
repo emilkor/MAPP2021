@@ -15,16 +15,13 @@ public class CameraSize : MonoBehaviour
         aspectRation = camera.aspect;
         camera.orthographicSize = cameraWidth / aspectRation;
         
-        if (PlayerPrefs.HasKey("ColorR")  || PlayerPrefs.GetFloat("ColorA") == 0)
+        if (!PlayerPrefs.HasKey("ColorR")  || PlayerPrefs.GetFloat("ColorA") == 0)
         {
             PlayerPrefs.SetFloat("ColorR", 1);
             PlayerPrefs.SetFloat("ColorG", 1);
             PlayerPrefs.SetFloat("ColorB", 1);
             PlayerPrefs.SetFloat("ColorA", 1);
         }
-
-        PlayerPrefs.SetInt("HighScore", 1000000);
-        Screen.SetResolution(1080, 1920, true);
-
+        PlayerPrefs.DeleteAll();
     }
 }
