@@ -10,8 +10,9 @@ public class SecretButton : MonoBehaviour
 
     private void Awake()
     {
-        if (PlayerPrefs.GetString("SecretSkin") == "unlocked")
+        if (PlayerPrefs.GetString("SecretSkin").Equals("unlocked"))
         {
+            Debug.Log("Hej");
             gameObject.GetComponent<Button>().interactable = true;
 
             GameObject lockImage = gameObject.transform.GetChild(1).gameObject;
@@ -29,7 +30,8 @@ public class SecretButton : MonoBehaviour
 
     public void SaveUnlocked()
     {
-        if (PlayerPrefs.GetFloat("HighScore") >= unlockThreshold)
+
+        if (PlayerPrefs.GetInt("HighScore") >= unlockThreshold)
         {
             PlayerPrefs.SetString("SecretSkin", "unlocked");
             PlayerPrefs.Save();

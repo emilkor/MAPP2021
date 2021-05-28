@@ -100,8 +100,8 @@ public class ChangePlayerColor : MonoBehaviour
     }
     private void Start()
     { 
-        Debug.Log(PlayerPrefs.GetInt("HighScore"));
-        print(PlayerPrefs.GetString("PlayerColor"));
+        //Debug.Log(PlayerPrefs.GetInt("HighScore"));
+        //print(PlayerPrefs.GetString("PlayerColor"));
         ActvateParticle();
         change.StartCoroutine(ChoosenColor());
 
@@ -231,7 +231,6 @@ public class ChangePlayerColor : MonoBehaviour
 
     public static void ActvateParticle()
     {
-        Debug.Log(staticSecretColor.gameObject.GetComponent<RectTransform>().transform.localScale);
         
         foreach (Button button in staticButtons)
         {
@@ -246,7 +245,6 @@ public class ChangePlayerColor : MonoBehaviour
                 button.gameObject.GetComponent<RectTransform>().sizeDelta = new Vector3(beginingSize, beginingSize);
             }
         }
-        Debug.Log(PlayerPrefs.GetString("randomColor"));
         if (PlayerPrefs.GetString("randomColor").Equals("on"))
         {
             choosen = staticSecretColor.gameObject.GetComponent<RectTransform>();
@@ -263,7 +261,6 @@ public class ChangePlayerColor : MonoBehaviour
     {
         timer += Time.deltaTime / sekForSizeChange;
         float newSize;
-        Debug.Log(timer);
         if (newChoosen == null)
         {
             newChoosen = choosen;
