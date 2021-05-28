@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Runtime.CompilerServices;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -20,16 +21,27 @@ public class ChangePlayerColor : MonoBehaviour
     [SerializeField] private Button secretColor;
     private static Button staticSecretColor;
 
+    private static float timer;
+    private  static float sekForSizeChange = 2;
+
+    private static float beginingSize = 200;
+    private static ChangePlayerColor change;
+
+    private static RectTransform choosen;
+    private static RectTransform newChoosen;
 
     private void Awake()
     {
+        change = this;
         staticButtons = buttons;
         staticSecretColor = secretColor;
         SetButtons();
+        
+
 
         //VVV Ta bort sen /August
         //PlayerPrefs.SetInt("HighScore", 0);
-       
+
 
         highscore = PlayerPrefs.GetInt("HighScore");
 
@@ -91,7 +103,9 @@ public class ChangePlayerColor : MonoBehaviour
         Debug.Log(PlayerPrefs.GetInt("HighScore"));
         print(PlayerPrefs.GetString("PlayerColor"));
         ActvateParticle();
-        
+        change.StartCoroutine(ChoosenColor());
+
+
     }
 
     public static void ChangeColor(Image image)
@@ -217,32 +231,68 @@ public class ChangePlayerColor : MonoBehaviour
 
     public static void ActvateParticle()
     {
-        Debug.Log(newColor);
+        Debug.Log(staticSecretColor.gameObject.GetComponent<RectTransform>().transform.localScale);
         
         foreach (Button button in staticButtons)
         {
             
             if (button.gameObject.GetComponent<Image>().color == new Color(PlayerPrefs.GetFloat("ColorR"), PlayerPrefs.GetFloat("ColorG"), PlayerPrefs.GetFloat("ColorB"), PlayerPrefs.GetFloat("ColorA")) && !PlayerPrefs.GetString("randomColor").Equals("on"))
             {
-                //Debug.Log("Why");
-                button.gameObject.GetComponent<ParticleSystem>().Play();
+                //button.gameObject.GetComponent<ParticleSystem>().Play();
+                choosen = button.gameObject.GetComponent<RectTransform>();
             }
             else
             {
-                button.gameObject.GetComponent<ParticleSystem>().Stop();
+                button.gameObject.GetComponent<RectTransform>().sizeDelta = new Vector3(beginingSize, beginingSize);
             }
         }
         Debug.Log(PlayerPrefs.GetString("randomColor"));
         if (PlayerPrefs.GetString("randomColor").Equals("on"))
         {
-            staticSecretColor.gameObject.GetComponent<ParticleSystem>().Play();
+            choosen = staticSecretColor.gameObject.GetComponent<RectTransform>();
         }
         else
         {
-            staticSecretColor.gameObject.GetComponent<ParticleSystem>().Stop();
+            staticSecretColor.gameObject.GetComponent<RectTransform>().sizeDelta = new Vector3(beginingSize, beginingSize);
 
         }
 
+    }
+
+    private static IEnumerator ChoosenColor()
+    {
+        timer += Time.deltaTime / sekForSizeChange;
+        float newSize;
+        Debug.Log(timer);
+        if (newChoosen == null)
+        {
+            newChoosen = choosen;
+        }
+        if (newChoosen != choosen)
+        {
+            timer = 0;
+            newChoosen = choosen;
+        }
+        {
+            if (timer < 1)
+            {
+                newSize = Mathf.Lerp(beginingSize, beginingSize * 1.15f, timer);
+            }
+            else if (timer > 2)
+            {
+                timer = 0;
+                newSize = beginingSize;
+            }
+            else
+            {
+                newSize = Mathf.Lerp(beginingSize * 1.15f, beginingSize, timer - 1);
+            }
+            choosen.sizeDelta = new Vector3(newSize, newSize, newSize);
+            yield return null;
+
+            change.StartCoroutine(ChoosenColor());
+        }
+        
     }
 
 

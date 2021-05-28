@@ -22,6 +22,6 @@ public class CameraSize : MonoBehaviour
             PlayerPrefs.SetFloat("ColorB", 1);
             PlayerPrefs.SetFloat("ColorA", 1);
         }
-        PlayerPrefs.DeleteAll();
+
     }
 }
