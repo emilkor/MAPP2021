@@ -12,7 +12,6 @@ public class SecretButton : MonoBehaviour
     {
         if (PlayerPrefs.GetString("SecretSkin").Equals("unlocked"))
         {
-            Debug.Log("Hej");
             gameObject.GetComponent<Button>().interactable = true;
 
             GameObject lockImage = gameObject.transform.GetChild(1).gameObject;
