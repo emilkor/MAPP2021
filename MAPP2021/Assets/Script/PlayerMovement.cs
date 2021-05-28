@@ -44,8 +44,8 @@ public class PlayerMovement : MonoBehaviour
         
         yAxis = (Input.acceleration.y - resetYAxis)  * movementSpeed * movementYAxis;
         xAxis = Input.acceleration.x * movementSpeed;
-        yAxisPC = Input.GetAxis("Vertical") * movementSpeed/3;
-        xAxisPC = Input.GetAxis("Horizontal") * movementSpeed/3;
+        yAxisPC = Input.GetAxis("Vertical") * movementSpeed/2;
+        xAxisPC = Input.GetAxis("Horizontal") * movementSpeed/2;
 
 
         transform.position = new Vector2(Mathf.Clamp(transform.position.x, -cameraWidth, cameraWidth), Mathf.Clamp(transform.position.y, -cameraHight, cameraHight));
