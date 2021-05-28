@@ -22,5 +22,9 @@ public class CameraSize : MonoBehaviour
             PlayerPrefs.SetFloat("ColorB", 1);
             PlayerPrefs.SetFloat("ColorA", 1);
         }
+
+        PlayerPrefs.SetInt("HighScore", 1000000);
+        Screen.SetResolution(1080, 1920, true);
+
     }
 }
