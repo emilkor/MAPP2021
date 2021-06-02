@@ -66,7 +66,7 @@ public class ChangePlayerColor : MonoBehaviour
         }
 
         buttonValue = unlockThreshold / thresholdMultiplier;
-        print(buttonValue);
+        //print(buttonValue);
 
         for (int i = unlocks; i < buttons.Length; i++)
         {
