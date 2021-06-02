@@ -1,0 +1,36 @@
+using System.Collections;
+using System.Collections.Generic;
+using System.Numerics;
+using UnityEngine;
+using Vector2 = UnityEngine.Vector2;
+
+public class MovementAI : MonoBehaviour
+{
+    private float northDistance;
+    private float northEastDistance;
+    private float eastDistance;
+    private float southEastDistance;
+    private float southDistance;
+    private float southWestDistance;
+    private float westDistance;
+    private float northWestDistance;
+    private float cameraHight;
+    private float cameraWidth;
+
+    // Start is called before the first frame update
+    void Start()
+    {
+        
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
+        
+    }
+
+    void FixedUpdate()
+    {
+        northDistance = Physics2D.Raycast( (Vector2)transform.position + new Vector2(0, transform.localScale.y / 2), Vector2.up).distance, transform.;
+    }
+}
