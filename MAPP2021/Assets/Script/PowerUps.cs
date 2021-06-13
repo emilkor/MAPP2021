@@ -68,7 +68,8 @@ public class PowerUps : MonoBehaviour
 
     public void OnPressActivate()
     {
-        if(powerUp == PowerUp.SlowMotion)
+        powerUpButton.interactable = false;
+        if (powerUp == PowerUp.SlowMotion)
         {
             Debug.Log(1);
             StartCoroutine(SlowMotion());
@@ -88,7 +89,6 @@ public class PowerUps : MonoBehaviour
             Bomb();
             FindObjectOfType<AudioManager>().Play("Bomb");
         }
-        powerUpButton.interactable = false;
         StartCoroutine(PoweringUp());
 
     }
@@ -158,7 +158,9 @@ public class PowerUps : MonoBehaviour
 
     private IEnumerator PoweringUp()
     {
-        yield return new WaitForSeconds(poweringUpTime);
+        if (powerUp == PowerUp.SlowMotion)
+            yield return new WaitForSeconds(poweringUpTime + slowMotionTime);
+        else yield return new WaitForSeconds(poweringUpTime);
         powerUpButton.interactable = true;
         PickPowerUp();
         
