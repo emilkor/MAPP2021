@@ -69,6 +69,7 @@ public class PowerUps : MonoBehaviour
     public void OnPressActivate()
     {
         powerUpButton.interactable = false;
+        StartCoroutine(PoweringUp());
         if (powerUp == PowerUp.SlowMotion)
         {
             Debug.Log(1);
@@ -89,7 +90,6 @@ public class PowerUps : MonoBehaviour
             Bomb();
             FindObjectOfType<AudioManager>().Play("Bomb");
         }
-        StartCoroutine(PoweringUp());
 
     }
 

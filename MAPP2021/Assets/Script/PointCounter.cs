@@ -17,6 +17,8 @@ public class PointCounter : MonoBehaviour
     [SerializeField] private Spawner spawner;
     [SerializeField] private float timeWithSolideBackground;
 
+
+    private float speed;
     [SerializeField] private float points;
     //private bool haveNotActivatedMakeBackgroundSolid;
     //private bool isMakeBackgroundSolid;
@@ -24,9 +26,10 @@ public class PointCounter : MonoBehaviour
 
 
    // Update is called once per frame
-    void FixedUpdate()
+    void Update()
     {
-        points = blockSpeed.GetPoint() * pointSpeed;
+        speed = blockSpeed.GetSpeed();
+        points += ((speed*(speed/3) ) * pointSpeed) * Time.deltaTime;
         text.text = string.Format("{0:0}", points);
         //if (!haveNotActivatedMakeBackgroundSolid && points % pointsToTurnSolide > (pointsToTurnSolide / 2))
         //{
